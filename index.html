@@ -1,242 +1,130 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CLAP365 - Tours VIP</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yucatán Prestige Tours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #f4f4f0;
-      color: #00382a;
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      background-color: #fdfdfd;
     }
     header {
-      background-color: #00382a;
-      color: #f4f4f0;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      background-color: #fff;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
     }
-    .logo {
-      display: flex;
-      flex-direction: column;
+    header h1 {
       font-family: 'Playfair Display', serif;
-    }
-    .logo h1 {
-      margin: 0;
       font-size: 2.5rem;
-    }
-    .logo p {
       margin: 0;
-      font-style: italic;
-      font-size: 1rem;
-      color: #a5d6c4;
+      color: #00695c;
     }
     nav {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 0.5rem;
+      margin-top: 1rem;
     }
     nav a {
-      color: #f4f4f0;
+      margin: 0 1rem;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
+      color: #00695c;
+      font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
+    .hero {
+      background: url('https://example.com/banner.jpg') center/cover no-repeat;
+      padding: 8rem 2rem;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      text-align: center;
     }
-    .tour-cards {
+    .hero h2 {
+      font-size: 2rem;
+    }
+    .tours {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 2rem;
-      gap: 2rem;
     }
-    .card {
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      width: 280px;
+    .tour {
+      flex: 1 1 300px;
+      margin: 1rem;
+      background-color: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
       overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
+    .tour img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
     }
-    .card h3 {
-      margin: 0.8rem 0 0.4rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: #00382a;
-    }
-    .card p {
-      font-size: 0.95rem;
-      padding: 0 1rem;
-      color: #555;
-    }
-    .card a {
-      display: inline-block;
-      margin: 1rem 0 1.5rem;
-      padding: 0.6rem 1.4rem;
-      background-color: #006847;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-    }
-    .card a:hover {
-      background-color: #004f35;
-    }
-    .video-container {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-    .video-container iframe {
-      width: 90%;
-      max-width: 700px;
-      height: 400px;
-      border-radius: 12px;
-      border: none;
-    }
-    .botones, .redes {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .botones button, .redes a {
-      margin: 0.5rem;
-      padding: 0.75rem 1.75rem;
-      border-radius: 30px;
-      background-color: #006847;
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .botones button:hover, .redes a:hover {
-      background-color: #004f35;
+    .tour h3 {
+      padding: 1rem;
+      color: #004d40;
     }
     footer {
+      background-color: #004d40;
+      color: #fff;
       text-align: center;
-      font-size: 0.85rem;
-      color: #777;
-      padding: 1.5rem 0;
-      background-color: #f0efea;
-    }
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      z-index: 10;
-    }
-    .whatsapp img {
-      width: 30px;
-      height: 30px;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
     }
     @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; }
-      nav { margin-top: 0.5rem; }
-      .tour-cards { flex-direction: column; align-items: center; }
+      .hero h2 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <h1>CLAP365</h1>
-      <p>"El eco de tus sueños"</p>
-    </div>
+    <h1>Yucatán Prestige Tours</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="#tours">Tours</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <section class="tour-cards">
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180?text=Chichen+Itza" alt="Chichen Itza">
-      <h3>Chichen Itzá</h3>
-      <p>Explora una maravilla del mundo maya.</p>
-      <a href="chichen.html">Ver más</a>
+  <section class="hero">
+    <h2>Vive la historia, cultura y lujo de Yucatán</h2>
+  </section>
+
+  <section class="tours" id="tours">
+    <div class="tour">
+      <img src="https://example.com/chichen.jpg" alt="Tour Chichen Itzá">
+      <h3>Chichen Itzá VIP</h3>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180?text=Uxmal" alt="Uxmal">
-      <h3>Uxmal</h3>
-      <p>Arquitectura única en la ruta Puuc.</p>
-      <a href="uxmal.html">Ver más</a>
+    <div class="tour">
+      <img src="https://example.com/uxmal.jpg" alt="Tour Uxmal">
+      <h3>Uxmal & Ruta Puuc</h3>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180?text=Izamal" alt="Izamal">
-      <h3>Izamal</h3>
-      <p>La ciudad amarilla de Yucatán.</p>
-      <a href="izamal.html">Ver más</a>
+    <div class="tour">
+      <img src="https://example.com/sisal.jpg" alt="Tour Sisal">
+      <h3>Playa Privada en Sisal</h3>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180?text=Sisal" alt="Sisal">
-      <h3>Sisal</h3>
-      <p>Tranquilidad y playa en un puerto mágico.</p>
-      <a href="sisal.html">Ver más</a>
+    <div class="tour">
+      <img src="https://example.com/tecoh.jpg" alt="Tour Tecoh">
+      <h3>Cenotes en Tecoh</h3>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180?text=Merida" alt="Mérida">
-      <h3>Mérida</h3>
-      <p>Capital cultural del sureste mexicano.</p>
-      <a href="merida.html">Ver más</a>
+    <div class="tour">
+      <img src="https://example.com/izamal.jpg" alt="Tour Izamal">
+      <h3>Izamal: La ciudad amarilla</h3>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/280x180?text=Telchac" alt="Telchac">
-      <h3>Telchac</h3>
-      <p>Relax frente al mar yucateco.</p>
-      <a href="telchac.html">Ver más</a>
+    <div class="tour">
+      <img src="https://example.com/merida.jpg" alt="Tour Mérida">
+      <h3>Mérida City Tour</h3>
     </div>
   </section>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-  </div>
-
-  <div class="botones">
-    <button onclick="window.location.href='contacto.html'">Reservar</button>
-    <button onclick="alert('Pagar (simulado)')">Pagar</button>
-  </div>
-
-  <div class="redes">
-    <a href="https://facebook.com" target="_blank">Facebook</a>
-    <a href="https://instagram.com" target="_blank">Instagram</a>
-  </div>
-
-  <div class="whatsapp">
-    <a href="https://wa.me/5219991234567" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
-  </div>
-
-  <footer>
-    &copy; 2025 CLAP365. Todos los derechos reservados.
+  <footer id="contacto">
+    <p>&copy; 2025 Yucatán Prestige Tours. Todos los derechos reservados.</p>
+    <p>Contáctanos: info@yptours.com | WhatsApp: +52 999 000 0000</p>
   </footer>
 </body>
-</html>
+  </html>
