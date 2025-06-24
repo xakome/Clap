@@ -2,205 +2,155 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CLAP365 - Tours VIP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inspirado en Framer</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #F5F2E9;
-      color: #006847;
+      line-height: 1.6;
+      color: #222;
+      background-color: #fff;
     }
 
-    header {
-      background-color: #006847;
-      color: #F5F2E9;
+    header.hero {
+      background: linear-gradient(120deg, #000000, #1a1a1a);
+      color: white;
       text-align: center;
-      padding: 1rem 0;
+      padding: 100px 20px 80px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    header.hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
     }
 
-    header p {
-      margin: 0.3rem 0;
-      font-style: italic;
+    header.hero p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #ccc;
     }
 
-    .icono {
-      width: 30px;
-      height: 30px;
-      border: 2px solid #F5F2E9;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 0.5rem;
+    header.hero button {
+      background: #fff;
+      color: #000;
+      padding: 0.75em 1.5em;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .tour-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 1rem;
-      gap: 1rem;
+    header.hero button:hover {
+      background: #eee;
+    }
+
+    section.cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 60px 20px;
+      background: #f9f9f9;
     }
 
     .card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      width: 250px;
-      overflow: hidden;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
       text-align: center;
     }
 
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    .card h3 {
-      margin: 0.5rem 0;
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
     }
 
     .card p {
-      font-size: 0.9rem;
-      padding: 0 0.5rem;
+      color: #666;
     }
 
-    .card a {
-      display: inline-block;
-      margin: 0.5rem 0 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #006847;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-
-    .video-container {
+    section.stats {
       display: flex;
-      justify-content: center;
-      margin: 2rem 0;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 60px 20px;
+      background: #e7f0ff;
     }
 
-    .video-container iframe {
-      width: 90%;
-      max-width: 600px;
-      height: 315px;
-      border: none;
-    }
-
-    .botones {
+    .stat {
       text-align: center;
-      margin-bottom: 2rem;
+      margin: 20px;
     }
 
-    .botones button {
-      margin: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      background-color: #006847;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    .redes {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .redes a {
-      margin: 0 0.5rem;
-      color: #006847;
-      text-decoration: none;
-      font-size: 1.5rem;
+    .stat span {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
     footer {
       text-align: center;
-      font-size: 0.8rem;
-      color: #888;
-      padding: 1rem 0;
+      padding: 50px 20px;
     }
 
-    @media (max-width: 768px) {
-      .tour-cards {
-        flex-direction: column;
-        align-items: center;
-      }
+    footer button {
+      background: #000;
+      color: white;
+      padding: 1em 2em;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    footer button:hover {
+      background: #333;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="icono"></div>
-    <h1>CLAP365</h1>
-    <p>"El eco de tus sueños"</p>
+  <header class="hero">
+    <h1>Haz que tu sitio destaque</h1>
+    <p>Diseño. Colaboración. CMS. SEO. Todo en uno.</p>
+    <button>Empieza gratis</button>
   </header>
 
-  <section class="tour-cards">
+  <section class="cards">
     <div class="card">
-      <img src="https://via.placeholder.com/250x150?text=Chichen+Itza" alt="Chichen Itza">
-      <h3>Chichen Itzá</h3>
-      <p>Explora una de las siete maravillas del mundo moderno.</p>
-      <a href="#">Ver Tour</a>
+      <h2>Diseño</h2>
+      <p>Una experiencia visual a tu medida.</p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/250x150?text=Uxmal" alt="Uxmal">
-      <h3>Uxmal</h3>
-      <p>Recorre esta joya de la arquitectura maya Puuc.</p>
-      <a href="#">Ver Tour</a>
+      <h2>Colaboración</h2>
+      <p>Trabaja en tiempo real con tu equipo.</p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/250x150?text=Izamal" alt="Izamal">
-      <h3>Izamal</h3>
-      <p>La ciudad amarilla te espera con su encanto colonial.</p>
-      <a href="#">Ver Tour</a>
+      <h2>CMS</h2>
+      <p>Gestiona tu contenido con facilidad.</p>
     </div>
     <div class="card">
-      <img src="https://via.placeholder.com/250x150?text=Sisal" alt="Sisal">
-      <h3>Sisal</h3>
-      <p>Un puerto mágico con playas tranquilas y naturaleza.</p>
-      <a href="#">Ver Tour</a>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/250x150?text=Merida" alt="Mérida">
-      <h3>Mérida</h3>
-      <p>Cultura, gastronomía y tradición en la capital yucateca.</p>
-      <a href="#">Ver Tour</a>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/250x150?text=Telchac" alt="Telchac">
-      <h3>Telchac</h3>
-      <p>Disfruta de la costa yucateca en su máximo esplendor.</p>
-      <a href="#">Ver Tour</a>
+      <h2>SEO & Rendimiento</h2>
+      <p>Tu sitio cargará rápido y será indexable.</p>
     </div>
   </section>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-  </div>
-
-  <div class="botones">
-    <button onclick="alert('Reserva enviada')">Reservar</button>
-    <button onclick="alert('Procesando pago')">Pagar</button>
-  </div>
-
-  <div class="redes">
-    <a href="https://facebook.com" target="_blank">🌐</a>
-    <a href="https://instagram.com" target="_blank">📸</a>
-    <a href="https://whatsapp.com" target="_blank">💬</a>
-  </div>
+  <section class="stats">
+    <div class="stat"><span>400</span><p>Visitantes en vivo</p></div>
+    <div class="stat"><span>3M</span><p>Páginas vistas</p></div>
+    <div class="stat"><span>43%</span><p>Tasa de rebote</p></div>
+  </section>
 
   <footer>
-    &copy; 2025 CLAP365. Todos los derechos reservados.
+    <button>Publicar ahora</button>
   </footer>
-
 </body>
 </html>
