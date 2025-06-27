@@ -1,637 +1,388 @@
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Tours en Yucatán, Tours a Chichen Itza, Uxmal, Celestun, Izamal</title>
-	<meta name="Description" content="El estado de Yucatán cuenta con gran diversidad de atractivos a lo largo y ancho de todo su territorio, construcciones arqueológicas, cuidades y pueblos mágicos dignos de ser visitados; de igual forma la capital del estado brinda sitios llenos de historia que dan prueba de la gran riqueza cultural" />
-	<meta property="og:title" content="Tours en Yucatán." />
-	<meta property="og:type" content="place" />
-	<meta property="og:image" content="https://en-yucatan.com.mx/fotos/tours-merida/tours-merida-hero.jpg" />
-	<meta property="og:description" content="Visite Chichén, Uxmal, Valladolid, Izamal y los antiguos cenotes sagrados... " />
-	<link rel='canonical' href='https://en-yucatan.com.mx/tours/' />
-<meta property='og:url' content='https://en-yucatan.com.mx/tours/' />
-	<meta name="author" content="TURISMO YUCATAN" /> 
-	<link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style.css" rel="stylesheet">
-	<link href="../css/vendors.css" rel="stylesheet">
-     <style>
-.hero_in.tours_detail:before {
-  background: url(../fotos/tours-merida/tours-merida-hero.jpg) center center no-repeat;
-	  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-		</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CLAP365 - El eco de tus sueños</title>
+  <meta name="description" content="CLAP365 - Tours exclusivos en Yucatán. El eco de tus sueños.">
+  <link rel="canonical" href="http://www.clap365.com" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height:1.5; background:#f2f2f2; color:#333; }
 
-	<!-- /header -->
+    a { text-decoration: none; color: inherit; }
 
+    /* Navbar */
+    .navbar {
+      background:#00695c;
+      padding:15px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .navbar .logo {
+      font-size:1.5rem;
+      font-weight:bold;
+      color:#fff;
+    }
+    .navbar .menu {
+      display:flex;
+      gap:1rem;
+    }
+    .navbar .menu a {
+      color:#fff;
+      padding:8px;
+      transition:background .3s;
+    }
+    .navbar .menu a:hover {
+      background: rgba(255,255,255,0.2);
+      border-radius:4px;
+    }
+    .navbar .toggle {
+      display:none;
+      cursor:pointer;
+      color:#fff;
+      font-size:1.8rem;
+    }
 
-<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
-<script type="text/javascript" async=true>
-(function() {
-  var host = "www.themoneytizer.com";
-  var element = document.createElement('script');
-  var firstScript = document.getElementsByTagName('script')[0];
-  var url = 'https://cmp.inmobi.com'
-    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
-  var uspTries = 0;
-  var uspTriesLimit = 3;
-  element.async = true;
-  element.type = 'text/javascript';
-  element.src = url;
+    /* Hero */
+    .hero {
+      background-image: url('img/banner.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 70vh; /* Ajustado a 70% del viewport */
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
 
-  firstScript.parentNode.insertBefore(element, firstScript);
+    /* CTA desplegable */
+    .cta-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+    .cta-button {
+      padding: 12px 28px;
+      background-color: #ff9800;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 1.2px;
+    }
+    .cta-button:hover {
+      background-color: #e68900;
+    }
+    .cta-dropdown {
+      display: none;
+      position: absolute;
+      top: 48px;
+      left: 0;
+      background-color: white;
+      min-width: 180px;
+      border-radius: 6px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 10;
+      user-select: none;
+    }
+    .cta-dropdown a {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+    .cta-dropdown a:hover {
+      background-color: #f1f1f1;
+    }
 
-  function makeStub() {
-    var TCF_LOCATOR_NAME = '__tcfapiLocator';
-    var queue = [];
-    var win = window;
-    var cmpFrame;
+    /* Contenedor tours con flex para 4 columnas en desktop */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
 
-    function addFrame() {
-      var doc = win.document;
-      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-      if (!otherCMP) {
-        if (doc.body) {
-          var iframe = doc.createElement('iframe');
+    .tour-box {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      overflow: hidden;
+      flex: 1 1 calc(25% - 20px); /* 4 columnas */
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s;
+      min-width: 250px;
+      max-width: 23%;
+    }
 
-          iframe.style.cssText = 'display:none';
-          iframe.name = TCF_LOCATOR_NAME;
-          doc.body.appendChild(iframe);
-        } else {
-          setTimeout(addFrame, 5);
-        }
+    .tour-box:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .tour-box img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .tour-content {
+      padding: 15px 20px;
+      flex: 1;
+    }
+
+    .tour-content h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      color: #00695c;
+    }
+
+    .tour-content p {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      background: #00695c;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #ffeb3b;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .tour-box {
+        flex: 1 1 calc(33.33% - 20px); /* 3 columnas */
+        max-width: 32%;
       }
-      return !otherCMP;
     }
-
-    function tcfAPIHandler() {
-      var gdprApplies;
-      var args = arguments;
-
-      if (!args.length) {
-        return queue;
-      } else if (args[0] === 'setGdprApplies') {
-        if (
-          args.length > 3 &&
-          args[2] === 2 &&
-          typeof args[3] === 'boolean'
-        ) {
-          gdprApplies = args[3];
-          if (typeof args[2] === 'function') {
-            args[2]('set', true);
-          }
-        }
-      } else if (args[0] === 'ping') {
-        var retr = {
-          gdprApplies: gdprApplies,
-          cmpLoaded: false,
-          cmpStatus: 'stub'
-        };
-
-        if (typeof args[2] === 'function') {
-          args[2](retr);
-        }
-      } else {
-        if(args[0] === 'init' && typeof args[3] === 'object') {
-          args[3] = Object.assign(args[3], { tag_version: 'V3' });
-        }
-        queue.push(args);
+    @media (max-width: 768px) {
+      .navbar .menu {
+        display: none;
+        flex-direction: column;
+        background: #00695c;
+        position: absolute;
+        top: 56px;
+        right: 0;
+        width: 200px;
+        border-radius: 0 0 0 8px;
+        z-index: 30;
+      }
+      .navbar .menu.show {
+        display: flex;
+      }
+      .navbar .toggle {
+        display: block;
+      }
+      .container {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .tour-box {
+        max-width: 100%;
+        flex-basis: 100%;
       }
     }
 
-    function postMessageEventHandler(event) {
-      var msgIsString = typeof event.data === 'string';
-      var json = {};
-
-      try {
-        if (msgIsString) {
-          json = JSON.parse(event.data);
-        } else {
-          json = event.data;
-        }
-      } catch (ignore) {}
-
-      var payload = json.__tcfapiCall;
-
-      if (payload) {
-        window.__tcfapi(
-          payload.command,
-          payload.version,
-          function(retValue, success) {
-            var returnMsg = {
-              __tcfapiReturn: {
-                returnValue: retValue,
-                success: success,
-                callId: payload.callId
-              }
-            };
-            if (msgIsString) {
-              returnMsg = JSON.stringify(returnMsg);
-            }
-            if (event && event.source && event.source.postMessage) {
-              event.source.postMessage(returnMsg, '*');
-            }
-          },
-          payload.parameter
-        );
-      }
+    /* Botón flotante de reserva */
+    .floating-cta {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366; /* color verde WhatsApp */
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 12px 18px;
+      border-radius: 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-decoration: none;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.3s;
     }
-
-    while (win) {
-      try {
-        if (win.frames[TCF_LOCATOR_NAME]) {
-          cmpFrame = win;
-          break;
-        }
-      } catch (ignore) {}
-
-      if (win === window.top) {
-        break;
-      }
-      win = win.parent;
+    .floating-cta:hover {
+      background-color: #1ebe57;
     }
-    if (!cmpFrame) {
-      addFrame();
-      win.__tcfapi = tcfAPIHandler;
-      win.addEventListener('message', postMessageEventHandler, false);
-    }
-  };
-
-  makeStub();
-
-  var uspStubFunction = function() {
-    var arg = arguments;
-    if (typeof window.__uspapi !== uspStubFunction) {
-      setTimeout(function() {
-        if (typeof window.__uspapi !== 'undefined') {
-          window.__uspapi.apply(window.__uspapi, arg);
-        }
-      }, 500);
-    }
-  };
-
-  var checkIfUspIsReady = function() {
-    uspTries++;
-    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
-      console.warn('USP is not accessible');
-    } else {
-      clearInterval(uspInterval);
-    }
-  };
-
-  if (typeof window.__uspapi === 'undefined') {
-    window.__uspapi = uspStubFunction;
-    var uspInterval = setInterval(checkIfUspIsReady, 6000);
-  }
-})();
-</script>
-<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) --> 
-	<!-- /header -->	
+  </style>
 </head>
-
 <body>
-	
-	<div id="page" class="theia-exception">
-		
-	
-	<!-- /header -->
-<header class="header menu_fixed">
-		
-		<div id="logo">
-			<a href="//en-yucatan.com.mx/">
-				<img src="//en-yucatan.com.mx/img/logo.png" width="150" height="36" data-retina="true" alt="" class="logo_normal">
-				<img src="//en-yucatan.com.mx/img/logo_sticky.png" width="150" height="36" data-retina="true" alt="" class="logo_sticky">
-			</a>
-		</div>
 
-		<a href="#menu" class="btn_mobile">
-			<div class="" id="hamburger">
-				<div class="hamburger-box">
-					<div class="hamburger-inner"></div>
-				</div>
-			</div>
-		</a>
-		<nav id="menu" class="main-menu">
-			<ul>
-				<li><span><a href="//en-yucatan.com.mx/"><i class="icon-home-1"></i> INICIO</a></span></li><li><span><a href="//en-yucatan.com.mx/yucatan/">YUCATÁN</span></a>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><a href="http://www.clap365.com">CLAP365</a></div>
+    <div class="toggle" onclick="document.querySelector('.menu').classList.toggle('show')">&#9776;</div>
+    <div class="menu">
+      <a href="#tours">Tours</a>
+      <a href="http://www.clap365.com">Inicio</a>
+      <a href="http://www.clap365.com/contacto">Contacto</a>
+    </div>
+  </nav>
 
-  			<ul>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>El eco de tus sueños</h1>
+      <p>Explora Yucatán con nuestros tours exclusivos</p>
 
-  				<li><span><a href="#">Ciudades</span></a>
-    				<ul>
-    					<li><a href="//en-yucatan.com.mx/merida-yucatan/">Mérida Yucatán</a></li>
-						<li><a href="//en-yucatan.com.mx/caucel/">Cd. Caucel</a></li>
-    					<li><a href="//en-yucatan.com.mx/valladolid/">Valladolid</a></li>
-    					<li><a href="//en-yucatan.com.mx/izamal/">Izamal</a></li>
-   						<li><a href="//en-yucatan.com.mx/tekax/">Tekax</a></li>
-    					<li><a href="//en-yucatan.com.mx/oxkutzcab/">Oxkutzcab</a></li>
-    					<li><a href="//en-yucatan.com.mx/homun/">Homún</a></li>
-						  <li><a href="//en-yucatan.com.mx/ticul/">Ticul</a></li>
-    					<li><a href="//en-yucatan.com.mx/tizimin/">Tizimin</a></li>    					
-						<li><a href="//en-yucatan.com.mx/motul/">Motul</a></li>
-    					<li><a href="//en-yucatan.com.mx/ruta-de-los-conventos/">Ruta de los Conventos</a></li>
-    				</ul>
-  				</li>
-  				<li><a href="//en-yucatan.com.mx/pueblos-magicos/">Pueblos Mágicos</a</li>				
-  <li><a href="//en-yucatan.com.mx/mundo-maya/">Zonas Arqueológicas</a> </li>
-  <li><a href="//en-yucatan.com.mx/playas-yucatecas/">Playas Yucatecas</a> </li>
-  <li><a href="//en-yucatan.com.mx/haciendas/">Haciendas en Yucatán</a></li>
-  <li><a href="//en-yucatan.com.mx/cenotes/">Cenotes</a></li>
-  <li><a href="//en-yucatan.com.mx/ecoturismo-yucatan/grutas-cavernas/">Grutas y Cavernas</a></li>
-  <li><a href="//en-yucatan.com.mx/ecoturismo-yucatan/">Ecoturismo</a></li>
-  </ul>
+      <!-- CTA desplegable -->
+      <div class="cta-wrapper">
+        <button class="cta-button" onclick="toggleDropdown()">Reserva ahora ▾</button>
+        <div id="cta-dropdown" class="cta-dropdown" aria-label="Opciones de reserva">
+          <a href="https://wa.me/5219999999999" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="#formulario">Formulario</a>
+          <a href="tel:+529999999999">Llamar</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</li>
+  <!-- Tours -->
+  <div class="container" id="tours">
+    <div class="tour-box">
+      <img src="img/chichen.jpg" alt="Chichen Itzá">
+      <div class="tour-content">
+        <h3>Tour Chichen Itzá</h3>
+        <p>Visita la zona arqueológica más emblemática de México, una de las nuevas siete maravillas del mundo.</p>
+      </div>
+    </div>
 
+    <div class="tour-box">
+      <img src="img/uxmal.jpg" alt="Uxmal">
+      <div class="tour-content">
+        <h3>Tour Uxmal</h3>
+        <p>Explora la arquitectura Puuc en este sitio maya impresionante.</p>
+      </div>
+    </div>
 
+    <div class="tour-box">
+      <img src="img/izamal.jpg" alt="Izamal">
+      <div class="tour-content">
+        <h3>Tour Izamal</h3>
+        <p>La ciudad amarilla emblemática por su convento y fusión cultural.</p>
+      </div>
+    </div>
 
-<li><span><a href="//en-yucatan.com.mx/campeche/">CAMPECHE</a></span></li>
+    <div class="tour-box">
+      <img src="img/sisal.jpg" alt="Sisal">
+      <div class="tour-content">
+        <h3>Tour Sisal</h3>
+        <p>Destino costero con mar, historia y naturaleza para relajarte.</p>
+      </div>
+    </div>
 
-				<li><span><a href="//en-yucatan.com.mx/">CARIBE MEXICANO</a></span>
-				<ul>
-					<li><a href="//en-yucatan.com.mx/cancun/">CANCÚN</a></li>
-					<li><a href="//en-yucatan.com.mx/isla-mujeres/">ISLA MUJERES</a></li>
-					<li><a href="//en-holbox.com.mx/">HOLBOX</span></a></li>
-					<li><a href="//en-yucatan.com.mx/cozumel/">COZUMEL</a></li> 
-					<li><a href="//en-yucatan.com.mx/riviera-maya/">RIVIERA MAYA</a></li>
-					<li><a href="//en-yucatan.com.mx/costa-maya/">COSTA MAYA</a></li>
-				</ul>
-				</li>
+    <div class="tour-box">
+      <img src="img/merida.jpg" alt="Mérida">
+      <div class="tour-content">
+        <h3>Tour Mérida</h3>
+        <p>Conoce la capital cultural del sureste: arte, historia y gastronomía.</p>
+      </div>
+    </div>
 
-<li><span><a href="//en-yucatan.com.mx/tours/">TOURS</a></span></li>				
-<li><span><a href="#"><i class="icon-bus"></i> TRANSPORTE</a></span>
-  <ul>
-	  <li><a href="//en-yucatan.com.mx/cancun/taxi-aereo/">Taxi Aereo en Cancún</a></li>
-	  <li><a href="//en-yucatan.com.mx/transporte-privado/">Traslados en Cancún</a></li>
-	  <li><a href="//en-yucatan.com.mx/transporte-privado/renta-autobuses-merida/">Renta de Autobuses en Mérida</a></li>
-	  <li><a href="//en-yucatan.com.mx/transporte-privado/renta-autobuses/">Renta de Autobuses Cancún</a></li>
-<li><a href="//en-yucatan.com.mx/transporte-privado/camionetas-blindadas/">Renta de Suvs Blindadas</a></li>
-							</li>
-  <li><a href="//en-yucatan.com.mx/cancun/tour-aereo/">Paseo Helicóptero Cancún</a></li>
-  <li><a href="//en-yucatan.com.mx/isla-mujeres/tour-aereo/">Paseo Helicóptero Isla Mujeres</a></li>
-	    <li><a href="//en-yucatan.com.mx/taxi-aereo/">Taxi Aereo en Mérida</a></li>
-  
+    <div class="tour-box">
+      <img src="img/telchac.jpg" alt="Telchac">
+      <div class="tour-content">
+        <h3>Tour Telchac</h3>
+        <p>Relájate en esta playa tranquila y disfruta de mariscos y sol.</p>
+      </div>
+    </div>
 
-	  
-  </ul>
-</li>
-	<li><span><a href="//en-yucatan.com.mx/propiedades/">PROPIEDADES</a></span></li>
+    <div class="tour-box">
+      <img src="img/tecoh.jpg" alt="Tecoh">
+      <div class="tour-content">
+        <h3>Tour Tecoh</h3>
+        <p>Descubre cenotes y la iglesia colonial sobre pirámide en Tecoh.</p>
+      </div>
+    </div>
 
-				<li><span><a href="//youtube.com/subscription_center?add_user=yucatanpeninsula"><i class="ti-youtube"></i>VIDEOS</span></a></li>
- <li><span><a href="//en-yucatan.com/"><i class="icon-language"></i> ENGLISH</span></a></li>
-							</ul>
-		</nav>
-	</header> 
-	<!-- /header -->
-	
-	
-	
-		<main>
-		<section class="hero_in tours_detail">
-			<div class="wrapper">
-				<div class="container">
-					<h1 class="fadeInUp"><span></span>Tours en la Peninsula de Yucatán</h1>
-				 
-</div>
-			</div>
-		</section>
-		<!--/hero_in-->
+    <div class="tour-box">
+      <img src="img/libre.jpg" alt="Tour libre">
+      <div class="tour-content">
+        <h3>Tour libre a escoger</h3>
+        <p>Arma tu propia aventura: cenotes, pueblos mágicos y más.</p>
+      </div>
+    </div>
+  </div>
 
-<div class="container container-custom margin_80_55">
-			<section class="add_bottom_45">
-				<div class="main_title_3">
-					<span><em></em></span>
-					<h2>Exploración y Aventura</h2>
-					<p>El estado de Yucatán cuenta con gran diversidad de atractivos a lo largo y ancho de todo su territorio, construcciones arqueológicas, cuidades y pueblos mágicos dignos de ser visitados; de igual forma la capital del estado brinda sitios llenos de historia que dan prueba de la gran riqueza cultural con la que cuenta; casonas antiguas, monumentos y museos, mismos que pueden ser recorridos en diferentes tours que le llevarán a conocer cada uno de estos espacios, e incluso probar de su exquisita gastronomía. En autobús o en bicicleta, dentro o fuera de la ciudad, en tour compartido o por grupos, pero todos con la garantía de proporcionarle una gran experiencia en Yucatán.</p>
-				</div>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 CLAP365. Todos los derechos reservados.</p>
+    <p><a href="http://www.clap365.com" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
+  </footer>
 
-			</section>
-			<!-- /section -->
-	
-			<section class="add_bottom_45">
-				<div class="main_title_3">
-					<span><em></em></span>
-					<h2>Tours de Aventura</h2>
-				</div>
-				<div class="row">
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<a href="../chichen-itza/tour-aereo/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.7</strong></div>
-								<img src="../fotos/home/tour-chichen-itza.jpg" class="lazyload img-fluid mar" alt="Tour Aéreo a Chichén Itzá">
-								<div class="info">
-									<em>Arqueológia</em>
-									<h3>Tour Aéreo a Chichén Itzá</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->	
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<a href="../cancun/tour-aereo/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.7</strong></div>
-								<img src="../fotos/home/tour-helicoptero.jpg" class="lazyload img-fluid mar" alt="Tour Aéreo en Cancún">
-								<div class="info">
-									<em>Aventura</em>
-									<h3>Tour en Helicóptero en Cancún</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->							
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<a href="hacienda-sotuta-peon/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.5</strong></div>
-								<img src="../fotos/tours/tour-hacienda-sotuta-peon.jpg" class="lazyload img-fluid mar" alt="Tour Hacienda Sotuta de Peón">
-								<div class="info">
-									<em>Haciendas</em>
-									<h3>Tour Hacienda Sotuta de Peón</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="tour-cenotes/" class="grid_item">
-							<figure>
-								<div class="score"><strong>8.9</strong></div>
-								<img src="../fotos/tours/tour-cenotes.jpg" class="lazyload img-fluid mar" alt="Tour Cenotes de Yucatán">
-								<div class="info">
-									<em>Tour de Ecoturismo</em>
-								  <h3>Tour Cenotes de Yucatán</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->						
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="//en-holbox.com.mx/tours/tour-nado-tiburon-ballena/" class="grid_item">
-							<figure>
-								<div class="score"><strong>8.9</strong></div>
-								<img src="../fotos/home/tiburon-ballena.jpg" class="lazyload img-fluid mar" alt="Tour de Nado con Tiburón Ballena">
-								<div class="info">
-									<em>Naturaleza</em>
-								  <h3>Tour de Nado con Tiburón Ballena</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->									
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<a href="tour-izamal-xcajum-chichen/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.</strong></div>
-								<img src="../fotos/tours/tour-chichen-merida.jpg" class="lazyload img-fluid mar" alt="Tour a Izamal, Cenote Xcajum y Chichén Itzá">
-								<div class="info">
-									<em>Pueblo Mágicos y Mundo Maya</em>
-									<h3>Izamal, Cenote Xcajum y Chichén Itzá</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<a href="tour-mayapan-cenotes/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.4</strong></div>
-								<img src="../fotos/tours/tour-mayapan.jpg" class="lazyload img-fluid mar" alt="Tour a Mayapán y 3 Cenotes de Homún">
-								<div class="info">
-									<em>Mundo Maya</em>
-									<h3>Mayapán y 3 Cenotes de Homún</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->					
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<a href="tour-izamal-valladolid-hubiku/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.5</strong></div>
-								<img src="../fotos/tours/tour-izamal-valladolid.jpg" class="lazyload img-fluid mar" alt="Tour a Izamal, Cenote Xcajum y Chichén Itzá">
-								<div class="info">
-									<em>Pueblo Mágicos</em>
-									<h3>Izamal, Valladolid y Cenote Hubiku</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->	
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="tour-hacienda-yaxcopoil-cenote-peba-uxmal/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.0</strong></div>
-								<img src="../fotos/tours/tour-hacienda-uxmal.jpg" class="lazyload img-fluid mar" alt="Tour Hacienda Yaxcopoil, Cenote Peba, Uxmal">
-								<div class="info">
-									<em>Tour de Aventura</em>
-								  <h3>Hacienda Yaxcopoil, Cenote Peba, Uxmal</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->	
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="tour-sisal/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.0</strong></div>
-								<img src="../fotos/tours/tour-sisal.jpg" class="lazyload img-fluid mar" alt="Tour Pasadía en Sisal">
-								<div class="info">
-									<em>Tour de Playa</em>
-								  <h3>Tour de Pasadía en Sisal</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->						
-					<div class="col-xl-3 col-lg-6 col-md-6">
-						<a href="paracaidismo-playa-del-carmen/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.2</strong></div>
-								<img src="../fotos/tours/paracaidismo-playa-del-carmen.jpg" class="lazyload img-fluid mar" alt="Paracaidismo en Playa del Carmen">
-								<div class="info">
-									<em>Aventura y Adrenalina</em>
-									<h3>Salto en Paracaidas en Playa del Carmen</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="/tours/7-cenotes-san-geronimo/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.7</strong></div>
-								<img src="../fotos/tours/tour-7-cenotes.jpg" class="lazyload img-fluid mar" alt="Tour Privado a los 7 Cenotes de San Gerónimo">
-								<div class="info">
-									<em>Experiencia Personalizada</em>
-								  <h3>Tour los 7 Cenotes de San Gerónimo</h3>
-							  </div>
-					  </figure>
-					  </a>
-					</div>
-					<!-- /grid_item -->
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="arrecife-alacranes/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.1</strong></div>
-								<img src="../fotos/tours/tour-arrecife-alacranes.jpg" class="lazyload img-fluid mar" alt="Tour a El Arrecife Alacranes">
-								<div class="info">
-									<em>Tour de Aventura</em>
-								  <h3>Tour a El Arrecife Alacranes</h3>
-								</div>
-							</figure>
-					  </a>
-					</div>
-					<!-- /grid_item -->					
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="../cozumel/tour-cielo-cozumel/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.1</strong></div>
-								<img src="../fotos/tours/tour-el-cielo-cozumel.jpg" class="lazyload img-fluid mar" alt="Tour a El Cielo Cozumel">
-								<div class="info">
-									<em>Tour de Esnorquel</em>
-								  <h3>Tour a El Cielo Cozumel</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->
-					<div class="col-xl-3 col-lg-6 col-md-6">
-					  <a href="tour-uxmal-luz-y-sonido/" class="grid_item">
-							<figure>
-								<div class="score"><strong>9.0</strong></div>
-								<img src="../fotos/tours/tour-lys-uxmal.jpg" class="lazyload img-fluid mar" alt="Tour Lux y Sonido, Uxmal">
-								<div class="info">
-									<em>Tour Arqueológico</em>
-								  <h3>Tour Luz y Sonido, Uxmal</h3>
-								</div>
-							</figure>
-						</a>
-					</div>
-					<!-- /grid_item -->					
-				</div>
-				<!-- /row -->	
+  <!-- Botón flotante de reserva -->
+  <a href="https://wa.me/5219999999999" target="_blank" rel="noopener noreferrer" class="floating-cta" aria-label="Reservar por WhatsApp">
+    &#128222; Reservar
+  </a>
 
-	</main>
-	<!--/main-->
-	
-	<!--/footer-->
-	<footer>
-		<div class="container margin_60_35">
-			<div class="row">
-				<div class="col-lg-5 col-md-12 p-r-5">
-					<p><img src="//en-yucatan.com.mx/img/logo.png" width="150" height="36" data-retina="true" alt="Turismo México"></p>
-					<p>www.en-yucatan.com.mx fue fundado en Abril de 2004 por Obed Aquileo & Jéssica Dominguez en un proyecto por compatir los atractivos de la peninsula de Yucatán. Donde en un solo sitio estuviera reunida la información de los estados de Yucatán, Campeche y Quintana Roo..</p>
-					<div class="follow_us">
-						<ul>
-							<li>Siguenos en Redes Sociales</li>
-							<li><a href="//facebook.com/turismoyucatan"><i class="ti-facebook"></i></a></li>
-							<li><a href="//instagram.com/turismoyucatan"><i class="ti-instagram"></i></a></li>
-							<li><a href="//youtube.com/subscription_center?add_user=yucatanpeninsula"><i class="ti-youtube"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 ml-lg-auto">
-					<h5>Enlaces</h5>
-					<ul class="links">
-						<li><a href="//hoteleseconomicosmexico.com">Hoteles Económicos México</a></li>
-						<li><a href="//explorandocenotes.com.mx">Explorando Cenotes</a></li>
-						<li><a href="//en-yucatan.com.mx">En Yucatán</a></li>
-						<li><a href="//en-holbox.com.mx">Isla Holbox</a></li>
-						<li><a href="//en-mexico.com.mx">En México</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					
-				</div>
-			</div>
-			<!--/row-->
-			<hr>
-			<div class="row">
-				<div class="col-lg-6">
-					<ul id="footer-selector">
-						
-						<li><img src="../img/cards_all.svg" alt=""></li>
-					</ul>
-				</div>
-				<div class="col-lg-6">
-					<ul id="additional_links">
-						<li><a href="//en-yucatan.com.mx/terminos-condiciones/">Terminos y Condiciones</a></li>
-						<li><a href="//en-yucatan.com.mx/privacidad/">Privacidad</a></li>
-						<li><span>© 2020 Turismo México - Grupo Turismo Yucatán</span></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</footer> 	
-	<!--/footer-->
-	</div>
-	<!-- page -->
-	
-	
-	<div id="toTop"></div><!-- Back to top button -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-<link href="//en-yucatan.com.mx/css/vendors.css" rel="stylesheet">	
-<link href="//en-yucatan.com.mx/css/custom.css" rel="stylesheet">
-		<!-- COMMON SCRIPTS -->
-<script src="//en-yucatan.com.mx/js/common_scripts.js"></script>
-<script src="//en-yucatan.com.mx/js/main.js"></script>
-	<!-- INPUT QUANTITY  -->
+  <script>
+    function toggleDropdown() {
+      var dropdown = document.getElementById("cta-dropdown");
+      if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+      } else {
+        dropdown.style.display = "block";
+      }
+    }
 
-	<!-- DATEPICKER  -->
-<script>
-    $('input[name="dates"]').daterangepicker({
-        "locale": {
-            "format": "DD/MM/YYYY",
-            "separator": " - ",
-            "applyLabel": "Aplicar",
-            "cancelLabel": "Cancelar",
-            "fromLabel": "Desde",
-            "toLabel": "Hasta",
-            "customRangeLabel": "Custom",
-            "weekLabel": "W",
-            "daysOfWeek": [
-                "Do", "Lu", "Ma", "Mie", "Jue", "Vie", "Sa"
-            ],
-            "monthNames": [
-                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-            ],
-            "firstDay": 1
-        },
-        "singleDatePicker": true,
-        "autoApply": true,
-        parentEl: '.scroll-fix',
-        // Esta línea cambia el mínimo a 2 días después de hoy
-        minDate: moment().add(2, 'days'),
-        opens: 'left',
-        "linkedCalendars": false,
-        "showCustomRangeLabel": false
-    }, function(start, end, label) {
-        console.log('New date selected: ' + start.format('YYYY-MM-DD'));
-    });
-</script>
+    // Cerrar dropdown si se hace click fuera
+    window.onclick = function(event) {
+      if (!event.target.matches('.cta-button')) {
+        var dropdown = document.getElementById("cta-dropdown");
+        if (dropdown && dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        }
+      }
+    }
+  </script>
 
-
- 
-	<script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5dd71db23c93be00124a6086&product=sticky-share-buttons"></script>
-<script data-ad-client="ca-pub-2339833886862339" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EXCJE4887X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EXCJE4887X');
-</script>
- 
 </body>
 </html>
