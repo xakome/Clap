@@ -1,130 +1,625 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yucatán Prestige Tours</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      color: #333;
-      background-color: #fdfdfd;
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Tours Pasadía en Sisal</title>
+	<meta name="Description" content="La Península de Yucatán se encuentra rodeada por cenotes que para los mayas eran considerados como sagrados, ya que creían que eran las puertas al inframundo." />
+	<meta property="og:title" content="Tour Pasadia en Sisal" />
+	<meta property="og:type" content="place" />
+	<meta property="og:image" content="https://en-yucatan.com.mx/fotos/tours/sisal/tour-pasadia-sisal.jpg" />
+	<meta property="og:description" content="La Península de Yucatán se encuentra rodeada por cenotes que para los mayas eran considerados como sagrados, ya que creían que eran las puertas al inframundo." />
+<link rel='canonical' href='https://en-yucatan.com.mx/tours/tour-sisal/' />
+<meta property='og:url' content='https://en-yucatan.com.mx/tours/tour-sisal/' />
+	<meta name="author" content="TURISMO YUCATAN" /> 
+	<link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+	<link href="../../css/vendors.css" rel="stylesheet">
+     <style>
+.hero_in.tours_detail:before {
+  background: url("../../fotos/tours/sisal/tour-pasadia-sisal.jpg") center center no-repeat;
+	  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+		</style>
+
+	<!-- /header -->
+
+
+<!-- InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) -->
+<script type="text/javascript" async=true>
+(function() {
+  var host = "www.themoneytizer.com";
+  var element = document.createElement('script');
+  var firstScript = document.getElementsByTagName('script')[0];
+  var url = 'https://cmp.inmobi.com'
+    .concat('/choice/', '6Fv0cGNfc_bw8', '/', host, '/choice.js?tag_version=V3');
+  var uspTries = 0;
+  var uspTriesLimit = 3;
+  element.async = true;
+  element.type = 'text/javascript';
+  element.src = url;
+
+  firstScript.parentNode.insertBefore(element, firstScript);
+
+  function makeStub() {
+    var TCF_LOCATOR_NAME = '__tcfapiLocator';
+    var queue = [];
+    var win = window;
+    var cmpFrame;
+
+    function addFrame() {
+      var doc = win.document;
+      var otherCMP = !!(win.frames[TCF_LOCATOR_NAME]);
+
+      if (!otherCMP) {
+        if (doc.body) {
+          var iframe = doc.createElement('iframe');
+
+          iframe.style.cssText = 'display:none';
+          iframe.name = TCF_LOCATOR_NAME;
+          doc.body.appendChild(iframe);
+        } else {
+          setTimeout(addFrame, 5);
+        }
+      }
+      return !otherCMP;
     }
-    header {
-      background-color: #fff;
-      padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin: 0;
-      color: #00695c;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #00695c;
-      font-weight: bold;
-    }
-    .hero {
-      background: url('banner.jpg') center/cover no-repeat;
-      padding: 8rem 2rem;
-      color: white;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 2rem;
-    }
-    .tours {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .tour {
-      flex: 1 1 300px;
-      margin: 1rem;
-      background-color: #fff;
-      border: 1px solid #eee;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
-    .tour img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .tour h3 {
-      padding: 1rem;
-      color: #004d40;
-    }
-    footer {
-      background-color: #004d40;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 1.5rem;
+
+    function tcfAPIHandler() {
+      var gdprApplies;
+      var args = arguments;
+
+      if (!args.length) {
+        return queue;
+      } else if (args[0] === 'setGdprApplies') {
+        if (
+          args.length > 3 &&
+          args[2] === 2 &&
+          typeof args[3] === 'boolean'
+        ) {
+          gdprApplies = args[3];
+          if (typeof args[2] === 'function') {
+            args[2]('set', true);
+          }
+        }
+      } else if (args[0] === 'ping') {
+        var retr = {
+          gdprApplies: gdprApplies,
+          cmpLoaded: false,
+          cmpStatus: 'stub'
+        };
+
+        if (typeof args[2] === 'function') {
+          args[2](retr);
+        }
+      } else {
+        if(args[0] === 'init' && typeof args[3] === 'object') {
+          args[3] = Object.assign(args[3], { tag_version: 'V3' });
+        }
+        queue.push(args);
       }
     }
-  </style>
+
+    function postMessageEventHandler(event) {
+      var msgIsString = typeof event.data === 'string';
+      var json = {};
+
+      try {
+        if (msgIsString) {
+          json = JSON.parse(event.data);
+        } else {
+          json = event.data;
+        }
+      } catch (ignore) {}
+
+      var payload = json.__tcfapiCall;
+
+      if (payload) {
+        window.__tcfapi(
+          payload.command,
+          payload.version,
+          function(retValue, success) {
+            var returnMsg = {
+              __tcfapiReturn: {
+                returnValue: retValue,
+                success: success,
+                callId: payload.callId
+              }
+            };
+            if (msgIsString) {
+              returnMsg = JSON.stringify(returnMsg);
+            }
+            if (event && event.source && event.source.postMessage) {
+              event.source.postMessage(returnMsg, '*');
+            }
+          },
+          payload.parameter
+        );
+      }
+    }
+
+    while (win) {
+      try {
+        if (win.frames[TCF_LOCATOR_NAME]) {
+          cmpFrame = win;
+          break;
+        }
+      } catch (ignore) {}
+
+      if (win === window.top) {
+        break;
+      }
+      win = win.parent;
+    }
+    if (!cmpFrame) {
+      addFrame();
+      win.__tcfapi = tcfAPIHandler;
+      win.addEventListener('message', postMessageEventHandler, false);
+    }
+  };
+
+  makeStub();
+
+  var uspStubFunction = function() {
+    var arg = arguments;
+    if (typeof window.__uspapi !== uspStubFunction) {
+      setTimeout(function() {
+        if (typeof window.__uspapi !== 'undefined') {
+          window.__uspapi.apply(window.__uspapi, arg);
+        }
+      }, 500);
+    }
+  };
+
+  var checkIfUspIsReady = function() {
+    uspTries++;
+    if (window.__uspapi === uspStubFunction && uspTries < uspTriesLimit) {
+      console.warn('USP is not accessible');
+    } else {
+      clearInterval(uspInterval);
+    }
+  };
+
+  if (typeof window.__uspapi === 'undefined') {
+    window.__uspapi = uspStubFunction;
+    var uspInterval = setInterval(checkIfUspIsReady, 6000);
+  }
+})();
+</script>
+<!-- End InMobi Choice. Consent Manager Tag v3.0 (for TCF 2.2) --> 
+	<!-- /header -->	
 </head>
+
 <body>
-  <header>
-    <h1>Yucatán Prestige Tours</h1>
-    <nav>
-      <a href="#tours">Tours</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+	
+	<div id="page" class="theia-exception">
+		
+	
+	<!-- /header -->
+<header class="header menu_fixed">
+		
+		<div id="logo">
+			<a href="//en-yucatan.com.mx/">
+				<img src="//en-yucatan.com.mx/img/logo.png" width="150" height="36" data-retina="true" alt="" class="logo_normal">
+				<img src="//en-yucatan.com.mx/img/logo_sticky.png" width="150" height="36" data-retina="true" alt="" class="logo_sticky">
+			</a>
+		</div>
 
-  <section class="hero">
-    <h2>Vive la historia, cultura y lujo de Yucatán</h2>
-  </section>
+		<a href="#menu" class="btn_mobile">
+			<div class="" id="hamburger">
+				<div class="hamburger-box">
+					<div class="hamburger-inner"></div>
+				</div>
+			</div>
+		</a>
+		<nav id="menu" class="main-menu">
+			<ul>
+				<li><span><a href="//en-yucatan.com.mx/"><i class="icon-home-1"></i> INICIO</a></span></li><li><span><a href="//en-yucatan.com.mx/yucatan/">YUCATÁN</span></a>
 
-  <section class="tours" id="tours">
-    <div class="tour">
-      <img src="img/chichen.jpg" alt="Tour Chichen Itzá">
-      <h3>Chichen Itzá VIP</h3>
-    </div>
-    <div class="tour">
-      <img src="img/uxmal.jpg" alt="Tour Uxmal">
-      <h3>Uxmal & Ruta Puuc</h3>
-    </div>
-    <div class="tour">
-      <img src="img/sisal.jpg" alt="Tour Sisal">
-      <h3>Playa Privada en Sisal</h3>
-    </div>
-    <div class="tour">
-      <img src="https://example.com/telchac.jpg" alt="Tour Tecoh">
-      <h3>Cenotes en Tecoh</h3>
-    </div>
-    <div class="tour">
-      <img src="img/izamal.jpg" alt="Tour Izamal">
-      <h3>Izamal: La ciudad amarilla</h3>
-    </div>
-    <div class="tour">
-      <img src="img/merida.jpg" alt="Tour Mérida">
-      <h3>Mérida City Tour</h3>
-    </div>
-  </section>
+  			<ul>
 
-  <footer id="contacto">
-    <p>&copy; 2025 Yucatán Prestige Tours. Todos los derechos reservados.</p>
-    <p>Contáctanos: info@yptours.com | WhatsApp: +52 999 000 0000</p>
-  </footer>
+  				<li><span><a href="#">Ciudades</span></a>
+    				<ul>
+    					<li><a href="//en-yucatan.com.mx/merida-yucatan/">Mérida Yucatán</a></li>
+						<li><a href="//en-yucatan.com.mx/caucel/">Cd. Caucel</a></li>
+    					<li><a href="//en-yucatan.com.mx/valladolid/">Valladolid</a></li>
+    					<li><a href="//en-yucatan.com.mx/izamal/">Izamal</a></li>
+   						<li><a href="//en-yucatan.com.mx/tekax/">Tekax</a></li>
+    					<li><a href="//en-yucatan.com.mx/oxkutzcab/">Oxkutzcab</a></li>
+    					<li><a href="//en-yucatan.com.mx/homun/">Homún</a></li>
+						  <li><a href="//en-yucatan.com.mx/ticul/">Ticul</a></li>
+    					<li><a href="//en-yucatan.com.mx/tizimin/">Tizimin</a></li>    					
+						<li><a href="//en-yucatan.com.mx/motul/">Motul</a></li>
+    					<li><a href="//en-yucatan.com.mx/ruta-de-los-conventos/">Ruta de los Conventos</a></li>
+    				</ul>
+  				</li>
+  				<li><a href="//en-yucatan.com.mx/pueblos-magicos/">Pueblos Mágicos</a</li>				
+  <li><a href="//en-yucatan.com.mx/mundo-maya/">Zonas Arqueológicas</a> </li>
+  <li><a href="//en-yucatan.com.mx/playas-yucatecas/">Playas Yucatecas</a> </li>
+  <li><a href="//en-yucatan.com.mx/haciendas/">Haciendas en Yucatán</a></li>
+  <li><a href="//en-yucatan.com.mx/cenotes/">Cenotes</a></li>
+  <li><a href="//en-yucatan.com.mx/ecoturismo-yucatan/grutas-cavernas/">Grutas y Cavernas</a></li>
+  <li><a href="//en-yucatan.com.mx/ecoturismo-yucatan/">Ecoturismo</a></li>
+  </ul>
+
+</li>
+
+
+
+<li><span><a href="//en-yucatan.com.mx/campeche/">CAMPECHE</a></span></li>
+
+				<li><span><a href="//en-yucatan.com.mx/">CARIBE MEXICANO</a></span>
+				<ul>
+					<li><a href="//en-yucatan.com.mx/cancun/">CANCÚN</a></li>
+					<li><a href="//en-yucatan.com.mx/isla-mujeres/">ISLA MUJERES</a></li>
+					<li><a href="//en-holbox.com.mx/">HOLBOX</span></a></li>
+					<li><a href="//en-yucatan.com.mx/cozumel/">COZUMEL</a></li> 
+					<li><a href="//en-yucatan.com.mx/riviera-maya/">RIVIERA MAYA</a></li>
+					<li><a href="//en-yucatan.com.mx/costa-maya/">COSTA MAYA</a></li>
+				</ul>
+				</li>
+
+<li><span><a href="//en-yucatan.com.mx/tours/">TOURS</a></span></li>				
+<li><span><a href="#"><i class="icon-bus"></i> TRANSPORTE</a></span>
+  <ul>
+	  <li><a href="//en-yucatan.com.mx/cancun/taxi-aereo/">Taxi Aereo en Cancún</a></li>
+	  <li><a href="//en-yucatan.com.mx/transporte-privado/">Traslados en Cancún</a></li>
+	  <li><a href="//en-yucatan.com.mx/transporte-privado/renta-autobuses-merida/">Renta de Autobuses en Mérida</a></li>
+	  <li><a href="//en-yucatan.com.mx/transporte-privado/renta-autobuses/">Renta de Autobuses Cancún</a></li>
+<li><a href="//en-yucatan.com.mx/transporte-privado/camionetas-blindadas/">Renta de Suvs Blindadas</a></li>
+							</li>
+  <li><a href="//en-yucatan.com.mx/cancun/tour-aereo/">Paseo Helicóptero Cancún</a></li>
+  <li><a href="//en-yucatan.com.mx/isla-mujeres/tour-aereo/">Paseo Helicóptero Isla Mujeres</a></li>
+	    <li><a href="//en-yucatan.com.mx/taxi-aereo/">Taxi Aereo en Mérida</a></li>
+  
+
+	  
+  </ul>
+</li>
+	<li><span><a href="//en-yucatan.com.mx/propiedades/">PROPIEDADES</a></span></li>
+
+				<li><span><a href="//youtube.com/subscription_center?add_user=yucatanpeninsula"><i class="ti-youtube"></i>VIDEOS</span></a></li>
+ <li><span><a href="//en-yucatan.com/"><i class="icon-language"></i> ENGLISH</span></a></li>
+							</ul>
+		</nav>
+	</header> 
+	<!-- /header -->
+	
+	
+	
+		<main>
+		<section class="hero_in tours_detail">
+			<div class="wrapper">
+				<div class="container">
+					<h1 class="fadeInUp"><span></span>Tour Pasadía en Sisal.</h1>
+				</div>
+<span class="magnific-gallery">
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-1.jpg" class="btn_photos btn-lg bg-primary text-light" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"> <i class="icon-camera"></i> Ver Fotos</a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-2.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-3.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-4.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-5.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-6.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-7.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-8.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-9.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-10.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-11.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+			  </span>
+			</div>
+		</section>
+		<!--/hero_in-->
+
+	<div class="bg_color_1">
+			<nav class="secondary_nav sticky_horizontal">
+				<div class="container">
+					<ul class="clearfix">
+						<li><a href="#description" class="active">Descripción</a></li>
+						<li><a href="#sidebar">Reservar</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="container margin_60_35">
+				<div class="row">
+					<div class="col-lg-8">
+						<section id="description">
+  <p>La Península de Yucatán se encuentra  rodeada por cenotes que para los mayas eran considerados como sagrados, ya que creían  que eran las puertas al inframundo.</p>
+  <p>Hoy en día son igual de importantes ya  que son lugares que nos brindan un refugio para refrescarnos del calor intenso  que hay en nuestro estado.</p>
+  <p>Hay un poblado que está repleto de  cenotes y en el que te podemos llevar a conocer y disfrutar de sus refrescantes  aguas, nos referimos al poblado de Homún, en donde te llevaremos al Parador  Santa Bárbara. </p>
+  <p>En este parador se encuentran 3 hermosos  cenotes en los que nos dirigiremos a ellos por 2 formas diferentes en las que  podrás elegir, en un &ldquo;Truck2 que es un carrito arrastrado por caballos por un  riel o montar bicicleta. En la entrada te ofrecerán chalecos y nos explicaran  los cuidados que debemos de tener mientras realizamos nuestra visita, es  importante respetar estas normas por nuestra protección.</p>
+  <p>En cada cenote tendremos un tiempo para  nadar, explorar y tomar todas las fotografías de recuerdo que quieras.</p>
+  <p>Posteriormente nos dirigiremos al Restaurante donde degustaremos  deliciosos platillos yucatecos que nos harán recuperar las fuerzas para  retornar de nuevo a la ciudad de Mérida y llevarlo a su respectivo hotel<strong>.</strong></p>
+<hr>
+<h3>Tarifa desde: $1,100 MXN p/p </h3>
+<p>Nota: Mínimo 2  Personas.</p>
+<hr>
+<h2>Detalles del Tour:</h2>
+<div class="row">
+	<div class="col-lg-6">
+		<h3>Incluye:</h3>
+		<ul class="bullets">
+			<li>Saliendo a las 8:00 am</li>
+			<li>Paseo en Kayak</li>
+			<li>Guía</li>
+			<li>Recorrido por Sisal Pueblo Mágico</li>
+			<li>Tiempo para nadar en el Mar.</li>
+			<li>Regreso al Hotel a las 6:00 p.m.</li>
+		</ul>
+	</div>
+	<div class="col-lg-6">
+		<h3>Recomendaciones:</h3>
+		<ul class="bullets">
+			<li>Bloqueador biodegradable</li>
+			<li>Ropa cómoda</li>
+			<li>Traje de baño</li>
+			<li>Gorra</li>
+			<li>Repelente</li>
+			<li>Cámara</li>
+		</ul>
+	</div>
+	<div class="col-lg-6">
+		<h3>El Tour no incluye:</h3>
+		<ul class="bullets">
+		    <li>Entradas</li>
+			<li>Propinas</li>
+			<li>Bebidas</li>
+		</ul>
+	</div>
+</div>
+<hr>
+<p>&nbsp;</p>
+
+<p>Nota:  Niños de 1 a 4 No Pagan
+</p>
+ <p><img src="../../fotos/tours/sisal/tour-pasadia-sisal-g.jpg" alt="Tour Pasadía a Sisal Pueblo Mágico" width="880" height="495" class="lazyload img-fluid mar" /></p>
+							
+<p align="center">
+<span class="magnific-gallery">
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-1.jpg" class="btn_photos btn-lg bg-primary text-light" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"> <i class="icon-camera"></i> Ver Fotos</a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-2.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-3.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-4.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-5.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-6.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-7.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-8.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-9.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-10.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+	<a href="../../fotos/tours/sisal/tour-pasadia-sisal-11.jpg" title="Tour Pasadía a Sisal Pueblo Mágico" data-effect="mfp-zoom-in"></a>
+			  </span>							
+</p>							
+<!-- /section -->
+					</div>
+					<!-- /col -->
+
+				<aside class="col-lg-4" id="sidebar">
+						<div class="box_detail booking bg-warning">
+							<h3>Reservar Tour</h3>
+							<form action="https://en-yucatan.com.mx/_lib/forms/tours.php" method="post" name="frm" id="form1" onsubmit="return Verificar()">
+						      <div class="form-group clearfix">
+								<div class="custom-select-form">
+								<select class="wide" name="hotel" id="hotel">
+										<option value="Tour Pasadía a Sisal">Tour Pasadía a Sisal</option>
+								</select>
+								</div>
+							</div>
+				﻿
+							   <div style="display:none;">
+  <input type="text" name="honeypot" value="">
+</div>  
+							    
+							<div class="form-group">
+								<input type="text" class="form-control" id="name" name="nombre" placeholder="Nombre" required>
+							</div>
+							
+							<div class="form-group">
+								<input type="text" class="form-control" id="email" name="email" placeholder="Correo Electrónico" required>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" id="phone" name="phone" placeholder="Tel / Cel" required>
+							</div>
+							
+							<div class="form-group" id="input_date">
+							  <input class="form-control" type="text" name="dates" placeholder="When..">
+								<i class="icon_calendar"></i>
+							</div>
+							<div class="form-group">
+							<input class="form-control" type="number" name="adults" id="adults" placeholder="Adultos">
+							</div>
+							<div class="form-group">
+							<input class="form-control" type="number" name="kids" id="kids" placeholder="Niños (Menores de 11 Años)">
+							</div>
+						
+							<div class="form-group">
+							  <textarea class="form-control" rows="4" id="comments" name="comments" placeholder="Mensaje o Comentarios"></textarea>
+							</div>
+
+							<button type="submit" class="btn_1 full-width">Enviar Solicitud</button>
+					</form>
+						
+									</div>
+					<div class="box_detail">
+					<p><strong><a class="btn btn-large btn-primary" href="https://api.whatsapp.com/send/?phone=529993211502&text=Quiero%20Reservar%20Tour%20a%20Sisal"> <i class="icon-phone-circled"> </i> Enviar WhatsApp</a></strong></p>
+					<ul>
+					<li>* Favor de reservar con 2 días de anticipación.</li>
+					<li>* No hacemos reservasde último minuto</li>
+					<li>* Atención especial a grupos</li>
+					</ul>
+					<hr>
+					</div>
+					<div class="box_detail">
+					 
+					<!-- /widget -->					<div class="widget">
+<!-- SIDEBARTURISMOYUCATAN -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2339833886862339"
+     data-ad-slot="4956875979"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+					<div class="widget-title">
+							<strong><h4>Tours desde Mérida</h4></strong>
+						</div>
+						<ul class="cats">
+						  <li><a href="//en-yucatan.com.mx/tours/hacienda-sotuta-peon/">Tour Sotuta de Peón</a></li>
+							<li><a href="//en-yucatan.com.mx/tours/7-cenotes-san-geronimo/"> 7 Cenotes San Gerónimo </a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/arrecife-alacranes/">Tour Arrecife Alacranes</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-hacienda-yaxcopoil-cenote-peba-uxmal/">Tour Hacienda Yaxcopoil, Cenote y Uxmal</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-izamal-valladolid-hubiku/">Tour Izamal y Valladolid</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-izama-xcajum-chichen/">Tour Izamal, Chichén y Cenote.</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-xcajum-chichen/">Tour Chichén Itza y Cenote Xcajum</a></li> 
+							 <li><a href="//en-yucatan.com.mx/tours/tour-mayapan-cenotes/">Tour Mayapán y Cenotes </a></li>
+							 <li><a href="//en-yucatan.com.mx/tours/tour-sisal/">Pasadía en Sisal </a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-cenotes/">Tour Cenotes de Homún</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-uxmal-y-kabah/">Tour Uxmal y Kabah</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-ruta-puuc-y-grutas-de-loltun/">Tour Loltún y Ruta Puuc</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/tour-uxmal-luz-y-sonido/">Tour Uxmal Luz y Sonido</a></li>
+							 
+						</ul>
+						<div class="widget-title">
+							<strong><h4>Tours desde Cancun Riviera Maya</h4></strong>
+						</div>
+						<ul class="cats">
+							<li><a href="//en-yucatan.com.mx/chichen-itza/tour-aereo/">Tours Aéreo a Chichén</a></li>
+							<li><a href="//en-yucatan.com.mx/cancun/tour-aereo/">Paseo en Helicóptero en Cancún</a></li>
+							<li><a href="//en-yucatan.com.mx/isla-mujeres/tour-aereo/">Paseo en Helicóptero en Isla Mujeres</a></li>
+							  <li><a href="//en-yucatan.com.mx/tours/paracaidismo-playa-del-carmen/"> Paracaidismo en Playa del Carmen</a></li>   
+							<li><a href="//en-yucatan.com.mx/isla-mujeres/tour-isla-contoy/">Isla Contoy</a></li>
+							<li><a href="//en-yucatan.com.mx/cozumel/tour-cielo-cozumel/">Esnorquel en elCielo Cozumel</a></li>
+							<li><a href="//en-yucatan.com.mx/cancun/taxi-aereo/">Taxi Aéreo</a></li>    
+						</ul>
+
+				
+					</div>
+					<!-- /widget -->	
+					</div>
+				</aside>
+				<!-- /aside -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</main>
+	<!--/main-->
+	
+	<!--/footer-->
+	<footer>
+		<div class="container margin_60_35">
+			<div class="row">
+				<div class="col-lg-5 col-md-12 p-r-5">
+					<p><img src="//en-yucatan.com.mx/img/logo.png" width="150" height="36" data-retina="true" alt="Turismo México"></p>
+					<p>www.en-yucatan.com.mx fue fundado en Abril de 2004 por Obed Aquileo & Jéssica Dominguez en un proyecto por compatir los atractivos de la peninsula de Yucatán. Donde en un solo sitio estuviera reunida la información de los estados de Yucatán, Campeche y Quintana Roo..</p>
+					<div class="follow_us">
+						<ul>
+							<li>Siguenos en Redes Sociales</li>
+							<li><a href="//facebook.com/turismoyucatan"><i class="ti-facebook"></i></a></li>
+							<li><a href="//instagram.com/turismoyucatan"><i class="ti-instagram"></i></a></li>
+							<li><a href="//youtube.com/subscription_center?add_user=yucatanpeninsula"><i class="ti-youtube"></i></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 ml-lg-auto">
+					<h5>Enlaces</h5>
+					<ul class="links">
+						<li><a href="//hoteleseconomicosmexico.com">Hoteles Económicos México</a></li>
+						<li><a href="//explorandocenotes.com.mx">Explorando Cenotes</a></li>
+						<li><a href="//en-yucatan.com.mx">En Yucatán</a></li>
+						<li><a href="//en-holbox.com.mx">Isla Holbox</a></li>
+						<li><a href="//en-mexico.com.mx">En México</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					
+				</div>
+			</div>
+			<!--/row-->
+			<hr>
+			<div class="row">
+				<div class="col-lg-6">
+					<ul id="footer-selector">
+						
+						<li><img src="../img/cards_all.svg" alt=""></li>
+					</ul>
+				</div>
+				<div class="col-lg-6">
+					<ul id="additional_links">
+						<li><a href="//en-yucatan.com.mx/terminos-condiciones/">Terminos y Condiciones</a></li>
+						<li><a href="//en-yucatan.com.mx/privacidad/">Privacidad</a></li>
+						<li><span>© 2020 Turismo México - Grupo Turismo Yucatán</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer> 	
+	<!--/footer-->
+	</div>
+	<!-- page -->
+	
+	
+	<div id="toTop"></div><!-- Back to top button -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+<link href="//en-yucatan.com.mx/css/vendors.css" rel="stylesheet">	
+<link href="//en-yucatan.com.mx/css/custom.css" rel="stylesheet">
+		<!-- COMMON SCRIPTS -->
+<script src="//en-yucatan.com.mx/js/common_scripts.js"></script>
+<script src="//en-yucatan.com.mx/js/main.js"></script>
+	<!-- INPUT QUANTITY  -->
+
+	<!-- DATEPICKER  -->
+<script>
+    $('input[name="dates"]').daterangepicker({
+        "locale": {
+            "format": "DD/MM/YYYY",
+            "separator": " - ",
+            "applyLabel": "Aplicar",
+            "cancelLabel": "Cancelar",
+            "fromLabel": "Desde",
+            "toLabel": "Hasta",
+            "customRangeLabel": "Custom",
+            "weekLabel": "W",
+            "daysOfWeek": [
+                "Do", "Lu", "Ma", "Mie", "Jue", "Vie", "Sa"
+            ],
+            "monthNames": [
+                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ],
+            "firstDay": 1
+        },
+        "singleDatePicker": true,
+        "autoApply": true,
+        parentEl: '.scroll-fix',
+        // Esta línea cambia el mínimo a 2 días después de hoy
+        minDate: moment().add(2, 'days'),
+        opens: 'left',
+        "linkedCalendars": false,
+        "showCustomRangeLabel": false
+    }, function(start, end, label) {
+        console.log('New date selected: ' + start.format('YYYY-MM-DD'));
+    });
+</script>
+
+
+ 
+	<script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5dd71db23c93be00124a6086&product=sticky-share-buttons"></script>
+<script data-ad-client="ca-pub-2339833886862339" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EXCJE4887X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EXCJE4887X');
+</script>
+ 
 </body>
-  </html>
+</html>
