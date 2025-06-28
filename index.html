@@ -11,12 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Scroll suave */
     html {
       scroll-behavior: smooth;
     }
 
-    /* Reset */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -87,11 +85,11 @@
       color: #fff;
     }
     .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.10);
+      background-color: rgba(0, 0, 0, 0.25);
       position: absolute;
       inset: 0;
       z-index: 1;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.3); /* sombra reducida */
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
     }
     .hero-content {
       position: relative;
@@ -130,8 +128,8 @@
       text-transform: uppercase;
       letter-spacing: 1.2px;
       text-decoration: none;
-      transition: background 0.3s;
       display: inline-block;
+      transition: background 0.3s;
     }
     .hero-button:hover {
       background-color: #e68900;
@@ -156,51 +154,88 @@
       border-radius: 10px;
       overflow: hidden;
       flex: 1 1 calc(25% - 20px);
-      display: flex;
-      flex-direction: column;
       min-width: 250px;
       max-width: 23%;
       cursor: pointer;
       box-shadow: 0 2px 6px rgba(0,0,0,0.12);
       transition: box-shadow 0.3s ease;
+      user-select: none;
     }
-    .tour-box:hover {
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    .tour-box:hover,
+    .tour-box.active {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      z-index: 10;
     }
     .tour-box img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
-    .tour-box:hover img {
+    .tour-box:hover img,
+    .tour-box.active img {
       transform: scale(1.05);
-      filter: brightness(0.85);
-    }
-    .tour-content {
-      padding: 15px 20px;
-      flex: 1;
-      position: relative;
-      background: #fff;
-    }
-    .tour-content h3 {
-      margin-bottom: 8px;
-      font-size: 1.4rem;
-      color: #00695c;
-    }
-    .tour-content p {
-      font-size: 1rem;
-      color: #444;
-      line-height: 1.3;
+      filter: brightness(0.7);
     }
 
-    /* Hacer toda la card clickeable */
-    .tour-box a {
+    /* Overlay sutil con texto y botón */
+    .tour-overlay {
       position: absolute;
-      inset: 0;
-      z-index: 10;
-      text-indent: -9999px;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      text-align: center;
+      pointer-events: none;
+      border-radius: 10px;
+    }
+    .tour-box:hover .tour-overlay,
+    .tour-box.active .tour-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .tour-overlay h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+    .tour-overlay p {
+      font-size: 1rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.6);
+    }
+    .tour-overlay a {
+      background-color: #ff9800;
+      padding: 10px 22px;
+      color: white;
+      border-radius: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+    .tour-overlay a:hover {
+      background-color: #e68900;
+    }
+
+    /* Móvil: solo activamos overlay con clase active */
+    @media (max-width: 768px) {
+      .tour-box {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+      .tour-box:hover {
+        box-shadow: none;
+      }
     }
 
     /* Sección Testimonios */
@@ -254,42 +289,7 @@
       text-decoration: underline;
     }
 
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .tour-box {
-        flex: 1 1 calc(33.33% - 20px);
-        max-width: 32%;
-      }
-    }
-    @media (max-width: 768px) {
-      .navbar .menu {
-        display: none;
-        flex-direction: column;
-        background: #00695c;
-        position: absolute;
-        top: 56px;
-        right: 0;
-        width: 200px;
-        border-radius: 0 0 0 8px;
-        z-index: 30;
-      }
-      .navbar .menu.show {
-        display: flex;
-      }
-      .navbar .toggle {
-        display: block;
-      }
-      .container {
-        flex-direction: column;
-        gap: 20px;
-      }
-      .tour-box {
-        max-width: 100%;
-        flex-basis: 100%;
-      }
-    }
-
-    /* Botón flotante WhatsApp con ícono */
+    /* Botón flotante WhatsApp */
     .floating-cta {
       position: fixed;
       bottom: 25px;
@@ -343,69 +343,79 @@
 
   <!-- Tours -->
   <div class="container" id="tours">
+
     <div class="tour-box" tabindex="0">
       <img src="img/chichen.jpg" alt="Chichen Itzá" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour Chichen Itzá</h3>
         <p>Visita la zona arqueológica más emblemática de México, una de las nuevas siete maravillas del mundo.</p>
+        <a href="chichen.html" aria-label="Ver más sobre Tour Chichen Itzá">Ver más</a>
       </div>
     </div>
 
     <div class="tour-box" tabindex="0">
       <img src="img/uxmal.jpg" alt="Uxmal" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour Uxmal</h3>
         <p>Explora la arquitectura Puuc en este sitio maya impresionante.</p>
+        <a href="uxmal.html" aria-label="Ver más sobre Tour Uxmal">Ver más</a>
       </div>
     </div>
 
     <div class="tour-box" tabindex="0">
       <img src="img/izamal.jpg" alt="Izamal" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour Izamal</h3>
         <p>La ciudad amarilla emblemática por su convento y fusión cultural.</p>
+        <a href="izamal.html" aria-label="Ver más sobre Tour Izamal">Ver más</a>
       </div>
     </div>
 
     <div class="tour-box" tabindex="0">
       <img src="img/sisal.jpg" alt="Sisal" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour Sisal</h3>
         <p>Destino costero con mar, historia y naturaleza para relajarte.</p>
+        <a href="sisal.html" aria-label="Ver más sobre Tour Sisal">Ver más</a>
       </div>
     </div>
 
     <div class="tour-box" tabindex="0">
       <img src="img/merida.jpg" alt="Mérida" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour Mérida</h3>
         <p>Conoce la capital cultural del sureste: arte, historia y gastronomía.</p>
+        <a href="merida.html" aria-label="Ver más sobre Tour Mérida">Ver más</a>
       </div>
     </div>
 
     <div class="tour-box" tabindex="0">
       <img src="img/telchac.jpg" alt="Telchac" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour Telchac</h3>
         <p>Relájate en esta playa tranquila y disfruta de mariscos y sol.</p>
+        <a href="telchac.html" aria-label="Ver más sobre Tour Telchac">Ver más</a>
       </div>
     </div>
 
     <div class="tour-box" tabindex="0">
       <img src="img/tecoh.jpg" alt="Tecoh" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour Tecoh</h3>
         <p>Descubre cenotes y la iglesia colonial sobre pirámide en Tecoh.</p>
+        <a href="tecoh.html" aria-label="Ver más sobre Tour Tecoh">Ver más</a>
       </div>
     </div>
 
     <div class="tour-box" tabindex="0">
       <img src="img/libre.jpg" alt="Tour libre" />
-      <div class="tour-content">
+      <div class="tour-overlay" aria-hidden="true">
         <h3>Tour libre a escoger</h3>
         <p>Arma tu propia aventura: cenotes, pueblos mágicos y más.</p>
+        <a href="libre.html" aria-label="Ver más sobre Tour libre">Ver más</a>
       </div>
     </div>
+
   </div>
 
   <!-- Sección Testimonios -->
@@ -445,6 +455,29 @@
     document.querySelector('.toggle').addEventListener('click', () => {
       document.querySelector('.menu').classList.toggle('show');
     });
+  </script>
+
+  <!-- JS hover simulado en móvil para cards -->
+  <script>
+    const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (isTouchDevice) {
+      const tourBoxes = document.querySelectorAll('.tour-box');
+      tourBoxes.forEach(box => {
+        box.addEventListener('click', function(e) {
+          if (this.classList.contains('active')) {
+            return true;
+          }
+          e.preventDefault();
+          tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+      document.body.addEventListener('click', e => {
+        if (!e.target.closest('.tour-box')) {
+          tourBoxes.forEach(b => b.classList.remove('active'));
+        }
+      });
+    }
   </script>
 
 </body>
