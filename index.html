@@ -1,70 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CLAP365 - El eco de tus sueños</title>
-  <meta name="description" content="CLAP365 - Tours exclusivos en Yucatán. El eco de tus sueños.">
+  <meta name="description" content="CLAP365 - Tours exclusivos en Yucatán. El eco de tus sueños." />
   <link rel="canonical" href="../" />
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Fuente Raleway -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: 'Raleway', sans-serif;
+      line-height: 1.5;
       background: #f2f2f2;
       color: #333;
-      line-height: 1.5;
-      margin-top: 70px;
     }
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
+    /* Navbar */
     .navbar {
       background: #00695c;
       padding: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
+      z-index: 20;
     }
     .navbar .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 2rem;
+      font-weight: 700;
       color: #fff;
+      letter-spacing: 1.5px;
     }
     .navbar .menu {
-      display: none;
-      flex-direction: column;
-      background: #00695c;
-      position: absolute;
-      top: 56px;
-      right: 0;
-      width: 200px;
-      border-radius: 0 0 0 8px;
-      z-index: 30;
-    }
-    .navbar .menu.show {
       display: flex;
+      gap: 1rem;
     }
     .navbar .menu a {
+      font-weight: 600;
+      font-size: 1rem;
       color: #fff;
-      padding: 8px;
-      transition: background .3s;
-    }
-    .navbar .menu a:hover {
-      background: rgba(255,255,255,0.2);
+      padding: 8px 10px;
+      transition: background 0.3s, color 0.3s;
       border-radius: 4px;
     }
+    .navbar .menu a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
     .navbar .toggle {
-      display: block;
+      display: none;
       cursor: pointer;
       color: #fff;
       font-size: 1.8rem;
     }
 
+    /* Hero */
     .hero {
       background-image: url('img/banner.jpg');
       background-size: cover;
@@ -72,24 +79,46 @@
       height: 70vh;
       position: relative;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: center;
-      color: #fff;
       text-align: center;
-      padding: 0 20px 40px;
+      padding: 0 20px;
+      color: #fff;
     }
     .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.0);
       position: absolute;
       inset: 0;
       z-index: 1;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
     }
     .hero-content {
       position: relative;
       z-index: 2;
+      max-width: 700px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-bottom: 40px;
     }
-    .hero-content .cta-button {
-      padding: 12px 28px;
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero-button-wrapper {
+      margin-top: auto;
+      animation: fadeUp 1s ease-out 1.2s forwards;
+      opacity: 0;
+    }
+    .hero-button {
+      padding: 14px 28px;
       background-color: #ff9800;
       color: white;
       font-size: 1rem;
@@ -97,73 +126,158 @@
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      text-transform: uppercase;
       letter-spacing: 1.2px;
+      text-decoration: none;
+      display: inline-block;
       transition: background 0.3s;
     }
-    .hero-content .cta-button:hover {
+    .hero-button:hover {
       background-color: #e68900;
     }
 
+    /* Container tours */
     .container {
       max-width: 1200px;
       margin: 40px auto 60px;
       padding: 0 20px;
+
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 20px;
     }
+
+    /* Cards tours */
     .tour-box {
+      position: relative;
       background: #fff;
-      border-radius: 6px;
+      border-radius: 10px;
       overflow: hidden;
       flex: 1 1 calc(25% - 20px);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       min-width: 250px;
       max-width: 23%;
-      position: relative;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+      transition: box-shadow 0.3s ease;
+      user-select: none;
     }
-    .tour-box:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .tour-box:hover,
+    .tour-box.active {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      z-index: 10;
     }
     .tour-box img {
       width: 100%;
-      height: 200px;
+      height: 180px;
       object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
-    .tour-box::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.3);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .tour-box:hover::after {
-      opacity: 1;
-    }
-    .tour-content {
-      padding: 15px 20px;
-      flex: 1;
-      position: relative;
-      z-index: 2;
-    }
-    .tour-content h3 {
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-      color: #00695c;
-    }
-    .tour-content p {
-      font-size: 1rem;
-      color: #444;
+    .tour-box:hover img,
+    .tour-box.active img {
+      transform: scale(1.05);
+      filter: brightness(0.7);
     }
 
+    /* Overlay sutil con texto y botón */
+    .tour-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      text-align: center;
+      pointer-events: none;
+      border-radius: 10px;
+    }
+    .tour-box:hover .tour-overlay,
+    .tour-box.active .tour-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .tour-overlay h3 {
+      margin-bottom: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+    .tour-overlay p {
+      font-size: 1rem;
+      line-height: 1.3;
+      margin-bottom: 20px;
+      text-shadow: 0 0 6px rgba(0,0,0,0.6);
+    }
+    .tour-overlay a {
+      background-color: #ff9800;
+      padding: 10px 22px;
+      color: white;
+      border-radius: 6px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+    .tour-overlay a:hover {
+      background-color: #e68900;
+    }
+
+    /* Móvil: solo activamos overlay con clase active */
+    @media (max-width: 768px) {
+      .tour-box {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+      .tour-box:hover {
+        box-shadow: none;
+      }
+    }
+
+    /* Sección Testimonios */
+    .testimonials {
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto 60px;
+      padding: 40px 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .testimonials h2 {
+      color: #00695c;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .testimonial {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 25px;
+      position: relative;
+      padding: 0 20px;
+    }
+    .testimonial::before {
+      content: "“";
+      font-size: 4rem;
+      color: #ff9800;
+      position: absolute;
+      left: 10px;
+      top: -10px;
+      font-weight: bold;
+    }
+    .testimonial-author {
+      margin-top: 8px;
+      font-weight: 600;
+      color: #333;
+      font-style: normal;
+    }
+
+    /* Footer */
     footer {
       background: #00695c;
       color: white;
@@ -176,118 +290,196 @@
       text-decoration: underline;
     }
 
+    /* Botón flotante WhatsApp */
     .floating-cta {
       position: fixed;
       bottom: 25px;
       right: 25px;
       background-color: #25d366;
       color: white;
-      font-size: 1rem;
-      padding: 14px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      padding: 12px;
       border-radius: 50%;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-decoration: none;
       z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: background-color 0.3s;
+    }
+    .floating-cta:hover {
+      background-color: #1ebe57;
     }
     .floating-cta img {
       width: 28px;
       height: 28px;
+      filter: brightness(0) invert(1);
     }
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="../">CLAP365</a></div>
     <div class="toggle" onclick="document.querySelector('.menu').classList.toggle('show')">&#9776;</div>
     <div class="menu">
-      <a href="#tours">Tours</a>
+      <a href="../#tours">Tours</a>
       <a href="../">Inicio</a>
       <a href="../contacto">Contacto</a>
-      <a href="../blog">Blog</a>
     </div>
   </nav>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <a class="cta-button" href="#tours">Ver Tours</a>
+      <div class="hero-button-wrapper">
+        <a href="#tours" class="hero-button">Ver tours</a>
+      </div>
     </div>
   </section>
 
+  <!-- Tours -->
   <div class="container" id="tours">
-    <div class="tour-box"><a href="./chichen.html">
-      <img src="img/chichen.jpg" alt="Chichen Itzá">
-      <div class="tour-content">
-        <h3>Chichen Itzá</h3>
-        <p>Visita la zona arqueológica más emblemática de México.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/chichen.jpg" alt="Chichen Itzá" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour Chichen Itzá</h3>
+        <p>Visita la zona arqueológica más emblemática de México, una de las nuevas siete maravillas del mundo.</p>
+        <a href="chichen.html" aria-label="Ver más sobre Tour Chichen Itzá">Ver más</a>
+      </div>
     </div>
-    <div class="tour-box"><a href="./uxmal.html">
-      <img src="img/uxmal.jpg" alt="Uxmal">
-      <div class="tour-content">
-        <h3>Uxmal</h3>
-        <p>Descubre la arquitectura Puuc en su máximo esplendor.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/uxmal.jpg" alt="Uxmal" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour Uxmal</h3>
+        <p>Explora la arquitectura Puuc en este sitio maya impresionante.</p>
+        <a href="uxmal.html" aria-label="Ver más sobre Tour Uxmal">Ver más</a>
+      </div>
     </div>
-    <div class="tour-box"><a href="./izamal.html">
-      <img src="img/izamal.jpg" alt="Izamal">
-      <div class="tour-content">
-        <h3>Izamal</h3>
-        <p>La ciudad amarilla y sus ruinas mayas coloniales.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/izamal.jpg" alt="Izamal" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour Izamal</h3>
+        <p>La ciudad amarilla emblemática por su convento y fusión cultural.</p>
+        <a href="izamal.html" aria-label="Ver más sobre Tour Izamal">Ver más</a>
+      </div>
     </div>
-    <div class="tour-box"><a href="./sisal.html">
-      <img src="img/sisal.jpg" alt="Sisal">
-      <div class="tour-content">
-        <h3>Sisal</h3>
-        <p>Playas tranquilas y naturaleza en su máxima expresión.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/sisal.jpg" alt="Sisal" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour Sisal</h3>
+        <p>Destino costero con mar, historia y naturaleza para relajarte.</p>
+        <a href="sisal.html" aria-label="Ver más sobre Tour Sisal">Ver más</a>
+      </div>
     </div>
-    <div class="tour-box"><a href="./telchac.html">
-      <img src="img/telchac.jpg" alt="Telchac">
-      <div class="tour-content">
-        <h3>Telchac</h3>
-        <p>Disfruta de un día en la costa yucateca tradicional.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/merida.jpg" alt="Mérida" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour Mérida</h3>
+        <p>Conoce la capital cultural del sureste: arte, historia y gastronomía.</p>
+        <a href="merida.html" aria-label="Ver más sobre Tour Mérida">Ver más</a>
+      </div>
     </div>
-    <div class="tour-box"><a href="./cenotes.html">
-      <img src="img/cenotes.jpg" alt="Cenotes">
-      <div class="tour-content">
-        <h3>Cenotes</h3>
-        <p>Nada en aguas cristalinas dentro de cavernas sagradas.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/telchac.jpg" alt="Telchac" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour Telchac</h3>
+        <p>Relájate en esta playa tranquila y disfruta de mariscos y sol.</p>
+        <a href="telchac.html" aria-label="Ver más sobre Tour Telchac">Ver más</a>
+      </div>
     </div>
-    <div class="tour-box"><a href="./merida.html">
-      <img src="img/merida.jpg" alt="Mérida">
-      <div class="tour-content">
-        <h3>Mérida</h3>
-        <p>La capital blanca con historia, arte y cultura.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/tecoh.jpg" alt="Tecoh" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour Tecoh</h3>
+        <p>Descubre cenotes y la iglesia colonial sobre pirámide en Tecoh.</p>
+        <a href="tecoh.html" aria-label="Ver más sobre Tour Tecoh">Ver más</a>
+      </div>
     </div>
-    <div class="tour-box"><a href="./libre.html">
-      <img src="img/libre.jpg" alt="Libre">
-      <div class="tour-content">
-        <h3>Tour Libre</h3>
-        <p>Personaliza tu experiencia a tu medida.</p>
-      </div></a>
+
+    <div class="tour-box" tabindex="0">
+      <img src="img/libre.jpg" alt="Tour libre" />
+      <div class="tour-overlay" aria-hidden="true">
+        <h3>Tour libre a escoger</h3>
+        <p>Arma tu propia aventura: cenotes, pueblos mágicos y más.</p>
+        <a href="libre.html" aria-label="Ver más sobre Tour libre">Ver más</a>
+      </div>
     </div>
+
   </div>
 
+  <!-- Sección Testimonios -->
+  <section class="testimonials" aria-label="Testimonios de clientes">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonial">
+      <p>“Una experiencia inolvidable, el tour a Chichen Itzá fue espectacular y el guía muy amable.”</p>
+      <div class="testimonial-author">— Ana P.</div>
+    </div>
+    <div class="testimonial">
+      <p>“Los cenotes y la naturaleza de Yucatán superaron mis expectativas. Recomendado al 100%.”</p>
+      <div class="testimonial-author">— Carlos M.</div>
+    </div>
+    <div class="testimonial">
+      <p>“La organización y atención de CLAP365 hicieron que mi viaje fuera perfecto.”</p>
+      <div class="testimonial-author">— Laura G.</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
     <p>© 2025 CLAP365. Todos los derechos reservados.</p>
-    <p><a href="../" target="_blank">www.clap365.com</a></p>
-    <p>
-      <a href="https://facebook.com" target="_blank">Facebook</a> |
-      <a href="https://instagram.com" target="_blank">Instagram</a> |
-      <a href="https://tiktok.com" target="_blank">TikTok</a>
-    </p>
+    <p><a href="../" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
   </footer>
 
-  <a href="https://wa.me/5219999999999" target="_blank" class="floating-cta">
-    <img src="img/whatsapp-icon.png" alt="WhatsApp">
+  <!-- Botón flotante WhatsApp -->
+  <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     class="floating-cta"
+     aria-label="Contactar por WhatsApp">
+    <img src="img/whatsapp-icon.png" alt="WhatsApp" />
   </a>
+
+  <!-- JS menú hamburguesa -->
+  <script>
+    document.querySelector('.toggle').addEventListener('click', () => {
+      document.querySelector('.menu').classList.toggle('show');
+    });
+  </script>
+
+  <!-- JS hover simulado en móvil para cards -->
+  <script>
+    const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    if (isTouchDevice) {
+      const tourBoxes = document.querySelectorAll('.tour-box');
+      tourBoxes.forEach(box => {
+        box.addEventListener('click', function(e) {
+          if (this.classList.contains('active')) {
+            return true;
+          }
+          e.preventDefault();
+          tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+      document.body.addEventListener('click', e => {
+        if (!e.target.closest('.tour-box')) {
+          tourBoxes.forEach(b => b.classList.remove('active'));
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
