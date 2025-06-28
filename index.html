@@ -3,482 +3,288 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CLAP365 - El eco de tus sueños</title>
-  <meta name="description" content="CLAP365 - Tours exclusivos en Yucatán. El eco de tus sueños." />
-  <link rel="canonical" href="../" />
-  
-  <!-- Fuente Raleway -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
-
+  <title>CLAP365 - Tours VIP Exclusivos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
+      margin: 0;
       font-family: 'Raleway', sans-serif;
-      line-height: 1.5;
-      background: #f2f2f2;
-      color: #333;
+      background-color: #f2f2f2;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* Navbar */
     .navbar {
-      background: #00695c;
-      padding: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      background-color: #004d40;
+      padding: 1rem 2rem;
+      color: white;
+      position: relative;
     }
-    .navbar .logo {
-      font-size: 2rem;
+    .navbar .logo a {
+      color: white;
+      text-decoration: none;
       font-weight: 700;
-      color: #fff;
-      letter-spacing: 1.5px;
+      font-size: 1.5rem;
+    }
+    .navbar .menu a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
     }
     .navbar .menu {
       display: flex;
-      gap: 1rem;
-    }
-    .navbar .menu a {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #fff;
-      padding: 8px 10px;
-      transition: background 0.3s, color 0.3s;
-      border-radius: 4px;
-    }
-    .navbar .menu a:hover {
-      background: rgba(255, 255, 255, 0.2);
     }
     .navbar .toggle {
       display: none;
+      font-size: 2rem;
       cursor: pointer;
-      color: #fff;
-      font-size: 1.8rem;
+    }
+    @media (max-width: 768px) {
+      .navbar .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #004d40;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 180px;
+        padding: 10px 0;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      }
+      .navbar .menu.show {
+        display: flex;
+      }
+      .navbar .toggle {
+        display: block;
+      }
     }
 
-    /* Hero */
     .hero {
-      background-image: url('img/banner.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 70vh;
       position: relative;
+      background: url('../images/hero.jpg') center/cover no-repeat;
+      height: 90vh;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-      color: #fff;
+      color: white;
     }
     .hero-overlay {
       background-color: rgba(0, 0, 0, 0.25);
       position: absolute;
       inset: 0;
       z-index: 1;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.10);
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 700px;
-      height: 100%;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .hero-content .btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .card:hover img {
+      transform: scale(1.1);
+    }
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      color: white;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding-bottom: 40px;
-    }
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .hero-button-wrapper {
-      margin-top: auto;
-      animation: fadeUp 1s ease-out 1.2s forwards;
+      padding: 1rem;
       opacity: 0;
+      transition: opacity 0.3s ease;
     }
-    .hero-button {
-      padding: 14px 28px;
-      background-color: #ff9800;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.3s;
-    }
-    .hero-button:hover {
-      background-color: #e68900;
-    }
-
-    /* Container tours */
-    .container {
-      max-width: 1200px;
-      margin: 40px auto 60px;
-      padding: 0 20px;
-
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    /* Cards tours */
-    .tour-box {
-      position: relative;
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      flex: 1 1 calc(25% - 20px);
-      min-width: 250px;
-      max-width: 23%;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-      transition: box-shadow 0.3s ease;
-      user-select: none;
-    }
-    .tour-box:hover,
-    .tour-box.active {
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-      z-index: 10;
-    }
-    .tour-box img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      transition: transform 0.4s ease, filter 0.4s ease;
-    }
-    .tour-box:hover img,
-    .tour-box.active img {
-      transform: scale(1.05);
-      filter: brightness(0.7);
-    }
-
-    /* Overlay sutil con texto y botón */
-    .tour-overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.4);
-      color: #fff;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-      text-align: center;
-      pointer-events: none;
-      border-radius: 10px;
-    }
-    .tour-box:hover .tour-overlay,
-    .tour-box.active .tour-overlay {
+    .card:hover .card-overlay,
+    .card.active .card-overlay {
       opacity: 1;
-      pointer-events: auto;
     }
-    .tour-overlay h3 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
+    .card-title {
+      font-size: 1.3rem;
       font-weight: 700;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
     }
-    .tour-overlay p {
-      font-size: 1rem;
-      line-height: 1.3;
-      margin-bottom: 20px;
-      text-shadow: 0 0 6px rgba(0,0,0,0.6);
+    .card-description {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
     }
-    .tour-overlay a {
-      background-color: #ff9800;
-      padding: 10px 22px;
-      color: white;
-      border-radius: 6px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: background-color 0.3s;
-      text-decoration: none;
-    }
-    .tour-overlay a:hover {
-      background-color: #e68900;
-    }
-
-    /* Móvil: solo activamos overlay con clase active */
-    @media (max-width: 768px) {
-      .tour-box {
-        max-width: 100%;
-        flex-basis: 100%;
-      }
-      .tour-box:hover {
-        box-shadow: none;
-      }
-    }
-
-    /* Sección Testimonios */
-    .testimonials {
-      background: #fff;
-      max-width: 900px;
-      margin: 0 auto 60px;
-      padding: 40px 20px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    .card-button {
+      margin-top: 1rem;
+      background: #ff9800;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
       text-align: center;
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+    @media (hover: none) {
+      .card:active .card-overlay {
+        opacity: 1;
+      }
+    }
+
+    .testimonials {
+      padding: 2rem;
+      background: #f2f2f2;
     }
     .testimonials h2 {
-      color: #00695c;
-      margin-bottom: 30px;
-      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1rem;
     }
     .testimonial {
-      font-style: italic;
-      color: #555;
-      margin-bottom: 25px;
-      position: relative;
-      padding: 0 20px;
-    }
-    .testimonial::before {
-      content: "“";
-      font-size: 4rem;
-      color: #ff9800;
-      position: absolute;
-      left: 10px;
-      top: -10px;
-      font-weight: bold;
-    }
-    .testimonial-author {
-      margin-top: 8px;
-      font-weight: 600;
-      color: #333;
-      font-style: normal;
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 1rem auto;
+      max-width: 600px;
     }
 
-    /* Footer */
-    footer {
-      background: #00695c;
+    .footer {
+      background: #004d40;
       color: white;
+      padding: 2rem;
       text-align: center;
-      padding: 25px 20px;
-      font-size: 0.9rem;
     }
-    footer a {
-      color: #ffeb3b;
-      text-decoration: underline;
+    .socials a {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
     }
 
-    /* Botón flotante WhatsApp */
-    .floating-cta {
+    .whatsapp-btn {
       position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25d366;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
       color: white;
-      font-weight: bold;
-      font-size: 1.5rem;
-      padding: 12px;
       border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      text-decoration: none;
-      z-index: 1000;
+      width: 56px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.3s;
-    }
-    .floating-cta:hover {
-      background-color: #1ebe57;
-    }
-    .floating-cta img {
-      width: 28px;
-      height: 28px;
-      filter: brightness(0) invert(1);
+      font-size: 30px;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-decoration: none;
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo"><a href="../">CLAP365</a></div>
-    <div class="toggle" onclick="document.querySelector('.menu').classList.toggle('show')">&#9776;</div>
+    <div class="toggle">&#9776;</div>
     <div class="menu">
       <a href="../#tours">Tours</a>
       <a href="../">Inicio</a>
+      <a href="../blog.html">Blog</a>
       <a href="../contacto">Contacto</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
+  <header class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-button-wrapper">
-        <a href="#tours" class="hero-button">Ver tours</a>
-      </div>
+      <a href="../#tours" class="btn">Ver tours</a>
+    </div>
+  </header>
+
+  <section class="cards" id="tours">
+    <!-- 8 Tours -->
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/chichen.jpg" alt="Chichen Itzá" />
+      <div class="card-overlay"><div class="card-title">Chichen Itzá</div><div class="card-description">Maravilla del mundo moderno.</div><a href="../chichen.html" class="card-button">Ver más</a></div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/uxmal.jpg" alt="Uxmal" />
+      <div class="card-overlay"><div class="card-title">Uxmal</div><div class="card-description">Arquitectura puuc majestuosa.</div><a href="../uxmal.html" class="card-button">Ver más</a></div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/izamal.jpg" alt="Izamal" />
+      <div class="card-overlay"><div class="card-title">Izamal</div><div class="card-description">La ciudad amarilla colonial.</div><a href="../izamal.html" class="card-button">Ver más</a></div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/sisal.jpg" alt="Sisal" />
+      <div class="card-overlay"><div class="card-title">Sisal</div><div class="card-description">Playa tranquila y mágica.</div><a href="../sisal.html" class="card-button">Ver más</a></div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/telchac.jpg" alt="Telchac" />
+      <div class="card-overlay"><div class="card-title">Telchac</div><div class="card-description">Puerto con historia y encanto.</div><a href="../telchac.html" class="card-button">Ver más</a></div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/cenotes.jpg" alt="Cenotes" />
+      <div class="card-overlay"><div class="card-title">Cenotes</div><div class="card-description">Aguas cristalinas ocultas.</div><a href="../cenotes.html" class="card-button">Ver más</a></div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/merida.jpg" alt="Mérida" />
+      <div class="card-overlay"><div class="card-title">Mérida</div><div class="card-description">Cultura, comida y tradición.</div><a href="../merida.html" class="card-button">Ver más</a></div>
+    </div>
+    <div class="card" onclick="this.classList.toggle('active')">
+      <img src="../images/libre.jpg" alt="Libre" />
+      <div class="card-overlay"><div class="card-title">Libre</div><div class="card-description">Diseña tu experiencia VIP.</div><a href="../libre.html" class="card-button">Ver más</a></div>
     </div>
   </section>
 
-  <!-- Tours -->
-  <div class="container" id="tours">
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/chichen.jpg" alt="Chichen Itzá" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Chichen Itzá</h3>
-        <p>Visita la zona arqueológica más emblemática de México, una de las nuevas siete maravillas del mundo.</p>
-        <a href="chichen.html" aria-label="Ver más sobre Tour Chichen Itzá">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/uxmal.jpg" alt="Uxmal" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Uxmal</h3>
-        <p>Explora la arquitectura Puuc en este sitio maya impresionante.</p>
-        <a href="uxmal.html" aria-label="Ver más sobre Tour Uxmal">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/izamal.jpg" alt="Izamal" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Izamal</h3>
-        <p>La ciudad amarilla emblemática por su convento y fusión cultural.</p>
-        <a href="izamal.html" aria-label="Ver más sobre Tour Izamal">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/sisal.jpg" alt="Sisal" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Sisal</h3>
-        <p>Destino costero con mar, historia y naturaleza para relajarte.</p>
-        <a href="sisal.html" aria-label="Ver más sobre Tour Sisal">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/merida.jpg" alt="Mérida" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Mérida</h3>
-        <p>Conoce la capital cultural del sureste: arte, historia y gastronomía.</p>
-        <a href="merida.html" aria-label="Ver más sobre Tour Mérida">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/telchac.jpg" alt="Telchac" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Telchac</h3>
-        <p>Relájate en esta playa tranquila y disfruta de mariscos y sol.</p>
-        <a href="telchac.html" aria-label="Ver más sobre Tour Telchac">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/tecoh.jpg" alt="Tecoh" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Tecoh</h3>
-        <p>Descubre cenotes y la iglesia colonial sobre pirámide en Tecoh.</p>
-        <a href="tecoh.html" aria-label="Ver más sobre Tour Tecoh">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/libre.jpg" alt="Tour libre" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour libre a escoger</h3>
-        <p>Arma tu propia aventura: cenotes, pueblos mágicos y más.</p>
-        <a href="libre.html" aria-label="Ver más sobre Tour libre">Ver más</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Sección Testimonios -->
-  <section class="testimonials" aria-label="Testimonios de clientes">
-    <h2>Lo que dicen nuestros clientes</h2>
-    <div class="testimonial">
-      <p>“Una experiencia inolvidable, el tour a Chichen Itzá fue espectacular y el guía muy amable.”</p>
-      <div class="testimonial-author">— Ana P.</div>
-    </div>
-    <div class="testimonial">
-      <p>“Los cenotes y la naturaleza de Yucatán superaron mis expectativas. Recomendado al 100%.”</p>
-      <div class="testimonial-author">— Carlos M.</div>
-    </div>
-    <div class="testimonial">
-      <p>“La organización y atención de CLAP365 hicieron que mi viaje fuera perfecto.”</p>
-      <div class="testimonial-author">— Laura G.</div>
-    </div>
+  <section class="testimonials">
+    <h2>Testimonios</h2>
+    <div class="testimonial">“Una experiencia inolvidable, atención de primera. ¡Gracias CLAP365!”</div>
+    <div class="testimonial">“Los cenotes y sitios arqueológicos superaron mis expectativas.”</div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 CLAP365. Todos los derechos reservados.</p>
-    <p><a href="../" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
+  <footer class="footer">
+    <p>Síguenos en redes:</p>
+    <div class="socials">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>&copy; 2025 CLAP365. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Botón flotante WhatsApp -->
-  <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     class="floating-cta"
-     aria-label="Contactar por WhatsApp">
-    <img src="img/whatsapp-icon.png" alt="WhatsApp" />
-  </a>
-
-  <!-- JS menú hamburguesa -->
+<a href="https://wa.me/5219991234567" target="_blank" class="whatsapp-btn">
+  <img src="img/whatsapp-icon.png" alt="WhatsApp" style="width: 30px; height: 30px;">
+</a>
   <script>
     document.querySelector('.toggle').addEventListener('click', () => {
       document.querySelector('.menu').classList.toggle('show');
     });
   </script>
-
-  <!-- JS hover simulado en móvil para cards -->
-  <script>
-    const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    if (isTouchDevice) {
-      const tourBoxes = document.querySelectorAll('.tour-box');
-      tourBoxes.forEach(box => {
-        box.addEventListener('click', function(e) {
-          if (this.classList.contains('active')) {
-            return true;
-          }
-          e.preventDefault();
-          tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
-          this.classList.add('active');
-        });
-      });
-      document.body.addEventListener('click', e => {
-        if (!e.target.closest('.tour-box')) {
-          tourBoxes.forEach(b => b.classList.remove('active'));
-        }
-      });
-    }
-  </script>
-
 </body>
 </html>
