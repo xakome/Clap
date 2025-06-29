@@ -89,8 +89,13 @@
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.5;
-            background: #f2f2f2;
-            color: #333;
+            /* Fondo con imagen */
+            background-image: url('fondo.png'); /* Asegúrate que la ruta sea correcta */
+            background-size: cover; /* La imagen cubrirá todo el fondo */
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+            color: #333; /* Color de texto predeterminado */
         }
         a {
             text-decoration: none;
@@ -102,7 +107,7 @@
             background: #00695c;
             padding: 15px 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Alinea elementos a los extremos */
             align-items: center;
             position: sticky;
             top: 0;
@@ -114,6 +119,7 @@
             font-weight: 700;
             color: #fff;
             letter-spacing: 1.5px;
+            /* No necesitamos margin-right: auto aquí si usamos justify-content: space-between */
         }
 
         /* Contenedor principal de navegación (se adapta para desktop/móvil) */
@@ -145,6 +151,7 @@
             cursor: pointer;
             color: #fff;
             font-size: 1.8rem;
+            /* margin-left se gestiona en media query para móvil */
         }
 
         /* Botón Reservar */
@@ -159,6 +166,7 @@
             transition: background 0.3s;
             cursor: pointer;
             border: none;
+            margin-left: auto; /* Empuja el botón a la derecha en desktop */
         }
         .reserve-btn:hover {
             background-color: #e68900;
@@ -168,7 +176,7 @@
         .language-switcher-desktop {
             position: relative;
             display: flex; /* Visible en desktop */
-            margin-left: 20px;
+            margin-left: 20px; /* Espacio a la izquierda del botón de reserva en desktop */
         }
         .language-switcher-desktop .current-lang {
             color: #fff;
@@ -216,10 +224,63 @@
             background-color: #004d40;
         }
 
-        /* Ocultar el selector de idioma móvil en desktop */
-        .language-switcher-mobile {
-            display: none;
+        /* Nuevo Selector de Idioma para Móvil (siempre visible) */
+        .language-switcher-mobile-standalone {
+            position: relative;
+            display: none; /* Oculto por defecto en desktop */
         }
+        .language-switcher-mobile-standalone .current-lang-mobile {
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 8px; /* Padding ajustado para móvil */
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.85rem; /* Tamaño de fuente ajustado para móvil */
+        }
+        .language-switcher-mobile-standalone .current-lang-mobile:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .language-switcher-mobile-standalone .current-lang-mobile::after {
+            content: '\25BC';
+            font-size: 0.6em;
+            margin-left: 3px;
+        }
+        .language-switcher-mobile-standalone .lang-options-mobile {
+            display: none;
+            position: absolute;
+            background: #00695c;
+            min-width: 100px; /* Ancho más pequeño para móvil */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 21; /* Mayor z-index para que esté sobre el menú */
+            border-radius: 4px;
+            top: calc(100% + 5px);
+            right: 0;
+            overflow: hidden;
+        }
+        .language-switcher-mobile-standalone.active .lang-options-mobile {
+            display: block;
+        }
+        .language-switcher-mobile-standalone .lang-options-mobile a {
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+        .language-switcher-mobile-standalone .lang-options-mobile a:hover {
+            background-color: #004d40;
+        }
+        
+        /* Ocultar el selector de idioma que estaba dentro del menú móvil (ya no se usa) */
+        .language-switcher-mobile {
+            display: none !important;
+        }
+
 
         /* Hero Section */
         .hero {
@@ -264,7 +325,7 @@
         }
         .hero-button-wrapper {
             margin-top: auto;
-            animation: fadeUp 1s ease-out 1.2s forwards;
+            animation: fadeUp 10s ease-out 1.2s forwards; /* Aumentado el tiempo para una animación más suave */
             opacity: 0;
         }
         /* Estilos para el botón "Ver tours" más discreto */
@@ -567,33 +628,38 @@
 
             /* Navbar Adjustments */
             .navbar {
-                justify-content: flex-start;
-                gap: 15px;
-                padding: 12px 15px; /* Ajuste para móvil */
+                justify-content: flex-start; /* Control con 'order' */
+                gap: 10px;
+                padding: 12px 15px;
             }
             .navbar .logo {
-                flex-grow: 1;
-                font-size: 1.8rem; /* Tamaño más pequeño en móvil */
-            }
-            .navbar .reserve-btn {
-                font-size: 0.75rem; /* Más pequeño para móvil */
-                padding: 6px 12px;
-                order: 2; /* Cambia el orden en móvil */
+                flex-grow: 1; /* Permite que el logo ocupe la mayor parte del espacio a la izquierda */
+                font-size: 1.8rem;
+                order: 1; /* Primer elemento */
             }
 
-            /* Ocultar el menú normal de navegación y selector de idioma para DESKTOP en móvil */
-            .navbar .main-nav .menu {
-                display: none;
-            }
+            /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
+            .navbar .main-nav .menu,
             .language-switcher-desktop {
                 display: none;
             }
 
-            /* Mostrar el toggle (hamburguesa) en móvil */
+            /* Mostrar el botón de idioma para móvil y posicionarlo */
+            .language-switcher-mobile-standalone {
+                display: flex; /* Mostrar en móvil */
+                order: 2; /* Segundo elemento */
+                margin-left: 0; /* Asegurarse de que no herede 'margin-left: auto' */
+            }
+            /* Posicionar el botón de reserva */
+            .reserve-btn {
+                order: 3; /* Tercer elemento */
+                margin-left: 10px; /* Espacio entre idioma y reserva */
+            }
+            /* Posicionar el toggle */
             .navbar .toggle {
                 display: block;
-                order: 3; /* Asegura que la hamburguesa esté al final */
-                margin-left: 15px;
+                order: 4; /* Cuarto elemento */
+                margin-left: 10px; /* Espacio entre reserva y hamburguesa */
             }
 
             /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
@@ -601,52 +667,31 @@
                 flex-direction: column;
                 background: #00695c;
                 position: absolute;
-                top: 50px; /* Ajustado al padding de navbar */
-                right: 15px; /* Ajustado al padding de navbar */
+                top: 50px;
+                right: 15px;
                 border-radius: 6px;
                 padding: 10px;
-                width: 180px; /* Ancho ajustado para idiomas */
+                width: 180px;
                 gap: 0.5rem;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                 z-index: 19;
                 display: none; /* Oculto por defecto */
-                align-items: flex-start; /* Alinea los ítems a la izquierda */
+                align-items: flex-start;
             }
             .navbar .main-nav.show {
-                display: flex; /* Muestra el menú cuando está activo */
+                display: flex;
             }
 
             /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
             .navbar .main-nav.show .menu {
-                display: flex; /* Muestra los enlaces en columna */
+                display: flex;
                 flex-direction: column;
-                width: 100%; /* Ocupa todo el ancho del dropdown */
+                width: 100%;
             }
             .navbar .main-nav.show .menu a {
                 padding: 8px 10px;
                 width: 100%;
                 text-align: left;
-            }
-
-            /* Mostrar y estilizar el selector de idioma móvil */
-            .language-switcher-mobile {
-                display: block; /* Mostrar solo en móvil dentro del menú */
-                margin-top: 10px;
-                border-top: 1px solid rgba(255,255,255,0.2);
-                padding-top: 10px;
-                width: 100%; /* Ocupa todo el ancho del dropdown */
-            }
-            .language-switcher-mobile a {
-                color: white;
-                padding: 8px 10px;
-                font-size: 0.95rem;
-                display: block;
-                text-align: left;
-                border-radius: 4px;
-                transition: background 0.3s;
-            }
-            .language-switcher-mobile a:hover {
-                background: rgba(255, 255, 255, 0.2);
             }
 
             /* Ajustes para tarjetas de tours en móvil */
@@ -665,6 +710,20 @@
     <nav class="navbar">
         <div class="logo"><a href="https://www.tu-dominio.com/">CLAP365</a></div>
         
+        <div class="language-switcher-mobile-standalone">
+            <div class="current-lang-mobile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                ES <i class="fas fa-globe"></i>
+            </div>
+            <div class="lang-options-mobile" role="menu">
+                <a href="?lang=es" role="menuitem">Español</a>
+                <a href="?lang=en" role="menuitem">English</a>
+                <a href="?lang=fr" role="menuitem">Français</a>
+                <a href="?lang=it" role="menuitem">Italiano</a>
+                <a href="?lang=de" role="menuitem">Deutsch</a>
+                <a href="?lang=ru" role="menuitem">Русский</a>
+            </div>
+        </div>
+
         <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar</button>
 
         <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
@@ -689,13 +748,7 @@
                 </div>
             </div>
             <div class="language-switcher-mobile">
-                <a href="?lang=es" role="menuitem">Español</a>
-                <a href="?lang=en" role="menuitem">English</a>
-                <a href="?lang=fr" role="menuitem">Français</a>
-                <a href="?lang=it" role="menuitem">Italiano</a>
-                <a href="?lang=de" role="menuitem">Deutsch</a>
-                <a href="?lang=ru" role="menuitem">Русский</a>
-            </div>
+                </div>
         </div>
     </nav>
 
@@ -819,7 +872,7 @@
         <div class="modal-content">
             <span class="close" role="button" aria-label="Cerrar formulario" tabindex="0">&times;</span>
             <h2 id="modalTitle">Reservar Tour Exclusivo</h2>
-            <form id="reserveForm">
+            <form id="reserveForm" action="https://formspree.io/f/xzzgozpr" method="POST">
                 <label for="name">Nombre completo</label>
                 <input type="text" id="name" name="name" required autocomplete="name" />
 
@@ -853,6 +906,10 @@
         const closeBtn = modal.querySelector('.close');
         const langSwitcherDesktop = document.querySelector('.language-switcher-desktop');
         const currentLangDesktop = document.querySelector('.language-switcher-desktop .current-lang');
+        // Nuevo selector de idioma móvil
+        const langSwitcherMobileStandalone = document.querySelector('.language-switcher-mobile-standalone');
+        const currentLangMobile = document.querySelector('.language-switcher-mobile-standalone .current-lang-mobile');
+
 
         // --- Funcionalidad del Menú Hamburguesa ---
         toggle.addEventListener('click', () => {
@@ -864,6 +921,11 @@
             if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
                 langSwitcherDesktop.classList.remove('active');
                 currentLangDesktop.setAttribute('aria-expanded', 'false');
+            }
+            // Cerrar selector de idioma móvil si está abierto
+            if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                langSwitcherMobileStandalone.classList.remove('active');
+                currentLangMobile.setAttribute('aria-expanded', 'false');
             }
         });
 
@@ -881,6 +943,11 @@
                 if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
                     langSwitcherDesktop.classList.remove('active');
                     currentLangDesktop.setAttribute('aria-expanded', 'false');
+                }
+                // Cerrar selector de idioma móvil si está abierto
+                if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                    langSwitcherMobileStandalone.classList.remove('active');
+                    currentLangMobile.setAttribute('aria-expanded', 'false');
                 }
                 modal.querySelector('#name').focus(); // Mueve el foco al primer campo del formulario
             } else { // Si se está cerrando el modal
@@ -917,6 +984,11 @@
                 if (modal.classList.contains('show')) {
                     toggleModal();
                 }
+                // Cerrar selector de idioma móvil si está abierto
+                if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                    langSwitcherMobileStandalone.classList.remove('active');
+                    currentLangMobile.setAttribute('aria-expanded', 'false');
+                }
             });
 
             // Cerrar selector de idioma de desktop al hacer clic fuera
@@ -928,11 +1000,41 @@
             });
         }
 
+        // --- Funcionalidad del Selector de Idioma (Móvil independiente) ---
+        if (langSwitcherMobileStandalone) {
+            currentLangMobile.addEventListener('click', () => {
+                const isActive = langSwitcherMobileStandalone.classList.toggle('active');
+                currentLangMobile.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                // Asegurarse de que otros elementos se cierren
+                if (mainNav.classList.contains('show')) { // Cierra el menú hamburguesa si está abierto
+                    mainNav.classList.remove('show');
+                }
+                if (modal.classList.contains('show')) {
+                    toggleModal();
+                }
+                if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
+                    langSwitcherDesktop.classList.remove('active');
+                    currentLangDesktop.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Cerrar selector de idioma móvil al hacer clic fuera
+            document.addEventListener('click', (event) => {
+                if (!langSwitcherMobileStandalone.contains(event.target) && langSwitcherMobileStandalone.classList.contains('active')) {
+                    langSwitcherMobileStandalone.classList.remove('active');
+                    currentLangMobile.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+
         // --- Cierre general de elementos flotantes al hacer clic fuera ---
         document.addEventListener('click', (event) => {
             const isClickInsideNavbarElements = toggle.contains(event.target) || 
                                               mainNav.contains(event.target) || // Ahora verifica .main-nav
                                               reserveBtn.contains(event.target) || 
+                                              (langSwitcherDesktop && langSwitcherDesktop.contains(event.target)) || // Verifica si existe antes de usar contains
+                                              (langSwitcherMobileStandalone && langSwitcherMobileStandalone.contains(event.target)) || // Verifica si existe
                                               modal.contains(event.target);
             
             if (!isClickInsideNavbarElements) {
@@ -945,27 +1047,23 @@
                     langSwitcherDesktop.classList.remove('active');
                     currentLangDesktop.setAttribute('aria-expanded', 'false');
                 }
+                // Cierra selector de idioma móvil si está abierto
+                if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                    langSwitcherMobileStandalone.classList.remove('active');
+                    currentLangMobile.setAttribute('aria-expanded', 'false');
+                }
             }
         });
 
         // Cerrar menú móvil al hacer clic en un enlace del menú móvil
         // Ahora seleccionamos los enlaces DENTRO del mainNav para el cierre en móvil
-        mainNav.querySelectorAll('.menu a, .language-switcher-mobile a').forEach(link => {
+        mainNav.querySelectorAll('.menu a').forEach(link => { // Solo los enlaces del menú principal
             link.addEventListener('click', () => {
                 // Solo cierra si el menú está en modo móvil (class 'show' activa)
                 if (window.innerWidth <= 768 && mainNav.classList.contains('show')) {
                     mainNav.classList.remove('show');
                 }
             });
-        });
-
-        // --- Envío de Formulario (simulado) ---
-        const form = document.getElementById('reserveForm');
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            alert(`Gracias ${form.name.value}, tu reserva para el tour "${form.tour.options[form.tour.selectedIndex].text}" ha sido recibida. Nos pondremos en contacto contigo pronto.`);
-            form.reset();
-            toggleModal();
         });
 
         // --- JS hover simulado en móvil para cards ---
