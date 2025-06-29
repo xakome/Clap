@@ -5,23 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CLAP365 | Tours Exclusivos en Mérida y Yucatán: Cenotes, Playas, Pirámides y Más</title>
     <meta name="description" content="Descubre Yucatán con CLAP365: tours privados y exclusivos desde Mérida a cenotes, playas, zonas arqueológicas como Chichen Itzá y Uxmal, haciendas y naturaleza. Experiencias de lujo para turistas nacionales e internacionales. ¡Reserva tu day trip inolvidable!" />
-    <link rel="canonical" href="https://www.tu-dominio.com/" /> <!-- ¡IMPORTANTE! Reemplaza con tu URL definitiva -->
+    <link rel="canonical" href="https://www.tu-dominio.com/" /> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
-    <!-- Fuentes: Playfair Display para títulos, Open Sans para texto -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-
-    <!-- Font Awesome para iconos de redes sociales y WhatsApp -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Schema Markup (JSON-LD) para mejorar el SEO y visibilidad en IA -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "TravelAgency",
       "name": "CLAP365",
-      "url": "https://www.tu-dominio.com/", <!-- ¡IMPORTANTE! Reemplaza con tu URL definitiva -->
-      "logo": "https://www.tu-dominio.com/img/logo-clap365.png", <!-- Reemplaza con la URL real de tu logo -->
-      "description": "CLAP365 ofrece tours exclusivos y privados desde Mérida, Yucatán, para explorar cenotes, playas, pirámides mayas (Chichen Itzá, Uxmal), haciendas, y la vasta naturaleza de la península. Experiencias de lujo y personalizadas para viajeros nacionales e internacionales.",
+      "url": "https://www.tu-dominio.com/", "logo": "https://www.tu-dominio.com/img/logo-clap365.png", "description": "CLAP365 ofrece tours exclusivos y privados desde Mérida, Yucatán, para explorar cenotes, playas, pirámides mayas (Chichen Itzá, Uxmal), haciendas, y la vasta naturaleza de la península. Experiencias de lujo y personalizadas para viajeros nacionales e internacionales.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Calle 60",
@@ -32,14 +25,12 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+52-9991234567", <!-- Reemplaza con tu número de WhatsApp real -->
-        "contactType": "Customer Service",
+        "telephone": "+52-9991234567", "contactType": "Customer Service",
         "areaServed": ["MX", "US", "CA", "EU", "America Latina"],
         "availableLanguage": ["es", "en"]
       },
       "sameAs": [
-        "URL_DE_TU_FACEBOOK", <!-- Reemplaza con tus URLs de redes sociales -->
-        "URL_DE_TU_INSTAGRAM",
+        "URL_DE_TU_FACEBOOK", "URL_DE_TU_INSTAGRAM",
         "URL_DE_TU_TIKTOK"
       ],
       "areaServed": {
@@ -124,18 +115,19 @@
             color: #fff;
             letter-spacing: 1.5px;
         }
-        /* Contenedor principal de navegación para desktop (menú y botón) */
-        .navbar .main-nav-desktop {
+
+        /* Contenedor principal de navegación (se adapta para desktop/móvil) */
+        .navbar .main-nav {
             display: flex;
             align-items: center;
             gap: 20px;
         }
-        .navbar .main-nav-desktop .menu {
+        .navbar .main-nav .menu {
             display: flex;
             gap: 1.2rem;
             align-items: center;
         }
-        .navbar .main-nav-desktop .menu a {
+        .navbar .main-nav .menu a {
             font-weight: 600;
             font-size: 1rem;
             color: #fff;
@@ -143,12 +135,13 @@
             transition: background 0.3s, color 0.3s;
             border-radius: 4px;
         }
-        .navbar .main-nav-desktop .menu a:hover {
+        .navbar .main-nav .menu a:hover {
             background: rgba(255, 255, 255, 0.2);
         }
-        /* Ocultar el toggle por defecto en desktop */
+
+        /* Toggle para el menú hamburguesa (oculto por defecto en desktop) */
         .navbar .toggle {
-            display: none;
+            display: none; /* Se oculta por defecto y se muestra en móvil */
             cursor: pointer;
             color: #fff;
             font-size: 1.8rem;
@@ -158,11 +151,11 @@
         .reserve-btn {
             background: #ff9800;
             color: white;
-            padding: 7px 14px; /* Reducido */
-            border-radius: 4px; /* Ligeramente más pequeño */
+            padding: 7px 14px;
+            border-radius: 4px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.8rem; /* Fuente más pequeña */
+            font-size: 0.8rem;
             transition: background 0.3s;
             cursor: pointer;
             border: none;
@@ -223,6 +216,10 @@
             background-color: #004d40;
         }
 
+        /* Ocultar el selector de idioma móvil en desktop */
+        .language-switcher-mobile {
+            display: none;
+        }
 
         /* Hero Section */
         .hero {
@@ -581,34 +578,30 @@
             .navbar .reserve-btn {
                 font-size: 0.75rem; /* Más pequeño para móvil */
                 padding: 6px 12px;
+                order: 2; /* Cambia el orden en móvil */
             }
 
-            /* Ocultar el grupo de navegación de escritorio */
-            .navbar .main-nav-desktop {
+            /* Ocultar el menú normal de navegación y selector de idioma para DESKTOP en móvil */
+            .navbar .main-nav .menu {
+                display: none;
+            }
+            .language-switcher-desktop {
                 display: none;
             }
 
-            /* Mostrar el botón de reserva y el toggle */
-            .navbar .reserve-btn {
-                display: block;
-                order: 2;
-            }
+            /* Mostrar el toggle (hamburguesa) en móvil */
             .navbar .toggle {
                 display: block;
-                order: 3;
+                order: 3; /* Asegura que la hamburguesa esté al final */
                 margin-left: 15px;
             }
-            
-            /* Language Switcher Mobile (dentro del menú hamburguesa) */
-            .language-switcher-desktop {
-                display: none; /* Ocultar el selector de desktop en móvil */
-            }
-            .menu-mobile-dropdown {
-                display: none;
+
+            /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
+            .navbar .main-nav {
                 flex-direction: column;
                 background: #00695c;
                 position: absolute;
-                top: 50px; /* Ajustado para el nuevo padding de navbar */
+                top: 50px; /* Ajustado al padding de navbar */
                 right: 15px; /* Ajustado al padding de navbar */
                 border-radius: 6px;
                 padding: 10px;
@@ -616,29 +609,32 @@
                 gap: 0.5rem;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                 z-index: 19;
+                display: none; /* Oculto por defecto */
+                align-items: flex-start; /* Alinea los ítems a la izquierda */
             }
-            .menu-mobile-dropdown.show {
-                display: flex;
-            }
-            .menu-mobile-dropdown a {
-                font-weight: 600;
-                font-size: 1rem;
-                color: #fff;
-                padding: 8px 10px;
-                transition: background 0.3s, color 0.3s;
-                border-radius: 4px;
-                font-family: 'Open Sans', sans-serif; /* Asegura la tipografía */
-            }
-            .menu-mobile-dropdown a:hover {
-                background: rgba(255, 255, 255, 0.2);
+            .navbar .main-nav.show {
+                display: flex; /* Muestra el menú cuando está activo */
             }
 
-            /* Selector de idioma dentro del menú móvil */
+            /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
+            .navbar .main-nav.show .menu {
+                display: flex; /* Muestra los enlaces en columna */
+                flex-direction: column;
+                width: 100%; /* Ocupa todo el ancho del dropdown */
+            }
+            .navbar .main-nav.show .menu a {
+                padding: 8px 10px;
+                width: 100%;
+                text-align: left;
+            }
+
+            /* Mostrar y estilizar el selector de idioma móvil */
             .language-switcher-mobile {
-                display: block; /* Mostrar solo en móvil */
-                margin-top: 10px; /* Separación del menú */
+                display: block; /* Mostrar solo en móvil dentro del menú */
+                margin-top: 10px;
                 border-top: 1px solid rgba(255,255,255,0.2);
                 padding-top: 10px;
+                width: 100%; /* Ocupa todo el ancho del dropdown */
             }
             .language-switcher-mobile a {
                 color: white;
@@ -666,24 +662,19 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="logo"><a href="https://www.tu-dominio.com/">CLAP365</a></div>
         
-        <!-- Botón de reserva siempre visible -->
         <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar</button>
 
-        <!-- Toggle para el menú hamburguesa (visible solo en móvil) -->
         <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
         
-        <!-- Grupo de navegación principal para DESKTOP (oculto en móvil con CSS) -->
-        <div class="main-nav-desktop">
+        <div class="main-nav">
             <div class="menu" role="menu">
                 <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
                 <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
                 <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
             </div>
-            <!-- Selector de Idioma (Desktop) -->
             <div class="language-switcher-desktop">
                 <div class="current-lang" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
                     ES <i class="fas fa-globe"></i>
@@ -697,14 +688,6 @@
                     <a href="?lang=ru" role="menuitem">Русский</a>
                 </div>
             </div>
-        </div>
-
-        <!-- Menú desplegable para MÓVIL (visible solo cuando se activa el toggle) -->
-        <div class="menu-mobile-dropdown">
-            <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
-            <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
-            <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
-            <!-- Selector de Idioma (Móvil) -->
             <div class="language-switcher-mobile">
                 <a href="?lang=es" role="menuitem">Español</a>
                 <a href="?lang=en" role="menuitem">English</a>
@@ -716,7 +699,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" role="banner" aria-label="Imagen principal y botón ver tours">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -726,7 +708,6 @@
         </div>
     </section>
 
-    <!-- Tours Section -->
     <div class="container" id="tours" role="list">
         <a href="https://www.tu-dominio.com/chichen" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Chichen Itzá. Ver más detalles">
             <img src="img/chichen.jpg" alt="Chichen Itzá, pirámide Kukulkán en Yucatán" />
@@ -801,7 +782,6 @@
         </a>
     </div>
 
-    <!-- Sección Testimonios -->
     <section class="testimonials" aria-label="Testimonios de clientes">
         <h2>Lo que dicen nuestros clientes</h2>
         <div class="testimonial">
@@ -818,7 +798,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 CLAP365. Todos los derechos reservados.</p>
         <p><a href="https://www.tu-dominio.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
@@ -829,16 +808,13 @@
         </div>
     </footer>
 
-    <!-- Botón flotante WhatsApp -->
     <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
          target="_blank"
          rel="noopener noreferrer"
          class="floating-cta"
          aria-label="Contactar por WhatsApp para tours exclusivos en Yucatán">
-        <i class="fab fa-whatsapp"></i> <!-- Icono de WhatsApp de Font Awesome -->
-    </a>
+        <i class="fab fa-whatsapp"></i> </a>
 
-    <!-- Modal Reservar -->
     <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
             <span class="close" role="button" aria-label="Cerrar formulario" tabindex="0">&times;</span>
@@ -868,20 +844,19 @@
         </div>
     </div>
 
-    <!-- JS para interactividad -->
     <script>
         // Seleccionamos los elementos clave
-        const menuMobileDropdown = document.querySelector('.menu-mobile-dropdown');
+        const mainNav = document.querySelector('.main-nav');
         const toggle = document.querySelector('.toggle');
         const modal = document.getElementById('reserveModal');
-        const reserveBtn = document.querySelector('.reserve-btn'); // Seleccionado correctamente
+        const reserveBtn = document.querySelector('.reserve-btn'); 
         const closeBtn = modal.querySelector('.close');
         const langSwitcherDesktop = document.querySelector('.language-switcher-desktop');
         const currentLangDesktop = document.querySelector('.language-switcher-desktop .current-lang');
 
         // --- Funcionalidad del Menú Hamburguesa ---
         toggle.addEventListener('click', () => {
-            menuMobileDropdown.classList.toggle('show');
+            mainNav.classList.toggle('show'); // Ahora togglea la clase 'show' en .main-nav
             // Asegurarse de que otros elementos se cierren
             if (modal.classList.contains('show')) {
                 toggleModal();
@@ -900,8 +875,8 @@
             reserveBtn.setAttribute('aria-expanded', !isOpen);
             if (!isOpen) { // Si se está abriendo el modal
                 // Asegurarse de que otros elementos se cierren
-                if (menuMobileDropdown.classList.contains('show')) {
-                    menuMobileDropdown.classList.remove('show');
+                if (mainNav.classList.contains('show')) {
+                    mainNav.classList.remove('show');
                 }
                 if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
                     langSwitcherDesktop.classList.remove('active');
@@ -936,8 +911,8 @@
                 const isActive = langSwitcherDesktop.classList.toggle('active');
                 currentLangDesktop.setAttribute('aria-expanded', isActive ? 'true' : 'false');
                 // Asegurarse de que otros elementos se cierren
-                if (menuMobileDropdown.classList.contains('show')) {
-                    menuMobileDropdown.classList.remove('show');
+                if (mainNav.classList.contains('show')) { // Cierra el menú hamburguesa si está abierto
+                    mainNav.classList.remove('show');
                 }
                 if (modal.classList.contains('show')) {
                     toggleModal();
@@ -956,15 +931,14 @@
         // --- Cierre general de elementos flotantes al hacer clic fuera ---
         document.addEventListener('click', (event) => {
             const isClickInsideNavbarElements = toggle.contains(event.target) || 
-                                              menuMobileDropdown.contains(event.target) || 
+                                              mainNav.contains(event.target) || // Ahora verifica .main-nav
                                               reserveBtn.contains(event.target) || 
-                                              (langSwitcherDesktop && langSwitcherDesktop.contains(event.target)) ||
-                                              modal.contains(event.target); // También considera el modal
+                                              modal.contains(event.target);
             
             if (!isClickInsideNavbarElements) {
                 // Cierra menú móvil si está abierto
-                if (menuMobileDropdown.classList.contains('show')) {
-                    menuMobileDropdown.classList.remove('show');
+                if (mainNav.classList.contains('show')) {
+                    mainNav.classList.remove('show');
                 }
                 // Cierra selector de idioma desktop si está abierto
                 if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
@@ -975,9 +949,13 @@
         });
 
         // Cerrar menú móvil al hacer clic en un enlace del menú móvil
-        menuMobileDropdown.querySelectorAll('a').forEach(link => {
+        // Ahora seleccionamos los enlaces DENTRO del mainNav para el cierre en móvil
+        mainNav.querySelectorAll('.menu a, .language-switcher-mobile a').forEach(link => {
             link.addEventListener('click', () => {
-                menuMobileDropdown.classList.remove('show');
+                // Solo cierra si el menú está en modo móvil (class 'show' activa)
+                if (window.innerWidth <= 768 && mainNav.classList.contains('show')) {
+                    mainNav.classList.remove('show');
+                }
             });
         });
 
