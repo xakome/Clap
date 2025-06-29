@@ -3,11 +3,76 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CLAP365 - El eco de tus sueños</title>
-    <meta name="description" content="CLAP365 - Tours exclusivos en Yucatán. El eco de tus sueños." />
-    <link rel="canonical" href="../" />
+    <title>CLAP365 | Tours Exclusivos en Mérida y Yucatán: Cenotes, Playas, Pirámides y Más</title>
+    <meta name="description" content="Descubre Yucatán con CLAP365: tours privados y exclusivos desde Mérida a cenotes, playas, zonas arqueológicas como Chichen Itzá y Uxmal, haciendas y naturaleza. Experiencias de lujo para turistas nacionales e internacionales. ¡Reserva tu day trip inolvidable!" />
+    <link rel="canonical" href="https://www.tu-dominio.com/" /> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "CLAP365",
+      "url": "https://www.tu-dominio.com/", "logo": "https://www.tu-dominio.com/img/logo-clap365.png", "description": "CLAP365 ofrece tours exclusivos y privados desde Mérida, Yucatán, para explorar cenotes, playas, pirámides mayas (Chichen Itzá, Uxmal), haciendas, y la vasta naturaleza de la península. Experiencias de lujo y personalizadas para viajeros nacionales e internacionales.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 60",
+        "addressLocality": "Mérida",
+        "addressRegion": "Yucatán",
+        "postalCode": "97000",
+        "addressCountry": "MX"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-9991234567", "contactType": "Customer Service",
+        "areaServed": ["MX", "US", "CA", "EU", "America Latina"],
+        "availableLanguage": ["es", "en"]
+      },
+      "sameAs": [
+        "URL_DE_TU_FACEBOOK", "URL_DE_TU_INSTAGRAM",
+        "URL_DE_TU_BLOG_O_VLOG_SI_APLICA"
+      ],
+      "areaServed": {
+        "@type": "State",
+        "name": "Yucatán",
+        "hasPart": [
+          {"@type": "City", "name": "Mérida"},
+          {"@type": "TouristAttraction", "name": "Chichen Itzá"},
+          {"@type": "TouristAttraction", "name": "Uxmal"},
+          {"@type": "TouristAttraction", "name": "Izamal"},
+          {"@type": "TouristAttraction", "name": "Sisal"},
+          {"@type": "TouristAttraction", "name": "Telchac"},
+          {"@type": "TouristAttraction", "name": "Tecoh"}
+        ]
+      },
+      "tourBookingPage": "https://www.tu-dominio.com/#reserveModal",
+      "reviews": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "Una experiencia inolvidable, el tour a Chichen Itzá fue espectacular y el guía muy amable.",
+          "author": {
+            "@type": "Person",
+            "name": "Ana P."
+          }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "Los cenotes y la naturaleza de Yucatán superaron mis expectativas. Recomendado al 100%.",
+          "author": {
+            "@type": "Person",
+            "name": "Carlos M."
+          }
+        }
+      ]
+    }
+    </script>
 
     <style>
         html {
@@ -20,7 +85,7 @@
             padding: 0;
         }
         body {
-            font-family: 'Open Sans', sans-serif; /* Nueva fuente para el cuerpo */
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.5;
             background: #f2f2f2;
             color: #333;
@@ -35,27 +100,27 @@
             background: #00695c;
             padding: 15px 20px;
             display: flex;
-            justify-content: space-between; /* Volvemos a space-between para distribuir elementos */
+            justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 20;
         }
         .navbar .logo {
-            font-family: 'Playfair Display', serif; /* Nueva fuente para el logo */
-            font-size: 2.2rem; /* Tamaño ligeramente aumentado */
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #fff;
             letter-spacing: 1.5px;
         }
-        .navbar .main-nav-group { /* Nuevo contenedor para botón y menú */
+        .navbar .main-nav-group {
             display: flex;
             align-items: center;
-            gap: 20px; /* Espacio entre el botón y el menú */
+            gap: 20px;
         }
         .navbar .menu {
             display: flex;
-            gap: 1.2rem; /* Espacio ligeramente aumentado entre ítems del menú */
+            gap: 1.2rem;
             align-items: center;
         }
         .navbar .menu a {
@@ -70,7 +135,7 @@
             background: rgba(255, 255, 255, 0.2);
         }
         .navbar .toggle {
-            display: none;
+            display: none; /* Oculto por defecto en desktop */
             cursor: pointer;
             color: #fff;
             font-size: 1.8rem;
@@ -80,11 +145,11 @@
         .reserve-btn {
             background: #ff9800;
             color: white;
-            padding: 10px 18px; /* Padding ajustado */
+            padding: 10px 18px;
             border-radius: 6px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.95rem; /* Tamaño de fuente ajustado */
+            font-size: 0.95rem;
             transition: background 0.3s;
             cursor: pointer;
             border: none;
@@ -123,6 +188,14 @@
             flex-direction: column;
             justify-content: flex-end;
             padding-bottom: 40px;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
         @keyframes fadeUp {
             0% {
@@ -231,7 +304,7 @@
             pointer-events: auto;
         }
         .tour-overlay h3 {
-            font-family: 'Playfair Display', serif; /* Nueva fuente para títulos de tours */
+            font-family: 'Playfair Display', serif;
             margin-bottom: 10px;
             font-size: 1.5rem;
             font-weight: 700;
@@ -280,7 +353,7 @@
             text-align: center;
         }
         .testimonials h2 {
-            font-family: 'Playfair Display', serif; /* Nueva fuente para títulos */
+            font-family: 'Playfair Display', serif;
             color: #00695c;
             margin-bottom: 30px;
             font-weight: 700;
@@ -374,7 +447,7 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         .modal-content h2 {
-            font-family: 'Playfair Display', serif; /* Nueva fuente para títulos del modal */
+            font-family: 'Playfair Display', serif;
             margin-bottom: 20px;
             color: #00695c;
             text-align: center;
@@ -433,34 +506,40 @@
                 opacity: 1 !important;
                 animation: none !important;
             }
-            .navbar .main-nav-group { /* Esconder en móvil, solo se muestra el toggle */
+            /* Ocultar el grupo de navegación principal para que solo el toggle y el botón de reserva aparezcan */
+            .navbar .main-nav-group {
                 display: none;
+            }
+            /* Mostrar el botón de reserva independiente y moverlo para que esté siempre visible en móvil */
+            .navbar .reserve-btn {
+                display: block; /* Asegura que el botón sea visible */
+                margin-left: auto; /* Empuja el botón a la derecha, entre el logo y el toggle */
+                order: 1; /* Establece un orden para que esté antes del toggle si el display es flex */
+                margin-right: 15px; /* Espacio entre el botón y el toggle */
             }
             .navbar .toggle {
-                display: block; /* Mostrar el toggle */
-                margin-left: auto; /* Empujar el toggle a la derecha para que quede junto al menú desplegable */
+                display: block; /* Mostrar el ícono de hamburguesa */
+                order: 2; /* Asegura que el toggle esté a la derecha del botón */
             }
+            /* Estilos del menú desplegable */
             .navbar .menu {
-                display: none;
+                display: none; /* Oculto por defecto */
                 flex-direction: column;
                 background: #00695c;
                 position: absolute;
-                top: 60px;
-                right: 20px; /* Mantener menú desplegable a la derecha */
+                top: 60px; /* Debajo de la navbar */
+                right: 20px; /* Alineado a la derecha */
                 border-radius: 6px;
                 padding: 10px;
                 width: 150px;
-                gap: 0.5rem; /* Ajuste de espacio para móvil */
+                gap: 0.5rem;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             }
             .navbar .menu.show {
-                display: flex;
+                display: flex; /* Muestra el menú cuando tiene la clase 'show' */
             }
-            .tour-box {
-                max-width: 100%;
-                flex-basis: 100%;
-            }
-            .tour-box:hover {
-                box-shadow: none;
+            .hero-content h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -468,96 +547,103 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo"><a href="../">CLAP365</a></div>
+        <div class="logo"><a href="https://www.tu-dominio.com/">CLAP365</a></div> <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false" onclick="toggleModal()">Reservar</button>
+
         <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
-        <div class="main-nav-group"> <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false" onclick="toggleModal()">Reservar</button>
-            <div class="menu" role="menu">
-                <a href="../#tours" role="menuitem">Tours</a>
-                <a href="../" role="menuitem">Inicio</a>
-                <a href="../contacto" role="menuitem">Contacto</a>
+        
+        <div class="main-nav-group"> <div class="menu" role="menu">
+                <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
+                <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
+                <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
             </div>
+        </div>
+
+        <div class="menu-mobile-dropdown"> <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
+            <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
+            <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
         </div>
     </nav>
 
     <section class="hero" role="banner" aria-label="Imagen principal y botón ver tours">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <h1>Tours Exclusivos en Mérida y Yucatán</h1>
             <div class="hero-button-wrapper">
-                <a href="#tours" class="hero-button">Ver tours</a>
+                <a href="#tours" class="hero-button">Explora nuestros Tours</a>
             </div>
         </div>
     </section>
 
     <div class="container" id="tours" role="list">
 
-        <a href="chichen.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Chichen Itzá. Ver más detalles">
-            <img src="img/chichen.jpg" alt="Chichen Itzá" />
+        <a href="https://www.tu-dominio.com/chichen" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Chichen Itzá. Ver más detalles">
+            <img src="img/chichen.jpg" alt="Chichen Itzá, pirámide Kukulkán en Yucatán" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour Chichen Itzá</h3>
-                <p>Visita la zona arqueológica más emblemática de México, una de las nuevas siete maravillas del mundo.</p>
+                <h3>Tour Chichen Itzá VIP</h3>
+                <p>Descubre la grandeza de Chichen Itzá, una de las nuevas siete maravillas del mundo, con una experiencia exclusiva.</p>
                 <span>Ver más</span>
             </div>
         </a>
 
-        <a href="uxmal.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Uxmal. Ver más detalles">
-            <img src="img/uxmal.jpg" alt="Uxmal" />
+        <a href="https://www.tu-dominio.com/uxmal" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Uxmal. Ver más detalles">
+            <img src="img/uxmal.jpg" alt="Uxmal, arquitectura Puuc en zona arqueológica" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour Uxmal</h3>
-                <p>Explora la arquitectura Puuc en este sitio maya impresionante.</p>
+                <h3>Tour Uxmal y Ruta Puuc</h3>
+                <p>Explora la impresionante arquitectura Puuc en Uxmal y sus sitios arqueológicos cercanos.</p>
                 <span>Ver más</span>
             </div>
         </a>
 
-        <a href="izamal.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Izamal. Ver más detalles">
-            <img src="img/izamal.jpg" alt="Izamal" />
+        <a href="https://www.tu-dominio.com/izamal" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Izamal. Ver más detalles">
+            <img src="img/izamal.jpg" alt="Izamal, Pueblo Mágico amarillo, Convento de San Antonio de Padua" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour Izamal</h3>
-                <p>La ciudad amarilla emblemática por su convento y fusión cultural.</p>
+                <h3>Tour al Pueblo Mágico de Izamal</h3>
+                <p>La encantadora ciudad amarilla de Izamal, con su imponente convento y rica historia colonial.</p>
                 <span>Ver más</span>
             </div>
         </a>
 
-        <a href="sisal.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Sisal. Ver más detalles">
-            <img src="img/sisal.jpg" alt="Sisal" />
+        <a href="https://www.tu-dominio.com/sisal" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Sisal. Ver más detalles">
+            <img src="img/sisal.jpg" alt="Playa de Sisal, puerto histórico y naturaleza" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour Sisal</h3>
-                <p>Destino costero con mar, historia y naturaleza para relajarte.</p>
+                <h3>Day Trip a Playa Sisal</h3>
+                <p>Relájate en las tranquilas playas de Sisal, un encantador puerto con historia y vida silvestre.</p>
                 <span>Ver más</span>
             </div>
         </a>
 
-        <a href="merida.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Mérida. Ver más detalles">
-            <img src="img/merida.jpg" alt="Mérida" />
+        <a href="https://www.tu-dominio.com/merida" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Mérida. Ver más detalles">
+            <img src="img/merida.jpg" alt="Centro histórico de Mérida, Paseo Montejo, arquitectura colonial" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour Mérida</h3>
-                <p>Conoce la capital cultural del sureste: arte, historia y gastronomía.</p>
+                <h3>Tour Cultural por Mérida</h3>
+                <p>Sumérgete en la cultura, historia y exquisita gastronomía de la hermosa capital yucateca.</p>
                 <span>Ver más</span>
             </div>
         </a>
 
-        <a href="telchac.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Telchac. Ver más detalles">
-            <img src="img/telchac.jpg" alt="Telchac" />
+        <a href="https://www.tu-dominio.com/telchac" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Telchac. Ver más detalles">
+            <img src="img/telchac.jpg" alt="Playa de Telchac, flamingos y costa de Yucatán" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour Telchac</h3>
-                <p>Relájate en esta playa tranquila y disfruta de mariscos y sol.</p>
+                <h3>Tour a Telchac Puerto y Reservas Naturales</h3>
+                <p>Disfruta de la tranquilidad de Telchac y explora sus manglares y flamingos en la costa yucateca.</p>
                 <span>Ver más</span>
             </div>
         </a>
 
-        <a href="tecoh.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Tecoh. Ver más detalles">
-            <img src="img/tecoh.jpg" alt="Tecoh" />
+        <a href="https://www.tu-dominio.com/tecoh" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Tecoh. Ver más detalles">
+            <img src="img/tecoh.jpg" alt="Cenote en Tecoh, iglesias coloniales, haciendas" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour Tecoh</h3>
-                <p>Descubre cenotes y la iglesia colonial sobre pirámide en Tecoh.</p>
+                <h3>Aventura en Cenotes de Tecoh</h3>
+                <p>Descubre cenotes cristalinos y la historia de las haciendas henequeneras en Tecoh.</p>
                 <span>Ver más</span>
             </div>
         </a>
 
-        <a href="libre.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour libre a escoger. Ver más detalles">
-            <img src="img/libre.jpg" alt="Tour libre" />
+        <a href="https://www.tu-dominio.com/libre" class="tour-box" role="listitem" tabindex="0" aria-label="Tour libre a escoger. Ver más detalles">
+            <img src="img/libre.jpg" alt="Tour personalizado en Yucatán, aventura a medida" />
             <div class="tour-overlay" aria-hidden="true">
-                <h3>Tour libre a escoger</h3>
-                <p>Arma tu propia aventura: cenotes, pueblos mágicos y más.</p>
+                <h3>Tour Personalizado CLAP365</h3>
+                <p>Diseña tu propia aventura en Yucatán: desde cenotes y haciendas hasta experiencias únicas.</p>
                 <span>Ver más</span>
             </div>
         </a>
@@ -582,21 +668,21 @@
 
     <footer>
         <p>© 2025 CLAP365. Todos los derechos reservados.</p>
-        <p><a href="../" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
+        <p><a href="https://www.tu-dominio.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
     </footer>
 
     <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
          target="_blank"
          rel="noopener noreferrer"
          class="floating-cta"
-         aria-label="Contactar por WhatsApp">
-        <img src="img/whatsapp-icon.png" alt="WhatsApp" />
+         aria-label="Contactar por WhatsApp para tours exclusivos en Yucatán">
+        <img src="img/whatsapp-icon.png" alt="Icono de WhatsApp" />
     </a>
 
     <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
             <span class="close" role="button" aria-label="Cerrar formulario" tabindex="0">&times;</span>
-            <h2 id="modalTitle">Reservar Tour</h2>
+            <h2 id="modalTitle">Reservar Tour Exclusivo</h2>
             <form id="reserveForm">
                 <label for="name">Nombre completo</label>
                 <input type="text" id="name" name="name" required autocomplete="name" />
@@ -606,15 +692,15 @@
 
                 <label for="tour">Selecciona un tour</label>
                 <select id="tour" name="tour" required>
-                    <option value="" disabled selected>-- Elige un tour --</option>
-                    <option value="chichen">Chichen Itzá</option>
-                    <option value="uxmal">Uxmal</option>
-                    <option value="izamal">Izamal</option>
-                    <option value="sisal">Sisal</option>
-                    <option value="merida">Mérida</option>
-                    <option value="telchac">Telchac</option>
-                    <option value="tecoh">Tecoh</option>
-                    <option value="libre">Tour libre</option>
+                    <option value="" disabled selected>-- Elige tu tour exclusivo --</option>
+                    <option value="chichen">Chichen Itzá VIP</option>
+                    <option value="uxmal">Uxmal y Ruta Puuc</option>
+                    <option value="izamal">Pueblo Mágico de Izamal</option>
+                    <option value="sisal">Day Trip a Playa Sisal</option>
+                    <option value="merida">Tour Cultural por Mérida</option>
+                    <option value="telchac">Telchac Puerto y Reservas Naturales</option>
+                    <option value="tecoh">Aventura en Cenotes de Tecoh</option>
+                    <option value="libre">Tour Personalizado CLAP365</option>
                 </select>
 
                 <button type="submit">Enviar reserva</button>
@@ -623,16 +709,37 @@
     </div>
 
     <script>
-        // Toggle menú hamburguesa
+        // Toggle menú hamburguesa para el menú móvil
         const toggle = document.querySelector('.toggle');
-        const menu = document.querySelector('.menu');
+        const menuMobileDropdown = document.querySelector('.menu-mobile-dropdown'); // Seleccionamos el nuevo contenedor
+
         toggle.addEventListener('click', () => {
-            menu.classList.toggle('show');
+            menuMobileDropdown.classList.toggle('show');
+            // Cierra el modal si está abierto al desplegar el menú
+            if (modal.classList.contains('show')) {
+                toggleModal();
+            }
         });
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', (event) => {
+            const isClickInsideNavbar = toggle.contains(event.target) || menuMobileDropdown.contains(event.target);
+            if (!isClickInsideNavbar && menuMobileDropdown.classList.contains('show')) {
+                menuMobileDropdown.classList.remove('show');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace del menú
+        menuMobileDropdown.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuMobileDropdown.classList.remove('show');
+            });
+        });
+
 
         // Modal reservar
         const modal = document.getElementById('reserveModal');
-        const reserveBtn = document.querySelector('.reserve-btn');
+        const reserveBtn = document.querySelector('.reserve-btn'); // Selecciona el botón de reserva principal
         const closeBtn = modal.querySelector('.close');
 
         function toggleModal() {
@@ -641,12 +748,17 @@
             modal.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
             reserveBtn.setAttribute('aria-expanded', !isOpen);
             if (!isOpen) {
+                // Cierra el menú hamburguesa si está abierto al abrir el modal
+                if (menuMobileDropdown.classList.contains('show')) {
+                    menuMobileDropdown.classList.remove('show');
+                }
                 modal.querySelector('#name').focus();
             } else {
                 reserveBtn.focus();
             }
         }
 
+        // El listener para el botón de reserva ya debería estar funcionando
         reserveBtn.addEventListener('click', toggleModal);
         closeBtn.addEventListener('click', toggleModal);
         closeBtn.addEventListener('keydown', (e) => {
@@ -665,7 +777,7 @@
         const form = document.getElementById('reserveForm');
         form.addEventListener('submit', e => {
             e.preventDefault();
-            alert(`Gracias ${form.name.value}, tu reserva para el tour "${form.tour.options[form.tour.selectedIndex].text}" ha sido recibida.`);
+            alert(`Gracias ${form.name.value}, tu reserva para el tour "${form.tour.options[form.tour.selectedIndex].text}" ha sido recibida. Nos pondremos en contacto contigo pronto.`);
             form.reset();
             toggleModal();
         });
@@ -677,15 +789,17 @@
             tourBoxes.forEach(box => {
                 box.addEventListener('click', function(e) {
                     if (this.classList.contains('active')) {
+                        // Si ya está activo, permite la navegación al enlace
                         return true;
                     }
-                    e.preventDefault();
-                    tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
-                    this.classList.add('active');
+                    e.preventDefault(); // Previene la navegación inmediata
+                    tourBoxes.forEach(b => b !== this && b.classList.remove('active')); // Desactiva otros
+                    this.classList.add('active'); // Activa este
                 });
             });
+            // Cierra overlays al hacer clic fuera
             document.body.addEventListener('click', e => {
-                if (!e.target.closest('.tour-box')) {
+                if (!e.target.closest('.tour-box') && !e.target.closest('.tour-overlay a')) {
                     tourBoxes.forEach(b => b.classList.remove('active'));
                 }
             });
