@@ -1,485 +1,696 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CLAP365 - El eco de tus sueños</title>
-  <meta name="description" content="CLAP365 - Tours exclusivos en Yucatán. El eco de tus sueños." />
-  <link rel="canonical" href="../" />
-  
-  <!-- Fuente Raleway -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLAP365 - El eco de tus sueños</title>
+    <meta name="description" content="CLAP365 - Tours exclusivos en Yucatán. El eco de tus sueños." />
+    <link rel="canonical" href="../" />
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Raleway', sans-serif;
-      line-height: 1.5;
-      background: #f2f2f2;
-      color: #333;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    /* Navbar */
-    .navbar {
-      background: #00695c;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-    .navbar .logo {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 1.5px;
-    }
-    .navbar .menu {
-      display: flex;
-      gap: 1rem;
-    }
-    .navbar .menu a {
-      font-weight: 600;
-      font-size: 1rem;
-      color: #fff;
-      padding: 8px 10px;
-      transition: background 0.3s, color 0.3s;
-      border-radius: 4px;
-    }
-    .navbar .menu a:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .navbar .toggle {
-      display: none;
-      cursor: pointer;
-      color: #fff;
-      font-size: 1.8rem;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif; /* Nueva fuente para el cuerpo */
+            line-height: 1.5;
+            background: #f2f2f2;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    /* Hero */
-    .hero {
-      background-image: url('img/banner.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 70vh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-      color: #fff;
-    }
-    .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.0);
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-bottom: 40px;
-    }
-    @keyframes fadeUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .hero-button-wrapper {
-      margin-top: auto;
-      animation: fadeUp 1s ease-out 1.2s forwards;
-      opacity: 0;
-    }
-    .hero-button {
-      padding: 14px 28px;
-      background-color: #ff9800;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.3s;
-    }
-    .hero-button:hover {
-      background-color: #e68900;
-    }
+        /* Navbar */
+        .navbar {
+            background: #00695c;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between; /* Volvemos a space-between para distribuir elementos */
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+        .navbar .logo {
+            font-family: 'Playfair Display', serif; /* Nueva fuente para el logo */
+            font-size: 2.2rem; /* Tamaño ligeramente aumentado */
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1.5px;
+        }
+        .navbar .main-nav-group { /* Nuevo contenedor para botón y menú */
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Espacio entre el botón y el menú */
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 1.2rem; /* Espacio ligeramente aumentado entre ítems del menú */
+            align-items: center;
+        }
+        .navbar .menu a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            padding: 8px 10px;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 4px;
+        }
+        .navbar .menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .navbar .toggle {
+            display: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.8rem;
+        }
 
-    /* Container tours */
-    .container {
-      max-width: 1200px;
-      margin: 40px auto 60px;
-      padding: 0 20px;
+        /* Botón Reservar en header */
+        .reserve-btn {
+            background: #ff9800;
+            color: white;
+            padding: 10px 18px; /* Padding ajustado */
+            border-radius: 6px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.95rem; /* Tamaño de fuente ajustado */
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        .reserve-btn:hover {
+            background-color: #e68900;
+        }
 
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 20px;
-    }
+        /* Hero */
+        .hero {
+            background-image: url('img/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: #fff;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.0);
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 40px;
+        }
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero-button-wrapper {
+            margin-top: auto;
+            animation: fadeUp 1s ease-out 1.2s forwards;
+            opacity: 0;
+        }
+        .hero-button {
+            padding: 14px 28px;
+            background-color: #ff9800;
+            color: white;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .hero-button:hover {
+            background-color: #e68900;
+        }
 
-    /* Cards tours */
-    .tour-box {
-      position: relative;
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      flex: 1 1 calc(25% - 20px);
-      min-width: 250px;
-      max-width: 23%;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-      transition: box-shadow 0.3s ease;
-      user-select: none;
-    }
-    .tour-box:hover,
-    .tour-box.active {
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-      z-index: 10;
-    }
-    .tour-box img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      transition: transform 0.4s ease, filter 0.4s ease;
-    }
-    .tour-box:hover img,
-    .tour-box.active img {
-      transform: scale(1.05);
-      filter: brightness(0.7);
-    }
+        /* Container tours */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
 
-    /* Overlay sutil con texto y botón */
-    .tour-overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.4);
-      color: #fff;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 15px;
-      text-align: center;
-      pointer-events: none;
-      border-radius: 10px;
-    }
-    .tour-box:hover .tour-overlay,
-    .tour-box.active .tour-overlay {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .tour-overlay h3 {
-      margin-bottom: 10px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
-    }
-    .tour-overlay p {
-      font-size: 1rem;
-      line-height: 1.3;
-      margin-bottom: 20px;
-      text-shadow: 0 0 6px rgba(0,0,0,0.6);
-    }
-    .tour-overlay a {
-      background-color: #ff9800;
-      padding: 10px 22px;
-      color: white;
-      border-radius: 6px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: background-color 0.3s;
-      text-decoration: none;
-    }
-    .tour-overlay a:hover {
-      background-color: #e68900;
-    }
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-    /* Móvil: solo activamos overlay con clase active */
-    @media (max-width: 768px) {
-      .tour-box {
-        max-width: 100%;
-        flex-basis: 100%;
-      }
-      .tour-box:hover {
-        box-shadow: none;
-      }
-    }
+        /* Cards tours */
+        .tour-box {
+            position: relative;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            flex: 1 1 calc(25% - 20px);
+            min-width: 250px;
+            max-width: 23%;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            transition: box-shadow 0.3s ease;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+        .tour-box:hover,
+        .tour-box.active {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .tour-box img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            flex-shrink: 0;
+        }
+        .tour-box:hover img,
+        .tour-box.active img {
+            transform: scale(1.05);
+            filter: brightness(0.7);
+        }
 
-    /* Sección Testimonios */
-    .testimonials {
-      background: #fff;
-      max-width: 900px;
-      margin: 0 auto 60px;
-      padding: 40px 20px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .testimonials h2 {
-      color: #00695c;
-      margin-bottom: 30px;
-      font-weight: 700;
-    }
-    .testimonial {
-      font-style: italic;
-      color: #555;
-      margin-bottom: 25px;
-      position: relative;
-      padding: 0 20px;
-    }
-    .testimonial::before {
-      content: "“";
-      font-size: 4rem;
-      color: #ff9800;
-      position: absolute;
-      left: 10px;
-      top: -10px;
-      font-weight: bold;
-    }
-    .testimonial-author {
-      margin-top: 8px;
-      font-weight: 600;
-      color: #333;
-      font-style: normal;
-    }
+        /* Overlay sutil con texto y botón */
+        .tour-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            text-align: center;
+            pointer-events: none;
+            border-radius: 10px;
+        }
+        .tour-box:hover .tour-overlay,
+        .tour-box.active .tour-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .tour-overlay h3 {
+            font-family: 'Playfair Display', serif; /* Nueva fuente para títulos de tours */
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(0,0,0,0.7);
+        }
+        .tour-overlay p {
+            font-size: 1rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            text-shadow: 0 0 6px rgba(0,0,0,0.6);
+        }
+        .tour-overlay a {
+            background-color: #ff9800;
+            padding: 10px 22px;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .tour-overlay a:hover {
+            background-color: #e68900;
+        }
 
-    /* Footer */
-    footer {
-      background: #00695c;
-      color: white;
-      text-align: center;
-      padding: 25px 20px;
-      font-size: 0.9rem;
-    }
-    footer a {
-      color: #ffeb3b;
-      text-decoration: underline;
-    }
+        /* Móvil: solo activamos overlay con clase active */
+        @media (max-width: 768px) {
+            .tour-box {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+            .tour-box:hover {
+                box-shadow: none;
+            }
+        }
 
-    /* Botón flotante WhatsApp */
-    .floating-cta {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background-color: #25d366;
-      color: white;
-      font-weight: bold;
-      font-size: 1.5rem;
-      padding: 12px;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      text-decoration: none;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.3s;
-    }
-    .floating-cta:hover {
-      background-color: #1ebe57;
-    }
-    .floating-cta img {
-      width: 28px;
-      height: 28px;
-      filter: brightness(0) invert(1);
-    }
-  </style>
+        /* Sección Testimonios */
+        .testimonials {
+            background: #fff;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif; /* Nueva fuente para títulos */
+            color: #00695c;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .testimonial {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px;
+            position: relative;
+            padding: 0 20px;
+        }
+        .testimonial::before {
+            content: "“";
+            font-size: 4rem;
+            color: #ff9800;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            font-weight: bold;
+        }
+        .testimonial-author {
+            margin-top: 8px;
+            font-weight: 600;
+            color: #333;
+            font-style: normal;
+        }
+
+        /* Footer */
+        footer {
+            background: #00695c;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #ffeb3b;
+            text-decoration: underline;
+        }
+
+        /* Botón flotante WhatsApp */
+        .floating-cta {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            padding: 12px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .floating-cta:hover {
+            background-color: #1ebe57;
+        }
+        .floating-cta img {
+            width: 28px;
+            height: 28px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Modal Reserva */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif; /* Nueva fuente para títulos del modal */
+            margin-bottom: 20px;
+            color: #00695c;
+            text-align: center;
+        }
+        .modal-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .modal-content input,
+        .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .modal-content button {
+            background: #00695c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        .modal-content button:hover {
+            background: #004d40;
+        }
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .hero {
+                height: 50vh;
+                padding-bottom: 20px;
+            }
+            .hero-content {
+                justify-content: center;
+                padding-bottom: 20px;
+            }
+            .hero-button-wrapper {
+                margin-top: 0;
+                opacity: 1 !important;
+                animation: none !important;
+            }
+            .navbar .main-nav-group { /* Esconder en móvil, solo se muestra el toggle */
+                display: none;
+            }
+            .navbar .toggle {
+                display: block; /* Mostrar el toggle */
+                margin-left: auto; /* Empujar el toggle a la derecha para que quede junto al menú desplegable */
+            }
+            .navbar .menu {
+                display: none;
+                flex-direction: column;
+                background: #00695c;
+                position: absolute;
+                top: 60px;
+                right: 20px; /* Mantener menú desplegable a la derecha */
+                border-radius: 6px;
+                padding: 10px;
+                width: 150px;
+                gap: 0.5rem; /* Ajuste de espacio para móvil */
+            }
+            .navbar .menu.show {
+                display: flex;
+            }
+            .tour-box {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+            .tour-box:hover {
+                box-shadow: none;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo"><a href="../">CLAP365</a></div>
-    <div class="toggle" onclick="document.querySelector('.menu').classList.toggle('show')">&#9776;</div>
-    <div class="menu">
-      <a href="../#tours">Tours</a>
-      <a href="../">Inicio</a>
-      <a href="../contacto">Contacto</a>
+    <nav class="navbar">
+        <div class="logo"><a href="../">CLAP365</a></div>
+        <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
+        <div class="main-nav-group"> <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false" onclick="toggleModal()">Reservar</button>
+            <div class="menu" role="menu">
+                <a href="../#tours" role="menuitem">Tours</a>
+                <a href="../" role="menuitem">Inicio</a>
+                <a href="../contacto" role="menuitem">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" role="banner" aria-label="Imagen principal y botón ver tours">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-button-wrapper">
+                <a href="#tours" class="hero-button">Ver tours</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="tours" role="list">
+
+        <a href="chichen.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Chichen Itzá. Ver más detalles">
+            <img src="img/chichen.jpg" alt="Chichen Itzá" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Chichen Itzá</h3>
+                <p>Visita la zona arqueológica más emblemática de México, una de las nuevas siete maravillas del mundo.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="uxmal.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Uxmal. Ver más detalles">
+            <img src="img/uxmal.jpg" alt="Uxmal" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Uxmal</h3>
+                <p>Explora la arquitectura Puuc en este sitio maya impresionante.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="izamal.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Izamal. Ver más detalles">
+            <img src="img/izamal.jpg" alt="Izamal" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Izamal</h3>
+                <p>La ciudad amarilla emblemática por su convento y fusión cultural.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="sisal.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Sisal. Ver más detalles">
+            <img src="img/sisal.jpg" alt="Sisal" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Sisal</h3>
+                <p>Destino costero con mar, historia y naturaleza para relajarte.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="merida.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Mérida. Ver más detalles">
+            <img src="img/merida.jpg" alt="Mérida" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Mérida</h3>
+                <p>Conoce la capital cultural del sureste: arte, historia y gastronomía.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="telchac.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Telchac. Ver más detalles">
+            <img src="img/telchac.jpg" alt="Telchac" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Telchac</h3>
+                <p>Relájate en esta playa tranquila y disfruta de mariscos y sol.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="tecoh.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Tecoh. Ver más detalles">
+            <img src="img/tecoh.jpg" alt="Tecoh" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Tecoh</h3>
+                <p>Descubre cenotes y la iglesia colonial sobre pirámide en Tecoh.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="libre.html" class="tour-box" role="listitem" tabindex="0" aria-label="Tour libre a escoger. Ver más detalles">
+            <img src="img/libre.jpg" alt="Tour libre" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour libre a escoger</h3>
+                <p>Arma tu propia aventura: cenotes, pueblos mágicos y más.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
     </div>
-  </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-button-wrapper">
-        <a href="#tours" class="hero-button">Ver tours</a>
-      </div>
-    </div>
-  </section>
+    <section class="testimonials" aria-label="Testimonios de clientes">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonial">
+            <p>“Una experiencia inolvidable, el tour a Chichen Itzá fue espectacular y el guía muy amable.”</p>
+            <div class="testimonial-author">— Ana P.</div>
+        </div>
+        <div class="testimonial">
+            <p>“Los cenotes y la naturaleza de Yucatán superaron mis expectativas. Recomendado al 100%.”</p>
+            <div class="testimonial-author">— Carlos M.</div>
+        </div>
+        <div class="testimonial">
+            <p>“La organización y atención de CLAP365 hicieron que mi viaje fuera perfecto.”</p>
+            <div class="testimonial-author">— Laura G.</div>
+        </div>
+    </section>
 
-  <!-- Tours -->
-  <div class="container" id="tours">
+    <footer>
+        <p>© 2025 CLAP365. Todos los derechos reservados.</p>
+        <p><a href="../" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
+    </footer>
 
-    <div class="tour-box" tabindex="0">
-      <img src="img/chichen.jpg" alt="Chichen Itzá" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Chichen Itzá</h3>
-        <p>Visita la zona arqueológica más emblemática de México, una de las nuevas siete maravillas del mundo.</p>
-        <a href="chichen.html" aria-label="Ver más sobre Tour Chichen Itzá">Ver más</a>
-      </div>
-    </div>
+    <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="floating-cta"
+         aria-label="Contactar por WhatsApp">
+        <img src="img/whatsapp-icon.png" alt="WhatsApp" />
+    </a>
 
-    <div class="tour-box" tabindex="0">
-      <img src="img/uxmal.jpg" alt="Uxmal" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Uxmal</h3>
-        <p>Explora la arquitectura Puuc en este sitio maya impresionante.</p>
-        <a href="uxmal.html" aria-label="Ver más sobre Tour Uxmal">Ver más</a>
-      </div>
-    </div>
+    <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" role="button" aria-label="Cerrar formulario" tabindex="0">&times;</span>
+            <h2 id="modalTitle">Reservar Tour</h2>
+            <form id="reserveForm">
+                <label for="name">Nombre completo</label>
+                <input type="text" id="name" name="name" required autocomplete="name" />
 
-    <div class="tour-box" tabindex="0">
-      <img src="img/izamal.jpg" alt="Izamal" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Izamal</h3>
-        <p>La ciudad amarilla emblemática por su convento y fusión cultural.</p>
-        <a href="izamal.html" aria-label="Ver más sobre Tour Izamal">Ver más</a>
-      </div>
-    </div>
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required autocomplete="email" />
 
-    <div class="tour-box" tabindex="0">
-      <img src="img/sisal.jpg" alt="Sisal" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Sisal</h3>
-        <p>Destino costero con mar, historia y naturaleza para relajarte.</p>
-        <a href="sisal.html" aria-label="Ver más sobre Tour Sisal">Ver más</a>
-      </div>
-    </div>
+                <label for="tour">Selecciona un tour</label>
+                <select id="tour" name="tour" required>
+                    <option value="" disabled selected>-- Elige un tour --</option>
+                    <option value="chichen">Chichen Itzá</option>
+                    <option value="uxmal">Uxmal</option>
+                    <option value="izamal">Izamal</option>
+                    <option value="sisal">Sisal</option>
+                    <option value="merida">Mérida</option>
+                    <option value="telchac">Telchac</option>
+                    <option value="tecoh">Tecoh</option>
+                    <option value="libre">Tour libre</option>
+                </select>
 
-    <div class="tour-box" tabindex="0">
-      <img src="img/merida.jpg" alt="Mérida" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Mérida</h3>
-        <p>Conoce la capital cultural del sureste: arte, historia y gastronomía.</p>
-        <a href="merida.html" aria-label="Ver más sobre Tour Mérida">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/telchac.jpg" alt="Telchac" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Telchac</h3>
-        <p>Relájate en esta playa tranquila y disfruta de mariscos y sol.</p>
-        <a href="telchac.html" aria-label="Ver más sobre Tour Telchac">Ver más</a>
-      </div>
+                <button type="submit">Enviar reserva</button>
+            </form>
+        </div>
     </div>
 
-    <div class="tour-box" tabindex="0">
-      <img src="img/tecoh.jpg" alt="Tecoh" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour Tecoh</h3>
-        <p>Descubre cenotes y la iglesia colonial sobre pirámide en Tecoh.</p>
-        <a href="tecoh.html" aria-label="Ver más sobre Tour Tecoh">Ver más</a>
-      </div>
-    </div>
-
-    <div class="tour-box" tabindex="0">
-      <img src="img/libre.jpg" alt="Tour libre" />
-      <div class="tour-overlay" aria-hidden="true">
-        <h3>Tour libre a escoger</h3>
-        <p>Arma tu propia aventura: cenotes, pueblos mágicos y más.</p>
-        <a href="libre.html" aria-label="Ver más sobre Tour libre">Ver más</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Sección Testimonios -->
-  <section class="testimonials" aria-label="Testimonios de clientes">
-    <h2>Lo que dicen nuestros clientes</h2>
-    <div class="testimonial">
-      <p>“Una experiencia inolvidable, el tour a Chichen Itzá fue espectacular y el guía muy amable.”</p>
-      <div class="testimonial-author">— Ana P.</div>
-    </div>
-    <div class="testimonial">
-      <p>“Los cenotes y la naturaleza de Yucatán superaron mis expectativas. Recomendado al 100%.”</p>
-      <div class="testimonial-author">— Carlos M.</div>
-    </div>
-    <div class="testimonial">
-      <p>“La organización y atención de CLAP365 hicieron que mi viaje fuera perfecto.”</p>
-      <div class="testimonial-author">— Laura G.</div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 CLAP365. Todos los derechos reservados.</p>
-    <p><a href="../" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
-  </footer>
-
-  <!-- Botón flotante WhatsApp -->
-  <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     class="floating-cta"
-     aria-label="Contactar por WhatsApp">
-    <img src="img/whatsapp-icon.png" alt="WhatsApp" />
-  </a>
-
-  <!-- JS menú hamburguesa -->
-  <script>
-    document.querySelector('.toggle').addEventListener('click', () => {
-      document.querySelector('.menu').classList.toggle('show');
-    });
-  </script>
-
-  <!-- JS hover simulado en móvil para cards -->
-  <script>
-    const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    if (isTouchDevice) {
-      const tourBoxes = document.querySelectorAll('.tour-box');
-      tourBoxes.forEach(box => {
-        box.addEventListener('click', function(e) {
-          if (this.classList.contains('active')) {
-            return true;
-          }
-          e.preventDefault();
-          tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
-          this.classList.add('active');
+    <script>
+        // Toggle menú hamburguesa
+        const toggle = document.querySelector('.toggle');
+        const menu = document.querySelector('.menu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('show');
         });
-      });
-      document.body.addEventListener('click', e => {
-        if (!e.target.closest('.tour-box')) {
-          tourBoxes.forEach(b => b.classList.remove('active'));
+
+        // Modal reservar
+        const modal = document.getElementById('reserveModal');
+        const reserveBtn = document.querySelector('.reserve-btn');
+        const closeBtn = modal.querySelector('.close');
+
+        function toggleModal() {
+            const isOpen = modal.classList.contains('show');
+            modal.classList.toggle('show');
+            modal.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+            reserveBtn.setAttribute('aria-expanded', !isOpen);
+            if (!isOpen) {
+                modal.querySelector('#name').focus();
+            } else {
+                reserveBtn.focus();
+            }
         }
-      });
-    }
-  </script>
+
+        reserveBtn.addEventListener('click', toggleModal);
+        closeBtn.addEventListener('click', toggleModal);
+        closeBtn.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' '){
+                e.preventDefault();
+                toggleModal();
+            }
+        });
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && modal.classList.contains('show')){
+                toggleModal();
+            }
+        });
+
+        // Enviar formulario (simulado)
+        const form = document.getElementById('reserveForm');
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            alert(`Gracias ${form.name.value}, tu reserva para el tour "${form.tour.options[form.tour.selectedIndex].text}" ha sido recibida.`);
+            form.reset();
+            toggleModal();
+        });
+
+        // JS hover simulado en móvil para cards
+        const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+        if (isTouchDevice) {
+            const tourBoxes = document.querySelectorAll('.tour-box');
+            tourBoxes.forEach(box => {
+                box.addEventListener('click', function(e) {
+                    if (this.classList.contains('active')) {
+                        return true;
+                    }
+                    e.preventDefault();
+                    tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            document.body.addEventListener('click', e => {
+                if (!e.target.closest('.tour-box')) {
+                    tourBoxes.forEach(b => b.classList.remove('active'));
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
