@@ -113,17 +113,18 @@
             color: #fff;
             letter-spacing: 1.5px;
         }
-        .navbar .main-nav-group {
+        /* Contenedor principal de navegación para desktop (menú y botón) */
+        .navbar .main-nav-desktop { /* Renombrado para mayor claridad */
             display: flex;
             align-items: center;
             gap: 20px;
         }
-        .navbar .menu {
+        .navbar .main-nav-desktop .menu {
             display: flex;
             gap: 1.2rem;
             align-items: center;
         }
-        .navbar .menu a {
+        .navbar .main-nav-desktop .menu a {
             font-weight: 600;
             font-size: 1rem;
             color: #fff;
@@ -131,17 +132,18 @@
             transition: background 0.3s, color 0.3s;
             border-radius: 4px;
         }
-        .navbar .menu a:hover {
+        .navbar .main-nav-desktop .menu a:hover {
             background: rgba(255, 255, 255, 0.2);
         }
+        /* Ocultar el toggle por defecto en desktop */
         .navbar .toggle {
-            display: none; /* Oculto por defecto en desktop */
+            display: none;
             cursor: pointer;
             color: #fff;
             font-size: 1.8rem;
         }
 
-        /* Botón Reservar en header */
+        /* Botón Reservar */
         .reserve-btn {
             background: #ff9800;
             color: white;
@@ -158,7 +160,7 @@
             background-color: #e68900;
         }
 
-        /* Hero */
+        /* Hero Section */
         .hero {
             background-image: url('img/banner.jpg');
             background-size: cover;
@@ -185,18 +187,11 @@
             max-width: 700px;
             height: 100%;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding-bottom: 40px;
+            flex-direction: column; /* Para apilar el contenido verticalmente */
+            justify-content: flex-end; /* Empuja el contenido hacia abajo */
+            padding-bottom: 40px; /* Espacio para el botón en la parte inferior */
         }
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0,0,0,0.7);
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
+        /* El h1 se elimina según lo solicitado */
         @keyframes fadeUp {
             0% {
                 opacity: 0;
@@ -208,7 +203,7 @@
             }
         }
         .hero-button-wrapper {
-            margin-top: auto;
+            margin-top: auto; /* Esto empuja el botón a la parte inferior del hero-content */
             animation: fadeUp 1s ease-out 1.2s forwards;
             opacity: 0;
         }
@@ -236,7 +231,6 @@
             max-width: 1200px;
             margin: 40px auto 60px;
             padding: 0 20px;
-
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -329,17 +323,6 @@
         }
         .tour-overlay a:hover {
             background-color: #e68900;
-        }
-
-        /* Móvil: solo activamos overlay con clase active */
-        @media (max-width: 768px) {
-            .tour-box {
-                max-width: 100%;
-                flex-basis: 100%;
-            }
-            .tour-box:hover {
-                box-shadow: none;
-            }
         }
 
         /* Sección Testimonios */
@@ -491,7 +474,9 @@
             font-weight: bold;
         }
 
-        /* Responsive Navbar */
+        /* ==================================== */
+        /* Responsive Styles for Mobile (max-width: 768px) */
+        /* ==================================== */
         @media (max-width: 768px) {
             .hero {
                 height: 50vh;
@@ -499,30 +484,41 @@
             }
             .hero-content {
                 justify-content: center;
-                padding-bottom: 20px;
+                padding-bottom: 20px; /* Ajusta el padding si es necesario para el botón */
             }
             .hero-button-wrapper {
-                margin-top: 0;
-                opacity: 1 !important;
+                margin-top: auto; /* Asegura que el botón se empuje hacia abajo */
+                opacity: 1 !important; /* Desactiva la animación en móvil para que aparezca de inmediato */
                 animation: none !important;
             }
-            /* Ocultar el grupo de navegación principal para que solo el toggle y el botón de reserva aparezcan */
-            .navbar .main-nav-group {
+
+            /* Navbar Adjustments */
+            .navbar {
+                justify-content: flex-start; /* Alinea logo a la izquierda */
+                gap: 15px; /* Espacio entre elementos de la navbar */
+            }
+            .navbar .logo {
+                flex-grow: 1; /* Permite que el logo ocupe el espacio disponible */
+            }
+
+            /* Ocultar el grupo de navegación de escritorio */
+            .navbar .main-nav-desktop {
                 display: none;
             }
-            /* Mostrar el botón de reserva independiente y moverlo para que esté siempre visible en móvil */
+
+            /* Mostrar el botón de reserva y el toggle */
             .navbar .reserve-btn {
-                display: block; /* Asegura que el botón sea visible */
-                margin-left: auto; /* Empuja el botón a la derecha, entre el logo y el toggle */
-                order: 1; /* Establece un orden para que esté antes del toggle si el display es flex */
-                margin-right: 15px; /* Espacio entre el botón y el toggle */
+                display: block; /* Asegura visibilidad */
+                order: 2; /* Posición después del logo */
             }
             .navbar .toggle {
-                display: block; /* Mostrar el ícono de hamburguesa */
-                order: 2; /* Asegura que el toggle esté a la derecha del botón */
+                display: block; /* Muestra el ícono de hamburguesa */
+                order: 3; /* Posición después del botón de reserva */
+                margin-left: 15px; /* Espacio a la izquierda del toggle */
             }
-            /* Estilos del menú desplegable */
-            .navbar .menu {
+
+            /* Estilos del menú desplegable móvil */
+            .menu-mobile-dropdown {
                 display: none; /* Oculto por defecto */
                 flex-direction: column;
                 background: #00695c;
@@ -534,12 +530,31 @@
                 width: 150px;
                 gap: 0.5rem;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                z-index: 19; /* Asegura que esté debajo de la navbar si es sticky */
             }
-            .navbar .menu.show {
+            .menu-mobile-dropdown.show {
                 display: flex; /* Muestra el menú cuando tiene la clase 'show' */
             }
-            .hero-content h1 {
-                font-size: 2rem;
+            .menu-mobile-dropdown a {
+                font-weight: 600;
+                font-size: 1rem;
+                color: #fff;
+                padding: 8px 10px;
+                transition: background 0.3s, color 0.3s;
+                border-radius: 4px;
+                font-family: 'Open Sans', sans-serif; /* Asegura la tipografía */
+            }
+            .menu-mobile-dropdown a:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+
+            /* Ajustes para tarjetas de tours en móvil */
+            .tour-box {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+            .tour-box:hover {
+                box-shadow: none;
             }
         }
     </style>
@@ -547,18 +562,22 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo"><a href="https://www.tu-dominio.com/">CLAP365</a></div> <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false" onclick="toggleModal()">Reservar</button>
+        <div class="logo"><a href="https://www.tu-dominio.com/">CLAP365</a></div>
+        
+        <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false" onclick="toggleModal()">Reservar</button>
 
         <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
         
-        <div class="main-nav-group"> <div class="menu" role="menu">
+        <div class="main-nav-desktop">
+            <div class="menu" role="menu">
                 <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
                 <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
                 <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
             </div>
         </div>
 
-        <div class="menu-mobile-dropdown"> <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
+        <div class="menu-mobile-dropdown">
+            <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
             <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
             <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
         </div>
@@ -567,15 +586,12 @@
     <section class="hero" role="banner" aria-label="Imagen principal y botón ver tours">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Tours Exclusivos en Mérida y Yucatán</h1>
             <div class="hero-button-wrapper">
-                <a href="#tours" class="hero-button">Explora nuestros Tours</a>
-            </div>
+                <a href="#tours" class="hero-button">Ver tours</a> </div>
         </div>
     </section>
 
     <div class="container" id="tours" role="list">
-
         <a href="https://www.tu-dominio.com/chichen" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Chichen Itzá. Ver más detalles">
             <img src="img/chichen.jpg" alt="Chichen Itzá, pirámide Kukulkán en Yucatán" />
             <div class="tour-overlay" aria-hidden="true">
@@ -647,7 +663,6 @@
                 <span>Ver más</span>
             </div>
         </a>
-
     </div>
 
     <section class="testimonials" aria-label="Testimonios de clientes">
@@ -709,46 +724,32 @@
     </div>
 
     <script>
-        // Toggle menú hamburguesa para el menú móvil
+        // Seleccionamos el menú desplegable móvil
+        const menuMobileDropdown = document.querySelector('.menu-mobile-dropdown');
         const toggle = document.querySelector('.toggle');
-        const menuMobileDropdown = document.querySelector('.menu-mobile-dropdown'); // Seleccionamos el nuevo contenedor
-
-        toggle.addEventListener('click', () => {
-            menuMobileDropdown.classList.toggle('show');
-            // Cierra el modal si está abierto al desplegar el menú
-            if (modal.classList.contains('show')) {
-                toggleModal();
-            }
-        });
-
-        // Cerrar menú al hacer clic fuera
-        document.addEventListener('click', (event) => {
-            const isClickInsideNavbar = toggle.contains(event.target) || menuMobileDropdown.contains(event.target);
-            if (!isClickInsideNavbar && menuMobileDropdown.classList.contains('show')) {
-                menuMobileDropdown.classList.remove('show');
-            }
-        });
-
-        // Cerrar menú al hacer clic en un enlace del menú
-        menuMobileDropdown.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuMobileDropdown.classList.remove('show');
-            });
-        });
-
-
+        
         // Modal reservar
         const modal = document.getElementById('reserveModal');
         const reserveBtn = document.querySelector('.reserve-btn'); // Selecciona el botón de reserva principal
         const closeBtn = modal.querySelector('.close');
 
+        // Función para abrir/cerrar el menú hamburguesa
+        toggle.addEventListener('click', () => {
+            menuMobileDropdown.classList.toggle('show');
+            // Si el modal está abierto, ciérralo
+            if (modal.classList.contains('show')) {
+                toggleModal(); // Llama a la función para cerrar el modal
+            }
+        });
+
+        // Función para abrir/cerrar el modal de reserva
         function toggleModal() {
             const isOpen = modal.classList.contains('show');
             modal.classList.toggle('show');
             modal.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
             reserveBtn.setAttribute('aria-expanded', !isOpen);
             if (!isOpen) {
-                // Cierra el menú hamburguesa si está abierto al abrir el modal
+                // Si el menú hamburguesa está abierto, ciérralo
                 if (menuMobileDropdown.classList.contains('show')) {
                     menuMobileDropdown.classList.remove('show');
                 }
@@ -758,8 +759,10 @@
             }
         }
 
-        // El listener para el botón de reserva ya debería estar funcionando
+        // Event listener para el botón de reserva
         reserveBtn.addEventListener('click', toggleModal);
+        
+        // Event listeners para cerrar el modal
         closeBtn.addEventListener('click', toggleModal);
         closeBtn.addEventListener('keydown', (e) => {
             if(e.key === 'Enter' || e.key === ' '){
@@ -771,6 +774,21 @@
             if(e.key === 'Escape' && modal.classList.contains('show')){
                 toggleModal();
             }
+        });
+
+        // Cerrar menú al hacer clic fuera (excluyendo el toggle)
+        document.addEventListener('click', (event) => {
+            const isClickInsideNavbarElements = toggle.contains(event.target) || menuMobileDropdown.contains(event.target) || reserveBtn.contains(event.target);
+            if (!isClickInsideNavbarElements && menuMobileDropdown.classList.contains('show')) {
+                menuMobileDropdown.classList.remove('show');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace del menú móvil
+        menuMobileDropdown.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuMobileDropdown.classList.remove('show');
+            });
         });
 
         // Enviar formulario (simulado)
@@ -789,15 +807,13 @@
             tourBoxes.forEach(box => {
                 box.addEventListener('click', function(e) {
                     if (this.classList.contains('active')) {
-                        // Si ya está activo, permite la navegación al enlace
                         return true;
                     }
-                    e.preventDefault(); // Previene la navegación inmediata
-                    tourBoxes.forEach(b => b !== this && b.classList.remove('active')); // Desactiva otros
-                    this.classList.add('active'); // Activa este
+                    e.preventDefault();
+                    tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
+                    this.classList.add('active');
                 });
             });
-            // Cierra overlays al hacer clic fuera
             document.body.addEventListener('click', e => {
                 if (!e.target.closest('.tour-box') && !e.target.closest('.tour-overlay a')) {
                     tourBoxes.forEach(b => b.classList.remove('active'));
