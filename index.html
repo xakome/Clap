@@ -310,8 +310,35 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: flex-end; /* Alinea el contenido y el botón al final */
             padding-bottom: 40px;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            text-shadow: 0 0 15px rgba(0,0,0,0.7);
+            animation: fadeIn 1s ease-out 0.5s forwards; /* Animación para el título */
+            opacity: 0;
+        }
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.6);
+            animation: fadeIn 1s ease-out 0.8s forwards; /* Animación para la descripción */
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         @keyframes fadeUp {
             0% {
@@ -324,8 +351,8 @@
             }
         }
         .hero-button-wrapper {
-            margin-top: auto;
-            animation: fadeUp 10s ease-out 1.2s forwards; /* Aumentado el tiempo para una animación más suave */
+            margin-top: auto; /* Empuja el botón al final del hero-content */
+            animation: fadeUp 1s ease-out 1.2s forwards;
             opacity: 0;
         }
         /* Estilos para el botón "Ver tours" más discreto */
@@ -447,6 +474,54 @@
             background-color: #e68900;
         }
 
+        /* Sección "Por Qué Elegirnos" */
+        .why-us {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #f8f8f8; /* Un fondo suave para diferenciarla */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .why-us h2 {
+            font-family: 'Playfair Display', serif;
+            color: #00695c;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-item {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-item i {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+        .feature-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #00695c;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
         /* Sección Testimonios */
         .testimonials {
             background: #fff;
@@ -514,6 +589,34 @@
         }
         .social-icons a:hover {
             color: #ff9800;
+        }
+
+        /* Footer CTA Link */
+        footer .footer-cta-link {
+            color: #ffeb3b; /* Color que contraste bien con el verde oscuro */
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        footer .footer-cta-link:hover {
+            color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
+        }
+
+        /* Payment and Certification Icons */
+        .payment-cert-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+        .payment-cert-icons img {
+            height: 30px; /* Ajusta el tamaño según sea necesario */
+            filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro */
+        }
+        .payment-cert-icons img.color-icon {
+            filter: none; /* Si el icono ya tiene color y no quieres invertirlo */
+            height: 35px; /* Puede ser ligeramente más grande para logos específicos */
         }
 
         /* Botón flotante WhatsApp */
@@ -620,6 +723,12 @@
                 justify-content: center;
                 padding-bottom: 20px;
             }
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            .hero-description {
+                font-size: 1rem;
+            }
             .hero-button-wrapper {
                 margin-top: auto;
                 opacity: 1 !important;
@@ -702,6 +811,19 @@
             .tour-box:hover {
                 box-shadow: none;
             }
+
+            /* Why Choose Us - Mobile Adjustments */
+            .why-us {
+                margin: 40px auto;
+                padding: 30px 15px;
+            }
+            .why-us h2 {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* Una columna en móvil */
+            }
         }
     </style>
 </head>
@@ -733,7 +855,7 @@
                 <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
                 <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
                 <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
-            </div>
+                <a href="https://www.tu-dominio.com/#faq" role="menuitem">FAQ</a> </div>
             <div class="language-switcher-desktop">
                 <div class="current-lang" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
                     ES <i class="fas fa-globe"></i>
@@ -755,6 +877,8 @@
     <section class="hero" role="banner" aria-label="Imagen principal y botón ver tours">
         <div class="hero-overlay"></div>
         <div class="hero-content">
+            <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
+            <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
             <div class="hero-button-wrapper">
                 <a href="#tours" class="hero-button">Ver tours</a>
             </div>
@@ -835,6 +959,33 @@
         </a>
     </div>
 
+    ---
+    <section class="why-us">
+        <h2>¿Por qué elegir CLAP365?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <h3>Experiencias Exclusivas</h3>
+                <p>Diseñamos tours privados y personalizados para ti y tus acompañantes, garantizando privacidad y confort.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-route"></i>
+                <h3>Itinerarios Flexibles</h3>
+                <p>Tu aventura, tus reglas. Adaptamos cada viaje a tus intereses y ritmo, desde la cultura maya hasta la naturaleza.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-user-tie"></i>
+                <h3>Guías Expertos Locales</h3>
+                <p>Nuestros guías certificados te brindarán una inmersión profunda en la historia y cultura de Yucatán.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Seguridad y Confort</h3>
+                <p>Viaja con tranquilidad. Nos encargamos de cada detalle, desde el transporte hasta las entradas, con los más altos estándares.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="testimonials" aria-label="Testimonios de clientes">
         <h2>Lo que dicen nuestros clientes</h2>
         <div class="testimonial">
@@ -851,14 +1002,32 @@
         </div>
     </section>
 
+    <section class="testimonials" id="faq" aria-label="Preguntas Frecuentes">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="testimonial">
+            <h3>¿Son tours privados o grupales?</h3>
+            <p style="font-style: normal; color: #333;">Todos nuestros tours son **privados y exclusivos** para tu grupo, garantizando una experiencia personalizada y a tu medida.</p>
+        </div>
+        <div class="testimonial">
+            <h3>¿Qué incluye el tour?</h3>
+            <p style="font-style: normal; color: #333;">Nuestros tours incluyen **transporte**, **entradas** a los sitios, **guía certificado** y **agua embotellada**. Las comidas son opcionales y se adaptan a tus preferencias.</p>
+        </div>
+        <p><a href="https://www.tu-dominio.com/faq" class="footer-cta-link">Ver todas las preguntas frecuentes</a></p> </section>
+
     <footer>
         <p>© 2025 CLAP365. Todos los derechos reservados.</p>
         <p><a href="https://www.tu-dominio.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
+        
+        <p>¿Listo para tu aventura? <a href="#reserveModal" class="footer-cta-link">¡Reserva ahora!</a></p>
+
         <div class="social-icons">
             <a href="URL_DE_TU_FACEBOOK" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="URL_DE_TU_INSTAGRAM" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
             <a href="URL_DE_TU_TIKTOK" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
+
+        <div class="payment-cert-icons">
+            <img src="img/icon-visa.png" alt="Visa" title="Aceptamos Visa"> <img src="img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard"> <img src="img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon"> </div>
     </footer>
 
     <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
