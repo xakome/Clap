@@ -381,27 +381,25 @@
             flex-direction: column;
             justify-content: flex-end; /* Alinea el contenido y el botón al final */
             padding: 0 20px 40px; /* Padding general, con más abajo */
-            text-shadow: 0 0 10px rgba(0,0,0,0.6);
         }
 
-        /* Hacemos las letras del hero transparentes */
+        /* Hacemos las letras del hero completamente transparentes y sin sombra */
         .hero-slider .hero-title,
         .hero-slider .hero-description {
-            color: transparent;
-            font-family: 'Playfair Display', serif;
+            color: transparent !important; /* Usamos !important para asegurar que sobreescriba cualquier otra regla */
+            text-shadow: none !important; /* Eliminamos cualquier sombra de texto */
+            font-family: 'Playfair Display', serif; /* Mantenemos la fuente para la estructura semántica */
             font-weight: 700;
-            line-height: 1.1;
-            /* Asegúrate de que los elementos tengan una altura, aunque el texto sea transparente */
-            min-height: 1.1em; /* Para el H1 */
-        }
-        .hero-slider .hero-title {
-            font-size: 3.2rem;
-            margin-bottom: 15px;
-        }
-        .hero-slider .hero-description {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            min-height: 1.5em; /* Para la descripción */
+            /* Reducimos el tamaño y altura de línea para que visualmente no ocupen espacio
+               pero el texto sigue presente para los motores de búsqueda */
+            font-size: 0.1px; /* Un tamaño mínimo para que sea casi invisible */
+            line-height: 0.1px; /* Una altura de línea mínima */
+            overflow: hidden; /* Asegura que cualquier desbordamiento mínimo sea invisible */
+            height: 1px; /* Le damos una altura mínima para que el elemento exista en el flujo */
+            margin: 0; /* Aseguramos que no tenga márgenes que empujen la imagen */
+            padding: 0; /* Aseguramos que no tenga padding */
+            pointer-events: none; /* Asegura que no sea interactuable */
+            visibility: hidden; /* Segunda capa de seguridad para ocultar completamente */
         }
         
         .hero-button-wrapper {
@@ -845,14 +843,12 @@
                 justify-content: center; /* Centra el contenido en móvil */
                 padding-bottom: 20px; /* Menos padding en móvil */
             }
-            /* Opcional: Si quieres que el texto transparente siga ocupando espacio, mantén los tamaños.
-               Si quieres que el hero sea puramente imagen en móvil y se ignore el texto transparente,
-               puedes poner min-height: 0; para los h1/p transparentes aquí */
-            .hero-slider .hero-title {
-                font-size: 2.2rem;
-            }
+            /* Las reglas de transparencia ya deberían manejar esto, pero re-asegurar */
+            .hero-slider .hero-title,
             .hero-slider .hero-description {
-                font-size: 1rem;
+                font-size: 0.1px; /* Mantener mínimo */
+                line-height: 0.1px; /* Mantener mínimo */
+                height: 1px;
             }
             .hero-button-wrapper {
                 margin-top: auto;
@@ -1504,7 +1500,7 @@
         nextBtn.addEventListener('click', () => {
             nextSlide();
             pauseSlider(); // Pausa al hacer clic manual
-            startSlider(); // Reinicia el temporizador
+            startSlider(); // Reinicia el temporador
         });
 
         // Iniciar el slider al cargar la página
