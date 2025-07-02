@@ -89,12 +89,6 @@
         body {
             font-family: 'Open Sans', sans-serif;
             line-height: 1.5;
-            /* Fondo con imagen */
-            background-image: url('img/fondo.png'); /* Asegúrate que la ruta sea correcta */
-            background-size: cover; /* La imagen cubrirá todo el fondo */
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
             color: #333; /* Color de texto predeterminado */
         }
         a {
@@ -102,16 +96,75 @@
             color: inherit;
         }
 
+        /* Estilos para el Top Banner */
+        .top-banner {
+            background-color: #ff9800; /* Color naranja de tu marca */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative; /* Para posicionar el botón de cerrar */
+            display: flex; /* Para alinear contenido y botón de cerrar */
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Espacio entre el texto y el CTA */
+            z-index: 25; /* Asegura que esté por encima del navbar */
+            flex-wrap: wrap; /* Permite que el contenido se envuelva en pantallas pequeñas */
+        }
+
+        .top-banner p {
+            margin: 0; /* Elimina márgenes predeterminados del párrafo */
+            flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+        }
+
+        .top-banner strong {
+            font-weight: 700;
+        }
+
+        .top-banner .banner-cta {
+            background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente para el CTA */
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: background-color 0.3s;
+            white-space: nowrap; /* Evita que el botón se rompa en varias líneas */
+        }
+
+        .top-banner .banner-cta:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .top-banner .close-banner {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 5px; /* Ajuste de padding */
+            margin-left: 10px; /* Espacio a la izquierda del botón de cerrar */
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .top-banner .close-banner:hover {
+            opacity: 1;
+        }
+
         /* Navbar */
         .navbar {
             background: #00695c;
             padding: 15px 20px;
             display: flex;
-            justify-content: space-between; /* Alinea elementos a los extremos */
+            justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 20;
+            min-height: 60px; /* Ajusta según sea necesario, pero 60px suele ser un buen punto de partida */
+            box-sizing: border-box; /* Asegura que el padding no añada altura extra no deseada */
         }
         .navbar .logo {
             font-family: 'Playfair Display', serif;
@@ -119,7 +172,6 @@
             font-weight: 700;
             color: #fff;
             letter-spacing: 1.5px;
-            /* No necesitamos margin-right: auto aquí si usamos justify-content: space-between */
         }
 
         /* Contenedor principal de navegación (se adapta para desktop/móvil) */
@@ -151,7 +203,6 @@
             cursor: pointer;
             color: #fff;
             font-size: 1.8rem;
-            /* margin-left se gestiona en media query para móvil */
         }
 
         /* Botón Reservar */
@@ -166,7 +217,7 @@
             transition: background 0.3s;
             cursor: pointer;
             border: none;
-            margin-left: auto; /* Empuja el botón a la derecha en desktop */
+            margin-left: auto;
         }
         .reserve-btn:hover {
             background-color: #e68900;
@@ -176,7 +227,7 @@
         .language-switcher-desktop {
             position: relative;
             display: flex; /* Visible en desktop */
-            margin-left: 20px; /* Espacio a la izquierda del botón de reserva en desktop */
+            margin-left: 20px;
         }
         .language-switcher-desktop .current-lang {
             color: #fff;
@@ -193,24 +244,24 @@
             background: rgba(255, 255, 255, 0.2);
         }
         .language-switcher-desktop .current-lang::after {
-            content: '\25BC'; /* Flecha hacia abajo */
+            content: '\25BC';
             font-size: 0.7em;
             margin-left: 5px;
         }
         .language-switcher-desktop .lang-options {
-            display: none; /* Oculto por defecto */
+            display: none;
             position: absolute;
             background: #00695c;
             min-width: 120px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
             z-index: 1;
             border-radius: 4px;
-            top: calc(100% + 5px); /* Debajo del botón */
-            right: 0; /* Alineado a la derecha */
-            overflow: hidden; /* Para los border-radius */
+            top: calc(100% + 5px);
+            right: 0;
+            overflow: hidden;
         }
         .language-switcher-desktop.active .lang-options {
-            display: block; /* Muestra el dropdown */
+            display: block;
         }
         .language-switcher-desktop .lang-options a {
             color: white;
@@ -233,13 +284,13 @@
             color: #fff;
             font-weight: 600;
             cursor: pointer;
-            padding: 6px 8px; /* Padding ajustado para móvil */
+            padding: 6px 8px;
             border-radius: 4px;
             transition: background 0.3s, color 0.3s;
             display: flex;
             align-items: center;
             gap: 4px;
-            font-size: 0.85rem; /* Tamaño de fuente ajustado para móvil */
+            font-size: 0.85rem;
         }
         .language-switcher-mobile-standalone .current-lang-mobile:hover {
             background: rgba(255, 255, 255, 0.2);
@@ -253,9 +304,9 @@
             display: none;
             position: absolute;
             background: #00695c;
-            min-width: 100px; /* Ancho más pequeño para móvil */
+            min-width: 100px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 21; /* Mayor z-index para que esté sobre el menú */
+            z-index: 21;
             border-radius: 4px;
             top: calc(100% + 5px);
             right: 0;
@@ -282,87 +333,87 @@
         }
 
 
-        /* Hero Section */
-        .hero {
-            background-image: url('img/banner.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
+        /* Hero Section (Ahora Carousel) */
+        .hero-slider {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
+            width: 100%;
+            height: 70vh; /* Ajusta la altura del carrusel */
+            overflow: hidden;
             color: #fff;
         }
-        .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.0);
+
+        .hero-slider .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out; /* Transición más lenta y suave */
+            display: flex;
+            align-items: flex-end; /* Alinea el contenido y el botón al final */
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px; /* Padding para el contenido */
+        }
+
+        .hero-slider .slide.active {
+            opacity: 1;
+        }
+
+        .hero-slider .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.0); /* Mantenemos el overlay sutil si deseas */
             position: absolute;
             inset: 0;
             z-index: 1;
             box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
         }
-        .hero-content {
+
+        .hero-slider .hero-content {
             position: relative;
             z-index: 2;
             max-width: 700px;
-            height: 100%;
+            width: 100%;
+            height: 100%; /* Para que el flex-end funcione bien */
             display: flex;
             flex-direction: column;
             justify-content: flex-end; /* Alinea el contenido y el botón al final */
-            padding-bottom: 40px;
+            padding: 0 20px 40px; /* Padding general, con más abajo */
+            text-shadow: 0 0 10px rgba(0,0,0,0.6);
         }
-        .hero-title {
+
+        /* Hacemos las letras del hero transparentes */
+        .hero-slider .hero-title,
+        .hero-slider .hero-description {
+            color: transparent;
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 15px;
             line-height: 1.1;
-            text-shadow: 0 0 15px rgba(0,0,0,0.7);
-            animation: fadeIn 1s ease-out 0.5s forwards; /* Animación para el título */
-            opacity: 0;
+            /* Asegúrate de que los elementos tengan una altura, aunque el texto sea transparente */
+            min-height: 1.1em; /* Para el H1 */
         }
-        .hero-description {
+        .hero-slider .hero-title {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+        }
+        .hero-slider .hero-description {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(0,0,0,0.6);
-            animation: fadeIn 1s ease-out 0.8s forwards; /* Animación para la descripción */
-            opacity: 0;
+            min-height: 1.5em; /* Para la descripción */
         }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        
         .hero-button-wrapper {
             margin-top: auto; /* Empuja el botón al final del hero-content */
-            animation: fadeUp 1s ease-out 1.2s forwards;
-            opacity: 0;
         }
-        /* Estilos para el botón "Ver tours" más discreto */
         .hero-button {
-            padding: 7px 16px; /* Reducido */
+            padding: 7px 16px;
             background-color: #ff9800;
             color: white;
-            font-size: 0.8rem; /* Fuente más pequeña */
+            font-size: 0.8rem;
             border: none;
-            border-radius: 4px; /* Borde ligeramente más pequeño */
+            border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
             text-transform: uppercase;
@@ -374,6 +425,58 @@
         .hero-button:hover {
             background-color: #e68900;
         }
+
+        /* Carousel Navigation */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 3;
+            padding: 0 20px;
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .slider-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 8px;
+        }
+
+        .slider-dots .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .slider-dots .dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
 
         /* Container tours */
         .container {
@@ -715,36 +818,61 @@
         /* Responsive Styles for Mobile (max-width: 768px) */
         /* ==================================== */
         @media (max-width: 768px) {
-            .hero {
-                height: 50vh;
-                padding-bottom: 20px;
+            /* Responsive Top Banner */
+            .top-banner {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+                gap: 10px;
+                flex-direction: column; /* Apila el texto y el CTA en móvil */
+                align-items: center;
+                text-align: center;
             }
-            .hero-content {
-                justify-content: center;
-                padding-bottom: 20px;
+            .top-banner .banner-cta {
+                margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
             }
-            .hero-title {
+            .top-banner .close-banner {
+                position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
+                top: 5px;
+                right: 5px;
+                margin-left: 0;
+                font-size: 1.2rem;
+            }
+
+            .hero-slider {
+                height: 50vh; /* Ajusta la altura del carrusel para móvil */
+            }
+            .hero-slider .hero-content {
+                justify-content: center; /* Centra el contenido en móvil */
+                padding-bottom: 20px; /* Menos padding en móvil */
+            }
+            /* Opcional: Si quieres que el texto transparente siga ocupando espacio, mantén los tamaños.
+               Si quieres que el hero sea puramente imagen en móvil y se ignore el texto transparente,
+               puedes poner min-height: 0; para los h1/p transparentes aquí */
+            .hero-slider .hero-title {
                 font-size: 2.2rem;
             }
-            .hero-description {
+            .hero-slider .hero-description {
                 font-size: 1rem;
             }
             .hero-button-wrapper {
                 margin-top: auto;
-                opacity: 1 !important;
-                animation: none !important;
             }
 
-            /* Navbar Adjustments */
+            /* Ajustes del Navbar en móvil */
             .navbar {
-                justify-content: flex-start; /* Control con 'order' */
+                justify-content: flex-start;
                 gap: 10px;
                 padding: 12px 15px;
+                min-height: 55px; /* Ajusta la altura mínima para móvil */
+                align-items: center; /* Centra los elementos verticalmente */
             }
             .navbar .logo {
-                flex-grow: 1; /* Permite que el logo ocupe la mayor parte del espacio a la izquierda */
+                flex-grow: 1;
                 font-size: 1.8rem;
-                order: 1; /* Primer elemento */
+                order: 1;
+                display: flex;
+                align-items: center;
+                min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
             }
 
             /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
@@ -755,20 +883,23 @@
 
             /* Mostrar el botón de idioma para móvil y posicionarlo */
             .language-switcher-mobile-standalone {
-                display: flex; /* Mostrar en móvil */
-                order: 2; /* Segundo elemento */
-                margin-left: 0; /* Asegurarse de que no herede 'margin-left: auto' */
+                display: flex;
+                order: 2;
+                margin-left: 0;
+                align-self: center;
             }
             /* Posicionar el botón de reserva */
             .reserve-btn {
-                order: 3; /* Tercer elemento */
-                margin-left: 10px; /* Espacio entre idioma y reserva */
+                order: 3;
+                margin-left: 10px;
+                align-self: center;
             }
             /* Posicionar el toggle */
             .navbar .toggle {
                 display: block;
-                order: 4; /* Cuarto elemento */
-                margin-left: 10px; /* Espacio entre reserva y hamburguesa */
+                order: 4;
+                margin-left: 10px;
+                align-self: center;
             }
 
             /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
@@ -776,7 +907,7 @@
                 flex-direction: column;
                 background: #00695c;
                 position: absolute;
-                top: 50px;
+                top: 100%; /* Empieza justo debajo del navbar, sin importar su altura */
                 right: 15px;
                 border-radius: 6px;
                 padding: 10px;
@@ -784,7 +915,7 @@
                 gap: 0.5rem;
                 box-shadow: 0 4px 8px rgba(0,0,0,0.2);
                 z-index: 19;
-                display: none; /* Oculto por defecto */
+                display: none;
                 align-items: flex-start;
             }
             .navbar .main-nav.show {
@@ -828,6 +959,10 @@
     </style>
 </head>
 <body>
+    <div class="top-banner" role="banner" aria-label="Anuncio especial de CLAP365">
+        <p>¡Disfruta de un **15% de descuento** en todos los tours reservados este Julio! Usa código: **YUCATAN15** <a href="#tours" class="banner-cta">Ver Tours</a></p>
+        <button class="close-banner" aria-label="Cerrar anuncio">&times;</button>
+    </div>
 
     <nav class="navbar">
         <div class="logo"><a href="https://www.tu-dominio.com/">CLAP365</a></div>
@@ -855,7 +990,8 @@
                 <a href="https://www.tu-dominio.com/#tours" role="menuitem">Tours</a>
                 <a href="https://www.tu-dominio.com/" role="menuitem">Inicio</a>
                 <a href="https://www.tu-dominio.com/contacto" role="menuitem">Contacto</a>
-                <a href="https://www.tu-dominio.com/#faq" role="menuitem">FAQ</a> </div>
+                <a href="https://www.tu-dominio.com/#faq" role="menuitem">FAQ</a>
+            </div>
             <div class="language-switcher-desktop">
                 <div class="current-lang" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
                     ES <i class="fas fa-globe"></i>
@@ -874,15 +1010,66 @@
         </div>
     </nav>
 
-    <section class="hero" role="banner" aria-label="Imagen principal y botón ver tours">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
-            <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
-            <div class="hero-button-wrapper">
-                <a href="#tours" class="hero-button">Ver tours</a>
+    <section class="hero-slider" role="banner" aria-label="Carrusel de imágenes de tours y experiencias en Yucatán">
+        <div class="slides">
+            <div class="slide active" style="background-image: url('img/banner1.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
+                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
+                    <div class="hero-button-wrapper">
+                        <a href="#tours" class="hero-button">Ver tours</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner2.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
+                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
+                    <div class="hero-button-wrapper">
+                        <a href="#tours" class="hero-button">Ver tours</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner3.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
+                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
+                    <div class="hero-button-wrapper">
+                        <a href="#tours" class="hero-button">Ver tours</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner4.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
+                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
+                    <div class="hero-button-wrapper">
+                        <a href="#tours" class="hero-button">Ver tours</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner5.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
+                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
+                    <div class="hero-button-wrapper">
+                        <a href="#tours" class="hero-button">Ver tours</a>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="slider-nav">
+            <button class="prev-slide" aria-label="Anterior slide">&#10094;</button>
+            <button class="next-slide" aria-label="Siguiente slide">&#10095;</button>
+        </div>
+        <div class="slider-dots">
+            </div>
     </section>
 
     <div class="container" id="tours" role="list">
@@ -1075,9 +1262,12 @@
         const closeBtn = modal.querySelector('.close');
         const langSwitcherDesktop = document.querySelector('.language-switcher-desktop');
         const currentLangDesktop = document.querySelector('.language-switcher-desktop .current-lang');
-        // Nuevo selector de idioma móvil
         const langSwitcherMobileStandalone = document.querySelector('.language-switcher-mobile-standalone');
         const currentLangMobile = document.querySelector('.language-switcher-mobile-standalone .current-lang-mobile');
+        
+        // Elementos del Top Banner
+        const topBanner = document.querySelector('.top-banner');
+        const closeBannerButton = document.querySelector('.close-banner');
 
 
         // --- Funcionalidad del Menú Hamburguesa ---
@@ -1091,7 +1281,6 @@
                 langSwitcherDesktop.classList.remove('active');
                 currentLangDesktop.setAttribute('aria-expanded', 'false');
             }
-            // Cerrar selector de idioma móvil si está abierto
             if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
                 langSwitcherMobileStandalone.classList.remove('active');
                 currentLangMobile.setAttribute('aria-expanded', 'false');
@@ -1104,8 +1293,7 @@
             modal.classList.toggle('show');
             modal.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
             reserveBtn.setAttribute('aria-expanded', !isOpen);
-            if (!isOpen) { // Si se está abriendo el modal
-                // Asegurarse de que otros elementos se cierren
+            if (!isOpen) {
                 if (mainNav.classList.contains('show')) {
                     mainNav.classList.remove('show');
                 }
@@ -1113,21 +1301,17 @@
                     langSwitcherDesktop.classList.remove('active');
                     currentLangDesktop.setAttribute('aria-expanded', 'false');
                 }
-                // Cerrar selector de idioma móvil si está abierto
                 if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
                     langSwitcherMobileStandalone.classList.remove('active');
                     currentLangMobile.setAttribute('aria-expanded', 'false');
                 }
-                modal.querySelector('#name').focus(); // Mueve el foco al primer campo del formulario
-            } else { // Si se está cerrando el modal
-                reserveBtn.focus(); // Devuelve el foco al botón de reserva
+                modal.querySelector('#name').focus();
+            } else {
+                reserveBtn.focus();
             }
         }
         
-        // Listener para el botón "Reservar" (ahora funciona al 100%)
         reserveBtn.addEventListener('click', toggleModal);
-
-        // Listeners para cerrar el modal con el botón de cerrar y la tecla Escape
         closeBtn.addEventListener('click', toggleModal);
         closeBtn.addEventListener('keydown', (e) => {
             if(e.key === 'Enter' || e.key === ' '){
@@ -1146,21 +1330,18 @@
             currentLangDesktop.addEventListener('click', () => {
                 const isActive = langSwitcherDesktop.classList.toggle('active');
                 currentLangDesktop.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-                // Asegurarse de que otros elementos se cierren
-                if (mainNav.classList.contains('show')) { // Cierra el menú hamburguesa si está abierto
+                if (mainNav.classList.contains('show')) {
                     mainNav.classList.remove('show');
                 }
                 if (modal.classList.contains('show')) {
                     toggleModal();
                 }
-                // Cerrar selector de idioma móvil si está abierto
                 if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
                     langSwitcherMobileStandalone.classList.remove('active');
                     currentLangMobile.setAttribute('aria-expanded', 'false');
                 }
             });
 
-            // Cerrar selector de idioma de desktop al hacer clic fuera
             document.addEventListener('click', (event) => {
                 if (!langSwitcherDesktop.contains(event.target) && langSwitcherDesktop.classList.contains('active')) {
                     langSwitcherDesktop.classList.remove('active');
@@ -1174,8 +1355,7 @@
             currentLangMobile.addEventListener('click', () => {
                 const isActive = langSwitcherMobileStandalone.classList.toggle('active');
                 currentLangMobile.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-                // Asegurarse de que otros elementos se cierren
-                if (mainNav.classList.contains('show')) { // Cierra el menú hamburguesa si está abierto
+                if (mainNav.classList.contains('show')) {
                     mainNav.classList.remove('show');
                 }
                 if (modal.classList.contains('show')) {
@@ -1187,7 +1367,6 @@
                 }
             });
 
-            // Cerrar selector de idioma móvil al hacer clic fuera
             document.addEventListener('click', (event) => {
                 if (!langSwitcherMobileStandalone.contains(event.target) && langSwitcherMobileStandalone.classList.contains('active')) {
                     langSwitcherMobileStandalone.classList.remove('active');
@@ -1200,23 +1379,20 @@
         // --- Cierre general de elementos flotantes al hacer clic fuera ---
         document.addEventListener('click', (event) => {
             const isClickInsideNavbarElements = toggle.contains(event.target) || 
-                                              mainNav.contains(event.target) || // Ahora verifica .main-nav
+                                              mainNav.contains(event.target) || 
                                               reserveBtn.contains(event.target) || 
-                                              (langSwitcherDesktop && langSwitcherDesktop.contains(event.target)) || // Verifica si existe antes de usar contains
-                                              (langSwitcherMobileStandalone && langSwitcherMobileStandalone.contains(event.target)) || // Verifica si existe
+                                              (langSwitcherDesktop && langSwitcherDesktop.contains(event.target)) || 
+                                              (langSwitcherMobileStandalone && langSwitcherMobileStandalone.contains(event.target)) ||
                                               modal.contains(event.target);
             
             if (!isClickInsideNavbarElements) {
-                // Cierra menú móvil si está abierto
                 if (mainNav.classList.contains('show')) {
                     mainNav.classList.remove('show');
                 }
-                // Cierra selector de idioma desktop si está abierto
                 if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
                     langSwitcherDesktop.classList.remove('active');
                     currentLangDesktop.setAttribute('aria-expanded', 'false');
                 }
-                // Cierra selector de idioma móvil si está abierto
                 if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
                     langSwitcherMobileStandalone.classList.remove('active');
                     currentLangMobile.setAttribute('aria-expanded', 'false');
@@ -1224,11 +1400,8 @@
             }
         });
 
-        // Cerrar menú móvil al hacer clic en un enlace del menú móvil
-        // Ahora seleccionamos los enlaces DENTRO del mainNav para el cierre en móvil
-        mainNav.querySelectorAll('.menu a').forEach(link => { // Solo los enlaces del menú principal
+        mainNav.querySelectorAll('.menu a').forEach(link => {
             link.addEventListener('click', () => {
-                // Solo cierra si el menú está en modo móvil (class 'show' activa)
                 if (window.innerWidth <= 768 && mainNav.classList.contains('show')) {
                     mainNav.classList.remove('show');
                 }
@@ -1242,20 +1415,107 @@
             tourBoxes.forEach(box => {
                 box.addEventListener('click', function(e) {
                     if (this.classList.contains('active')) {
-                        // Si ya está activo, permite la navegación al enlace
                         return true; 
                     }
-                    e.preventDefault(); // Evita la navegación inmediata
+                    e.preventDefault();
                     tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
-                    this.classList.add('active'); // Activa la tarjeta actual para mostrar el overlay
+                    this.classList.add('active');
                 });
             });
             document.body.addEventListener('click', e => {
-                // Si el clic no es dentro de una tarjeta de tour y no es un enlace dentro de una tarjeta
                 if (!e.target.closest('.tour-box') && !e.target.closest('.tour-overlay a')) {
-                    tourBoxes.forEach(b => b.classList.remove('active')); // Desactiva todas las tarjetas
+                    tourBoxes.forEach(b => b.classList.remove('active'));
                 }
             });
+        }
+
+        // --- JS para el Top Banner ---
+        if (topBanner && closeBannerButton) {
+            closeBannerButton.addEventListener('click', () => {
+                topBanner.style.display = 'none';
+                // localStorage.setItem('bannerClosed', 'true'); // Opcional: para recordar el cierre
+            });
+            // Opcional: Comentar si quieres que aparezca cada vez
+            // if (localStorage.getItem('bannerClosed') === 'true') {
+            //     topBanner.style.display = 'none';
+            // }
+        }
+
+        // --- JS para el Carrusel/Slider del Hero ---
+        const slides = document.querySelectorAll('.hero-slider .slide');
+        const dotsContainer = document.querySelector('.slider-dots');
+        const prevBtn = document.querySelector('.prev-slide');
+        const nextBtn = document.querySelector('.next-slide');
+        let currentSlide = 0;
+        let slideInterval;
+        const slideDuration = 5000; // 5 segundos por slide
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (dotsContainer.children[i]) {
+                    dotsContainer.children[i].classList.remove('active');
+                }
+            });
+
+            slides[index].classList.add('active');
+            if (dotsContainer.children[index]) {
+                dotsContainer.children[index].classList.add('active');
+            }
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, slideDuration);
+        }
+
+        function pauseSlider() {
+            clearInterval(slideInterval);
+        }
+
+        // Generar puntos de navegación
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => {
+                showSlide(i);
+                pauseSlider(); // Pausa al hacer clic manual
+                startSlider(); // Reinicia el temporizador
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        // Event listeners para los botones de navegación
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            pauseSlider(); // Pausa al hacer clic manual
+            startSlider(); // Reinicia el temporizador
+        });
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            pauseSlider(); // Pausa al hacer clic manual
+            startSlider(); // Reinicia el temporizador
+        });
+
+        // Iniciar el slider al cargar la página
+        showSlide(currentSlide); // Muestra la primera imagen
+        startSlider(); // Inicia la reproducción automática
+
+        // Pausar/Reanudar en hover del slider
+        const heroSlider = document.querySelector('.hero-slider');
+        if (heroSlider) {
+            heroSlider.addEventListener('mouseenter', pauseSlider);
+            heroSlider.addEventListener('mouseleave', startSlider);
         }
     </script>
 
