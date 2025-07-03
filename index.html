@@ -367,12 +367,12 @@
             opacity: 1;
         }
 
-        .hero-slider .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.3); /* Un poco más de overlay para legibilidad */
+       .hero-slider .hero-overlay {
+            background-color: transparent; /* Hace el overlay completamente transparente */
             position: absolute;
             inset: 0;
             z-index: 1;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
+            box-shadow: none; /* Opcional: Elimina cualquier sombra que pueda oscurecer los bordes */
         }
 
         .hero-slider .hero-content {
