@@ -1,0 +1,132 @@
+¡Entendido\! Quitaré el banner de descuento del `base_template.html`.
+
+Aquí tienes la plantilla actualizada sin el banner:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CLAP365 | [Título de la Página]</title>
+    <meta name="description" content="[Descripción específica de la página para SEO]" />
+    <link rel="canonical" href="https://www.clap365.com/[ruta/de/esta/pagina]" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../css/style.css"> 
+    
+    </head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="https://www.clap365.com/">CLAP365</a></div>
+
+        <div class="language-switcher-mobile-standalone">
+            <div class="current-lang-mobile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                ES <i class="fas fa-globe"></i>
+            </div>
+            <div class="lang-options-mobile" role="menu">
+                <a href="?lang=es" role="menuitem">Español</a>
+                <a href="?lang=en" role="menuitem">English</a>
+                <a href="?lang=fr" role="menuitem">Français</a>
+                <a href="?lang=it" role="menuitem">Italiano</a>
+                <a href="?lang=de" role="menuitem">Deutsch</a>
+                <a href="?lang=ru" role="menuitem">Русский</a>
+            </div>
+        </div>
+
+        <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar</button>
+
+        <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
+
+        <div class="main-nav">
+            <div class="menu" role="menu">
+                <a href="https://www.clap365.com/#tours" role="menuitem">Tours</a>
+                <a href="https://www.clap365.com/" role="menuitem">Inicio</a>
+                <a href="https://www.clap365.com/contacto" role="menuitem">Contacto</a>
+                <a href="https://www.clap365.com/#faq" role="menuitem">FAQ</a>
+            </div>
+            <div class="language-switcher-desktop">
+                <div class="current-lang" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                    ES <i class="fas fa-globe"></i>
+                </div>
+                <div class="lang-options" role="menu">
+                    <a href="?lang=es" role="menuitem">Español</a>
+                    <a href="?lang=en" role="menuitem">English</a>
+                    <a href="?lang=fr" role="menuitem">Français</a>
+                    <a href="?lang=it" role="menuitem">Italiano</a>
+                    <a href="?lang=de" role="menuitem">Deutsch</a>
+                    <a href="?lang=ru" role="menuitem">Русский</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <h1>[Título de la Página]</h1>
+        <p>Aquí va todo el contenido específico de este tour, la FAQ, o la página de contacto.</p>
+        </main>
+    <footer>
+        <p>© 2025 CLAP365. Todos los derechos reservados.</p>
+        <p><a href="https://www.clap365.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
+
+        <p>¿Listo para tu aventura? <a href="#reserveModal" class="footer-cta-link">¡Reserva ahora!</a></p>
+
+        <div class="social-icons">
+            <a href="URL_DE_TU_FACEBOOK" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="URL_DE_TU_INSTAGRAM" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="URL_DE_TU_TIKTOK" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <div class="payment-cert-icons">
+            <img src="../../img/icon-visa.png" alt="Visa" title="Aceptamos Visa">
+            <img src="../../img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard">
+            <img src="../../img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon">
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="floating-cta"
+         aria-label="Contactar por WhatsApp para tours exclusivos en Yucatán">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" role="button" aria-label="Cerrar formulario" tabindex="0">&times;</span>
+            <h2 id="modalTitle">Reservar Tour Exclusivo</h2>
+            <form id="reserveForm" action="https://formspree.io/f/xzzgozpr" method="POST">
+                <label for="name">Nombre completo</label>
+                <input type="text" id="name" name="name" required autocomplete="name" />
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" required autocomplete="email" />
+
+                <label for="tour">Selecciona un tour</label>
+                <select id="tour" name="tour" required>
+                    <option value="" disabled selected>-- Elige tu tour exclusivo --</option>
+                    <option value="chichen">Chichen Itzá VIP</option>
+                    <option value="uxmal">Uxmal y Ruta Puuc</option>
+                    <option value="izamal">Pueblo Mágico de Izamal</option>
+                    <option value="sisal">Day Trip a Playa Sisal</option>
+                    <option value="merida">Tour Cultural por Mérida</option>
+                    <option value="telchac">Telchac Puerto y Reservas Naturales</option>
+                    <option value="cenote">Tour Cenotes de Yucatán</option>
+                    <option value="libre">Tour Personalizado CLAP365</option>
+                </select>
+
+                <button type="submit">Enviar reserva</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/main.js"></script>
+
+</body>
+</html>
+```
+
+Ahora puedes usar esta plantilla para todas tus nuevas páginas en español, rellenando la sección \`\` con la información específica de cada tour, FAQ, contacto, etc.
