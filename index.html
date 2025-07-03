@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CLAP365 | Tours Exclusivos en Mérida y Yucatán: Cenotes, Playas, Pirámides y Más</title>
     <meta name="description" content="Descubre Yucatán con CLAP365: tours privados y exclusivos desde Mérida a cenotes, playas, zonas arqueológicas como Chichen Itzá y Uxmal, haciendas y naturaleza. Experiencias de lujo para turistas nacionales e internacionales. ¡Reserva tu day trip inolvidable!" />
-    <link rel="canonical" href="https://www.clap365.com/" /> <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <link rel="canonical" href="https://www.clap365.com/" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -15,7 +15,9 @@
       "@context": "https://schema.org",
       "@type": "TravelAgency",
       "name": "CLAP365",
-      "url": "https://www.clap365.com/", "logo": "https://www.clap365.com/img/logo-clap365.png", "description": "CLAP365 ofrece tours exclusivos y privados desde Mérida, Yucatán, para explorar cenotes, playas, pirámides mayas (Chichen Itzá, Uxmal), haciendas, y la vasta naturaleza de la península. Experiencias de lujo y personalizadas para viajeros nacionales e internacionales.",
+      "url": "https://www.clap365.com/",
+      "logo": "https://www.clap365.com/img/logo-clap365.png",
+      "description": "CLAP365 ofrece tours exclusivos y privados desde Mérida, Yucatán, para explorar cenotes, playas, pirámides mayas (Chichen Itzá, Uxmal), haciendas, y la vasta naturaleza de la península. Experiencias de lujo y personalizadas para viajeros nacionales e internacionales.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Calle 60",
@@ -26,12 +28,14 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+52-9991234567", "contactType": "Customer Service",
+        "telephone": "+52-9991234567",
+        "contactType": "Customer Service",
         "areaServed": ["MX", "US", "CA", "EU", "America Latina"],
         "availableLanguage": ["es", "en"]
       },
       "sameAs": [
-        "URL_DE_TU_FACEBOOK", "URL_DE_TU_INSTAGRAM",
+        "URL_DE_TU_FACEBOOK",
+        "URL_DE_TU_INSTAGRAM",
         "URL_DE_TU_TIKTOK"
       ],
       "areaServed": {
@@ -327,7 +331,7 @@
         .language-switcher-mobile-standalone .lang-options-mobile a:hover {
             background-color: #004d40;
         }
-        
+
         /* Ocultar el selector de idioma que estaba dentro del menú móvil (ya no se usa) */
         .language-switcher-mobile {
             display: none !important;
@@ -354,10 +358,9 @@
             opacity: 0;
             transition: opacity 1.5s ease-in-out; /* Transición más lenta y suave */
             display: flex;
-            align-items: flex-end; /* Alinea el contenido y el botón al final */
+            align-items: center; /* Alinea el contenido al centro verticalmente por defecto */
             justify-content: center;
             text-align: center;
-            padding-bottom: 40px; /* Padding para el contenido */
         }
 
         .hero-slider .slide.active {
@@ -365,7 +368,7 @@
         }
 
         .hero-slider .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.0); /* Mantenemos el overlay sutil si deseas */
+            background-color: rgba(0, 0, 0, 0.3); /* Un poco más de overlay para legibilidad */
             position: absolute;
             inset: 0;
             z-index: 1;
@@ -375,54 +378,65 @@
         .hero-slider .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 700px;
+            max-width: 900px; /* Aumenta el ancho máximo para el contenido */
             width: 100%;
-            height: 100%; /* Para que el flex-end funcione bien */
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Alinea el contenido y el botón al final */
-            padding: 0 20px 40px; /* Padding general, con más abajo */
-        }
-
-        /* Hacemos las letras del hero completamente transparentes y sin sombra */
-        .hero-slider .hero-title,
-        .hero-slider .hero-description {
-            color: transparent !important; /* Usamos !important para asegurar que sobreescriba cualquier otra regla */
-            text-shadow: none !important; /* Eliminamos cualquier sombra de texto */
-            font-family: 'Playfair Display', serif; /* Mantenemos la fuente para la estructura semántica */
-            font-weight: 700;
-            /* Reducimos el tamaño y altura de línea para que visualmente no ocupen espacio
-               pero el texto sigue presente para los motores de búsqueda */
-            font-size: 0.1px; /* Un tamaño mínimo para que sea casi invisible */
-            line-height: 0.1px; /* Una altura de línea mínima */
-            overflow: hidden; /* Asegura que cualquier desbordamiento mínimo sea invisible */
-            height: 1px; /* Le damos una altura mínima para que el elemento exista en el flujo */
-            margin: 0; /* Aseguramos que no tenga márgenes que empujen la imagen */
-            padding: 0; /* Aseguramos que no tenga padding */
-            pointer-events: none; /* Asegura que no sea interactuable */
-            visibility: hidden; /* Segunda capa de seguridad para ocultar completamente */
+            justify-content: space-between; /* Distribuye el H1 arriba y subtexto abajo */
+            padding: 40px 20px; /* Ajusta el padding para que el contenido no pegue en los bordes */
         }
         
+        /* H1 visible en la primera diapositiva, transparente en las demás */
+        .hero-slider .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: white; /* Color blanco visible */
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* Sombra para mejor contraste */
+            font-size: 2.5rem; /* Tamaño de fuente para desktop */
+            line-height: 1.2;
+            margin-top: 20px; /* Margen superior para el H1 */
+            margin-bottom: auto; /* Empuja el H1 hacia arriba */
+            transition: opacity 1.5s ease-in-out;
+            max-width: 80%; /* Limita el ancho del H1 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Subtexto visible en la primera diapositiva, transparente en las demás */
+        .hero-slider .hero-description {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            color: white; /* Color blanco visible */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Sombra sutil */
+            font-size: 1.1rem; /* Tamaño de fuente para desktop */
+            line-height: 1.6;
+            margin-top: auto; /* Empuja el subtexto hacia abajo */
+            margin-bottom: 20px; /* Margen inferior para el subtexto */
+            transition: opacity 1.5s ease-in-out;
+            max-width: 70%; /* Limita el ancho del subtexto */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Clase para ocultar H1 y subtexto en slides no-activos */
+        .hero-slider .slide:not(.active) .hero-title,
+        .hero-slider .slide:not(.active) .hero-description {
+            color: transparent !important;
+            text-shadow: none !important;
+            font-size: 0.1px;
+            line-height: 0.1px;
+            overflow: hidden;
+            height: 1px;
+            margin: 0;
+            padding: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+        
+        /* Ocultar hero-button-wrapper por completo en el carrusel */
         .hero-button-wrapper {
-            margin-top: auto; /* Empuja el botón al final del hero-content */
-        }
-        .hero-button {
-            padding: 7px 16px;
-            background-color: #ff9800;
-            color: white;
-            font-size: 0.8rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s;
-        }
-        .hero-button:hover {
-            background-color: #e68900;
+            display: none !important; 
         }
 
         /* Carousel Navigation */
@@ -474,6 +488,34 @@
         .slider-dots .dot.active {
             background-color: white;
             transform: scale(1.2);
+        }
+
+        /* Nuevo botón "Ver tours" después del hero */
+        .cta-after-hero {
+            text-align: center;
+            padding: 40px 20px; /* Espacio antes y después del botón */
+            background-color: #f8f8f8; /* Un fondo suave para diferenciar */
+        }
+
+        .cta-after-hero .main-cta-button {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px; /* Más redondeado para un look moderno */
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-decoration: none; /* Asegura que no tenga subrayado */
+        }
+
+        .cta-after-hero .main-cta-button:hover {
+            background-color: #e68900;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
         }
         
         /* Estilos para la nueva sección de introducción */
@@ -867,22 +909,22 @@
             }
 
             .hero-slider {
-                height: 50vh; /* Ajusta la altura del carrusel para móvil */
+                height: 60vh; /* Ajusta la altura del carrusel para móvil */
             }
             .hero-slider .hero-content {
-                justify-content: center; /* Centra el contenido en móvil */
-                padding-bottom: 20px; /* Menos padding en móvil */
+                padding: 20px; /* Menos padding general en móvil */
             }
-            /* Las reglas de transparencia ya deberían manejar esto, pero re-asegurar */
-            .hero-slider .hero-title,
+            .hero-slider .hero-title {
+                font-size: 1.8rem; /* Tamaño de fuente para móvil */
+                max-width: 90%; /* Ajuste para móvil */
+                margin-top: 10px; /* Menos margen superior en móvil */
+            }
             .hero-slider .hero-description {
-                font-size: 0.1px; /* Mantener mínimo */
-                line-height: 0.1px; /* Mantener mínimo */
-                height: 1px;
+                font-size: 0.95rem; /* Tamaño de fuente para móvil */
+                max-width: 90%; /* Ajuste para móvil */
+                margin-bottom: 10px; /* Menos margen inferior en móvil */
             }
-            .hero-button-wrapper {
-                margin-top: auto;
-            }
+
             /* Company Intro responsive */
             .company-intro {
                 margin: 40px auto;
@@ -1005,7 +1047,7 @@
 
     <nav class="navbar">
         <div class="logo"><a href="https://www.clap365.com/">CLAP365</a></div>
-        
+
         <div class="language-switcher-mobile-standalone">
             <div class="current-lang-mobile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
                 ES <i class="fas fa-globe"></i>
@@ -1023,7 +1065,7 @@
         <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar</button>
 
         <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
-        
+
         <div class="main-nav">
             <div class="menu" role="menu">
                 <a href="https://www.clap365.com/#tours" role="menuitem">Tours</a>
@@ -1054,51 +1096,36 @@
             <div class="slide active" style="background-image: url('img/banner1.jpg');">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
+                    <h1 class="hero-title">Tours Exclusivos en Mérida, Yucatán</h1>
                     <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
-                    <div class="hero-button-wrapper">
-                        <a href="#tours" class="hero-button">Ver tours</a>
-                    </div>
                 </div>
             </div>
             <div class="slide" style="background-image: url('img/banner2.jpg');">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
-                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
-                    <div class="hero-button-wrapper">
-                        <a href="#tours" class="hero-button">Ver tours</a>
-                    </div>
+                    <h1 class="hero-title">Experimenta la riqueza cultural de Yucatán con CLAP365</h1>
+                    <p class="hero-description">Sumérgete en la historia y la naturaleza con nuestros tours privados y personalizados.</p>
                 </div>
             </div>
             <div class="slide" style="background-image: url('img/banner3.jpg');">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
-                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
-                    <div class="hero-button-wrapper">
-                        <a href="#tours" class="hero-button">Ver tours</a>
-                    </div>
+                    <h1 class="hero-title">Aventuras inolvidables en cenotes y sitios arqueológicos</h1>
+                    <p class="hero-description">Descubre los secretos de la península de Yucatán con expertos locales.</p>
                 </div>
             </div>
             <div class="slide" style="background-image: url('img/banner4.jpg');">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
-                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
-                    <div class="hero-button-wrapper">
-                        <a href="#tours" class="hero-button">Ver tours</a>
-                    </div>
+                    <h1 class="hero-title">Relájate en playas vírgenes y explora la costa yucateca</h1>
+                    <p class="hero-description">CLAP365 te ofrece lo mejor de Yucatán, con comodidad y exclusividad.</p>
                 </div>
             </div>
             <div class="slide" style="background-image: url('img/banner5.jpg');">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <h1 class="hero-title">Tours Exclusivos en Mérida y Yucatán: Tu Aventura Inolvidable Comienza Aquí</h1>
-                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
-                    <div class="hero-button-wrapper">
-                        <a href="#tours" class="hero-button">Ver tours</a>
-                    </div>
+                    <h1 class="hero-title">Tours privados y personalizados desde Mérida para cada viajero</h1>
+                    <p class="hero-description">Crea tu itinerario perfecto con CLAP365 y vive una experiencia única.</p>
                 </div>
             </div>
         </div>
@@ -1111,7 +1138,10 @@
             </div>
     </section>
 
-    ---
+    <section class="cta-after-hero">
+        <a href="#tours" class="main-cta-button">Ver Nuestros Tours</a>
+    </section>
+
     <section class="company-intro">
         <div class="intro-content">
             <h2>Explora Yucatán con CLAP365: Tu Aventura Privada te Espera</h2>
@@ -1193,7 +1223,6 @@
         </a>
     </div>
 
-    ---
     <section class="why-us">
         <h2>¿Por qué elegir CLAP365?</h2>
         <div class="features-grid">
@@ -1246,12 +1275,13 @@
             <h3>¿Qué incluye el tour?</h3>
             <p style="font-style: normal; color: #333;">Nuestros tours incluyen **transporte**, **entradas** a los sitios, **guía certificado** y **agua embotellada**. Las comidas son opcionales y se adaptan a tus preferencias.</p>
         </div>
-        <p><a href="https://www.clap365.com/faq" class="footer-cta-link">Ver todas las preguntas frecuentes</a></p> </section>
+        <p><a href="https://www.clap365.com/faq" class="footer-cta-link">Ver todas las preguntas frecuentes</a></p>
+    </section>
 
     <footer>
         <p>© 2025 CLAP365. Todos los derechos reservados.</p>
         <p><a href="https://www.clap365.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
-        
+
         <p>¿Listo para tu aventura? <a href="#reserveModal" class="footer-cta-link">¡Reserva ahora!</a></p>
 
         <div class="social-icons">
@@ -1261,7 +1291,10 @@
         </div>
 
         <div class="payment-cert-icons">
-            <img src="img/icon-visa.png" alt="Visa" title="Aceptamos Visa"> <img src="img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard"> <img src="img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon"> </div>
+            <img src="img/icon-visa.png" alt="Visa" title="Aceptamos Visa">
+            <img src="img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard">
+            <img src="img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon">
+        </div>
     </footer>
 
     <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
@@ -1269,7 +1302,8 @@
          rel="noopener noreferrer"
          class="floating-cta"
          aria-label="Contactar por WhatsApp para tours exclusivos en Yucatán">
-        <i class="fab fa-whatsapp"></i> </a>
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
@@ -1305,13 +1339,13 @@
         const mainNav = document.querySelector('.main-nav');
         const toggle = document.querySelector('.toggle');
         const modal = document.getElementById('reserveModal');
-        const reserveBtn = document.querySelector('.reserve-btn'); 
+        const reserveBtn = document.querySelector('.reserve-btn');
         const closeBtn = modal.querySelector('.close');
         const langSwitcherDesktop = document.querySelector('.language-switcher-desktop');
         const currentLangDesktop = document.querySelector('.language-switcher-desktop .current-lang');
         const langSwitcherMobileStandalone = document.querySelector('.language-switcher-mobile-standalone');
         const currentLangMobile = document.querySelector('.language-switcher-mobile-standalone .current-lang-mobile');
-        
+
         // Elementos del Top Banner
         const topBanner = document.querySelector('.top-banner');
         const closeBannerButton = document.querySelector('.close-banner');
@@ -1357,7 +1391,7 @@
                 reserveBtn.focus();
             }
         }
-        
+
         reserveBtn.addEventListener('click', toggleModal);
         closeBtn.addEventListener('click', toggleModal);
         closeBtn.addEventListener('keydown', (e) => {
@@ -1425,13 +1459,13 @@
 
         // --- Cierre general de elementos flotantes al hacer clic fuera ---
         document.addEventListener('click', (event) => {
-            const isClickInsideNavbarElements = toggle.contains(event.target) || 
-                                              mainNav.contains(event.target) || 
-                                              reserveBtn.contains(event.target) || 
-                                              (langSwitcherDesktop && langSwitcherDesktop.contains(event.target)) || 
+            const isClickInsideNavbarElements = toggle.contains(event.target) ||
+                                              mainNav.contains(event.target) ||
+                                              reserveBtn.contains(event.target) ||
+                                              (langSwitcherDesktop && langSwitcherDesktop.contains(event.target)) ||
                                               (langSwitcherMobileStandalone && langSwitcherMobileStandalone.contains(event.target)) ||
                                               modal.contains(event.target);
-            
+
             if (!isClickInsideNavbarElements) {
                 if (mainNav.classList.contains('show')) {
                     mainNav.classList.remove('show');
@@ -1461,15 +1495,21 @@
             const tourBoxes = document.querySelectorAll('.tour-box');
             tourBoxes.forEach(box => {
                 box.addEventListener('click', function(e) {
-                    if (this.classList.contains('active')) {
-                        return true; 
+                    // Si el click es en el enlace interno, permite la navegación
+                    if (e.target.closest('.tour-overlay a')) {
+                        return true;
                     }
-                    e.preventDefault();
-                    tourBoxes.forEach(b => b !== this && b.classList.remove('active'));
-                    this.classList.add('active');
+                    // Si la tarjeta ya está activa, permite la navegación normal al segundo toque
+                    if (this.classList.contains('active')) {
+                        return true; // Permitir el click nativo
+                    }
+                    e.preventDefault(); // Previene la navegación al primer toque
+                    tourBoxes.forEach(b => b !== this && b.classList.remove('active')); // Cierra otras tarjetas
+                    this.classList.add('active'); // Activa la tarjeta actual
                 });
             });
             document.body.addEventListener('click', e => {
+                // Cierra la tarjeta si se hace clic fuera de cualquier tour-box o su enlace interno
                 if (!e.target.closest('.tour-box') && !e.target.closest('.tour-overlay a')) {
                     tourBoxes.forEach(b => b.classList.remove('active'));
                 }
@@ -1497,20 +1537,38 @@
         let slideInterval;
         const slideDuration = 5000; // 5 segundos por slide
 
+        // Función para mostrar un slide específico
         function showSlide(index) {
+            // Elimina la clase 'active' de todos los slides y dots
             slides.forEach((slide, i) => {
                 slide.classList.remove('active');
                 if (dotsContainer.children[i]) {
                     dotsContainer.children[i].classList.remove('active');
                 }
+
+                // Oculta H1 y P en todas las diapositivas por defecto
+                const h1 = slide.querySelector('.hero-title');
+                const p = slide.querySelector('.hero-description');
+                if (h1) h1.style.opacity = '0';
+                if (p) p.style.opacity = '0';
             });
 
+            // Muestra la diapositiva activa
             slides[index].classList.add('active');
             if (dotsContainer.children[index]) {
                 dotsContainer.children[index].classList.add('active');
             }
             currentSlide = index;
+
+            // Hace visible el H1 y P solo en la PRIMERA diapositiva
+            if (index === 0) {
+                const h1 = slides[index].querySelector('.hero-title');
+                const p = slides[index].querySelector('.hero-description');
+                if (h1) h1.style.opacity = '1';
+                if (p) p.style.opacity = '1';
+            }
         }
+
 
         function nextSlide() {
             currentSlide = (currentSlide + 1) % slides.length;
