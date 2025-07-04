@@ -3,39 +3,1089 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CLAP365 | Tour Chichen Itzá VIP: Ruinas Mayas y Cenote Sagrado</title>
-    <meta name="description" content="Descubre Chichen Itzá en un tour VIP con CLAP365. Visita las majestuosas ruinas mayas, explora un cenote sagrado y disfruta de una experiencia exclusiva desde Mérida." />
-    <link rel="canonical" href="https://www.clap365.com/es/tours/chichen-itza.html" />
+    <title>Tour Chichen Itzá VIP | El Corazón del Mundo Maya | CLAP365</title>
+    <meta name="description" content="Descubre Chichen Itzá con CLAP365: tour privado y exclusivo desde Mérida a una de las Nuevas 7 Maravillas del Mundo. Incluye transporte de lujo y guía experto." />
+    <link rel="canonical" href="https://www.clap365.com/es/tours/chichen.html" /> 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <link rel="stylesheet" href="../../css/style.css"> 
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TouristAttraction",
-      "name": "Chichen Itzá",
-      "description": "Una de las siete maravillas del mundo moderno, principal sitio arqueológico de la cultura maya en la Península de Yucatán.",
-      "image": "https://www.clap365.com/img/chichen-itza-principal.jpg", 
-      "url": "https://www.clap365.com/es/tours/chichen-itza.html",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Carretera Federal 180, Km. 120",
-        "addressLocality": "Pisté",
-        "addressRegion": "Yucatán",
-        "postalCode": "97751",
-        "addressCountry": "MX"
-      },
-      "touristType": "HistoryBuff" 
-    }
-    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.5;
+            color: #333; /* Color de texto predeterminado */
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Estilos para el Top Banner */
+        .top-banner {
+            background-color: #ff9800; /* Color naranja de tu marca */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            position: relative; /* Para posicionar el botón de cerrar */
+            display: flex; /* Para alinear contenido y botón de cerrar */
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Espacio entre el texto y el CTA */
+            z-index: 25; /* Asegura que esté por encima del navbar */
+            flex-wrap: wrap; /* Permite que el contenido se envuelva en pantallas pequeñas */
+        }
+
+        .top-banner p {
+            margin: 0; /* Elimina márgenes predeterminados del párrafo */
+            flex-grow: 1; /* Permite que el párrafo ocupe el espacio disponible */
+        }
+
+        .top-banner strong {
+            font-weight: 700;
+        }
+
+        .top-banner .banner-cta {
+            background-color: rgba(0, 0, 0, 0.2); /* Fondo semitransparente para el CTA */
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: background-color 0.3s;
+            white-space: nowrap; /* Evita que el botón se rompa en varias líneas */
+        }
+
+        .top-banner .banner-cta:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .top-banner .close-banner {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 5px; /* Ajuste de padding */
+            margin-left: 10px; /* Espacio a la izquierda del botón de cerrar */
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .top-banner .close-banner:hover {
+            opacity: 1;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #00695c;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            min-height: 60px; /* Ajusta según sea necesario, pero 60px suele ser un buen punto de partida */
+            box-sizing: border-box; /* Asegura que el padding no añada altura extra no deseada */
+        }
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1.5px;
+        }
+
+        /* Contenedor principal de navegación (se adapta para desktop/móvil) */
+        .navbar .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .navbar .main-nav .menu {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
+        }
+        .navbar .main-nav .menu a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #fff;
+            padding: 8px 10px;
+            transition: background 0.3s, color 0.3s;
+            border-radius: 4px;
+        }
+        .navbar .main-nav .menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Toggle para el menú hamburguesa (oculto por defecto en desktop) */
+        .navbar .toggle {
+            display: none; /* Se oculta por defecto y se muestra en móvil */
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.8rem;
+        }
+
+        /* Botón Reservar */
+        .reserve-btn {
+            background: #ff9800;
+            color: white;
+            padding: 7px 14px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            transition: background 0.3s;
+            cursor: pointer;
+            border: none;
+            margin-left: auto;
+        }
+        .reserve-btn:hover {
+            background-color: #e68900;
+        }
+
+        /* Selector de Idioma (Desktop) */
+        .language-switcher-desktop {
+            position: relative;
+            display: flex; /* Visible en desktop */
+            margin-left: 20px;
+        }
+        .language-switcher-desktop .current-lang {
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .language-switcher-desktop .current-lang:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .language-switcher-desktop .current-lang::after {
+            content: '\25BC';
+            font-size: 0.7em;
+            margin-left: 5px;
+        }
+        .language-switcher-desktop .lang-options {
+            display: none;
+            position: absolute;
+            background: #00695c;
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            top: calc(100% + 5px);
+            right: 0;
+            overflow: hidden;
+        }
+        .language-switcher-desktop.active .lang-options {
+            display: block;
+        }
+        .language-switcher-desktop .lang-options a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            transition: background 0.3s;
+        }
+        .language-switcher-desktop .lang-options a:hover {
+            background-color: #004d40;
+        }
+
+        /* Nuevo Selector de Idioma para Móvil (siempre visible) */
+        .language-switcher-mobile-standalone {
+            position: relative;
+            display: none; /* Oculto por defecto en desktop */
+        }
+        .language-switcher-mobile-standalone .current-lang-mobile {
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 6px 8px;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.85rem;
+        }
+        .language-switcher-mobile-standalone .current-lang-mobile:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .language-switcher-mobile-standalone .current-lang-mobile::after {
+            content: '\25BC';
+            font-size: 0.6em;
+            margin-left: 3px;
+        }
+        .language-switcher-mobile-standalone .lang-options-mobile {
+            display: none;
+            position: absolute;
+            background: #00695c;
+            min-width: 100px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 21;
+            border-radius: 4px;
+            top: calc(100% + 5px);
+            right: 0;
+            overflow: hidden;
+        }
+        .language-switcher-mobile-standalone.active .lang-options-mobile {
+            display: block;
+        }
+        .language-switcher-mobile-standalone .lang-options-mobile a {
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+        .language-switcher-mobile-standalone .lang-options-mobile a:hover {
+            background-color: #004d40;
+        }
+        
+        /* Ocultar el selector de idioma que estaba dentro del menú móvil (ya no se usa) */
+        .language-switcher-mobile {
+            display: none !important;
+        }
+
+
+        /* Hero Section (Ahora Carousel) */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* Ajusta la altura del carrusel */
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .hero-slider .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out; /* Transición más lenta y suave */
+            display: flex;
+            align-items: flex-end; /* Alinea el contenido y el botón al final */
+            justify-content: center;
+            text-align: center;
+            padding-bottom: 40px; /* Padding para el contenido */
+        }
+
+        .hero-slider .slide.active {
+            opacity: 1;
+        }
+
+        .hero-slider .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.0); /* Mantenemos el overlay sutil si deseas */
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.3);
+        }
+
+        .hero-slider .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            width: 100%;
+            height: 100%; /* Para que el flex-end funcione bien */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Alinea el contenido y el botón al final */
+            padding: 0 20px 40px; /* Padding general, con más abajo */
+        }
+
+        /* Hacemos las letras del hero completamente transparentes y sin sombra */
+        .hero-slider .hero-title,
+        .hero-slider .hero-description {
+            color: transparent !important; /* Usamos !important para asegurar que sobreescriba cualquier otra regla */
+            text-shadow: none !important; /* Eliminamos cualquier sombra de texto */
+            font-family: 'Playfair Display', serif; /* Mantenemos la fuente para la estructura semántica */
+            font-weight: 700;
+            /* Reducimos el tamaño y altura de línea para que visualmente no ocupen espacio
+               pero el texto sigue presente para los motores de búsqueda */
+            font-size: 0.1px; /* Un tamaño mínimo para que sea casi invisible */
+            line-height: 0.1px; /* Una altura de línea mínima */
+            overflow: hidden; /* Asegura que cualquier desbordamiento mínimo sea invisible */
+            height: 1px; /* Le damos una altura mínima para que el elemento exista en el flujo */
+            margin: 0; /* Aseguramos que no tenga márgenes que empujen la imagen */
+            padding: 0; /* Aseguramos que no tenga padding */
+            pointer-events: none; /* Asegura que no sea interactuable */
+            visibility: hidden; /* Segunda capa de seguridad para ocultar completamente */
+        }
+        
+        .hero-button-wrapper {
+            margin-top: auto; /* Empuja el botón al final del hero-content */
+        }
+        .hero-button {
+            padding: 7px 16px;
+            background-color: #ff9800;
+            color: white;
+            font-size: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .hero-button:hover {
+            background-color: #e68900;
+        }
+
+        /* Carousel Navigation */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 3;
+            padding: 0 20px;
+        }
+
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .slider-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 8px;
+        }
+
+        .slider-dots .dot {
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .slider-dots .dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        /* Estilos para la nueva sección de introducción */
+        .company-intro {
+            max-width: 900px;
+            margin: 60px auto; /* Espacio superior e inferior */
+            padding: 30px 20px;
+            text-align: center;
+            background-color: #f0f8f8; /* Un color de fondo suave, quizás tu verde claro */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .company-intro .intro-content {
+            /* Asegura que el contenido interno tenga padding si es necesario */
+            padding: 0 15px;
+        }
+        .company-intro h2 {
+            font-family: 'Playfair Display', serif;
+            color: #00695c; /* Tu color verde oscuro */
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        .company-intro p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #444;
+            max-width: 700px; /* Limita el ancho del párrafo para mejor legibilidad */
+            margin: 0 auto;
+        }
+
+
+        /* Container tours */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        /* Cards tours */
+        .tour-box {
+            position: relative;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            flex: 1 1 calc(25% - 20px);
+            min-width: 250px;
+            max-width: 23%;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            transition: box-shadow 0.3s ease;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+        .tour-box:hover,
+        .tour-box.active {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        .tour-box img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            flex-shrink: 0;
+        }
+        .tour-box:hover img,
+        .tour-box.active img {
+            transform: scale(1.05);
+            filter: brightness(0.7);
+        }
+
+        /* Overlay sutil con texto y botón */
+        .tour-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            text-align: center;
+            pointer-events: none;
+            border-radius: 10px;
+        }
+        .tour-box:hover .tour-overlay,
+        .tour-box.active .tour-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .tour-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(0,0,0,0.7);
+        }
+        .tour-overlay p {
+            font-size: 1rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            text-shadow: 0 0 6px rgba(0,0,0,0.6);
+        }
+        .tour-overlay a {
+            background-color: #ff9800;
+            padding: 10px 22px;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        .tour-overlay a:hover {
+            background-color: #e68900;
+        }
+
+        /* Sección "Por Qué Elegirnos" */
+        .why-us {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #f8f8f8; /* Un fondo suave para diferenciarla */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .why-us h2 {
+            font-family: 'Playfair Display', serif;
+            color: #00695c;
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 2.2rem;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-item {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        .feature-item i {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 15px;
+        }
+        .feature-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #00695c;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* Sección Testimonios */
+        .testimonials {
+            background: #fff;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            color: #00695c;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        .testimonial {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px;
+            position: relative;
+            padding: 0 20px;
+        }
+        .testimonial::before {
+            content: "“";
+            font-size: 4rem;
+            color: #ff9800;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            font-weight: bold;
+        }
+        .testimonial-author {
+            margin-top: 8px;
+            font-weight: 600;
+            color: #333;
+            font-style: normal;
+        }
+
+        /* Footer */
+        footer {
+            background: #00695c;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #ffeb3b;
+            text-decoration: underline;
+        }
+
+        /* Social Icons in Footer */
+        .social-icons {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.8rem;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #ff9800;
+        }
+
+        /* Footer CTA Link */
+        footer .footer-cta-link {
+            color: #ffeb3b; /* Color que contraste bien con el verde oscuro */
+            font-weight: bold;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+        footer .footer-cta-link:hover {
+            color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
+        }
+
+        /* Payment and Certification Icons */
+        .payment-cert-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+        .payment-cert-icons img {
+            height: 30px; /* Ajusta el tamaño según sea necesario */
+            filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro */
+        }
+        .payment-cert-icons img.color-icon {
+            filter: none; /* Si el icono ya tiene color y no quieres invertirlo */
+            height: 35px; /* Puede ser ligeramente más grande para logos específicos */
+        }
+
+        /* Botón flotante WhatsApp */
+        .floating-cta {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25d366;
+            color: white; /* Color del icono de Font Awesome */
+            font-weight: bold;
+            font-size: 1.8rem; /* Tamaño del icono */
+            padding: 12px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            text-decoration: none;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        .floating-cta:hover {
+            background-color: #1ebe57;
+        }
+
+        /* Modal Reserva */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .modal-content h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            color: #00695c;
+            text-align: center;
+        }
+        .modal-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .modal-content input,
+        .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .modal-content button {
+            background: #00695c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+        .modal-content button:hover {
+            background: #004d40;
+        }
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* ==================================== */
+        /* Responsive Styles for Mobile (max-width: 768px) */
+        /* ==================================== */
+        @media (max-width: 768px) {
+            /* Responsive Top Banner */
+            .top-banner {
+                font-size: 0.8rem;
+                padding: 8px 15px;
+                gap: 10px;
+                flex-direction: column; /* Apila el texto y el CTA en móvil */
+                align-items: center;
+                text-align: center;
+            }
+            .top-banner .banner-cta {
+                margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
+            }
+            .top-banner .close-banner {
+                position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
+                top: 5px;
+                right: 5px;
+                margin-left: 0;
+                font-size: 1.2rem;
+            }
+
+            .hero-slider {
+                height: 50vh; /* Ajusta la altura del carrusel para móvil */
+            }
+            .hero-slider .hero-content {
+                justify-content: center; /* Centra el contenido en móvil */
+                padding-bottom: 20px; /* Menos padding en móvil */
+            }
+            /* Las reglas de transparencia ya deberían manejar esto, pero re-asegurar */
+            .hero-slider .hero-title,
+            .hero-slider .hero-description {
+                font-size: 0.1px; /* Mantener mínimo */
+                line-height: 0.1px; /* Mantener mínimo */
+                height: 1px;
+            }
+            .hero-button-wrapper {
+                margin-top: auto;
+            }
+            /* Company Intro responsive */
+            .company-intro {
+                margin: 40px auto;
+                padding: 25px 15px;
+            }
+            .company-intro h2 {
+                font-size: 1.6rem;
+                margin-bottom: 15px;
+            }
+            .company-intro p {
+                font-size: 1rem;
+            }
+
+
+            /* Ajustes del Navbar en móvil */
+            .navbar {
+                justify-content: flex-start;
+                gap: 10px;
+                padding: 12px 15px;
+                min-height: 55px; /* Ajusta la altura mínima para móvil */
+                align-items: center; /* Centra los elementos verticalmente */
+            }
+            .navbar .logo {
+                flex-grow: 1;
+                font-size: 1.8rem;
+                order: 1;
+                display: flex;
+                align-items: center;
+                min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
+            }
+
+            /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
+            .navbar .main-nav .menu,
+            .language-switcher-desktop {
+                display: none;
+            }
+
+            /* Mostrar el botón de idioma para móvil y posicionarlo */
+            .language-switcher-mobile-standalone {
+                display: flex;
+                order: 2;
+                margin-left: 0;
+                align-self: center;
+            }
+            /* Posicionar el botón de reserva */
+            .reserve-btn {
+                order: 3;
+                margin-left: 10px;
+                align-self: center;
+            }
+            /* Posicionar el toggle */
+            .navbar .toggle {
+                display: block;
+                order: 4;
+                margin-left: 10px;
+                align-self: center;
+            }
+
+            /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
+            .navbar .main-nav {
+                flex-direction: column;
+                background: #00695c;
+                position: absolute;
+                top: 100%; /* Empieza justo debajo del navbar, sin importar su altura */
+                right: 15px;
+                border-radius: 6px;
+                padding: 10px;
+                width: 180px;
+                gap: 0.5rem;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                z-index: 19;
+                display: none;
+                align-items: flex-start;
+            }
+            .navbar .main-nav.show {
+                display: flex;
+            }
+
+            /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
+            .navbar .main-nav.show .menu {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            .navbar .main-nav.show .menu a {
+                padding: 8px 10px;
+                width: 100%;
+                text-align: left;
+            }
+
+            /* Ajustes para tarjetas de tours en móvil */
+            .tour-box {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
+            .tour-box:hover {
+                box-shadow: none;
+            }
+
+            /* Why Choose Us - Mobile Adjustments */
+            .why-us {
+                margin: 40px auto;
+                padding: 30px 15px;
+            }
+            .why-us h2 {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* Una columna en móvil */
+            }
+        }
+
+        /* Estilos específicos para la página de tour (chichen.html) */
+        .tour-hero {
+            position: relative;
+            width: 100%;
+            height: 50vh; /* Altura del hero en la página de tour */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .tour-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Overlay oscuro */
+            z-index: 1;
+        }
+
+        .tour-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .tour-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .tour-content-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.7;
+        }
+
+        .tour-content-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #00695c;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+        .tour-content-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: #ff9800;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .tour-content-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .tour-content-section ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .tour-content-section ul li i {
+            color: #00695c;
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+        
+        .tour-content-section .itinerary ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .tour-content-section .itinerary ol li {
+            margin-bottom: 10px;
+            padding-left: 0; /* Override previous padding */
+            position: static; /* Override previous position */
+        }
+        
+        /* Estilos para la galería */
+        .tour-gallery {
+            margin-top: 40px; 
+            margin-bottom: 40px; 
+            padding: 0 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tour-gallery h2 {
+            font-family: 'Playfair Display', serif; 
+            color: #00695c; 
+            margin-bottom: 20px; 
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 8px; 
+            overflow: hidden; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%; 
+            height: auto; 
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .tour-hero h1 {
+                font-size: 2.5rem;
+            }
+            .tour-hero p {
+                font-size: 1rem;
+            }
+            .tour-content-section h2 {
+                font-size: 1.8rem;
+            }
+            .tour-content-section h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="top-banner" role="banner" aria-label="Anuncio especial de CLAP365">
+        <p>¡Disfruta de un **15% de descuento** en todos los tours reservados este Julio! Usa código: **YUCATAN15** <a href="#tours" class="banner-cta">Ver Tours</a></p>
+        <button class="close-banner" aria-label="Cerrar anuncio">&times;</button>
+    </div>
+
     <nav class="navbar">
         <div class="logo"><a href="https://www.clap365.com/">CLAP365</a></div>
-
+        
         <div class="language-switcher-mobile-standalone">
             <div class="current-lang-mobile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
                 ES <i class="fas fa-globe"></i>
@@ -53,12 +1103,14 @@
         <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar</button>
 
         <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
-
+        
         <div class="main-nav">
             <div class="menu" role="menu">
                 <a href="https://www.clap365.com/#tours" role="menuitem">Tours</a>
                 <a href="https://www.clap365.com/" role="menuitem">Inicio</a>
-                <a href="https://www.clap365.com/es/contacto.html" role="menuitem">Contacto</a> <a href="https://www.clap365.com/es/faq.html" role="menuitem">FAQ</a> </div>
+                <a href="https://www.clap365.com/contacto" role="menuitem">Contacto</a>
+                <a href="https://www.clap365.com/#faq" role="menuitem">FAQ</a>
+            </div>
             <div class="language-switcher-desktop">
                 <div class="current-lang" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
                     ES <i class="fas fa-globe"></i>
@@ -72,92 +1124,71 @@
                     <a href="?lang=ru" role="menuitem">Русский</a>
                 </div>
             </div>
+            <div class="language-switcher-mobile">
+                </div>
         </div>
     </nav>
 
-    <main class="tour-detail-page">
-        <section class="hero-tour-detail">
-            <img src="../../img/chichen-itza-hero.jpg" alt="Pirámide de Kukulcán en Chichen Itzá" class="hero-image">
-            <div class="hero-overlay">
-                <h1>Tour Chichen Itzá VIP: El Corazón del Mundo Maya</h1>
-                <p>Explora la majestuosidad de una de las Nuevas 7 Maravillas del Mundo en un tour privado y exclusivo.</p>
-                <button class="reserve-btn-large" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar Ahora</button>
+    <section class="tour-hero" style="background-image: url('../../img/chichen-banner.jpg');">
+        <h1>Tour Chichen Itzá VIP: El Corazón del Mundo Maya</h1>
+        <p>Explora la majestuosidad de una de las Nuevas 7 Maravillas del Mundo en un tour privado y exclusivo.</p>
+    </section>
+
+    <div class="tour-content-section">
+        <h2>Descubre Chichen Itzá a tu Ritmo</h2>
+        <p>Sumérgete en la rica historia y la impresionante arquitectura maya con nuestro tour VIP a Chichen Itzá. Evita las multitudes, disfruta de guías expertos y relájate con transporte de lujo.</p>
+
+        <h3>Detalles del Tour</h3>
+        <ul>
+            <li><i class="fas fa-clock"></i> Duración: 10-12 horas (aproximado)</li>
+            <li><i class="fas fa-user-friends"></i> Tour Privado</li>
+            <li><i class="fas fa-calendar-alt"></i> Flexibilidad de Fechas</li>
+            <li><i class="fas fa-car"></i> Transporte de Lujo</li>
+        </ul>
+
+        <h3>Itinerario Sugerido</h3>
+        <ol class="itinerary">
+            <li>**Recogida**: Te recogemos en tu hotel o Airbnb en Mérida.</li>
+            <li>**Chichen Itzá**: Exploración guiada de 2-3 horas por el sitio arqueológico, incluyendo la Pirámide de Kukulkán, el Juego de Pelota y el Cenote Sagrado.</li>
+            <li>**Cenote Ik Kil (o similar)**: Disfruta de un refrescante baño en un impresionante cenote natural.</li>
+            <li>**Comida**: Degusta la auténtica gastronomía yucateca en un restaurante local.</li>
+            <li>**Pueblo Mágico de Izamal**: Visita la "Ciudad Amarilla", un pintoresco pueblo con arquitectura colonial y pirámides mayas.</li>
+            <li>**Regreso**: Te dejamos de vuelta en tu lugar de alojamiento.</li>
+        </ol>
+        
+        <p style="text-align: center; margin-top: 30px;">
+            <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false" style="font-size: 1.1rem; padding: 12px 25px;">¡Reserva tu Tour a Chichen Itzá ahora!</button>
+        </p>
+    </div>
+
+    <section class="tour-gallery container">
+        <h2>Galería de Fotos</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="../../img/chichen-gallery-1.jpg" alt="El Castillo, Chichen Itzá">
             </div>
-        </section>
-
-        <section class="tour-overview container">
-            <h2>Descubre Chichen Itzá a tu Ritmo</h2>
-            <p>Sumérgete en la rica historia y la impresionante arquitectura maya con nuestro tour VIP a Chichen Itzá. Evita las multitudes, disfruta de guías expertos y relájate con transporte de lujo.</p>
-            <div class="overview-features">
-                <div><i class="fas fa-clock"></i> Duración: 10-12 horas (aproximado)</div>
-                <div><i class="fas fa-users"></i> Tour Privado</div>
-                <div><i class="fas fa-calendar-alt"></i> Flexibilidad de Fechas</div>
-                <div><i class="fas fa-car"></i> Transporte de Lujo</div>
+            <div class="gallery-item">
+                <img src="../../img/chichen-gallery-2.jpg" alt="Observatorio de Chichen Itzá">
             </div>
-        </section>
-
-        <section class="tour-itinerary container">
-            <h2>Itinerario Sugerido</h2>
-            <ol>
-                <li><strong>Recogida:</strong> Te recogemos en tu hotel o AirBnB en Mérida.</li>
-                <li><strong>Chichen Itzá:</strong> Exploración guiada de 2-3 horas por el sitio arqueológico, incluyendo la Pirámide de Kukulcán, el Juego de Pelota y el Cenote Sagrado.</li>
-                <li><strong>Cenote Ik Kil (o similar):</strong> Disfruta de un refrescante baño en un impresionante cenote natural.</li>
-                <li><strong>Comida:</strong> Degusta la auténtica gastronomía yucateca en un restaurante local.</li>
-                <li><strong>Pueblo Mágico de Izamal:</strong> Visita la "Ciudad Amarilla", un pintoresco pueblo con arquitectura colonial y pirámides mayas.</li>
-                <li><strong>Regreso:</strong> Te dejamos de vuelta en tu lugar de alojamiento.</li>
-            </ol>
-        </section>
-
-        <section class="tour-includes-excludes container">
-            <h2>¿Qué Incluye y Qué No Incluye?</h2>
-            <div class="columns">
-                <div class="includes">
-                    <h3>Incluye:</h3>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Transporte privado con aire acondicionado.</li>
-                        <li><i class="fas fa-check-circle"></i> Guía bilingüe certificado en Chichen Itzá.</li>
-                        <li><i class="fas fa-check-circle"></i> Entradas a Chichen Itzá y al cenote.</li>
-                        <li><i class="fas fa-check-circle"></i> Comida en restaurante local (bebidas no incluidas).</li>
-                        <li><i class="fas fa-check-circle"></i> Agua embotellada y snacks en el transporte.</li>
-                    </ul>
-                </div>
-                <div class="excludes">
-                    <h3>No Incluye:</h3>
-                    <ul>
-                        <li><i class="fas fa-times-circle"></i> Propinas para guía y conductor.</li>
-                        <li><i class="fas fa-times-circle"></i> Bebidas adicionales en el restaurante.</li>
-                        <li><i class="fas fa-times-circle"></i> Gastos personales o souvenirs.</li>
-                        <li><i class="fas fa-times-circle"></i> Chalecos salvavidas o lockers en el cenote (opcional).</li>
-                    </ul>
-                </div>
+            <div class="gallery-item">
+                <img src="../../img/chichen-gallery-3.jpg" alt="Cenote Ik Kil">
             </div>
-        </section>
-
-        <section class="tour-gallery container">
-            <h2>Galería de Fotos</h2>
-            <div class="gallery-grid">
-                <img src="../../img/chichen-gallery-1.jpg" alt="El Castillo, Chichen Itzá" loading="lazy">
-                <img src="../../img/chichen-gallery-2.jpg" alt="Observatorio de Chichen Itzá" loading="lazy">
-                <img src="../../img/chichen-gallery-3.jpg" alt="Cenote Ik Kil" loading="lazy">
-                <img src="../../img/chichen-gallery-4.jpg" alt="Detalle de tallado maya" loading="lazy">
-                <img src="../../img/chichen-gallery-5.jpg" alt="Grupo de turistas en Chichen Itzá" loading="lazy">
-                <img src="../../img/chichen-gallery-6.jpg" alt="Vista aérea de Chichen Itzá" loading="lazy">
+            <div class="gallery-item">
+                <img src="../../img/chichen-gallery-4.jpg" alt="Detalle de tallado maya">
             </div>
-        </section>
+            <div class="gallery-item">
+                <img src="../../img/chichen-gallery-5.jpg" alt="Grupo de turistas en Chichen Itzá">
+            </div>
+            <div class="gallery-item">
+                <img src="../../img/chichen-gallery-6.jpg" alt="Vista aérea de Chichen Itzá">
+            </div>
+        </div>
+    </section>
 
-        <section class="tour-booking-cta container text-center">
-            <h2>¿Listo para tu Aventura Maya?</h2>
-            <p>Contáctanos para personalizar tu tour, obtener una cotización o reservar tu experiencia exclusiva a Chichen Itzá.</p>
-            <button class="reserve-btn-large" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar Ahora</button>
-            <a href="https://wa.me/5219991234567?text=Me%20interesa%20el%20Tour%20Chichen%20Itza%20VIP" target="_blank" rel="noopener noreferrer" class="whatsapp-btn">
-                <i class="fab fa-whatsapp"></i> Envíanos un WhatsApp
-            </a>
-        </section>
-    </main>
     <footer>
         <p>© 2025 CLAP365. Todos los derechos reservados.</p>
         <p><a href="https://www.clap365.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
-
+        
         <p>¿Listo para tu aventura? <a href="#reserveModal" class="footer-cta-link">¡Reserva ahora!</a></p>
 
         <div class="social-icons">
@@ -167,9 +1198,9 @@
         </div>
 
         <div class="payment-cert-icons">
-            <img src="../../img/icon-visa.png" alt="Visa" title="Aceptamos Visa">
-            <img src="../../img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard">
-            <img src="../../img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon">
+            <img src="../../img/icon-visa.png" alt="Visa" title="Aceptamos Visa"> 
+            <img src="../../img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard"> 
+            <img src="../../img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon"> 
         </div>
     </footer>
 
@@ -178,8 +1209,7 @@
          rel="noopener noreferrer"
          class="floating-cta"
          aria-label="Contactar por WhatsApp para tours exclusivos en Yucatán">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <i class="fab fa-whatsapp"></i> </a>
 
     <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
@@ -201,7 +1231,7 @@
                     <option value="sisal">Day Trip a Playa Sisal</option>
                     <option value="merida">Tour Cultural por Mérida</option>
                     <option value="telchac">Telchac Puerto y Reservas Naturales</option>
-                    <option value="tecoh">Tour Cenotes de Yucatán</option>
+                    <option value="tecoh">Aventura en Cenotes de Tecoh</option>
                     <option value="libre">Tour Personalizado CLAP365</option>
                 </select>
 
@@ -210,7 +1240,121 @@
         </div>
     </div>
 
-    <script src="../../js/main.js"></script>
+    <script>
+        // Seleccionamos los elementos clave
+        const mainNav = document.querySelector('.main-nav');
+        const toggle = document.querySelector('.toggle');
+        const modal = document.getElementById('reserveModal');
+        const reserveBtn = document.querySelector('.reserve-btn'); 
+        const closeBtn = modal.querySelector('.close');
+        const langSwitcherDesktop = document.querySelector('.language-switcher-desktop');
+        const currentLangDesktop = document.querySelector('.language-switcher-desktop .current-lang');
+        const langSwitcherMobileStandalone = document.querySelector('.language-switcher-mobile-standalone');
+        const currentLangMobile = document.querySelector('.language-switcher-mobile-standalone .current-lang-mobile');
+        
+        // Elementos del Top Banner
+        const topBanner = document.querySelector('.top-banner');
+        const closeBannerButton = document.querySelector('.close-banner');
 
-</body>
-</html>
+
+        // --- Funcionalidad del Menú Hamburguesa ---
+        toggle.addEventListener('click', () => {
+            mainNav.classList.toggle('show'); // Ahora togglea la clase 'show' en .main-nav
+            // Asegurarse de que otros elementos se cierren
+            if (modal.classList.contains('show')) {
+                toggleModal();
+            }
+            if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
+                langSwitcherDesktop.classList.remove('active');
+                currentLangDesktop.setAttribute('aria-expanded', 'false');
+            }
+            if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                langSwitcherMobileStandalone.classList.remove('active');
+                currentLangMobile.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // --- Funcionalidad del Modal de Reserva ---
+        function toggleModal() {
+            const isOpen = modal.classList.contains('show');
+            modal.classList.toggle('show');
+            modal.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+            reserveBtn.setAttribute('aria-expanded', !isOpen);
+            if (!isOpen) {
+                if (mainNav.classList.contains('show')) {
+                    mainNav.classList.remove('show');
+                }
+                if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
+                    langSwitcherDesktop.classList.remove('active');
+                    currentLangDesktop.setAttribute('aria-expanded', 'false');
+                }
+                if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                    langSwitcherMobileStandalone.classList.remove('active');
+                    currentLangMobile.setAttribute('aria-expanded', 'false');
+                }
+                modal.querySelector('#name').focus();
+            } else {
+                reserveBtn.focus();
+            }
+        }
+        
+        reserveBtn.addEventListener('click', toggleModal);
+        closeBtn.addEventListener('click', toggleModal);
+        closeBtn.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' '){
+                e.preventDefault();
+                toggleModal();
+            }
+        });
+        window.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && modal.classList.contains('show')){
+                toggleModal();
+            }
+        });
+
+        // --- Funcionalidad del Selector de Idioma (Desktop) ---
+        if (langSwitcherDesktop) {
+            currentLangDesktop.addEventListener('click', () => {
+                const isActive = langSwitcherDesktop.classList.toggle('active');
+                currentLangDesktop.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                if (mainNav.classList.contains('show')) {
+                    mainNav.classList.remove('show');
+                }
+                if (modal.classList.contains('show')) {
+                    toggleModal();
+                }
+                if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                    langSwitcherMobileStandalone.classList.remove('active');
+                    currentLangMobile.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!langSwitcherDesktop.contains(event.target) && langSwitcherDesktop.classList.contains('active')) {
+                    langSwitcherDesktop.classList.remove('active');
+                    currentLangDesktop.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // --- Funcionalidad del Selector de Idioma (Móvil independiente) ---
+        if (langSwitcherMobileStandalone) {
+            currentLangMobile.addEventListener('click', () => {
+                const isActive = langSwitcherMobileStandalone.classList.toggle('active');
+                currentLangMobile.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                if (mainNav.classList.contains('show')) {
+                    mainNav.classList.remove('show');
+                }
+                if (modal.classList.contains('show')) {
+                    toggleModal();
+                }
+                if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
+                    langSwitcherDesktop.classList.remove('active');
+                    currentLangDesktop.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!langSwitcherMobileStandalone.contains(event.target) && langSwitcherMobileStandalone.classList.contains('active')) {
+                    langSwitcherMobileStandalone.classList.remove('active');
+                    currentLangMobile.setAttribute('aria-expanded', 'false
