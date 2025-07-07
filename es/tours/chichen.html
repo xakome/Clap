@@ -33,33 +33,31 @@
     </script>
 </head>
 <body>
-    <header class="main-header">
-        <div class="header-top">
-            <div class="logo">
-                <a href="/Clap/index.html">CLAP365</a>
-            </div>
-            <div class="language-switcher">
-                ES
-                <div class="dropdown">
-                    <a href="?lang=es">Español</a>
-                    <a href="?lang=en">English</a>
-                    <a href="?lang=fr">Français</a>
-                    <a href="?lang=it">Italiano</a>
-                    <a href="?lang=de">Deutsch</a>
-                    <a href="?lang=ru">Русский</a>
-                </div>
-            </div>
-            <button class="reserve-btn" data-toggle="modal" data-target="#reserveModal">Reservar</button>
-            <div class="menu-toggle">☰</div>
+    <header class="navbar">
+        <div class="logo">
+            <a href="/Clap/index.html">CLAP365</a>
         </div>
-        <nav class="main-nav">
-            <ul>
+        <div class="main-nav">
+            <ul class="menu">
                 <li><a href="/Clap/index.html#tours">Tours</a></li>
                 <li><a href="/Clap/index.html">Inicio</a></li>
                 <li><a href="/Clap/es/contacto.html">Contacto</a></li>
                 <li><a href="/Clap/es/faq.html">FAQ</a></li>
             </ul>
-        </nav>
+        </div>
+        <div class="language-switcher-desktop">
+            <span class="current-lang">ES <i class="fas fa-chevron-down"></i></span>
+            <div class="lang-options">
+                <a href="?lang=es">Español</a>
+                <a href="?lang=en">English</a>
+                <a href="?lang=fr">Français</a>
+                <a href="?lang=it">Italiano</a>
+                <a href="?lang=de">Deutsch</a>
+                <a href="?lang=ru">Русский</a>
+            </div>
+        </div>
+        <button class="reserve-btn" data-toggle="modal" data-target="#reserveModal">Reservar</button>
+        <div class="toggle"><i class="fas fa-bars"></i></div>
     </header>
 
     <section class="tour-hero" style="background-image: url('../../img/chichen-itza-hero.jpg');">
@@ -198,7 +196,7 @@
     <footer class="main-footer">
         <div class="container">
             <p>&copy; 2025 CLAP365. Todos los derechos reservados.</p>
-            <p><a href="https://www.clap365.com/">www.clap365.com</a></p>
+            <p><a href="/Clap/index.html">www.clap365.com</a></p>
             <p>¿Listo para tu aventura? <a href="#reserveModal" data-toggle="modal" data-target="#reserveModal">¡Reserva ahora!</a></p>
             <div class="payment-icons">
                 <img src="../../img/icon-visa.png" alt="Aceptamos Visa" title="Aceptamos Visa">
