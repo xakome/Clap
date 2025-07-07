@@ -953,3 +953,196 @@ footer .footer-cta-link:hover {
         grid-template-columns: 1fr; /* Una columna en móvil */
     }
 }
+
+
+/* HERO exclusivo para páginas de tour */
+.tour-hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tour-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.tour-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.tour-hero h1 {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.tour-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-cta-button {
+  display: inline-block;
+  background-color: #00695c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.main-cta-button:hover {
+  background-color: #004d40;
+}
+
+/* Sección de descripción del tour */
+.tour-description,
+.tour-info,
+.reserve-section,
+.testimonials {
+  padding: 3rem 1.5rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+.tour-description h2,
+.tour-info h2,
+.reserve-section h2,
+.testimonials h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00695c;
+}
+
+.tour-description p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.tour-highlights {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.tour-highlights li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.tour-highlights i {
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+/* Galería básica opcional */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+.gallery img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 300px;
+}
+
+/* Estilo para la tabla de info práctica */
+.tour-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tour-info li {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* Sección de reserva */
+.reserve-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reserve-section input,
+.reserve-section select,
+.reserve-section textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.reserve-section button {
+  background-color: #00695c;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.reserve-section button:hover {
+  background-color: #004d40;
+}
+
+/* Testimonios */
+.testimonials .testimonial {
+  background-color: #f5f5f5;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border-left: 4px solid #00695c;
+  border-radius: 4px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* WhatsApp flotante (reutilizado) */
+.floating-cta {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  color: white;
+  font-size: 1.8rem;
+  padding: 15px;
+  border-radius: 50%;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+.floating-cta:hover {
+  background-color: #1ebe5d;
+}
