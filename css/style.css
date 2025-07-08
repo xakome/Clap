@@ -984,3 +984,1356 @@ footer .footer-cta-link:hover {
 .hero-video-container iframe {
     position: absolute;
     top: 50%;
+    left: 50%;
+    width: 100vw; /* Cubre el ancho del viewport */
+    height: 56.25vw; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ajusta el video para cubrir el contenedor */
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .hero-video-container iframe {
+        height: 100vh;
+        width: 177.77vh; /* 16 / 9 = 1.7777 */
+    }
+}
+
+
+.tour-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45); /* Sombra inicial */
+  z-index: 1;
+  /* AÑADIDO PARA LA DESAPARICIÓN DEL OVERLAY */
+  opacity: 1; /* Inicialmente visible */
+  transition: opacity 1s ease-out; /* Transición suave de 1 segundo */
+}
+
+.tour-hero .hero-overlay.fade-out {
+  opacity: 0; /* Hace que el overlay se desvanezca */
+}
+
+.tour-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+  /* ESTILOS AÑADIDOS PARA LA DESAPARICIÓN DEL TEXTO */
+  opacity: 1; /* Inicialmente visible */
+  transition: opacity 1s ease-out; /* Transición suave de 1 segundo */
+}
+
+.tour-hero .hero-content.fade-out {
+  opacity: 0; /* Hace que el contenido se desvanezca */
+  pointer-events: none; /* Evita interacciones después de desvanecerse */
+}
+
+.tour-hero h1 {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.tour-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-cta-button {
+  display: inline-block;
+  background-color: #00695c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.main-cta-button:hover {
+  background-color: #004d40;
+}
+
+/* Sección de descripción del tour */
+.tour-description,
+.tour-info,
+.reserve-section,
+.testimonials,
+.itinerary-section, /* Añadido para estilos del itinerario */
+.gallery-carousel-section { /* Añadido para estilos del carrusel de galería */
+  padding: 3rem 1.5rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+.tour-description h2,
+.tour-info h2,
+.reserve-section h2,
+.testimonials h2,
+.itinerary-section .section-title, /* Añadido para el título del itinerario */
+.gallery-carousel-section h2 { /* Añadido para el título de la galería */
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00695c;
+}
+
+.tour-description p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.tour-highlights {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.tour-highlights li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.tour-highlights i {
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+/* ITINERARIO PASO A PASO */
+.itinerary-section {
+    padding: 3rem 1.5rem;
+    background-color: #f8f8f8; /* Un color de fondo suave para la sección */
+    text-align: center;
+}
+
+.itinerary-section .container {
+    max-width: 960px;
+    margin: auto;
+}
+
+.itinerary-section .section-title {
+    margin-bottom: 2rem;
+}
+
+.itinerary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.itinerary-item {
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.itinerary-step {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff9800; /* Color naranja para los números de paso */
+    flex-shrink: 0; /* Evita que el número se encoja */
+    margin-top: -0.3rem; /* Ajuste vertical para alinear con el texto */
+}
+
+.itinerary-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #00695c;
+    margin-bottom: 0.5rem;
+}
+
+.itinerary-content p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Sección Qué Incluye y Qué No Incluye */
+.tour-info .columns {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en móvil */
+}
+
+.tour-info .column {
+    flex: 1; /* Permite que las columnas se expandan */
+    min-width: 300px; /* Ancho mínimo para las columnas */
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tour-info .column h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00695c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tour-info .column h3 .fa-check-circle {
+    color: #4CAF50; /* Verde para "Incluye" */
+}
+
+.tour-info .column h3 .fa-times-circle {
+    color: #F44336; /* Rojo para "No Incluye" */
+}
+
+.tour-info .column ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tour-info .column ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.tour-info .column ul li i {
+    margin-right: 8px;
+    color: #00695c; /* Color de los iconos de lista */
+}
+
+/* --- Estilos para la Galería de Carrusel Mejorada --- */
+.gallery-carousel-section {
+    padding: 3rem 1.5rem;
+    max-width: 1000px; /* Ancho máximo para el contenedor del carrusel */
+    margin: auto;
+    text-align: center;
+}
+
+.gallery-carousel {
+    margin-top: 2rem;
+    /* Estilos específicos de Slick Carousel pueden estar aquí o en slick-theme.min.css */
+}
+
+/* Estilos para cada 'slide' o elemento del carrusel, incluyendo el "frame" */
+.gallery-carousel .slick-slide {
+    padding: 10px; /* Esto crea un "marco" alrededor de la imagen */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+.gallery-item-frame {
+    border: 5px solid #f0f0f0; /* Borde ligero para el frame */
+    border-radius: 10px; /* Bordes redondeados para el frame */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del frame */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+    transition: transform 0.3s ease; /* Transición suave al pasar el ratón */
+    display: flex; /* Para centrar la imagen dentro del frame si es necesario */
+    align-items: center;
+    justify-content: center;
+    /* Asegura que el frame tenga una altura definida o que se ajuste al contenido */
+    height: 400px; /* Altura fija para el frame en desktop */
+}
+
+.gallery-item-frame:hover {
+    transform: translateY(-5px); /* Efecto sutil de levantamiento al pasar el ratón */
+}
+
+.gallery-carousel img {
+    width: 100%; /* La imagen ocupa todo el ancho del frame */
+    height: 100%; /* La imagen ocupa toda la altura del frame */
+    object-fit: cover; /* Ajusta la imagen para cubrir el frame sin distorsionarse */
+    border-radius: 5px; /* Bordes redondeados para la imagen (ligeramente menos que el frame) */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+}
+
+/* Ajustes para móvil para la galería */
+@media (max-width: 768px) {
+    .gallery-item-frame {
+        height: 250px; /* Menor altura para el frame en móvil */
+    }
+}
+
+/* Estilos para las flechas de navegación de Slick (ajusta los colores a tu marca) */
+.slick-prev:before, .slick-next:before {
+    font-size: 40px;
+    color: #00695c; /* Color de las flechas */
+}
+
+/* Estilos para los puntos de paginación de Slick */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #00695c; /* Color de los puntos inactivos */
+}
+
+.slick-dots li.slick-active button:before {
+    color: #004d40; /* Color de los puntos activos */
+}
+
+
+/* Testimonios */
+.testimonials {
+    background: #fff;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.testimonials h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00695c;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.testimonial {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+    position: relative;
+    padding: 0 20px;
+}
+.testimonial::before {
+    content: "“";
+    font-size: 4rem;
+    color: #ff9800;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    font-weight: bold;
+}
+.testimonial-author {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #333;
+    font-style: normal;
+}
+
+/* Sección de reserva final */
+.reserve-section {
+    text-align: center;
+}
+.reserve-section .btn-whatsapp {
+    display: inline-block;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-top: 1rem; /* Espacio superior */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.reserve-section .btn-whatsapp:hover {
+    background-color: #1ebe5d;
+}
+.reserve-section .btn-whatsapp i {
+    margin-right: 8px;
+}
+
+
+/* Footer */
+footer {
+    background: #00695c;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.9rem;
+}
+footer a {
+    color: #ffeb3b;
+    text-decoration: underline;
+}
+
+/* Social Icons in Footer (no se usan en este footer, pero por si acaso) */
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+.social-icons a:hover {
+    color: #ff9800;
+}
+
+/* Footer CTA Link (no se usan en este footer, pero por si acaso) */
+footer .footer-cta-link {
+    color: #ffeb3b; /* Color que contraste bien con el verde oscuro */
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+footer .footer-cta-link:hover {
+    color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
+}
+
+/* Payment and Certification Icons */
+.payment-cert-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+.payment-cert-icons img {
+    height: 30px; /* Ajusta el tamaño según sea necesario */
+    filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro si son monocromáticos */
+}
+.payment-cert-icons img.color-icon { /* Si tienes iconos con color y no quieres invertir */
+    filter: none;
+    height: 35px;
+}
+
+/* Botón flotante WhatsApp */
+.floating-cta {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white; /* Color del icono de Font Awesome */
+    font-weight: bold;
+    font-size: 1.8rem; /* Tamaño del icono */
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    text-decoration: none;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+.floating-cta:hover {
+    background-color: #1ebe57;
+}
+
+/* Modal Reserva */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal.show {
+    display: flex;
+}
+.modal-content {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    color: #00695c;
+    text-align: center;
+}
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.modal-content button {
+    background: #00695c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.modal-content button:hover {
+    background: #004d40;
+}
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ==================================== */
+/* Responsive Styles for Mobile (max-width: 768px) */
+/* ==================================== */
+@media (max-width: 768px) {
+    /* Responsive Top Banner */
+    .top-banner {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        gap: 10px;
+        flex-direction: column; /* Apila el texto y el CTA en móvil */
+        align-items: center;
+        text-align: center;
+    }
+    .top-banner .banner-cta {
+        margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
+    }
+    .top-banner .close-banner {
+        position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
+        top: 5px;
+        right: 5px;
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+
+    .hero-slider {
+        height: 60vh; /* Ajusta la altura del carrusel para móvil */
+    }
+    .hero-slider .hero-content {
+        padding: 20px; /* Menos padding general en móvil */
+    }
+    .hero-slider .hero-title {
+        font-size: 1.6rem; /* Tamaño de fuente para móvil (ajustado) */
+        max-width: 90%;
+        margin-top: 10px;
+    }
+    .hero-slider .hero-description {
+        font-size: 0.95rem; /* Tamaño de fuente para móvil */
+        max-width: 90%;
+        margin-bottom: 10px;
+    }
+
+    /* Company Intro responsive */
+    .company-intro {
+        margin: 40px auto;
+        padding: 25px 15px;
+    }
+    .company-intro h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    .company-intro p {
+        font-size: 1rem;
+    }
+
+
+    /* Ajustes del Navbar en móvil */
+    .navbar {
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 12px 15px;
+        min-height: 55px; /* Ajusta la altura mínima para móvil */
+        align-items: center; /* Centra los elementos verticalmente */
+    }
+    .navbar .logo {
+        flex-grow: 1;
+        font-size: 1.8rem;
+        order: 1;
+        display: flex;
+        align-items: center;
+        min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
+    }
+
+    /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
+    .navbar .main-nav .menu,
+    .language-switcher-desktop {
+        display: none;
+    }
+
+    /* Mostrar el botón de idioma para móvil y posicionarlo */
+    .language-switcher-mobile-standalone {
+        display: flex;
+        order: 2;
+        margin-left: 0;
+        align-self: center;
+    }
+    /* Posicionar el botón de reserva */
+    .reserve-btn {
+        order: 3;
+        margin-left: 10px;
+        align-self: center;
+    }
+    /* Posicionar el toggle */
+    .navbar .toggle {
+        display: block;
+        order: 4;
+        margin-left: 10px;
+        align-self: center;
+    }
+
+    /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
+    .navbar .main-nav {
+        flex-direction: column;
+        background: #00695c;
+        position: absolute;
+        top: 100%; /* Empieza justo debajo del navbar, sin importar su altura */
+        right: 15px;
+        border-radius: 6px;
+        padding: 10px;
+        width: 180px;
+        gap: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 19;
+        display: none;
+        align-items: flex-start;
+    }
+    .navbar .main-nav.show {
+        display: flex;
+    }
+
+    /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
+    .navbar .main-nav.show .menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar .main-nav.show .menu a {
+        padding: 8px 10px;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Ajustes para tarjetas de tours en móvil */
+    .tour-box {
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    .tour-box:hover {
+        box-shadow: none;
+    }
+
+    /* Why Choose Us - Mobile Adjustments */
+    .why-us {
+        margin: 40px auto;
+        padding: 30px 15px;
+    }
+    .why-us h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
+
+
+/* HERO exclusivo para páginas de tour */
+.tour-hero {
+  height: 100vh;
+  /* background-image: url('../img/chichen-hero.jpg'); */ /* Esta línea debe ser reemplazada por el video */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden; /* Asegura que el video no se desborde */
+}
+
+/* Estilos para el video de fondo del hero */
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Asegura que el video esté detrás del contenido */
+    pointer-events: none; /* Evita que el iframe capture clics que irían al contenido del hero */
+}
+
+.hero-video-container iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw; /* Cubre el ancho del viewport */
+    height: 56.25vw; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ajusta el video para cubrir el contenedor */
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .hero-video-container iframe {
+        height: 100vh;
+        width: 177.77vh; /* 16 / 9 = 1.7777 */
+    }
+}
+
+
+.tour-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45); /* Sombra inicial */
+  z-index: 1;
+  /* AÑADIDO PARA LA DESAPARICIÓN DEL OVERLAY */
+  opacity: 1; /* Inicialmente visible */
+  transition: opacity 1s ease-out; /* Transición suave de 1 segundo */
+}
+
+/* Clase para desvanecer el overlay */
+.tour-hero .hero-overlay.fade-out {
+  opacity: 0; /* Hace que el overlay se desvanezca */
+}
+
+.tour-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 2rem;
+  max-width: 800px;
+  /* ESTILOS AÑADIDOS PARA LA DESAPARICIÓN DEL TEXTO */
+  opacity: 1; /* Inicialmente visible */
+  transition: opacity 1s ease-out; /* Transición suave de 1 segundo */
+}
+
+.tour-hero .hero-content.fade-out {
+  opacity: 0; /* Hace que el contenido se desvanezca */
+  pointer-events: none; /* Evita interacciones después de desvanecerse */
+}
+
+.tour-hero h1 {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.tour-hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.main-cta-button {
+  display: inline-block;
+  background-color: #00695c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.main-cta-button:hover {
+  background-color: #004d40;
+}
+
+/* Sección de descripción del tour */
+.tour-description,
+.tour-info,
+.reserve-section,
+.testimonials,
+.itinerary-section, /* Añadido para estilos del itinerario */
+.gallery-carousel-section { /* Añadido para estilos del carrusel de galería */
+  padding: 3rem 1.5rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+.tour-description h2,
+.tour-info h2,
+.reserve-section h2,
+.testimonials h2,
+.itinerary-section .section-title, /* Añadido para el título del itinerario */
+.gallery-carousel-section h2 { /* Añadido para el título de la galería */
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00695c;
+}
+
+.tour-description p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.tour-highlights {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.tour-highlights li {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.tour-highlights i {
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+/* ITINERARIO PASO A PASO */
+.itinerary-section {
+    padding: 3rem 1.5rem;
+    background-color: #f8f8f8; /* Un color de fondo suave para la sección */
+    text-align: center;
+}
+
+.itinerary-section .container {
+    max-width: 960px;
+    margin: auto;
+}
+
+.itinerary-section .section-title {
+    margin-bottom: 2rem;
+}
+
+.itinerary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.itinerary-item {
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.itinerary-step {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff9800; /* Color naranja para los números de paso */
+    flex-shrink: 0; /* Evita que el número se encoja */
+    margin-top: -0.3rem; /* Ajuste vertical para alinear con el texto */
+}
+
+.itinerary-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #00695c;
+    margin-bottom: 0.5rem;
+}
+
+.itinerary-content p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+/* Sección Qué Incluye y Qué No Incluye */
+.tour-info .columns {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en móvil */
+}
+
+.tour-info .column {
+    flex: 1; /* Permite que las columnas se expandan */
+    min-width: 300px; /* Ancho mínimo para las columnas */
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.tour-info .column h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00695c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tour-info .column h3 .fa-check-circle {
+    color: #4CAF50; /* Verde para "Incluye" */
+}
+
+.tour-info .column h3 .fa-times-circle {
+    color: #F44336; /* Rojo para "No Incluye" */
+}
+
+.tour-info .column ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tour-info .column ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.tour-info .column ul li i {
+    margin-right: 8px;
+    color: #00695c; /* Color de los iconos de lista */
+}
+
+/* --- Estilos para la Galería de Carrusel Mejorada --- */
+.gallery-carousel-section {
+    padding: 3rem 1.5rem;
+    max-width: 1000px; /* Ancho máximo para el contenedor del carrusel */
+    margin: auto;
+    text-align: center;
+}
+
+.gallery-carousel {
+    margin-top: 2rem;
+    /* Estilos específicos de Slick Carousel pueden estar aquí o en slick-theme.min.css */
+}
+
+/* Estilos para cada 'slide' o elemento del carrusel, incluyendo el "frame" */
+.gallery-carousel .slick-slide {
+    padding: 10px; /* Esto crea un "marco" alrededor de la imagen */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+}
+
+.gallery-item-frame {
+    border: 5px solid #f0f0f0; /* Borde ligero para el frame */
+    border-radius: 10px; /* Bordes redondeados para el frame */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del frame */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+    transition: transform 0.3s ease; /* Transición suave al pasar el ratón */
+    display: flex; /* Para centrar la imagen dentro del frame si es necesario */
+    align-items: center;
+    justify-content: center;
+    /* Asegura que el frame tenga una altura definida o que se ajuste al contenido */
+    height: 400px; /* Altura fija para el frame en desktop */
+}
+
+.gallery-item-frame:hover {
+    transform: translateY(-5px); /* Efecto sutil de levantamiento al pasar el ratón */
+}
+
+.gallery-carousel img {
+    width: 100%; /* La imagen ocupa todo el ancho del frame */
+    height: 100%; /* La imagen ocupa toda la altura del frame */
+    object-fit: cover; /* Ajusta la imagen para cubrir el frame sin distorsionarse */
+    border-radius: 5px; /* Bordes redondeados para la imagen (ligeramente menos que el frame) */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+}
+
+/* Ajustes para móvil para la galería */
+@media (max-width: 768px) {
+    .gallery-item-frame {
+        height: 250px; /* Menor altura para el frame en móvil */
+    }
+}
+
+/* Estilos para las flechas de navegación de Slick (ajusta los colores a tu marca) */
+.slick-prev:before, .slick-next:before {
+    font-size: 40px;
+    color: #00695c; /* Color de las flechas */
+}
+
+/* Estilos para los puntos de paginación de Slick */
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #00695c; /* Color de los puntos inactivos */
+}
+
+.slick-dots li.slick-active button:before {
+    color: #004d40; /* Color de los puntos activos */
+}
+
+
+/* Testimonios */
+.testimonials {
+    background: #fff;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.testimonials h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00695c;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.testimonial {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+    position: relative;
+    padding: 0 20px;
+}
+.testimonial::before {
+    content: "“";
+    font-size: 4rem;
+    color: #ff9800;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    font-weight: bold;
+}
+.testimonial-author {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #333;
+    font-style: normal;
+}
+
+/* Sección de reserva final */
+.reserve-section {
+    text-align: center;
+}
+.reserve-section .btn-whatsapp {
+    display: inline-block;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-top: 1rem; /* Espacio superior */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.reserve-section .btn-whatsapp:hover {
+    background-color: #1ebe5d;
+}
+.reserve-section .btn-whatsapp i {
+    margin-right: 8px;
+}
+
+
+/* Footer */
+footer {
+    background: #00695c;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.9rem;
+}
+footer a {
+    color: #ffeb3b;
+    text-decoration: underline;
+}
+
+/* Social Icons in Footer (no se usan en este footer, pero por si acaso) */
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+.social-icons a:hover {
+    color: #ff9800;
+}
+
+/* Footer CTA Link (no se usan en este footer, pero por si acaso) */
+footer .footer-cta-link {
+    color: #ffeb3b; /* Color que contraste bien con el verde oscuro */
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+footer .footer-cta-link:hover {
+    color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
+}
+
+/* Payment and Certification Icons */
+.payment-cert-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+.payment-cert-icons img {
+    height: 30px; /* Ajusta el tamaño según sea necesario */
+    filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro si son monocromáticos */
+}
+.payment-cert-icons img.color-icon { /* Si tienes iconos con color y no quieres invertir */
+    filter: none;
+    height: 35px;
+}
+
+/* Botón flotante WhatsApp */
+.floating-cta {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white; /* Color del icono de Font Awesome */
+    font-weight: bold;
+    font-size: 1.8rem; /* Tamaño del icono */
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    text-decoration: none;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+.floating-cta:hover {
+    background-color: #1ebe57;
+}
+
+/* Modal Reserva */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal.show {
+    display: flex;
+}
+.modal-content {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    color: #00695c;
+    text-align: center;
+}
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.modal-content button {
+    background: #00695c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.modal-content button:hover {
+    background: #004d40;
+}
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ==================================== */
+/* Responsive Styles for Mobile (max-width: 768px) */
+/* ==================================== */
+@media (max-width: 768px) {
+    /* Responsive Top Banner */
+    .top-banner {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        gap: 10px;
+        flex-direction: column; /* Apila el texto y el CTA en móvil */
+        align-items: center;
+        text-align: center;
+    }
+    .top-banner .banner-cta {
+        margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
+    }
+    .top-banner .close-banner {
+        position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
+        top: 5px;
+        right: 5px;
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+
+    .hero-slider {
+        height: 60vh; /* Ajusta la altura del carrusel para móvil */
+    }
+    .hero-slider .hero-content {
+        padding: 20px; /* Menos padding general en móvil */
+    }
+    .hero-slider .hero-title {
+        font-size: 1.6rem; /* Tamaño de fuente para móvil (ajustado) */
+        max-width: 90%;
+        margin-top: 10px;
+    }
+    .hero-slider .hero-description {
+        font-size: 0.95rem; /* Tamaño de fuente para móvil */
+        max-width: 90%;
+        margin-bottom: 10px;
+    }
+
+    /* Company Intro responsive */
+    .company-intro {
+        margin: 40px auto;
+        padding: 25px 15px;
+    }
+    .company-intro h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    .company-intro p {
+        font-size: 1rem;
+    }
+
+
+    /* Ajustes del Navbar en móvil */
+    .navbar {
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 12px 15px;
+        min-height: 55px; /* Ajusta la altura mínima para móvil */
+        align-items: center; /* Centra los elementos verticalmente */
+    }
+    .navbar .logo {
+        flex-grow: 1;
+        font-size: 1.8rem;
+        order: 1;
+        display: flex;
+        align-items: center;
+        min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
+    }
+
+    /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
+    .navbar .main-nav .menu,
+    .language-switcher-desktop {
+        display: none;
+    }
+
+    /* Mostrar el botón de idioma para móvil y posicionarlo */
+    .language-switcher-mobile-standalone {
+        display: flex;
+        order: 2;
+        margin-left: 0;
+        align-self: center;
+    }
+    /* Posicionar el botón de reserva */
+    .reserve-btn {
+        order: 3;
+        margin-left: 10px;
+        align-self: center;
+    }
+    /* Posicionar el toggle */
+    .navbar .toggle {
+        display: block;
+        order: 4;
+        margin-left: 10px;
+        align-self: center;
+    }
+
+    /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
+    .navbar .main-nav {
+        flex-direction: column;
+        background: #00695c;
+        position: absolute;
+        top: 100%; /* Empieza justo debajo del navbar, sin importar su altura */
+        right: 15px;
+        border-radius: 6px;
+        padding: 10px;
+        width: 180px;
+        gap: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 19;
+        display: none;
+        align-items: flex-start;
+    }
+    .navbar .main-nav.show {
+        display: flex;
+    }
+
+    /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
+    .navbar .main-nav.show .menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .navbar .main-nav.show .menu a {
+        padding: 8px 10px;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* Ajustes para tarjetas de tours en móvil */
+    .tour-box {
+        max-width: 100%;
+        flex-basis: 100%;
+    }
+    .tour-box:hover {
+        box-shadow: none;
+    }
+
+    /* Why Choose Us - Mobile Adjustments */
+    .why-us {
+        margin: 40px auto;
+        padding: 30px 15px;
+    }
+    .why-us h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .features-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+}
