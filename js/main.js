@@ -207,4 +207,21 @@ document.addEventListener('DOMContentLoaded', function() {
             sliderContainer.addEventListener('mouseleave', startSlider);
         }
     } // Fin del if (sliderContainer)
+
+    // Código para el hero de la página de tour (si es una página de tour con video)
+    const tourHero = document.querySelector('.tour-hero');
+    if (tourHero) {
+        const heroContent = $('.tour-hero .hero-content'); // Asegúrate de seleccionar el contenido correcto del hero del tour
+        const delayTime = 5000; // 5000 milisegundos = 5 segundos
+
+        setTimeout(function() {
+            heroContent.addClass('fade-out');
+            // Opcional: Si quieres que desaparezca completamente del flujo del documento
+            // y no solo sea transparente, puedes añadir otra clase o usar un set timeout
+            // para display: none; después de que la transición CSS haya terminado.
+            // setTimeout(function() {
+            //     heroContent.css('display', 'none');
+            // }, 1000); // 1000ms es la duración de la transición CSS
+        }, delayTime);
+    }
 });
