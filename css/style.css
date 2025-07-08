@@ -11,6 +11,11 @@ body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
     color: #333; /* Color de texto predeterminado */
+    background-image: url('../img/tu-imagen-de-fondo.jpg'); /* Reemplaza con la ruta y nombre real de tu imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen para que cubra todo el fondo */
+    background-position: center center; /* Centra la imagen en el fondo */
+    background-attachment: fixed; /* Opcional: mantiene la imagen fija al hacer scroll */
 }
 a {
     text-decoration: none;
