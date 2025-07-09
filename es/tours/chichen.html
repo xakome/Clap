@@ -84,6 +84,10 @@
         </div>
     </nav>
 
+
+
+   
+    
     <section class="tour-hero">
         <div class="hero-video-container">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/SxM22NB-qW8?si=4anE0RH3--0bVYEX&autoplay=1&mute=1&loop=1&playlist=SxM22NB-qW8&controls=0&modestbranding=1&showinfo=0&rel=0" 
@@ -92,11 +96,12 @@
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <div class="hero-overlay"></div>
         </div>
-        <div class="hero-content">
-            <h1>Tour Chichen Itzá VIP: El Corazón del Mundo Maya 🧡</h1>
-            <p>Explora la majestuosidad de una de las Nuevas 7 Maravillas del Mundo en un tour privado y exclusivo. ✨</p>
-            <button class="main-cta-button reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar Ahora 🚀</button>
-        </div>
+         <div class="hero-content" id="heroTextContainer">
+    <h1>Tour Chichen Itzá VIP: El Corazón del Mundo Maya 🧡</h1>
+    <p>Explora la majestuosidad de una de las Nuevas 7 Maravillas del Mundo en un tour privado y exclusivo. ✨</p>
+    <button class="main-cta-button reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar Ahora 🚀</button>
+</div>
+
     </section>
 
     <section class="tour-description">
@@ -234,5 +239,19 @@
             // y el ID del modal sea 'reserveModal' como en main.js
         });
     </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const heroTextContainer = document.getElementById('heroTextContainer');
+
+        if (heroTextContainer) {
+            setTimeout(() => {
+                heroTextContainer.style.opacity = '0';
+                heroTextContainer.style.transition = 'opacity 1s ease-in-out'; // Opcional: añade una transición suave
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+    });
+</script>
+    
 </body>
 </html>
