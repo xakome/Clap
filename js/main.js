@@ -1,287 +1,243 @@
-// Seleccionamos los elementos clave
-const mainNav = document.querySelector('.main-nav');
-const toggle = document.querySelector('.toggle');
-const modal = document.getElementById('reserveModal');
-const reserveBtn = document.querySelector('.reserve-btn');
-const closeBtn = modal.querySelector('.close');
-const langSwitcherDesktop = document.querySelector('.language-switcher-desktop');
-const currentLangDesktop = document.querySelector('.language-switcher-desktop .current-lang');
-const langSwitcherMobileStandalone = document.querySelector('.language-switcher-mobile-standalone');
-const currentLangMobile = document.querySelector('.language-switcher-mobile-standalone .current-lang-mobile');
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleccionamos los elementos clave
+    const mainNav = document.querySelector('.main-nav');
+    const toggle = document.querySelector('.toggle');
+    const modal = document.getElementById('reserveModal');
+    // Ahora seleccionamos TODOS los botones de reserva
+    const reserveBtns = document.querySelectorAll('.reserve-btn'); 
+    // Añade una verificación de si modal existe antes de intentar obtener closeBtn
+    const closeBtn = modal ? modal.querySelector('.close') : null; 
+    
+    const langSwitcherDesktop = document.querySelector('.language-switcher-desktop');
+    // Añade verificación de si languageSwitcherDesktop existe
+    const currentLangDesktop = langSwitcherDesktop ? langSwitcherDesktop.querySelector('.current-lang') : null; 
 
-// Elementos del Top Banner
-const topBanner = document.querySelector('.top-banner');
-const closeBannerButton = document.querySelector('.close-banner');
+    const langSwitcherMobileStandalone = document.querySelector('.language-switcher-mobile-standalone');
+    // Añade verificación de si languageSwitcherMobileStandalone existe
+    const currentLangMobile = langSwitcherMobileStandalone ? langSwitcherMobileStandalone.querySelector('.current-lang-mobile') : null;
 
+    // Elementos del Top Banner
+    const topBanner = document.querySelector('.top-banner');
+    const closeBannerButton = document.querySelector('.close-banner');
 
-// --- Funcionalidad del Menú Hamburguesa ---
-toggle.addEventListener('click', () => {
-    mainNav.classList.toggle('show'); // Ahora togglea la clase 'show' en .main-nav
-    // Asegurarse de que otros elementos se cierren
-    if (modal.classList.contains('show')) {
-        toggleModal();
-    }
-    if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
-        langSwitcherDesktop.classList.remove('active');
-        currentLangDesktop.setAttribute('aria-expanded', 'false');
-    }
-    if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
-        langSwitcherMobileStandalone.classList.remove('active');
-        currentLangMobile.setAttribute('aria-expanded', 'false');
-    }
-});
-
-// --- Funcionalidad del Modal de Reserva ---
-function toggleModal() {
-    const isOpen = modal.classList.contains('show');
-    modal.classList.toggle('show');
-    modal.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
-    reserveBtn.setAttribute('aria-expanded', !isOpen);
-    if (!isOpen) {
-        if (mainNav.classList.contains('show')) {
-            mainNav.classList.remove('show');
-        }
-        if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
-            langSwitcherDesktop.classList.remove('active');
-            currentLangDesktop.setAttribute('aria-expanded', 'false');
-        }
-        if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
-            langSwitcherMobileStandalone.classList.remove('active');
-            currentLangMobile.setAttribute('aria-expanded', 'false');
-        }
-        modal.querySelector('#name').focus();
-    } else {
-        reserveBtn.focus();
-    }
-}
-
-reserveBtn.addEventListener('click', toggleModal);
-closeBtn.addEventListener('click', toggleModal);
-closeBtn.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        toggleModal();
-    }
-});
-window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && modal.classList.contains('show')){
-        toggleModal();
-    }
-});
-
-// --- Funcionalidad del Selector de Idioma (Desktop) ---
-if (langSwitcherDesktop) {
-    currentLangDesktop.addEventListener('click', () => {
-        const isActive = langSwitcherDesktop.classList.toggle('active');
-        currentLangDesktop.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-        if (mainNav.classList.contains('show')) {
-            mainNav.classList.remove('show');
-        }
-        if (modal.classList.contains('show')) {
-            toggleModal();
-        }
-        if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
-            langSwitcherMobileStandalone.classList.remove('active');
-            currentLangMobile.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    document.addEventListener('click', (event) => {
-        if (!langSwitcherDesktop.contains(event.target) && langSwitcherDesktop.classList.contains('active')) {
-            langSwitcherDesktop.classList.remove('active');
-            currentLangDesktop.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
-
-// --- Funcionalidad del Selector de Idioma (Móvil independiente) ---
-if (langSwitcherMobileStandalone) {
-    currentLangMobile.addEventListener('click', () => {
-        const isActive = langSwitcherMobileStandalone.classList.toggle('active');
-        currentLangMobile.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-        if (mainNav.classList.contains('show')) {
-            mainNav.classList.remove('show');
-        }
-        if (modal.classList.contains('show')) {
-            toggleModal();
-        }
-        if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
-            langSwitcherDesktop.classList.remove('active');
-            currentLangDesktop.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    document.addEventListener('click', (event) => {
-        if (!langSwitcherMobileStandalone.contains(event.target) && langSwitcherMobileStandalone.classList.contains('active')) {
-            langSwitcherMobileStandalone.classList.remove('active');
-            currentLangMobile.setAttribute('aria-expanded', 'false');
-        }
-    });
-}
-
-
-// --- Cierre general de elementos flotantes al hacer clic fuera ---
-document.addEventListener('click', (event) => {
-    const isClickInsideNavbarElements = toggle.contains(event.target) ||
-                                      mainNav.contains(event.target) ||
-                                      reserveBtn.contains(event.target) ||
-                                      (langSwitcherDesktop && langSwitcherDesktop.contains(event.target)) ||
-                                      (langSwitcherMobileStandalone && langSwitcherMobileStandalone.contains(event.target)) ||
-                                      modal.contains(event.target);
-
-    if (!isClickInsideNavbarElements) {
-        if (mainNav.classList.contains('show')) {
-            mainNav.classList.remove('show');
-        }
-        if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
-            langSwitcherDesktop.classList.remove('active');
-            currentLangDesktop.setAttribute('aria-expanded', 'false');
-        }
-        if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
-            langSwitcherMobileStandalone.classList.remove('active');
-            currentLangMobile.setAttribute('aria-expanded', 'false');
-        }
-    }
-});
-
-mainNav.querySelectorAll('.menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768 && mainNav.classList.contains('show')) {
-            mainNav.classList.remove('show');
-        }
-    });
-});
-
-// --- JS hover simulado en móvil para cards ---
-const isTouchDevice = ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-if (isTouchDevice) {
-    const tourBoxes = document.querySelectorAll('.tour-box');
-    tourBoxes.forEach(box => {
-        box.addEventListener('click', function(e) {
-            // Si el click es en el enlace interno, permite la navegación
-            if (e.target.closest('.tour-overlay a')) {
-                return true;
+    // --- Funcionalidad del Menú Hamburguesa ---
+    if (toggle && mainNav) { // Asegura que los elementos existan
+        toggle.addEventListener('click', () => {
+            mainNav.classList.toggle('show');
+            // Cierra el modal si está abierto al abrir/cerrar el menú
+            if (modal && modal.classList.contains('show')) {
+                toggleModal();
             }
-            // Si la tarjeta ya está activa, permite la navegación normal al segundo toque
-            if (this.classList.contains('active')) {
-                return true; // Permitir el click nativo
+            // Asegúrate de que los selectores de idioma se cierren
+            if (langSwitcherDesktop && langSwitcherDesktop.classList.contains('active')) {
+                langSwitcherDesktop.classList.remove('active');
+                currentLangDesktop.setAttribute('aria-expanded', 'false');
             }
-            e.preventDefault(); // Previene la navegación al primer toque
-            tourBoxes.forEach(b => b !== this && b.classList.remove('active')); // Cierra otras tarjetas
-            this.classList.add('active'); // Activa la tarjeta actual
+            if (langSwitcherMobileStandalone && langSwitcherMobileStandalone.classList.contains('active')) {
+                langSwitcherMobileStandalone.classList.remove('active');
+                currentLangMobile.setAttribute('aria-expanded', 'false'); // Asegura que este atributo exista en mobile
+            }
         });
-    });
-    document.body.addEventListener('click', e => {
-        // Cierra la tarjeta si se hace clic fuera de cualquier tour-box o su enlace interno
-        if (!e.target.closest('.tour-box') && !e.target.closest('.tour-overlay a')) {
-            tourBoxes.forEach(b => b.classList.remove('active'));
-        }
-    });
-}
-
-// --- JS para el Top Banner ---
-if (topBanner && closeBannerButton) {
-    closeBannerButton.addEventListener('click', () => {
-        topBanner.style.display = 'none';
-        // localStorage.setItem('bannerClosed', 'true'); // Opcional: para recordar el cierre
-    });
-    // Opcional: Comentar si quieres que aparezca cada vez
-    // if (localStorage.getItem('bannerClosed') === 'true') {
-    //     topBanner.style.display = 'none';
-    // }
-}
-
-// --- JS para el Carrusel/Slider del Hero ---
-const slides = document.querySelectorAll('.hero-slider .slide');
-const dotsContainer = document.querySelector('.slider-dots');
-const prevBtn = document.querySelector('.prev-slide');
-const nextBtn = document.querySelector('.next-slide');
-let currentSlide = 0;
-let slideInterval;
-const slideDuration = 5000; // 5 segundos por slide
-
-// Función para mostrar un slide específico
-function showSlide(index) {
-    // Elimina la clase 'active' de todos los slides y dots
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (dotsContainer.children[i]) {
-            dotsContainer.children[i].classList.remove('active');
-        }
-
-        // Oculta H1 y P en todas las diapositivas por defecto
-        const h1 = slide.querySelector('.hero-title');
-        const p = slide.querySelector('.hero-description');
-        if (h1) h1.style.opacity = '0';
-        if (p) p.style.opacity = '0';
-    });
-
-    // Muestra la diapositiva activa
-    slides[index].classList.add('active');
-    if (dotsContainer.children[index]) {
-        dotsContainer.children[index].classList.add('active');
     }
-    currentSlide = index;
 
-    // Hace visible el H1 y P solo en la PRIMERA diapositiva
-    if (index === 0) {
-        const h1 = slides[index].querySelector('.hero-title');
-        const p = slides[index].querySelector('.hero-description');
-        if (h1) h1.style.opacity = '1';
-        if (p) p.style.opacity = '1';
+    // --- Funcionalidad del Modal ---
+    function toggleModal() {
+        if (!modal) return; // Salir si el modal no existe
+
+        modal.classList.toggle('show');
+        if (modal.classList.contains('show')) {
+            modal.setAttribute('aria-hidden', 'false');
+            modal.focus(); // Enfocar el modal para accesibilidad
+        } else {
+            modal.setAttribute('aria-hidden', 'true');
+        }
     }
-}
 
+    // Añade event listeners a TODOS los botones de reserva
+    if (reserveBtns.length > 0) {
+        reserveBtns.forEach(btn => {
+            btn.addEventListener('click', toggleModal);
+        });
+    }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-}
+    // Event listener para el botón de cerrar del modal
+    if (closeBtn) {
+        closeBtn.addEventListener('click', toggleModal);
+    }
 
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
-}
+    // Cerrar modal al hacer clic fuera (solo si el modal existe)
+    if (modal) {
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                toggleModal();
+            }
+        });
 
-function startSlider() {
-    slideInterval = setInterval(nextSlide, slideDuration);
-}
+        // Cerrar modal con la tecla Esc (solo si el modal existe)
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.classList.contains('show')) {
+                toggleModal();
+            }
+        });
+    }
 
-function pauseSlider() {
-    clearInterval(slideInterval);
-}
+    // --- Funcionalidad del Top Banner ---
+    if (closeBannerButton && topBanner) {
+        closeBannerButton.addEventListener('click', () => {
+            topBanner.style.display = 'none';
+            localStorage.setItem('topBannerClosed', 'true');
+        });
+    }
 
-// Generar puntos de navegación
-slides.forEach((_, i) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    dot.addEventListener('click', () => {
-        showSlide(i);
-        pauseSlider(); // Pausa al hacer clic manual
-        startSlider(); // Reinicia el temporizador
+    // Ocultar el banner si ya se cerró previamente
+    if (localStorage.getItem('topBannerClosed') === 'true') {
+        if (topBanner) {
+            topBanner.style.display = 'none';
+        }
+    }
+
+    // --- Funcionalidad del Selector de Idioma (Desktop) ---
+    if (langSwitcherDesktop && currentLangDesktop) { // Asegura que los elementos existan
+        currentLangDesktop.addEventListener('click', (event) => {
+            event.stopPropagation(); // Evita que el clic se propague al document y cierre inmediatamente
+            langSwitcherDesktop.classList.toggle('active');
+            currentLangDesktop.setAttribute('aria-expanded', langSwitcherDesktop.classList.contains('active'));
+        });
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', (event) => {
+            if (!langSwitcherDesktop.contains(event.target) && langSwitcherDesktop.classList.contains('active')) {
+                langSwitcherDesktop.classList.remove('active');
+                currentLangDesktop.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    // --- Funcionalidad del Selector de Idioma (Mobile) ---
+    if (langSwitcherMobileStandalone && currentLangMobile) { // Asegura que los elementos existan
+        currentLangMobile.addEventListener('click', (event) => {
+            event.stopPropagation(); // Evita que el clic se propague al document y cierre inmediatamente
+            langSwitcherMobileStandalone.classList.toggle('active');
+            currentLangMobile.setAttribute('aria-expanded', langSwitcherMobileStandalone.classList.contains('active'));
+        });
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', (event) => {
+            if (!langSwitcherMobileStandalone.contains(event.target) && langSwitcherMobileStandalone.classList.contains('active')) {
+                langSwitcherMobileStandalone.classList.remove('active');
+                currentLangMobile.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    // --- Lógica para desvanecer el texto del Hero (específico de chichen.html) ---
+    const heroTextContainer = document.getElementById('heroTextContainer');
+    if (heroTextContainer) {
+        setTimeout(() => {
+            heroTextContainer.style.opacity = '0';
+            heroTextContainer.style.transition = 'opacity 1s ease-in-out'; // Opcional: añade una transición suave
+        }, 5000); // 5000 milisegundos = 5 segundos
+    }
+
+    // --- Lógica del Slider para el Hero (si aplica, p.ej. en index.html) ---
+    // Asegúrate de que esta lógica solo se ejecute si el .hero-slider existe en la página actual.
+    const heroSlider = document.querySelector('.hero-slider');
+    if (heroSlider) {
+        const slides = document.querySelectorAll('.hero-slide');
+        const prevBtn = document.querySelector('.hero-slider-control.prev');
+        const nextBtn = document.querySelector('.hero-slider-control.next');
+        const dotsContainer = document.querySelector('.hero-slider-dots');
+
+        let currentSlide = 0;
+        let slideInterval;
+        const slideDuration = 5000; // 5 segundos por slide
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+            if (dotsContainer) {
+                dotsContainer.querySelectorAll('.dot').forEach((dot, i) => {
+                    dot.classList.remove('active');
+                    if (i === index) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, slideDuration);
+        }
+
+        function pauseSlider() {
+            clearInterval(slideInterval);
+        }
+
+        // Generar puntos de navegación
+        if (dotsContainer) {
+            slides.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                dot.addEventListener('click', () => {
+                    showSlide(i);
+                    pauseSlider(); // Pausa al hacer clic manual
+                    startSlider(); // Reinicia el temporizador
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Event listeners para los botones de navegación
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                pauseSlider(); // Pausa al hacer clic manual
+                startSlider(); // Reinicia el temporizador
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                pauseSlider(); // Pausa al hacer clic manual
+                startSlider(); // Reinicia el temporador
+            });
+        }
+
+        // Iniciar el slider al cargar la página
+        showSlide(currentSlide); // Muestra la primera imagen
+        startSlider(); // Inicia la reproducción automática
+
+        // Pausar/Reanudar en hover del slider
+        heroSlider.addEventListener('mouseenter', pauseSlider);
+        heroSlider.addEventListener('mouseleave', startSlider);
+    } // Fin de if (heroSlider)
+
+}); // Fin de DOMContentLoaded
+
+// Lógica de Slick Carousel (requiere jQuery, se ejecuta cuando el DOM esté listo)
+// Se usa $(document).ready() para asegurar que jQuery esté completamente cargado.
+$(document).ready(function(){
+    $('.gallery-carousel').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+        adaptiveHeight: true
     });
-    dotsContainer.appendChild(dot);
 });
-
-// Event listeners para los botones de navegación
-prevBtn.addEventListener('click', () => {
-    prevSlide();
-    pauseSlider(); // Pausa al hacer clic manual
-    startSlider(); // Reinicia el temporizador
-});
-nextBtn.addEventListener('click', () => {
-    nextSlide();
-    pauseSlider(); // Pausa al hacer clic manual
-    startSlider(); // Reinicia el temporador
-});
-
-// Iniciar el slider al cargar la página
-showSlide(currentSlide); // Muestra la primera imagen
-startSlider(); // Inicia la reproducción automática
-
-// Pausar/Reanudar en hover del slider
-const heroSlider = document.querySelector('.hero-slider');
-if (heroSlider) {
-    heroSlider.addEventListener('mouseenter', pauseSlider);
-    heroSlider.addEventListener('mouseleave', startSlider);
-}
