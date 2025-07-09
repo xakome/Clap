@@ -7,33 +7,31 @@
     <meta name="description" content="Tour privado y exclusivo a Chichen Itzá desde Mérida. Explora la Pirámide de Kukulcán, el Cenote Sagrado y el Pueblo Mágico de Izamal con CLAP365. Transporte de lujo y guías certificados." />
     <link rel="canonical" href="https://xakome.github.io/Clap/es/tours/chichen.html" />
 
+    <!-- Enlace a tu CSS principal (asegúrate de que este archivo contenga TODO tu CSS) -->
     <link rel="stylesheet" href="/Clap/css/style.css">
+    <!-- Enlaces para Slick Carousel CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 
+    <!-- Fuentes de Google y Font Awesome -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    <!-- Datos estructurados para SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Product",
-      "name": "Tour Chichen Itzá VIP: Ruinas Mayas y Cenote Sagrado",
-      "description": "Explora la majestuosa zona arqueológica de Chichen Itzá, el Cenote Sagrado y el encantador Pueblo Mágico de Izamal en un tour privado y exclusivo desde Mérida con CLAP365. Incluye transporte de lujo, guías certificados y una experiencia cultural inmersiva.",
-      "image": "https://xakome.github.io/Clap/img/chichen-tour-hero.jpg",
-      "brand": {
-        "@type": "Brand",
-        "name": "CLAP365"
-      },
+      "name": "Tour Chichen Itzá VIP",
+      "description": "Tour privado y exclusivo a Chichen Itzá, cenote Ik Kil y Izamal desde Mérida. Incluye transporte de lujo, guía certificado y entradas.",
+      "image": "https://xakome.github.io/Clap/img/chichen-itza-hero.jpg",
       "offers": {
         "@type": "Offer",
-        "url": "https://xakome.github.io/Clap/es/tours/chichen.html",
         "priceCurrency": "MXN",
         "price": "Consultar Precio",
-        "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/InStock",
         "seller": {
-          "@type": "Organization",
+          "@type": "TravelAgency",
           "name": "CLAP365"
         }
       }
@@ -41,205 +39,294 @@
     </script>
 </head>
 <body>
-    <div class="top-banner">
-        <p>¡Reserva ahora y vive la experiencia CLAP365! <strong>Explora Yucatán como nunca antes.</strong></p>
-        <a href="#" class="banner-cta reserve-btn" data-toggle="modal" data-target="#reserveModal">¡Reserva Ahora!</a>
-        <button class="close-banner" aria-label="Cerrar banner">&times;</button>
-    </div>
-
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="/Clap/index.html" class="logo">
-                <img src="/Clap/img/logo-clap365.png" alt="CLAP365 Logo" />
-            </a>
-            <div class="toggle" role="button" aria-expanded="false" aria-controls="main-navigation">
-                <i class="fas fa-bars"></i>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="/Clap/index.html">CLAP365</a>
+        </div>
+        <nav class="main-nav">
+            <ul class="menu">
+                <li><a href="/Clap/index.html#tours">Tours</a></li>
+                <li><a href="/Clap/index.html">Inicio</a></li>
+                <li><a href="/Clap/es/contacto.html">Contacto</a></li>
+                <li><a href="/Clap/es/faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+        <div class="language-switcher-desktop">
+            <span class="current-lang">ES <i class="fas fa-chevron-down"></i></span>
+            <div class="lang-options">
+                <a href="?lang=es">Español</a>
+                <a href="?lang=en">English</a>
+                <a href="?lang=fr">Français</a>
+                <a href="?lang=it">Italiano</a>
+                <a href="?lang=de">Deutsch</a>
+                <a href="?lang=ru">Русский</a>
             </div>
-            <div class="main-nav" id="main-navigation">
-                <ul class="menu">
-                    <li><a href="/Clap/index.html">Inicio</a></li>
-                    <li><a href="/Clap/es/tours.html">Tours</a></li>
-                    <li><a href="/Clap/es/porque-elegirnos.html">Por qué elegirnos</a></li>
-                    <li><a href="/Clap/es/faq.html">FAQ</a></li>
-                    <li><a href="/Clap/es/contacto.html">Contacto</a></li>
-                </ul>
-                <div class="language-switcher language-switcher-desktop" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Cambiar idioma">
-                    <span class="current-lang">
-                        <i class="fas fa-globe"></i> ES
-                        <i class="fas fa-chevron-down"></i>
-                    </span>
-                    <ul class="lang-options">
-                        <li><a href="/Clap/en/tours/chichen.html">EN</a></li>
-                        <li><a href="/Clap/es/tours/chichen.html">ES</a></li>
+        </div>
+        <button class="reserve-btn" data-toggle="modal" data-target="#reserveModal">Reservar</button>
+        <div class="toggle"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <!-- HERO SECTION CON VIDEO DE YOUTUBE -->
+    <section class="tour-hero">
+        <div class="hero-video-container">
+            <!-- YouTube Embed -->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/SxM22NB-qW8?si=4anE0RH3--0bVYEX&autoplay=1&mute=1&loop=1&playlist=SxM22NB-qW8&controls=0&modestbranding=1&showinfo=0&rel=0" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Tour Chichen Itzá VIP: El Corazón del Mundo Maya 🧡</h1>
+            <p>Explora la majestuosidad de una de las Nuevas 7 Maravillas del Mundo en un tour privado y exclusivo. ✨</p>
+            <button class="main-cta-button" data-toggle="modal" data-target="#reserveModal">Reservar Ahora 🚀</button>
+        </div>
+    </section>
+
+    <!-- RESUMEN / DESTACADOS CLAVE DEL TOUR -->
+    <section class="tour-description">
+        <h2 class="section-title">Descubre Chichen Itzá a tu Ritmo 🚶‍♀️🚶‍♂️</h2>
+        <p>Sumérgete en la rica historia y la impresionante arquitectura maya con nuestro tour VIP a Chichen Itzá. Evita las multitudes, disfruta de guías expertos y relájate con transporte de lujo. 🚌💨</p>
+        
+        <ul class="tour-highlights">
+            <li><i class="fas fa-clock"></i> Duración: 10-12 horas (aproximado) ⏳</li>
+            <li><i class="fas fa-user-friends"></i> Modalidad: Tour Privado 🤝</li>
+            <li><i class="fas fa-calendar-alt"></i> Flexibilidad: Fechas y Horarios Flexibles 🗓️</li>
+            <li><i class="fas fa-car"></i> Comodidad: Transporte de Lujo 🛋️</li>
+        </ul>
+    </section>
+
+    <!-- ITINERARIO PASO A PASO -->
+    <section class="section itinerary-section bg-light">
+        <div class="container">
+            <h2 class="section-title">Itinerario Sugerido 🗺️</h2>
+            <div class="itinerary-list">
+                <div class="itinerary-item">
+                    <span class="itinerary-step">1.</span>
+                    <div class="itinerary-content">
+                        <h3>Recogida 📍</h3>
+                        <p>Te recogemos en tu hotel o AirBnB en Mérida a la hora acordada. ¡Comienza la aventura! 🚗</p>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <span class="itinerary-step">2.</span>
+                    <div class="itinerary-content">
+                        <h3>Chichen Itzá 🏛️</h3>
+                        <p>Exploración guiada de 2-3 horas por el sitio arqueológico, incluyendo la majestuosa Pirámide de Kukulcán, el imponente Juego de Pelota y el místico Cenote Sagrado. ¡Un viaje al pasado maya! 🤯</p>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <span class="itinerary-step">3.</span>
+                    <div class="itinerary-content">
+                        <h3>Cenote Ik Kil (o similar) 💧</h3>
+                        <p>Disfruta de un refrescante y revitalizante baño en un impresionante cenote natural de aguas cristalinas. ¡Un oasis subterráneo! 🏊‍♀️</p>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <span class="itinerary-step">4.</span>
+                    <div class="itinerary-content">
+                        <h3>Comida Yucateca 🌮</h3>
+                        <p>Degusta la auténtica gastronomía yucateca en un restaurante local seleccionado, donde podrás probar platillos tradicionales. ¡Un festín de sabores! 😋</p>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <span class="itinerary-step">5.</span>
+                    <div class="itinerary-content">
+                        <h3>Pueblo Mágico de Izamal ✨</h3>
+                        <p>Visita la encantadora "Ciudad Amarilla", un pintoresco pueblo mágico con arquitectura colonial y vestigios mayas, perfecto para unas fotos inolvidables. 📸</p>
+                    </div>
+                </div>
+                <div class="itinerary-item">
+                    <span class="itinerary-step">6.</span>
+                    <div class="itinerary-content">
+                        <h3>Regreso 👋</h3>
+                        <p>Te dejamos de vuelta en tu lugar de alojamiento en Mérida, concluyendo un día lleno de aventuras y cultura. ¡Hasta la próxima! 😊</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUÉ INCLUYE Y QUÉ NO INCLUYE? -->
+    <section class="section tour-info">
+        <div class="container">
+            <h2 class="section-title">¿Qué Incluye y Qué No Incluye? ✅❌</h2>
+            <div class="columns">
+                <div class="column">
+                    <h3><i class="fas fa-check-circle text-success"></i> Incluye:</h3>
+                    <ul>
+                        <li>Transporte privado con aire acondicionado 🚐</li>
+                        <li>Guía bilingüe certificado en Chichen Itzá 🗣️</li>
+                        <li>Entradas a Chichen Itzá y al cenote 🎟️</li>
+                        <li>Comida en restaurante local (bebidas no incluidas) 🍽️</li>
+                        <li>Agua embotellada y snacks en el transporte 💧🥨</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3><i class="fas fa-times-circle text-danger"></i> No Incluye:</h3>
+                    <ul>
+                        <li>Propinas para guía y conductor 💰</li>
+                        <li>Bebidas adicionales en el restaurante 🥤</li>
+                        <li>Gastos personales o souvenirs 🛍️</li>
+                        <li>Chalecos salvavidas o lockers en el cenote (opcional) 🛟🔒</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <main>
-        <section class="tour-hero">
-            <div class="video-background">
-                <div class="hero-overlay"></div>
-                <iframe
-                    src="https://www.youtube.com/embed/EaC8KkXwE7k?autoplay=1&mute=1&loop=1&playlist=EaC8KkXwE7k&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1"
-                    frameborder="0"
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen
-                    title="Chichen Itzá Tour Video"
-                ></iframe>
+    <!-- GALERÍA ESTILO CARRUSEL -->
+    <section class="gallery-carousel-section">
+        <h2 class="section-title">Galería de Aventuras 📸</h2>
+        <div class="gallery-carousel">
+            <div class="gallery-item-frame">
+                <img src="/Clap/img/chichen-gallery-1.jpg" alt="El Castillo, Chichen Itzá" loading="lazy">
             </div>
-            <div class="hero-content">
-                <h1>Tour Chichen Itzá VIP</h1>
-                <p>Explora la maravilla maya y un cenote sagrado en una experiencia exclusiva.</p>
-                <a href="#" class="reserve-btn" data-toggle="modal" data-target="#reserveModal">Reservar Ahora</a>
+            <div class="gallery-item-frame">
+                <img src="/Clap/img/chichen-gallery-2.jpg" alt="Observatorio de Chichen Itzá" loading="lazy">
             </div>
-        </section>
-
-        <section class="tour-details content-section">
-            <div class="container">
-                <h2>Detalles del Tour</h2>
-                <p>Adéntrate en la historia y el misterio de la civilización maya con nuestro exclusivo Tour Chichen Itzá VIP. Diseñado para ofrecerte la máxima comodidad y una inmersión cultural profunda, este tour te lleva a uno de los sitios arqueológicos más impresionantes del mundo, una maravilla reconocida por la UNESCO.</p>
-                <p>Disfruta de un viaje de lujo desde Mérida, con transporte privado y guías expertos que compartirán contigo los secretos de Kukulcán, el Templo de los Guerreros y el Gran Juego de Pelota. Más allá de las ruinas, te sumergirás en las cristalinas aguas de un cenote sagrado, un oasis natural perfecto para refrescarte y conectar con la mística de la península de Yucatán.</p>
-                <p>La experiencia culmina con una visita al encantador Pueblo Mágico de Izamal, la "Ciudad Amarilla", donde podrás admirar su arquitectura colonial, su imponente convento y su vibrante atmósfera. Este tour es una oportunidad única para vivir Yucatán de una manera inolvidable, combinando historia, naturaleza y cultura en un solo día.</p>
+            <div class="gallery-item-frame">
+                <img src="/Clap/img/chichen-gallery-3.jpg" alt="Cenote Ik Kil" loading="lazy">
             </div>
-        </section>
-
-        <section class="inclusion-exclusion content-section bg-light">
-            <div class="container">
-                <div class="grid-2-cols">
-                    <div>
-                        <h3><i class="fas fa-check-circle text-success"></i> ¿Qué incluye?</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Transporte privado de lujo desde tu hotel en Mérida.</li>
-                            <li><i class="fas fa-check"></i> Guía certificado bilingüe (español/inglés).</li>
-                            <li><i class="fas fa-check"></i> Entradas a la zona arqueológica de Chichen Itzá.</li>
-                            <li><i class="fas fa-check"></i> Entrada y tiempo para nadar en un cenote sagrado.</li>
-                            <li><i class="fas fa-check"></i> Visita guiada al Pueblo Mágico de Izamal.</li>
-                            <li><i class="fas fa-check"></i> Agua embotellada y snacks a bordo.</li>
-                            <li><i class="fas fa-check"></i> Seguro de viajero durante el transporte.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3><i class="fas fa-times-circle text-danger"></i> No incluye:</h3>
-                        <ul>
-                            <li><i class="fas fa-times"></i> Comidas y bebidas adicionales (excepto snacks y agua a bordo).</li>
-                            <li><i class="fas fa-times"></i> Propinas para guía y conductor.</li>
-                            <li><i class="fas fa-times"></i> Actividades opcionales no mencionadas.</li>
-                            <li><i class="fas fa-times"></i> Traje de baño y toallas (llevar los propios).</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="gallery-item-frame">
+                <img src="/Clap/img/chichen-gallery-4.jpg" alt="Detalle de tallado maya" loading="lazy">
             </div>
-        </section>
-
-        <section class="gallery content-section">
-            <div class="container">
-                <h2>Galería de Imágenes</h2>
-                <div class="gallery-carousel">
-                    <div><img src="/Clap/img/chichen-gallery-1.jpg" alt="Pirámide de Kukulcán, Chichen Itzá"></div>
-                    <div><img src="/Clap/img/chichen-gallery-2.jpg" alt="Observatorio El Caracol en Chichen Itzá"></div>
-                    <div><img src="/Clap/img/chichen-gallery-3.jpg" alt="Cenote Ik Kil cerca de Chichen Itzá"></div>
-                    <div><img src="/Clap/img/chichen-gallery-4.jpg" alt="Convento de San Antonio de Padua en Izamal"></div>
-                    <div><img src="/Clap/img/chichen-gallery-5.jpg" alt="Calles amarillas de Izamal"></div>
-                </div>
+            <div class="gallery-item-frame">
+                <img src="/Clap/img/chichen-gallery-5.jpg" alt="Grupo de turistas en Chichen Itzá" loading="lazy">
             </div>
-        </section>
-
-        <section class="testimonials content-section bg-light">
-            <div class="container">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <div class="testimonials-carousel">
-                    <div class="testimonial-item">
-                        <p class="quote">"¡Una experiencia inolvidable! El tour a Chichen Itzá e Izamal con CLAP365 fue perfecto. Nuestro guía era muy conocedor y el transporte súper cómodo. ¡Altamente recomendado!"</p>
-                        <p class="author">- Ana P., Ciudad de México</p>
-                    </div>
-                    <div class="testimonial-item">
-                        <p class="quote">"Quedé fascinada con la belleza de Chichen Itzá y la serenidad del cenote. CLAP365 hizo que todo fuera fácil y lujoso. ¡Definitivamente volveré a reservar con ellos!"</p>
-                        <p class="author">- Mark T., California, EE.UU.</p>
-                    </div>
-                    <div class="testimonial-item">
-                        <p class="quote">"El tour VIP superó mis expectativas. Desde la recogida hasta la última parada en Izamal, todo fue impecable. Gracias por tan maravillosa aventura."</p>
-                        <p class="author">- Sofía M., Madrid, España</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section content-section">
-            <div class="container text-center">
-                <h2>¿Listo para tu aventura en Yucatán?</h2>
-                <p>Contáctanos hoy mismo para personalizar tu tour o reservar tu experiencia Chichen Itzá VIP.</p>
-                <a href="#" class="btn btn-primary reserve-btn" data-toggle="modal" data-target="#reserveModal">¡Reserva Tu Tour Ahora!</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-about">
-                <h3>CLAP365</h3>
-                <p>Tours privados y exclusivos en Yucatán. Vive experiencias inolvidables en Mérida, Chichen Itzá, cenotes y más.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="/Clap/index.html">Inicio</a></li>
-                    <li><a href="/Clap/es/tours.html">Tours</a></li>
-                    <li><a href="/Clap/es/porque-elegirnos.html">Por qué elegirnos</a></li>
-                    <li><a href="/Clap/es/faq.html">FAQ</a></li>
-                    <li><a href="/Clap/es/contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p><i class="fas fa-phone"></i> +52 999 123 4567</p>
-                <p><i class="fas fa-envelope"></i> info@clap365.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Mérida, Yucatán, México</p>
+            <div class="gallery-item-frame">
+                <img src="/Clap/img/chichen-gallery-6.jpg" alt="Vista aérea de Chichen Itzá" loading="lazy">
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 CLAP365. Todos los derechos reservados.</p>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials">
+        <h2 class="section-title">Lo que dicen nuestros viajeros ⭐</h2>
+        <div class="testimonial">
+            <p>"Una experiencia inolvidable. El guía fue excelente y el tour estuvo muy bien organizado. ¡Recomendado 100%! 👍"</p>
+            <p class="testimonial-author">- María G., España 🇪🇸</p>
+        </div>
+        <div class="testimonial">
+            <p>"Chichen Itzá es impresionante y el cenote es mágico. El transporte de lujo hizo el viaje muy cómodo. ¡Volveremos! 🤩"</p>
+            <p class="testimonial-author">- John D., Estados Unidos 🇺🇸</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE RESERVA FINAL -->
+    <section class="reserve-section">
+        <h2 class="section-title">¿Listo para tu Aventura Maya? 🌴</h2>
+        <p>Contáctanos para personalizar tu tour, obtener una cotización o reservar tu experiencia exclusiva a Chichen Itzá. ¡Te esperamos! 👇</p>
+        <button class="main-cta-button" data-toggle="modal" data-target="#reserveModal">Reservar Ahora 🗓️</button>
+        <p class="mt-3">
+            <a href="https://wa.me/5219991234567?text=Me%20interesa%20el%20Tour%20Chichen%20Itza%20VIP" target="_blank" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Envíanos un WhatsApp 💬
+            </a>
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 CLAP365. Todos los derechos reservados.</p>
+            <p><a href="/Clap/index.html">www.clap365.com</a></p>
+            <p>¿Listo para tu aventura? <a href="#reserveModal" data-toggle="modal" data-target="#reserveModal">¡Reserva ahora!</a></p>
+            <div class="payment-icons">
+                <img src="/Clap/img/icon-visa.png" alt="Aceptamos Visa" title="Aceptamos Visa">
+                <img src="/Clap/img/icon-mastercard.png" alt="Aceptamos Mastercard" title="Aceptamos Mastercard">
+                <img src="/Clap/img/icon-tripadvisor.png" alt="Certificado por TripAdvisor" title="Certificado por TripAdvisor">
+            </div>
         </div>
     </footer>
 
-    <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <!-- MODAL DE RESERVA -->
+    <div id="reserveModal" class="modal">
         <div class="modal-content">
-            <span class="close" role="button" aria-label="Cerrar formulario" tabindex="0">&times;</span>
-            <h2 id="modalTitle">Reservar Tour Exclusivo</h2>
-            <form id="reserveForm" action="https://formspree.io/f/xzzgozpr" method="POST">
-                <label for="name">Nombre completo</label>
-                <input type="text" id="name" name="name" required autocomplete="name" />
-
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" required autocomplete="email" />
-
-                <label for="tour">Selecciona un tour</label>
-                <select id="tour" name="tour" required>
-                    <option value="" disabled selected>-- Elige tu tour exclusivo --</option>
-                    <option value="chichen">Chichen Itzá VIP</option>
-                    <option value="uxmal">Uxmal y Ruta Puuc</option>
-                    <option value="izamal">Pueblo Mágico de Izamal</option>
-                    <option value="sisal">Day Trip a Playa Sisal</option>
-                    <option value="merida">Tour Cultural por Mérida</option>
-                    <option value="telchac">Telchac Puerto y Reservas Naturales</option>
-                    <option value="cenotes">Cenotes e inframundo</option>
-                    <option value="libre">Tour Personalizado CLAP365</option>
-                </select>
-
-                <button type="submit">Enviar reserva</button>
+            <span class="close-button">&times;</span>
+            <h2>Reservar Tour Exclusivo</h2>
+            <form id="reserveForm">
+                <div class="form-group">
+                    <label for="fullName">Nombre completo</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="tourSelect">Selecciona un tour</label>
+                    <select id="tourSelect" name="tourSelect" required>
+                        <option value="">-- Elige tu tour exclusivo --</option>
+                        <option value="Chichen Itzá VIP">Chichen Itzá VIP</option>
+                        <option value="Uxmal y Ruta Puuc">Uxmal y Ruta Puuc</option>
+                        <option value="Pueblo Mágico de Izamal">Pueblo Mágico de Izamal</option>
+                        <option value="Day Trip a Playa Sisal">Day Trip a Playa Sisal</option>
+                        <option value="Tour Cultural por Mérida">Tour Cultural por Mérida</option>
+                        <option value="Telchac Puerto y Reservas Naturales">Telchac Puerto y Reservas Naturales</option>
+                        <option value="Tour Cenotes de Yucatán">Tour Cenotes de Yucatán</option>
+                        <option value="Tour Personalizado CLAP365">Tour Personalizado CLAP365</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar reserva</button>
             </form>
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/5219991234567?text=Hola! Me gustaría más información sobre los tours." class="floating-cta" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- jQuery es un requisito para Slick Carousel -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Script de Slick Carousel -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Tu JavaScript personalizado -->
     <script src="/Clap/js/main.js"></script>
 
+    <!-- Script para inicializar el carrusel y manejar el modal (puedes moverlo a main.js) -->
+    <script>
+        $(document).ready(function(){
+            // Inicialización de Slick Carousel para la galería
+            $('.gallery-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                adaptiveHeight: true
+            });
+
+            // Lógica para el modal (si no está en main.js)
+            $('[data-toggle="modal"]').on('click', function(e) {
+                e.preventDefault();
+                var target = $(this).data('target');
+                $(target).fadeIn();
+            });
+
+            $('.modal .close-button').on('click', function() {
+                $(this).closest('.modal').fadeOut();
+            });
+
+            $(window).on('click', function(event) {
+                if ($(event.target).is('.modal')) {
+                    $('.modal').fadeOut();
+                }
+            });
+
+            // Lógica para el menú móvil y switcher de idioma (si no está en main.js)
+            $('.toggle').on('click', function() {
+                $('.main-nav').toggleClass('active');
+            });
+
+            $('.language-switcher-desktop').on('click', function() {
+                $('.lang-options').toggle();
+            });
+        });
+    </script>
 </body>
 </html>
