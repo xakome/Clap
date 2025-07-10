@@ -43,7 +43,7 @@ a {
 }
 
 .top-banner .banner-cta {
-    background-color: rgba(0, 0, 0, 0.1); /* Fondo semitransparente para el CTA */
+    background-color: rgba(0, 0, 0, 0.0); /* Fondo semitransparente para el CTA */
     color: white;
     padding: 5px 10px;
     border-radius: 4px;
