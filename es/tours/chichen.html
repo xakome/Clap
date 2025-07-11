@@ -297,48 +297,5 @@
     <!-- Tu JavaScript personalizado -->
     <script src="/Clap/js/main.js"></script>
 
-    <!-- Script para inicializar el carrusel y manejar el modal (puedes moverlo a main.js) -->
-    <script>
-        $(document).ready(function(){
-            // Inicialización de Slick Carousel para la galería
-            $('.gallery-carousel').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                adaptiveHeight: true
-            });
-
-            // Lógica para el modal (si no está en main.js)
-            $('[data-toggle="modal"]').on('click', function(e) {
-                e.preventDefault();
-                var target = $(this).data('target');
-                $(target).fadeIn();
-            });
-
-            $('.modal .close-button').on('click', function() {
-                $(this).closest('.modal').fadeOut();
-            });
-
-            $(window).on('click', function(event) {
-                if ($(event.target).is('.modal')) {
-                    $('.modal').fadeOut();
-                }
-            });
-
-            // Lógica para el menú móvil y switcher de idioma (si no está en main.js)
-            $('.toggle').on('click', function() {
-                $('.main-nav').toggleClass('active');
-            });
-
-            $('.language-switcher-desktop').on('click', function() {
-                $('.lang-options').toggle();
-            });
-        });
-    </script>
 </body>
 </html>
