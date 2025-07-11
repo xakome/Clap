@@ -85,6 +85,46 @@
     </script>
 </head>
 <body>
+
+    <header class="navbar">
+    <div class="navbar-container">
+        <a href="/Clap/index.html" class="logo-link">
+            <img src="/Clap/img/logo-clap365.png" alt="CLAP365 Logo" class="logo">
+        </a>
+        
+        <nav class="main-nav">
+            <ul class="menu">
+                <li><a href="/Clap/index.html#features">Nuestros Tours</a></li>
+                <li><a href="/Clap/index.html#contact">Contáctanos</a></li>
+                <li><a href="/Clap/contacto.html">Contacto</a></li>
+                <li><a href="/Clap/faq.html">Preguntas Frecuentes</a></li>
+            </ul>
+            
+            <div class="language-switcher-desktop">
+                <span class="current-lang" aria-label="Idioma actual: Español">ES <i class="fas fa-chevron-down"></i></span>
+                <ul class="lang-options">
+                    <li><a href="#" data-lang="en">EN</a></li>
+                    <li><a href="#" data-lang="es">ES</a></li>
+                </ul>
+            </div>
+            
+            <button class="reserve-btn" data-toggle="modal" data-target="#reserveModal" aria-label="Reservar Tour">Reservar Tour</button>
+        </nav>
+
+        <div class="language-switcher-mobile-standalone">
+            <span class="current-lang" aria-label="Idioma actual: Español">ES <i class="fas fa-chevron-down"></i></span>
+            <ul class="lang-options">
+                <li><a href="#" data-lang="en">EN</a></li>
+                <li><a href="#" data-lang="es">ES</a></li>
+            </ul>
+        </div>
+        
+        <button class="reserve-btn mobile-only" data-toggle="modal" data-target="#reserveModal" aria-label="Reservar Tour">Reservar Tour</button>
+        
+        <button class="toggle" aria-label="Mostrar menú">&#9776;</button>
+    </div>
+</header>
+    
     <div class="top-banner" role="banner" aria-label="Anuncio especial de CLAP365">
         <p>¡Disfruta de un **15% de descuento** en todos los tours reservados este Julio! Usa código: **YUCATAN15** <a href="#tours" class="banner-cta">Ver Tours</a></p>
         <button class="close-banner" aria-label="Cerrar anuncio">&times;</button>
