@@ -14,8 +14,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggleBtn.innerHTML = '&#9776;'; // Vuelve al ícono de hamburguesa
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
             }
+    
+        // 3. Lógica para los Selectores de Idioma
+    const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
+    const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
+
+    if (desktopLangSwitcher) {
+        desktopLangSwitcher.addEventListener('click', function(event) {
+            // Evita que el clic propague y cierre el menú si se hace clic fuera
+            event.stopPropagation();
+            desktopLangSwitcher.classList.toggle('active');
         });
 
+        // Cerrar selector de idioma desktop al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (desktopLangSwitcher.classList.contains('active') && !desktopLangSwitcher.contains(event.target)) {
+                desktopLangSwitcher.classList.remove('active');
+            }
+        });
+    }
+
+    if (mobileLangSwitcher) {
+        mobileLangSwitcher.addEventListener('click', function(event) {
+            // Evita que el clic propague y cierre el menú si se hace clic fuera
+            event.stopPropagation();
+            mobileLangSwitcher.classList.toggle('active');
+        });
+
+        // Cerrar selector de idioma móvil al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (mobileLangSwitcher.classList.contains('active') && !mobileLangSwitcher.contains(event.target)) {
+                mobileLangSwitcher.classList.remove('active');
+            }
+        });
+    }
+        
+        });
+
+
+
+
+        
         // Cerrar menú al hacer clic fuera (si el menú está abierto)
         document.addEventListener('click', function(event) {
             if (!mainNav.contains(event.target) && !toggleBtn.contains(event.target) && mainNav.classList.contains('active')) {
