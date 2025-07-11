@@ -11,7 +11,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
     color: #333; /* Color de texto predeterminado */
-    overflow-x: hidden; /* Evita el scroll horizontal */
 }
 a {
     text-decoration: none;
@@ -44,230 +43,226 @@ a {
 }
 
 .top-banner .banner-cta {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.0); /* Fondo semitransparente para el CTA */
     color: white;
     padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
     white-space: nowrap; /* Evita que el botón se rompa en varias líneas */
 }
 
 .top-banner .banner-cta:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
-.top-banner .close-banner-btn {
+.top-banner .close-banner {
     background: none;
     border: none;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 5px;
+    line-height: 1;
+    padding: 0 5px; /* Ajuste de padding */
+    margin-left: 10px; /* Espacio a la izquierda del botón de cerrar */
+    opacity: 0.8;
+    transition: opacity 0.3s;
 }
 
-/* --- ESTILOS PARA EL NAVBAR --- */
+.top-banner .close-banner:hover {
+    opacity: 1;
+}
+
+/* Navbar */
 .navbar {
-    background-color: #00897b; /* Verde oscuro, un color que combina */
-    color: white;
-    padding: 10px 0;
-    position: sticky; /* Sticky para que se quede arriba al hacer scroll */
-    top: 0;
-    width: 100%;
-    z-index: 20;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-/* Ajustes generales para el contenedor de la barra de navegación */
-.navbar-container {
+    background: #00695c;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    min-height: 60px; /* Ajusta según sea necesario, pero 60px suele ser un buen punto de partida */
+    box-sizing: border-box; /* Asegura que el padding no añada altura extra no deseada */
 }
-
-/* El logo en el navbar */
 .navbar .logo {
-    height: 40px; /* Ajusta el tamaño del logo si es necesario */
-    width: auto;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1.5px;
 }
 
-/* El menú principal de navegación (escritorio) */
+/* Contenedor principal de navegación (se adapta para desktop/móvil) */
 .navbar .main-nav {
-    display: flex; /* Por defecto, visible en desktop */
+    display: flex;
     align-items: center;
-    gap: 20px; /* Espacio entre los elementos de navegación */
+    gap: 20px;
 }
-
 .navbar .main-nav .menu {
     display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 20px; /* Espacio entre los elementos del menú */
+    gap: 1.2rem;
+    align-items: center;
 }
-
 .navbar .main-nav .menu a {
-    color: #fff; /* Color de los enlaces del menú */
     font-weight: 600;
-    transition: color 0.3s ease;
-    white-space: nowrap; /* Evita saltos de línea en los enlaces */
+    font-size: 1rem;
+    color: #fff;
+    padding: 8px 10px;
+    transition: background 0.3s, color 0.3s;
+    border-radius: 4px;
 }
-
 .navbar .main-nav .menu a:hover {
-    color: #ffd700; /* Color al pasar el ratón */
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Botón de reserva dentro del main-nav (para desktop) */
-.navbar .main-nav .reserve-btn {
-    background-color: #ff9800; /* Color del botón de reserva */
-    color: white;
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
+/* Toggle para el menú hamburguesa (oculto por defecto en desktop) */
+.navbar .toggle {
+    display: none; /* Se oculta por defecto y se muestra en móvil */
     cursor: pointer;
-    font-weight: 700;
-    transition: background-color 0.3s ease;
-    margin-left: 20px; /* Espacio entre el idioma y el botón */
-    display: inline-block; /* Asegura que sea visible por defecto en desktop */
+    color: #fff;
+    font-size: 1.8rem;
 }
 
-.navbar .main-nav .reserve-btn:hover {
+/* Botón Reservar */
+.reserve-btn {
+    background: #ff9800;
+    color: white;
+    padding: 7px 14px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: background 0.3s;
+    cursor: pointer;
+    border: none;
+    margin-left: auto;
+}
+.reserve-btn:hover {
     background-color: #e68900;
 }
 
-/* Botón de hamburguesa (visible solo en móvil por defecto) */
-.navbar .toggle {
-    display: none; /* Oculto por defecto en desktop */
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    padding: 5px;
-}
-
-/* Language Switcher (Desktop) */
+/* Selector de Idioma (Desktop) */
 .language-switcher-desktop {
     position: relative;
-    color: #fff;
-    cursor: pointer;
-    font-weight: 600;
-    margin-left: 20px; /* Espacio antes del botón de reserva */
+    display: flex; /* Visible en desktop */
+    margin-left: 20px;
 }
-
+.language-switcher-desktop .current-lang {
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 4px;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.language-switcher-desktop .current-lang:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.language-switcher-desktop .current-lang::after {
+    content: '\25BC';
+    font-size: 0.7em;
+    margin-left: 5px;
+}
 .language-switcher-desktop .lang-options {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    background-color: #00695c;
-    min-width: 60px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    list-style: none;
-    padding: 5px 0;
-    border-radius: 5px;
-    top: 100%; /* Justo debajo del 'ES' */
-    left: 0;
-    margin-top: 5px; /* Pequeño espacio */
-}
-
-.language-switcher-desktop .lang-options.show {
-    display: block; /* Muestra las opciones al hacer clic */
-}
-
-.language-switcher-desktop .lang-options li a {
-    color: white;
-    padding: 8px 10px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-}
-
-.language-switcher-desktop .lang-options li a:hover {
-    background-color: #004d40;
-}
-
-/* Language Switcher (Mobile - standalone) */
-.language-switcher-mobile-standalone {
-    display: none; /* Oculto por defecto en desktop */
-    position: relative;
-    color: #fff;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.language-switcher-mobile-standalone .lang-options {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    background-color: #00695c;
-    min-width: 60px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    list-style: none;
-    padding: 5px 0;
-    border-radius: 5px;
-    top: 100%; /* Justo debajo del 'ES' */
-    right: 0; /* Alineado a la derecha en móvil */
-    margin-top: 5px; /* Pequeño espacio */
-}
-
-.language-switcher-mobile-standalone .lang-options.show {
-    display: block;
-}
-
-.language-switcher-mobile-standalone .lang-options li a {
-    color: white;
-    padding: 8px 10px;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-}
-
-.language-switcher-mobile-standalone .lang-options li a:hover {
-    background-color: #004d40;
-}
-
-/* OCULTAR por defecto el botón de reserva para MÓVIL en escritorio */
-.navbar .reserve-btn.mobile-only {
     display: none;
-}
-
-
-/* --- SECCIONES GENERALES --- */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-section {
-    padding: 60px 0;
-    text-align: center;
-}
-
-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: #00695c;
-    margin-bottom: 30px;
-}
-
-/* --- HERO SECTION (Portada - index.html) --- */
-.home-hero-slider {
-    position: relative;
-    width: 100%;
-    height: 600px; /* Altura del slider */
+    position: absolute;
+    background: #00695c;
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    top: calc(100% + 5px);
+    right: 0;
     overflow: hidden;
 }
+.language-switcher-desktop.active .lang-options {
+    display: block;
+}
+.language-switcher-desktop .lang-options a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    transition: background 0.3s;
+}
+.language-switcher-desktop .lang-options a:hover {
+    background-color: #004d40;
+}
 
-.home-hero-slide {
+/* Nuevo Selector de Idioma para Móvil (siempre visible) */
+.language-switcher-mobile-standalone {
+    position: relative;
+    display: none; /* Oculto por defecto en desktop */
+}
+.language-switcher-mobile-standalone .current-lang-mobile {
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+}
+.language-switcher-mobile-standalone .current-lang-mobile:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.language-switcher-mobile-standalone .current-lang-mobile::after {
+    content: '\25BC';
+    font-size: 0.6em;
+    margin-left: 3px;
+}
+.language-switcher-mobile-standalone .lang-options-mobile {
+    display: none;
+    position: absolute;
+    background: #00695c;
+    min-width: 100px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 21;
+    border-radius: 4px;
+    top: calc(100% + 5px);
+    right: 0;
+    overflow: hidden;
+}
+.language-switcher-mobile-standalone.active .lang-options-mobile {
+    display: block;
+}
+.language-switcher-mobile-standalone .lang-options-mobile a {
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.85rem;
+    transition: background 0.3s;
+}
+.language-switcher-mobile-standalone .lang-options-mobile a:hover {
+    background-color: #004d40;
+}
+
+/* Ocultar el selector de idioma que estaba dentro del menú móvil (ya no se usa) */
+.language-switcher-mobile {
+    display: none !important;
+}
+
+/* Hero Section (Ahora Carousel) */
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 70vh; /* Ajusta la altura del carrusel */
+    overflow: hidden;
+    color: #fff;
+}
+
+.hero-slider .slide {
     position: absolute;
     top: 0;
     left: 0;
@@ -275,785 +270,1024 @@ section h2 {
     height: 100%;
     background-size: cover;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1.5s ease-in-out; /* Transición más lenta y suave */
+    display: flex;
+    align-items: center; /* Alinea el contenido al centro verticalmente por defecto */
+    justify-content: center;
+    text-align: center;
 }
 
-.home-hero-slide.active {
+.hero-slider .slide.active {
     opacity: 1;
 }
 
-.home-hero-slide-1 { background-image: url('../img/chichen-hero.jpg'); }
-.home-hero-slide-2 { background-image: url('../img/uxmal-hero.jpg'); }
-.home-hero-slide-3 { background-image: url('../img/cenote-hero.jpg'); }
-
-.home-hero-content {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 0 20px;
+.hero-slider .hero-overlay {
+    background-color: transparent; /* Hace el overlay completamente transparente */
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    box-shadow: none; /* Opcional: Elimina cualquier sombra que pueda oscurecer los bordes */
 }
 
-.home-hero-content h1 {
+.hero-slider .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px; /* Aumenta el ancho máximo para el contenido */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el H1 arriba y subtexto abajo */
+    padding: 40px 20px; /* Ajusta el padding para que el contenido no pegue en los bordes */
+}
+
+/* H1 visible en la primera diapositiva, transparente en las demás */
+.hero-slider .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.home-hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.home-hero-content .cta-btn {
-    background-color: #ff9800;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    color: white; /* Color blanco visible */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* Sombra para mejor contraste */
+    font-size: 2.2rem; /* Tamaño de fuente para desktop (ajustado) */
+    line-height: 1.2;
+    margin-top: 20px; /* Margen superior para el H1 */
+    margin-bottom: auto; /* Empuja el H1 hacia arriba */
+    transition: opacity 1.5s ease-in-out;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.home-hero-content .cta-btn:hover {
-    background-color: #e68900;
+/* Subtexto visible en la primera diapositiva, transparente en las demás */
+.hero-slider .hero-description {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: white; /* Color blanco visible */
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6); /* Sombra sutil */
+    font-size: 1.1rem; /* Tamaño de fuente para desktop */
+    line-height: 1.6;
+    margin-top: auto; /* Empuja el subtexto hacia abajo */
+    margin-bottom: 20px; /* Margen inferior para el subtexto */
+    transition: opacity 1.5s ease-in-out;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.home-hero-slider .prev-slide,
-.home-hero-slider .next-slide {
+/* Clase para ocultar H1 y subtexto en slides no-activos */
+.hero-slider .slide:not(.active) .hero-title,
+.hero-slider .slide:not(.active) .hero-description {
+    color: transparent !important;
+    text-shadow: none !important;
+    font-size: 0.1px;
+    line-height: 0.1px;
+    overflow: hidden;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Ocultar hero-button-wrapper por completo en el carrusel */
+.hero-button-wrapper {
+    display: none !important;
+}
+
+/* Carousel Navigation */
+.slider-nav {
     position: absolute;
     top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    padding: 0 20px;
+}
+
+.slider-nav button {
+    background-color: rgba(0, 0, 0, 0.4);
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
-    font-size: 2rem;
-    z-index: 10;
-}
-
-.home-hero-slider .prev-slide {
-    left: 10px;
+    font-size: 1.5rem;
     border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.home-hero-slider .next-slide {
-    right: 10px;
-    border-radius: 5px;
+.slider-nav button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-.home-hero-dots {
+.slider-dots {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: 3;
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
-.home-hero-dots .dot {
-    width: 12px;
-    height: 12px;
+.slider-dots .dot {
+    width: 10px;
+    height: 10px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.home-hero-dots .dot.active {
-    background-color: #fff;
-}
-
-
-/* --- SECCIÓN DE FEATURES / TOURS (index.html) --- */
-#features {
-    background-color: #f8f8f8;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.feature-item {
+.slider-dots .dot.active {
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    transform: scale(1.2);
+}
+
+/* Nuevo botón "Ver tours" después del hero */
+.cta-after-hero {
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 40px 20px; /* Espacio antes y después del botón */
+    background-color: #f8f8f8; /* Un fondo suave para diferenciar */
 }
 
-.feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.feature-item .icon {
-    font-size: 3rem;
-    color: #00897b;
-    margin-bottom: 20px;
-}
-
-.feature-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.feature-item p {
-    font-size: 0.95rem;
-    color: #666;
-}
-
-/* Sección de tours específicos */
-.tours-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.tour-box {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tour-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.tour-box img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-}
-
-.tour-box-content {
-    padding: 20px;
-}
-
-.tour-box-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.7rem;
-    color: #00695c;
-    margin-bottom: 10px;
-}
-
-.tour-box-content p {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.tour-box-content .btn {
-    background-color: #00897b;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-    display: inline-block; /* Para que el padding y margin funcionen bien */
-}
-
-.tour-box-content .btn:hover {
-    background-color: #00695c;
-}
-
-/* --- SECCIÓN DE TESTIMONIOS --- */
-#testimonials {
-    background-color: #00695c;
-    color: white;
-    padding: 80px 0;
-}
-
-#testimonials h2 {
-    color: white;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.testimonial-item {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 25px;
-    text-align: center;
-}
-
-.testimonial-item p {
-    font-size: 1.1rem;
-    font-style: italic;
-    margin-bottom: 15px;
-}
-
-.testimonial-item .author {
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-/* --- SECCIÓN DE CONTACTO --- */
-#contact {
-    background-color: #fff;
-    padding: 80px 0;
-}
-
-#contact h2 {
-    color: #00695c;
-}
-
-.contact-info {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.contact-item {
-    text-align: center;
-    flex-basis: 250px; /* Ancho base de los ítems de contacto */
-}
-
-.contact-item .icon {
-    font-size: 2.5rem;
-    color: #00897b;
-    margin-bottom: 15px;
-}
-
-.contact-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.contact-item p {
-    font-size: 1rem;
-    color: #666;
-}
-
-
-/* --- FOOTER --- */
-footer {
-    background-color: #004d40;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-footer .social-links a {
-    color: white;
-    font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-footer .social-links a:hover {
-    color: #ffd700;
-}
-
-/* --- MODAL DE RESERVA --- */
-.modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 100; /* Por encima de todo */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.6); /* Fondo semi-transparente */
-    justify-content: center; /* Centrar contenido horizontalmente */
-    align-items: center; /* Centrar contenido verticalmente */
-    animation: fadeIn 0.3s forwards;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto; /* Para centrar verticalmente si no hay flex */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 500px;
-    position: relative;
-    animation: slideIn 0.3s forwards;
-}
-
-.modal-content h2 {
-    font-family: 'Playfair Display', serif;
-    color: #00695c;
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-.modal .close-button {
-    color: #aaa;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.modal .close-button:hover,
-.modal .close-button:focus {
-    color: #333;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.modal form label {
-    font-weight: 600;
-    color: #555;
-    text-align: left;
-}
-
-.modal form input[type="text"],
-.modal form input[type="email"],
-.modal form select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.modal form button[type="submit"] {
-    background-color: #ff9800;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.modal form button[type="submit"]:hover {
-    background-color: #e68900;
-}
-
-/* Animaciones para el modal */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-/* Para evitar el scroll del body cuando el modal está abierto */
-body.modal-open {
-    overflow: hidden;
-}
-
-/* --- SECCIÓN DE TOUR HERO (chichen.html y otras páginas de tour) --- */
-.tour-hero {
-    position: relative;
-    width: 100%;
-    height: 70vh; /* Altura de la sección de video */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
-
-.tour-hero video, .tour-hero iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: 1;
-    transform: translate(-50%, -50%);
-    background-size: cover;
-    filter: brightness(0.6); /* Oscurece el video para que el texto sea más legible */
-}
-
-.tour-hero .hero-content {
-    position: relative;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 700px;
-    margin: 0 20px;
-    opacity: 1;
-    transition: opacity 1s ease-out; /* Transición para el efecto de desvanecimiento */
-}
-
-.tour-hero .hero-content.fade-out {
-    opacity: 0;
-}
-
-.tour-hero .hero-content h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-}
-
-.tour-hero .hero-content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-}
-
-/* --- SECCIÓN DE DETALLES DEL TOUR (chichen.html) --- */
-.tour-details {
-    padding: 60px 0;
-    background-color: #f0f8f7; /* Un color de fondo suave */
-}
-
-.tour-details h2 {
-    font-family: 'Playfair Display', serif;
-    color: #00695c;
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-}
-
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    align-items: start; /* Alinea los elementos al inicio */
-}
-
-.details-column {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.details-column h3 {
-    font-family: 'Playfair Display', serif;
-    color: #00897b;
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-    text-align: left; /* Alinea títulos de columna a la izquierda */
-}
-
-.details-column ul {
-    list-style: none; /* Elimina viñetas por defecto */
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.details-column ul li {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 25px; /* Espacio para el ícono */
-    text-align: left;
-}
-
-.details-column ul li i {
-    color: #ff9800; /* Color de los íconos de lista */
-    position: absolute;
-    left: 0;
-    top: 5px; /* Ajusta la alineación vertical del ícono */
-    font-size: 1.2rem;
-}
-
-.details-column p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.6;
-    text-align: left;
-    margin-bottom: 15px;
-}
-
-/* Botón de reservar en la sección de detalles del tour */
-.tour-details .reserve-btn-details {
+.cta-after-hero .main-cta-button {
     display: inline-block;
     background-color: #ff9800;
     color: white;
-    padding: 12px 30px;
-    border-radius: 8px;
-    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 50px; /* Más redondeado para un look moderno */
     font-size: 1.1rem;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-    text-align: center; /* Asegura que el texto del botón esté centrado */
-    width: auto; /* El botón se ajusta al contenido */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-decoration: none; /* Asegura que no tenga subrayado */
 }
 
-.tour-details .reserve-btn-details:hover {
+.cta-after-hero .main-cta-button:hover {
+    background-color: #e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Estilos para la nueva sección de introducción */
+.company-intro {
+    max-width: 900px;
+    margin: 60px auto; /* Espacio superior e inferior */
+    padding: 30px 20px;
+    text-align: center;
+    background-color: #f0f8f8; /* Un color de fondo suave, quizás tu verde claro */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.company-intro .intro-content {
+    /* Asegura que el contenido interno tenga padding si es necesario */
+    padding: 0 15px;
+}
+.company-intro h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00695c; /* Tu color verde oscuro */
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+.company-intro p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+    max-width: 700px; /* Limita el ancho del párrafo para mejor legibilidad */
+    margin: 0 auto;
+}
+
+
+/* Container tours */
+.container {
+    max-width: 1200px;
+    margin: 40px auto 60px;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Cards tours */
+.tour-box {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 1 1 calc(25% - 20px);
+    min-width: 250px;
+    max-width: 23%;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    transition: box-shadow 0.3s ease;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+}
+.tour-box:hover,
+.tour-box.active {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+.tour-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    flex-shrink: 0;
+}
+.tour-box:hover img,
+.tour-box.active img {
+    transform: scale(1.05);
+    filter: brightness(0.7);
+}
+
+/* Overlay sutil con texto y botón */
+.tour-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+    pointer-events: none;
+    border-radius: 10px;
+}
+.tour-box:hover .tour-overlay,
+.tour-box.active .tour-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+.tour-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 0 8px rgba(0,0,0,0.7);
+}
+.tour-overlay p {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-shadow: 0 0 6px rgba(0,0,0,0.6);
+}
+.tour-overlay a {
+    background-color: #ff9800;
+    padding: 10px 22px;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+.tour-overlay a:hover {
     background-color: #e68900;
 }
 
-
-/* --- SECCIÓN DE GALERÍA (chichen.html) --- */
-.gallery-section {
-    padding: 60px 0;
-    background-color: #fff;
+/* Sección "Por Qué Elegirnos" */
+.why-us {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #f8f8f8; /* Un fondo suave para diferenciarla */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-
-.gallery-section h2 {
+.why-us h2 {
     font-family: 'Playfair Display', serif;
     color: #00695c;
-    text-align: center;
     margin-bottom: 40px;
-    font-size: 2.5rem;
+    font-weight: 700;
+    font-size: 2.2rem;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.feature-item {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+.feature-item i {
+    font-size: 3rem;
+    color: #ff9800;
+    margin-bottom: 15px;
+}
+.feature-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #00695c;
+    margin-bottom: 10px;
+}
+.feature-item p {
+    font-size: 0.95rem;
+    color: #555;
 }
 
-.gallery-carousel {
-    max-width: 900px; /* Ancho máximo del carrusel */
-    margin: 0 auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* Sección Testimonios */
+.testimonials {
+    background: #fff;
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 40px 20px;
     border-radius: 10px;
-    overflow: hidden; /* Asegura que las imágenes no se salgan */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.testimonials h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00695c;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.testimonial {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 25px;
+    position: relative;
+    padding: 0 20px;
+}
+.testimonial::before {
+    content: "“";
+    font-size: 4rem;
+    color: #ff9800;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+    font-weight: bold;
+}
+.testimonial-author {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #333;
+    font-style: normal;
 }
 
-.gallery-carousel img {
+/* Footer */
+footer {
+    background: #00695c;
+    color: white;
+    text-align: center;
+    padding: 25px 20px;
+    font-size: 0.9rem;
+}
+footer a {
+    color: #ffeb3b;
+    text-decoration: underline;
+}
+
+/* Social Icons in Footer */
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.social-icons a {
+    color: white;
+    font-size: 1.8rem;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+.social-icons a:hover {
+    color: #ff9800;
+}
+
+/* Footer CTA Link */
+footer .footer-cta-link {
+    color: #ffeb3b; /* Color que contraste bien con el verde oscuro */
+    font-weight: bold;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+footer .footer-cta-link:hover {
+    color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
+}
+
+/* Payment and Certification Icons */
+.payment-cert-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+.payment-cert-icons img {
+    height: 30px; /* Ajusta el tamaño según sea necesario */
+    filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro */
+}
+.payment-cert-icons img.color-icon {
+    filter: none; /* Si el icono ya tiene color y no quieres invertirlo */
+    height: 35px; /* Puede ser ligeramente más grande para logos específicos */
+}
+
+/* Botón flotante WhatsApp */
+.floating-cta {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white; /* Color del icono de Font Awesome */
+    font-weight: bold;
+    font-size: 1.8rem; /* Tamaño del icono */
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    text-decoration: none;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+.floating-cta:hover {
+    background-color: #1ebe57;
+}
+
+/* Modal Reserva */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal.show {
+    display: flex;
+}
+.modal-content {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 10px;
     width: 100%;
-    height: 500px; /* Altura fija para las imágenes del carrusel */
-    object-fit: cover; /* Recorta la imagen para cubrir el área */
-    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    color: #00695c;
+    text-align: center;
+}
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.modal-content button {
+    background: #00695c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.modal-content button:hover {
+    background: #004d40;
+}
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-/* Estilos de Slick Carousel */
-.slick-prev:before,
-.slick-next:before {
-    color: #00897b; /* Color de las flechas de navegación */
-    font-size: 40px;
-}
-
-.slick-dots li button:before {
-    color: #00897b; /* Color de los puntos (dots) */
-    font-size: 10px;
-}
-
-.slick-dots li.slick-active button:before {
-    color: #ff9800; /* Color del punto activo */
-}
-
-
-/* --- MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
-
-/* Ajustes generales para pantallas más pequeñas (máximo 768px de ancho) */
+/* ==================================== */
+/* Responsive Styles for Mobile (max-width: 768px) */
+/* ==================================== */
 @media (max-width: 768px) {
-    /* Top Banner en móvil */
+    /* Responsive Top Banner */
     .top-banner {
-        flex-direction: column; /* Apila el contenido y el CTA en móvil */
-        gap: 5px;
-        padding: 10px;
         font-size: 0.8rem;
-    }
-    .top-banner .close-banner-btn {
-        position: static; /* Quita el posicionamiento absoluto en móvil */
-        transform: none;
-        align-self: flex-end; /* Alinea la X a la derecha */
-        margin-left: auto;
-    }
-    .top-banner p {
-        width: 100%;
+        padding: 8px 15px;
+        gap: 10px;
+        flex-direction: column; /* Apila el texto y el CTA en móvil */
+        align-items: center;
         text-align: center;
     }
     .top-banner .banner-cta {
-        width: 100%;
-        text-align: center;
+        margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
+    }
+    .top-banner .close-banner {
+        position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
+        top: 5px;
+        right: 5px;
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
+
+    .hero-slider {
+        height: 60vh; /* Ajusta la altura del carrusel para móvil */
+    }
+    .hero-slider .hero-content {
+        padding: 20px; /* Menos padding general en móvil */
+    }
+    .hero-slider .hero-title {
+        font-size: 1.6rem; /* Tamaño de fuente para móvil (ajustado) */
+        max-width: 90%;
+        margin-top: 10px;
+    }
+    .hero-slider .hero-description {
+        font-size: 0.95rem; /* Tamaño de fuente para móvil */
+        max-width: 90%;
+        margin-bottom: 10px;
+    }
+
+    /* Company Intro responsive */
+    .company-intro {
+        margin: 40px auto;
+        padding: 25px 15px;
+    }
+    .company-intro h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    .company-intro p {
+        font-size: 1rem;
     }
 
 
-    /* Navbar en móvil */
-    .navbar-container {
-        padding: 10px 15px; /* Menor padding en móvil */
-        flex-wrap: nowrap; /* Evita que los elementos se envuelvan inesperadamente */
-        justify-content: space-between;
+    /* Ajustes del Navbar en móvil */
+    .navbar {
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 12px 15px;
+        min-height: 55px; /* Ajusta la altura mínima para móvil */
+        align-items: center; /* Centra los elementos verticalmente */
     }
-
-    /* OCULTAR el menú principal (main-nav) en móvil cuando no está activo */
-    .navbar .main-nav {
+    .navbar .logo {
+        flex-grow: 1;
+        font-size: 1.8rem;
+        order: 1;
+        display: flex;
+        align-items: center;
+        min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
+    }
+    /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
+    .navbar .main-nav .menu, .language-switcher-desktop {
         display: none;
+    }
+    /* Mostrar el botón de idioma para móvil y posicionarlo */
+    .language-switcher-mobile-standalone {
+        display: flex;
+        order: 2;
+        margin-left: 0;
+        align-self: center;
+    }
+    /* Posicionar el botón de reserva */
+    .reserve-btn {
+        order: 3;
+        margin-left: 10px;
+        align-self: center;
+    }
+    /* Posicionar el toggle */
+    .navbar .toggle {
+        display: block;
+        order: 4;
+        margin-left: 10px;
+        align-self: center;
+    }
+
+    /* Posicionar el menú principal cuando es 'active' (menú hamburguesa abierto) */
+    .navbar .main-nav {
         flex-direction: column;
         background: #00695c;
         position: absolute;
-        top: 100%;
-        right: 15px; /* Ajusta la posición si es necesario */
+        top: 100%; /* Empieza justo debajo del navbar, sin importar su altura */
+        right: 15px;
         border-radius: 6px;
         padding: 10px;
-        width: 180px; /* Ancho del menú desplegable */
+        width: 180px;
         gap: 0.5rem;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         z-index: 19;
+        display: none; /* Hidden by default */
         align-items: flex-start;
     }
-    
-    /* Mostrar el menú principal cuando se activa (clase 'active' por JS) */
-    .navbar .main-nav.active { /* Coincide con la clase activa en main.js */
+    .navbar .main-nav.active { /* Changed from .show to .active */
         display: flex;
     }
 
-    /* Mostrar el botón de hamburguesa en móvil */
-    .navbar .toggle {
-        display: block;
-        order: 4; /* Para posicionarlo a la derecha del todo */
-        margin-left: 10px;
-        align-self: center;
-    }
-
-    /* OCULTAR el botón de reserva que estaba en el main-nav (para desktop) en móvil */
-    .navbar .main-nav .reserve-btn {
-        display: none;
-    }
-
-    /* MOSTRAR el botón de reserva 'mobile-only' en móvil */
-    .navbar .reserve-btn.mobile-only {
-        display: block; /* Para que sea visible */
-        order: 3; /* Posiciónalo antes del toggle */
-        margin-left: 10px;
-        align-self: center;
-    }
-
-    /* Ocultar el language-switcher de escritorio en móvil */
-    .language-switcher-desktop {
-        display: none;
-    }
-
-    /* Mostrar el language-switcher móvil */
-    .language-switcher-mobile-standalone {
-        display: block; /* O 'flex' si quieres más control */
-        order: 2; /* Posicionamiento relativo a otros elementos en móvil */
-        margin-left: auto; /* Para empujar a la derecha, cerca del botón móvil */
-        margin-right: 10px;
-        align-self: center;
-    }
-
-    /* Ajustes para los enlaces del menú principal en móvil (dentro del main-nav.active) */
-    .navbar .main-nav .menu {
+    /* Restaurar display flex para el menu de enlaces dentro de main-nav.active */
+    .navbar .main-nav.active .menu { /* Changed from .show to .active */
+        display: flex;
         flex-direction: column;
         width: 100%;
-        gap: 0; /* Elimina el gap entre los elementos de la lista en columna */
     }
-    .navbar .main-nav .menu li {
-        width: 100%; /* Asegura que cada elemento de la lista ocupe todo el ancho */
-    }
-    .navbar .main-nav .menu a {
+    .navbar .main-nav.active .menu a { /* Changed from .show to .active */
         padding: 8px 10px;
         width: 100%;
         text-align: left;
     }
 
-
-    /* Hero Section en móvil */
-    .home-hero-slider {
-        height: 400px; /* Menor altura en móvil */
+    /* Ajustes para tarjetas de tours en móvil */
+    .tour-box {
+        max-width: 100%;
+        flex-basis: 100%;
     }
-    .home-hero-content h1 {
-        font-size: 2rem;
-    }
-    .home-hero-content p {
-        font-size: 1rem;
+    .tour-box:hover {
+        box-shadow: none;
     }
 
-    /* Tours y Features en móvil */
-    .features-grid, .tours-grid, .testimonial-grid, .contact-info {
+    /* Why Choose Us - Mobile Adjustments */
+    .why-us {
+        margin: 40px auto;
+        padding: 30px 15px;
+    }
+    .why-us h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .features-grid {
         grid-template-columns: 1fr; /* Una columna en móvil */
     }
-
-    .tour-details .reserve-btn-details {
-        width: 100%; /* Botón de detalles ocupa todo el ancho */
-        max-width: 300px; /* Pero con un máximo si está centrado */
-        margin: 20px auto 0; /* Centra el botón */
-    }
-
-    /* Tour Hero (chichen.html) */
-    .tour-hero {
-        height: 50vh; /* Menor altura en móvil */
-    }
-    .tour-hero .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    .tour-hero .hero-content p {
-        font-size: 1rem;
-    }
-
-    /* Galería */
-    .gallery-carousel img {
-        height: 300px; /* Menor altura de imagen en móvil */
-    }
 }
 
-/* Media query para pantallas extra pequeñas, si necesitas aún más ajustes */
-@media (max-width: 480px) {
-    .navbar-container {
-        padding: 5px 10px;
-    }
-    .navbar .logo {
-        height: 35px;
-    }
-    .language-switcher-mobile-standalone .lang-options {
-        min-width: 50px;
-        font-size: 0.9rem;
-    }
-    .navbar .reserve-btn.mobile-only {
-        padding: 6px 12px;
-        font-size: 0.9rem;
-    }
-    .navbar .toggle {
-        font-size: 1.5rem;
-    }
-    .home-hero-content h1 {
-        font-size: 1.8rem;
-    }
-    .home-hero-content p {
-        font-size: 0.9rem;
-    }
-    .tour-hero .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    .tour-hero .hero-content p {
-        font-size: 0.9rem;
-    }
+/* HERO exclusivo para páginas de tour */
+.tour-hero {
+    height: 100vh;
+    /* background-image: url('../img/chichen-hero.jpg'); */ /* Esta línea debe ser reemplazada por el video */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* Asegura que el video no se desborde */
 }
 
-/* Para evitar el scroll del body cuando el modal está abierto */
-body.modal-open {
+/* Estilos para el video de fondo del hero */
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    z-index: 0; /* Asegura que el video esté detrás del contenido */
+    pointer-events: none; /* Evita que el iframe capture clics que irían al contenido del hero */
+}
+
+.hero-video-container iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw; /* Cubre el ancho del viewport */
+    height: 56.25vw; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ajusta el video para cubrir el contenedor */
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .hero-video-container iframe {
+        height: 100vh;
+        width: 177.77vh; /* 16 / 9 = 1.7777 */
+    }
+}
+
+.tour-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45); /* Sombra inicial */
+    z-index: 1; /* AÑADIDO PARA LA DESAPARICIÓN DEL OVERLAY */
+    opacity: 1; /* Inicialmente visible */
+    transition: opacity 1s ease-out; /* Transición suave de 1 segundo */
+}
+
+.tour-hero .hero-overlay.fade-out {
+    opacity: 0; /* Hace que el overlay se desvanezca */
+}
+
+.tour-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 800px;
+    /* ESTILOS AÑADIDOS PARA LA DESAPARICIÓN DEL TEXTO */
+    opacity: 1; /* Inicialmente visible */
+    transition: opacity 1s ease-out; /* Transición suave de 1 segundo */
+}
+
+.tour-hero .hero-content.fade-out {
+    opacity: 0; /* Hace que el contenido se desvanezca */
+    pointer-events: none; /* Evita interacciones después de desvanecerse */
+}
+
+.tour-hero h1 {
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+
+.tour-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-cta-button {
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+.main-cta-button:hover {
+    background-color: #e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Tour Gallery Section */
+.tour-gallery {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.tour-gallery h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00695c;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+/* Slick Carousel Customizations */
+.gallery-carousel .slick-prev,
+.gallery-carousel .slick-next {
+    font-size: 0; /* Hide default text */
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    color: transparent;
+    border: none;
+    outline: none;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.gallery-carousel .slick-prev:hover,
+.gallery-carousel .slick-next:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.gallery-carousel .slick-prev:before,
+.gallery-carousel .slick-next:before {
+    font-family: "Font Awesome 5 Free"; /* Use Font Awesome */
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 1;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.gallery-carousel .slick-prev {
+    left: 10px;
+}
+.gallery-carousel .slick-prev:before {
+    content: "\f053"; /* fa-chevron-left */
+}
+
+.gallery-carousel .slick-next {
+    right: 10px;
+}
+.gallery-carousel .slick-next:before {
+    content: "\f054"; /* fa-chevron-right */
+}
+
+.gallery-carousel .slick-dots {
+    position: absolute;
+    bottom: -30px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.gallery-carousel .slick-dots li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.gallery-carousel .slick-dots li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: #bbb;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.gallery-carousel .slick-dots li.slick-active button {
+    background: #ff9800;
+}
+
+/* Custom modal para tours */
+.modal-tour {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-tour-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh; /* Para que el modal no sea más alto que la ventana */
+    overflow-y: auto; /* Habilitar scroll si el contenido es muy largo */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.modal-tour .close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-tour .close-button:hover,
+.modal-tour .close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tour-detail-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00695c;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tour-detail-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.tour-detail-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.tour-detail-content ul li {
+    background: #e8f5e9; /* Un fondo suave para los ítems de lista */
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-left: 5px solid #00695c;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.tour-detail-content .price-info {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ff9800;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.tour-detail-content .reserve-button-modal {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ff9800;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.tour-detail-content .reserve-button-modal:hover {
+    background-color: #e68900;
+}
+
+@media (max-width: 768px) {
+    .modal-tour-content {
+        padding: 20px;
+        max-width: 95%;
+    }
+    .tour-detail-content h2 {
+        font-size: 1.6rem;
+    }
+    .tour-detail-content p {
+        font-size: 0.9rem;
+    }
+    .tour-detail-content ul li {
+        font-size: 0.85rem;
+    }
+    .tour-detail-content .reserve-button-modal {
+        width: 95%;
+        padding: 10px 20px;
+    }
 }
