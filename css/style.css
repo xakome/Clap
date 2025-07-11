@@ -156,7 +156,7 @@ a {
     cursor: pointer;
     padding: 8px 10px;
     border-radius: 4px;
-    transition: background 0.3s;
+    transition: background 0.3s, color 0.3s;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -853,7 +853,6 @@ footer .footer-cta-link:hover {
         font-size: 1rem;
     }
 
-
     /* Ajustes del Navbar en móvil */
     .navbar {
         justify-content: flex-start;
@@ -870,10 +869,12 @@ footer .footer-cta-link:hover {
         align-items: center;
         min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
     }
+
     /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
     .navbar .main-nav .menu, .language-switcher-desktop {
         display: none;
     }
+
     /* Mostrar el botón de idioma para móvil y posicionarlo */
     .language-switcher-mobile-standalone {
         display: flex;
@@ -881,12 +882,14 @@ footer .footer-cta-link:hover {
         margin-left: 0;
         align-self: center;
     }
+
     /* Posicionar el botón de reserva */
     .reserve-btn {
         order: 3;
         margin-left: 10px;
         align-self: center;
     }
+
     /* Posicionar el toggle */
     .navbar .toggle {
         display: block;
@@ -908,20 +911,20 @@ footer .footer-cta-link:hover {
         gap: 0.5rem;
         box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         z-index: 19;
-        display: none; /* Hidden by default */
+        display: none; /* Por defecto oculto */
         align-items: flex-start;
     }
-    .navbar .main-nav.active { /* Changed from .show to .active */
-        display: flex;
+    .navbar .main-nav.active { /* CAMBIO DE .show A .active */
+        display: flex; /* Muestra el menú cuando tiene la clase 'active' */
     }
 
     /* Restaurar display flex para el menu de enlaces dentro de main-nav.active */
-    .navbar .main-nav.active .menu { /* Changed from .show to .active */
+    .navbar .main-nav.active .menu {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
-    .navbar .main-nav.active .menu a { /* Changed from .show to .active */
+    .navbar .main-nav.active .menu a {
         padding: 8px 10px;
         width: 100%;
         text-align: left;
@@ -953,7 +956,8 @@ footer .footer-cta-link:hover {
 /* HERO exclusivo para páginas de tour */
 .tour-hero {
     height: 100vh;
-    /* background-image: url('../img/chichen-hero.jpg'); */ /* Esta línea debe ser reemplazada por el video */
+    /* background-image: url('../img/chichen-hero.jpg'); */
+    /* Esta línea debe ser reemplazada por el video */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -1023,271 +1027,227 @@ footer .footer-cta-link:hover {
 }
 
 .tour-hero .hero-content.fade-out {
-    opacity: 0; /* Hace que el contenido se desvanezca */
-    pointer-events: none; /* Evita interacciones después de desvanecerse */
+    opacity: 0; /* Hace que el texto se desvanezca */
 }
 
 .tour-hero h1 {
-    font-size: 2.5rem;
+    font-size: 3em;
+    margin-bottom: 0.5em;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 1rem;
 }
 
 .tour-hero p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 1.5em;
 }
 
-.main-cta-button {
-    display: inline-block;
+.tour-hero .button-primary {
     background-color: #ff9800;
     color: white;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    padding: 10px 25px;
+    border-radius: 5px;
     text-decoration: none;
-}
-
-.main-cta-button:hover {
-    background-color: #e68900;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-}
-
-/* Tour Gallery Section */
-.tour-gallery {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-.tour-gallery h2 {
-    font-family: 'Playfair Display', serif;
-    color: #00695c;
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-/* Slick Carousel Customizations */
-.gallery-carousel .slick-prev,
-.gallery-carousel .slick-next {
-    font-size: 0; /* Hide default text */
-    line-height: 1;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: block;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    cursor: pointer;
-    color: transparent;
-    border: none;
-    outline: none;
-    background: rgba(0,0,0,0.5);
-    border-radius: 50%;
-    z-index: 10;
-    transition: background 0.3s ease;
-}
-
-.gallery-carousel .slick-prev:hover,
-.gallery-carousel .slick-next:hover {
-    background: rgba(0,0,0,0.7);
-}
-
-.gallery-carousel .slick-prev:before,
-.gallery-carousel .slick-next:before {
-    font-family: "Font Awesome 5 Free"; /* Use Font Awesome */
-    font-weight: 900;
-    font-size: 20px;
-    line-height: 1;
-    color: white;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.gallery-carousel .slick-prev {
-    left: 10px;
-}
-.gallery-carousel .slick-prev:before {
-    content: "\f053"; /* fa-chevron-left */
-}
-
-.gallery-carousel .slick-next {
-    right: 10px;
-}
-.gallery-carousel .slick-next:before {
-    content: "\f054"; /* fa-chevron-right */
-}
-
-.gallery-carousel .slick-dots {
-    position: absolute;
-    bottom: -30px;
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: center;
-}
-
-.gallery-carousel .slick-dots li {
-    position: relative;
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-    padding: 0;
-    cursor: pointer;
-}
-
-.gallery-carousel .slick-dots li button {
-    font-size: 0;
-    line-height: 0;
-    display: block;
-    width: 10px;
-    height: 10px;
-    padding: 5px;
-    cursor: pointer;
-    color: transparent;
-    border: 0;
-    outline: none;
-    background: #bbb;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-}
-
-.gallery-carousel .slick-dots li.slick-active button {
-    background: #ff9800;
-}
-
-/* Custom modal para tours */
-.modal-tour {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 2000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal-tour-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 30px;
-    border-radius: 10px;
-    position: relative;
-    max-width: 90%;
-    max-height: 90vh; /* Para que el modal no sea más alto que la ventana */
-    overflow-y: auto; /* Habilitar scroll si el contenido es muy largo */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.modal-tour .close-button {
-    color: #aaa;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 35px;
     font-weight: bold;
-    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.modal-tour .close-button:hover,
-.modal-tour .close-button:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.tour-hero .button-primary:hover {
+    background-color: #e68900;
 }
 
-.tour-detail-content h2 {
+/* Sección de Detalles del Tour */
+.tour-details {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.tour-details h2 {
     font-family: 'Playfair Display', serif;
     color: #00695c;
-    font-size: 2rem;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.tour-detail-content p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
+.tour-details p {
+    font-size: 1.1em;
+    line-height: 1.7;
     color: #444;
+    margin-bottom: 15px;
 }
 
-.tour-detail-content ul {
-    list-style-type: none;
+.tour-details ul {
+    list-style: none;
     padding: 0;
     margin-bottom: 20px;
 }
 
-.tour-detail-content ul li {
-    background: #e8f5e9; /* Un fondo suave para los ítems de lista */
-    padding: 10px 15px;
-    margin-bottom: 8px;
+.tour-details ul li {
+    background: #e0f2f1; /* Un color de fondo suave para los ítems de lista */
+    margin-bottom: 10px;
+    padding: 12px 15px;
     border-left: 5px solid #00695c;
     border-radius: 5px;
-    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: #333;
 }
 
-.tour-detail-content .price-info {
-    font-size: 1.3rem;
-    font-weight: bold;
+.tour-details ul li i {
     color: #ff9800;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
+    font-size: 1.2em;
 }
 
-.tour-detail-content .reserve-button-modal {
-    display: block;
-    width: 80%;
-    margin: 0 auto;
+/* Galería de Imágenes (Slick Carousel) */
+.gallery-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.gallery-section h2 {
+    font-family: 'Playfair Display', serif;
+    color: #00695c;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.gallery-carousel {
+    margin: 0 auto; /* Centrar el carrusel */
+}
+
+.gallery-carousel img {
+    width: 100%;
+    height: auto;
+    max-height: 500px; /* Limita la altura para evitar imágenes gigantes */
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Estilos de los puntos de navegación de Slick */
+.slick-dots {
+    bottom: -30px;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #00695c;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #ff9800;
+}
+
+/* Estilos de las flechas de navegación de Slick */
+.slick-prev:before, .slick-next:before {
+    color: #00695c;
+    font-size: 30px;
+}
+
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -40px;
+}
+
+/* Call to Action en páginas de tour */
+.tour-cta {
+    text-align: center;
+    background-color: #00695c; /* Color de tu marca */
+    color: white;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.tour-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.tour-cta p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.tour-cta .button-primary {
     background-color: #ff9800;
     color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-.tour-detail-content .reserve-button-modal:hover {
+.tour-cta .button-primary:hover {
     background-color: #e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.3);
 }
 
+/* Responsive para páginas de tour (ej. chichen.html) */
 @media (max-width: 768px) {
-    .modal-tour-content {
-        padding: 20px;
-        max-width: 95%;
+    .tour-hero {
+        height: 70vh; /* Ajusta la altura del hero para móvil */
     }
-    .tour-detail-content h2 {
-        font-size: 1.6rem;
+
+    .tour-hero h1 {
+        font-size: 2em;
     }
-    .tour-detail-content p {
-        font-size: 0.9rem;
+
+    .tour-hero p {
+        font-size: 1em;
     }
-    .tour-detail-content ul li {
-        font-size: 0.85rem;
+
+    .tour-details, .gallery-section, .tour-cta {
+        margin: 20px auto;
+        padding: 15px;
     }
-    .tour-detail-content .reserve-button-modal {
-        width: 95%;
-        padding: 10px 20px;
+
+    .tour-details h2, .gallery-section h2, .tour-cta h2 {
+        font-size: 1.8em;
+    }
+
+    .tour-details p {
+        font-size: 1em;
+    }
+
+    .gallery-carousel img {
+        max-height: 300px; /* Más pequeña en móvil */
+    }
+
+    /* Ajuste de flechas de Slick para evitar que se salgan */
+    .slick-prev, .slick-next {
+        font-size: 20px;
+        top: 45%;
+        left: 5px;
+        right: 5px;
+        z-index: 10;
+    }
+
+    .slick-next {
+        left: auto; /* Deshacer el left para que right funcione */
     }
 }
