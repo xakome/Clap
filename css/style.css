@@ -874,7 +874,7 @@ footer .footer-cta-link:hover {
     /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
     .navbar .main-nav .menu,
     .language-switcher-desktop {
-        display: none;
+        display: none !important; /* Usa !important si es necesario para anular otras reglas */
     }
 
     /* Mostrar el botón de idioma para móvil y posicionarlo */
@@ -930,6 +930,12 @@ footer .footer-cta-link:hover {
         text-align: left;
     }
 
+.navbar .main-nav.active .menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
     /* Ajustes para tarjetas de tours en móvil */
     .tour-box {
         max-width: 100%;
