@@ -12,9 +12,6 @@
     
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -22,83 +19,339 @@
       "name": "CLAP365",
       "url": "https://www.clap365.com/",
       "logo": "https://www.clap365.com/img/logo-clap365.png",
-      "description": "Descubre Yucatán con CLAP365: tours privados y exclusivos desde Mérida a cenotes, playas, zonas arqueológicas como Chichen Itzá y Uxmal, haciendas y naturaleza. Experiencias de lujo para turistas nacionales e internacionales. ¡Reserva tu day trip inolvidable!"
+      "description": "CLAP365 ofrece tours exclusivos y privados desde Mérida, Yucatán, para explorar cenotes, playas, pirámides mayas (Chichen Itzá, Uxmal), haciendas, y la vasta naturaleza de la península. Experiencias de lujo y personalizadas para viajeros nacionales e internacionales.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 60",
+        "addressLocality": "Mérida",
+        "addressRegion": "Yucatán",
+        "postalCode": "97000",
+        "addressCountry": "MX"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+52-9991234567",
+        "contactType": "Customer Service",
+        "areaServed": ["MX", "US", "CA", "EU", "America Latina"],
+        "availableLanguage": ["es", "en"]
+      },
+      "sameAs": [
+        "URL_DE_TU_FACEBOOK",
+        "URL_DE_TU_INSTAGRAM",
+        "URL_DE_TU_TIKTOK"
+      ],
+      "areaServed": {
+        "@type": "State",
+        "name": "Yucatán",
+        "hasPart": [
+          {"@type": "City", "name": "Mérida"},
+          {"@type": "TouristAttraction", "name": "Chichen Itzá"},
+          {"@type": "TouristAttraction", "name": "Uxmal"},
+          {"@type": "TouristAttraction", "name": "Izamal"},
+          {"@type": "TouristAttraction", "name": "Sisal"},
+          {"@type": "TouristAttraction", "name": "Telchac"},
+          {"@type": "TouristAttraction", "name": "cenotes"}
+        ]
+      },
+      "tourBookingPage": "https://www.clap365.com/#reserveModal",
+      "reviews": [
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "Una experiencia inolvidable, el tour a Chichen Itzá fue espectacular y el guía muy amable.",
+          "author": {
+            "@type": "Person",
+            "name": "Ana P."
+          }
+        },
+        {
+          "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "Los cenotes y la naturaleza de Yucatán superaron mis expectativas. Recomendado al 100%.",
+          "author": {
+            "@type": "Person",
+            "name": "Carlos M."
+          }
+        }
+      ]
     }
     </script>
 </head>
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <a href="index.html" class="logo" aria-label="CLAP365 Inicio">
-                <img src="https://www.clap365.com/img/logo-clap365.png" alt="Logo de CLAP365 - Tours Privados en Yucatán">
-            </a>
+    <div class="top-banner" role="banner" aria-label="Anuncio especial de CLAP365">
+        <p>¡Disfruta de un **15% de descuento** en todos los tours reservados este Julio! Usa código: **YUCATAN15** <a href="#tours" class="banner-cta">Ver Tours</a></p>
+        <button class="close-banner" aria-label="Cerrar anuncio">&times;</button>
+    </div>
 
-            <div class="desktop-nav-elements">
-                <div class="language-switcher-desktop">
-                    <button type="button" class="current-lang" aria-haspopup="menu" aria-expanded="false" aria-controls="desktopLangOptions">ES <i class="fas fa-chevron-down"></i></button>
-                    <div class="lang-options" role="menu" id="desktopLangOptions"> <a href="index.html" role="menuitem">ES</a> <a href="/en/index.html" role="menuitem">EN</a> </div>
-                </div>
+    <nav class="navbar">
+        <div class="logo"><a href="https://www.clap365.com/">CLAP365</a></div>
+
+        <div class="language-switcher-mobile-standalone">
+            <div class="current-lang-mobile" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                ES <i class="fas fa-globe"></i>
             </div>
-
-            <div class="main-nav" id="mainNavMenu"> <ul class="menu">
-                    <li><a href="index.html" aria-label="Ir a Inicio">Inicio</a></li>
-                    <li><a href="es/tours.html" aria-label="Ver todos los Tours">Tours</a></li>
-                    <li><a href="es/galeria.html" aria-label="Ver Galería de Fotos">Galería</a></li>
-                    <li><a href="es/contacto.html" aria-label="Contactar con CLAP365">Contacto</a></li>
-                </ul>
-            </div>
-
-            <button type="button" class="reserve-btn" data-toggle="modal" data-target="#reserveModal" aria-haspopup="dialog" aria-expanded="false" aria-controls="reserveModal">Reservar</button>
-
-            <button type="button" class="toggle" aria-label="Mostrar menú" aria-expanded="false" aria-controls="mainNavMenu">&#9776;</button>
-
-            <div class="language-switcher-mobile-standalone">
-                <button type="button" class="current-lang-mobile" aria-haspopup="menu" aria-expanded="false" aria-controls="mobileLangOptions">ES <i class="fas fa-chevron-down"></i></button>
-                <div class="lang-options-mobile" role="menu" id="mobileLangOptions">
-                    <a href="index.html" role="menuitem">ES</a>
-                    <a href="/en/index.html" role="menuitem">EN</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="img/logo-clap365-light.png" alt="Logo CLAP365 en versión clara">
-                <p>Explora Yucatán con nosotros.</p>
-            </div>
-            <div class="footer-links">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="es/tours.html">Tours</a></li>
-                    <li><a href="es/galeria.html">Galería</a></li>
-                    <li><a href="es/contacto.html">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Mérida, Yucatán, México</p>
-                <p><i class="fas fa-envelope"></i> info@clap365.com</p>
-                <p><i class="fas fa-phone-alt"></i> +52 999 123 4567</p>
-            </div>
-            <div class="footer-social">
-                <h3>Síguenos</h3>
-                <a href="https://facebook.com/clap365" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/clap365" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro perfil de Instagram"><i class="fab fa-instagram"></i></a>
+            <div class="lang-options-mobile" role="menu">
+                <a href="?lang=es" role="menuitem">Español</a>
+                <a href="?lang=en" role="menuitem">English</a>
+                <a href="?lang=fr" role="menuitem">Français</a>
+                <a href="?lang=it" role="menuitem">Italiano</a>
+                <a href="?lang=de" role="menuitem">Deutsch</a>
+                <a href="?lang=ru" role="menuitem">Русский</a>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 CLAP365. Todos los derechos reservados.</p>
+
+        <button class="reserve-btn" aria-haspopup="dialog" aria-controls="reserveModal" aria-expanded="false">Reservar</button>
+
+        <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
+
+        <div class="main-nav">
+            <div class="menu" role="menu">
+                <a href="https://www.clap365.com/#tours" role="menuitem">Tours</a>
+                <a href="https://www.clap365.com/" role="menuitem">Inicio</a>
+                <a href="https://www.clap365.com/contacto" role="menuitem">Contacto</a>
+                <a href="https://www.clap365.com/#faq" role="menuitem">FAQ</a>
+            </div>
+            <div class="language-switcher-desktop">
+                <div class="current-lang" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+                    ES <i class="fas fa-globe"></i>
+                </div>
+                <div class="lang-options" role="menu">
+                    <a href="?lang=es" role="menuitem">Español</a>
+                    <a href="?lang=en" role="menuitem">English</a>
+                    <a href="?lang=fr" role="menuitem">Français</a>
+                    <a href="?lang=it" role="menuitem">Italiano</a>
+                    <a href="?lang=de" role="menuitem">Deutsch</a>
+                    <a href="?lang=ru" role="menuitem">Русский</a>
+                </div>
+            </div>
+            <div class="language-switcher-mobile">
+                </div>
+        </div>
+    </nav>
+
+    <section class="hero-slider" role="banner" aria-label="Carrusel de imágenes de tours y experiencias en Yucatán">
+        <div class="slides">
+            <div class="slide active" style="background-image: url('img/banner1.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">CLAP365: Tours Privados en Yucatán y Mérida</h1>
+                    <p class="hero-description">Explora cenotes, pirámides mayas, playas paradisíacas y ciudades coloniales con guías expertos y experiencias privadas diseñadas para ti.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner2.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Experimenta la riqueza cultural de Yucatán con CLAP365</h1>
+                    <p class="hero-description">Sumérgete en la historia y la naturaleza con nuestros tours privados y personalizados.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner3.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Aventuras inolvidables en cenotes y sitios arqueológicos</h1>
+                    <p class="hero-description">Descubre los secretos de la península de Yucatán con expertos locales.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner4.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Relájate en playas vírgenes y explora la costa yucateca</h1>
+                    <p class="hero-description">CLAP365 te ofrece lo mejor de Yucatán, con comodidad y exclusividad.</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('img/banner5.jpg');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Tours privados y personalizados desde Mérida para cada viajero</h1>
+                    <p class="hero-description">Crea tu itinerario perfecto con CLAP365 y vive una experiencia única.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slider-nav">
+            <button class="prev-slide" aria-label="Anterior slide">&#10094;</button>
+            <button class="next-slide" aria-label="Siguiente slide">&#10095;</button>
+        </div>
+        <div class="slider-dots">
+            </div>
+    </section>
+
+    <section class="cta-after-hero">
+        <a href="#tours" class="main-cta-button">Ver Nuestros Tours</a>
+    </section>
+
+    <section class="company-intro">
+        <div class="intro-content">
+            <h2>Explora Yucatán con CLAP365: Tu Aventura Privada te Espera</h2>
+            <p>En **CLAP365**, somos tus guías de confianza para descubrir los secretos mejor guardados de Yucatán. Nos especializamos en **tours privados y exclusivos desde Mérida**, diseñados para ofrecerte una experiencia de viaje inigualable. Sumérgete en la majestuosidad de antiguas ruinas mayas, refréscate en cenotes cristalinos y relájate en playas vírgenes, todo con el lujo y la comodidad que mereces. Nuestra pasión es crear **recuerdos inolvidables**, adaptando cada detalle a tus deseos. ¡Prepárate para vivir Yucatán como nunca antes!</p>
+        </div>
+    </section>
+
+    <div class="container" id="tours" role="list">
+        <a href="https://www.clap365.com/chichen" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Chichen Itzá. Ver más detalles">
+            <img src="img/chichen.jpg" alt="Chichen Itzá, pirámide Kukulkán en Yucatán" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Chichen Itzá VIP</h3>
+                <p>Descubre la grandeza de Chichen Itzá, una de las nuevas siete maravillas del mundo, con una experiencia exclusiva.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="https://www.clap365.com/uxmal" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Uxmal. Ver más detalles">
+            <img src="img/uxmal.jpg" alt="Uxmal, arquitectura Puuc en zona arqueológica" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Uxmal y Ruta Puuc</h3>
+                <p>Explora la impresionante arquitectura Puuc en Uxmal y sus sitios arqueológicos cercanos.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="https://www.clap365.com/izamal" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Izamal. Ver más detalles">
+            <img src="img/izamal.jpg" alt="Izamal, Pueblo Mágico amarillo, Convento de San Antonio de Padua" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour al Pueblo Mágico de Izamal</h3>
+                <p>La encantadora ciudad amarilla de Izamal, con su imponente convento y rica historia colonial.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="https://www.clap365.com/sisal" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Sisal. Ver más detalles">
+            <img src="img/sisal.jpg" alt="Playa de Sisal, puerto histórico y naturaleza" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Day Trip a Playa Sisal</h3>
+                <p>Relájate en las tranquilas playas de Sisal, un encantador puerto con historia y vida silvestre.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="https://www.clap365.com/merida" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Mérida. Ver más detalles">
+            <img src="img/merida.jpg" alt="Centro histórico de Mérida, Paseo Montejo, arquitectura colonial" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Cultural por Mérida</h3>
+                <p>Sumérgete en la cultura, historia y exquisita gastronomía de la hermosa capital yucateca.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="https://www.clap365.com/telchac" class="tour-box" role="listitem" tabindex="0" aria-label="Tour Telchac. Ver más detalles">
+            <img src="img/telchac.jpg" alt="Playa de Telchac, flamingos y costa de Yucatán" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour a Telchac Puerto y Reservas Naturales</h3>
+                <p>Disfruta de la tranquilidad de Telchac y explora sus manglares y flamingos en la costa yucateca.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="https://www.clap365.com/cenotes" class="tour-box" role="listitem" tabindex="0" aria-label="Tour cenotes. Ver más detalles">
+            <img src="img/cenotes.jpg" alt="Cenotes, cavernas, aguas cristalinas, inframundo, estalactitas y estalagmitas" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Adentrate al inframundo a través de los cenotes</h3>
+                <p>Descubre cenotes cristalinos y el inframundo maya, el Xibalba, en el interior de la madre tierra</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+
+        <a href="https://www.clap365.com/libre" class="tour-box" role="listitem" tabindex="0" aria-label="Tour libre a escoger. Ver más detalles">
+            <img src="img/libre.jpg" alt="Tour personalizado en Yucatán, aventura a medida" loading="lazy" />
+            <div class="tour-overlay" aria-hidden="true">
+                <h3>Tour Personalizado CLAP365</h3>
+                <p>Diseña tu propia aventura en Yucatán: desde cenotes y haciendas hasta experiencias únicas.</p>
+                <span>Ver más</span>
+            </div>
+        </a>
+    </div>
+
+    <section class="why-us">
+        <h2>¿Por qué elegir CLAP365?</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fas fa-star"></i>
+                <h3>Experiencias Exclusivas</h3>
+                <p>Diseñamos tours privados y personalizados para ti y tus acompañantes, garantizando privacidad y confort.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-route"></i>
+                <h3>Itinerarios Flexibles</h3>
+                <p>Tu aventura, tus reglas. Adaptamos cada viaje a tus intereses y ritmo, desde la cultura maya hasta la naturaleza.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-user-tie"></i>
+                <h3>Guías Expertos Locales</h3>
+                <p>Nuestros guías certificados te brindarán una inmersión profunda en la historia y cultura de Yucatán.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Seguridad y Confort</h3>
+                <p>Viaja con tranquilidad. Nos encargamos de cada detalle, desde el transporte hasta las entradas, con los más altos estándares.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" aria-label="Testimonios de clientes">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="testimonial">
+            <p>“Una experiencia inolvidable, el tour a Chichen Itzá fue espectacular y el guía muy amable.”</p>
+            <div class="testimonial-author">— Ana P.</div>
+        </div>
+        <div class="testimonial">
+            <p>“Los cenotes y la naturaleza de Yucatán superaron mis expectativas. Recomendado al 100%.”</p>
+            <div class="testimonial-author">— Carlos M.</div>
+        </div>
+        <div class="testimonial">
+            <p>“La organización y atención de CLAP365 hicieron que mi viaje fuera perfecto.”</p>
+            <div class="testimonial-author">— Laura G.</div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="faq" aria-label="Preguntas Frecuentes">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="testimonial">
+            <h3>¿Son tours privados o grupales?</h3>
+            <p style="font-style: normal; color: #333;">Todos nuestros tours son **privados y exclusivos** para tu grupo, garantizando una experiencia personalizada y a tu medida.</p>
+        </div>
+        <div class="testimonial">
+            <h3>¿Qué incluye el tour?</h3>
+            <p style="font-style: normal; color: #333;">Nuestros tours incluyen **transporte**, **entradas** a los sitios, **guía certificado** y **agua embotellada**. Las comidas son opcionales y se adaptan a tus preferencias.</p>
+        </div>
+        <p><a href="https://www.clap365.com/faq" class="footer-cta-link">Ver todas las preguntas frecuentes</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 CLAP365. Todos los derechos reservados.</p>
+        <p><a href="https://www.clap365.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
+
+        <p>¿Listo para tu aventura? <a href="#reserveModal" class="footer-cta-link">¡Reserva ahora!</a></p>
+
+        <div class="social-icons">
+            <a href="URL_DE_TU_FACEBOOK" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="URL_DE_TU_INSTAGRAM" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="URL_DE_TU_TIKTOK" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+
+        <div class="payment-cert-icons">
+            <img src="img/icon-visa.png" alt="Visa" title="Aceptamos Visa">
+            <img src="img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard">
+            <img src="img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon">
         </div>
     </footer>
 
-    <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"> <div class="modal-content">
-            <button type="button" class="close-button" aria-label="Cerrar formulario">&times;</button>
+    <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="floating-cta"
+         aria-label="Contactar por WhatsApp para tours exclusivos en Yucatán">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="reserveModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close" role="button" aria-label="Cerrar formulario" tabindex="0">&times;</span>
             <h2 id="modalTitle">Reservar Tour Exclusivo</h2>
             <form id="reserveForm" action="https://formspree.io/f/xzzgozpr" method="POST">
                 <label for="name">Nombre completo</label>
@@ -125,12 +378,6 @@
         </div>
     </div>
 
-    <a href="https://wa.me/5219991234567?text=Hola! Me gustaría más información sobre los tours." class="floating-cta" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>
