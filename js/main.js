@@ -1,31 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Navbar Toggle para móvil
+    // 1. Navbar Toggle para móvil y Desktop (para el language-switcher)
     const toggleBtn = document.querySelector('.toggle');
     const mainNav = document.querySelector('.main-nav');
 
     if (toggleBtn && mainNav) {
         toggleBtn.addEventListener('click', function() {
-            const isActive = mainNav.classList.toggle('active');
-            // Cambiar el ícono de la hamburguesa a X y viceversa y actualizar ARIA
-            if (isActive) {
+            mainNav.classList.toggle('active');
+            // Cambiar el ícono de la hamburguesa a X y viceversa
+            if (mainNav.classList.contains('active')) {
                 toggleBtn.innerHTML = '&times;'; // Cambia a una 'X'
                 toggleBtn.setAttribute('aria-label', 'Cerrar menú');
-                toggleBtn.setAttribute('aria-expanded', 'true'); // Menú abierto
             } else {
                 toggleBtn.innerHTML = '&#9776;'; // Vuelve al ícono de hamburguesa
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
-                toggleBtn.setAttribute('aria-expanded', 'false'); // Menú cerrado
             }
+    
+        // 3. Lógica para los Selectores de Idioma
+    const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
+    const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
+
+    if (desktopLangSwitcher) {
+        desktopLangSwitcher.addEventListener('click', function(event) {
+            // Evita que el clic propague y cierre el menú si se hace clic fuera
+            event.stopPropagation();
+            desktopLangSwitcher.classList.toggle('active');
         });
 
+        // Cerrar selector de idioma desktop al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (desktopLangSwitcher.classList.contains('active') && !desktopLangSwitcher.contains(event.target)) {
+                desktopLangSwitcher.classList.remove('active');
+            }
+        });
+    }
+
+    if (mobileLangSwitcher) {
+        mobileLangSwitcher.addEventListener('click', function(event) {
+            // Evita que el clic propague y cierre el menú si se hace clic fuera
+            event.stopPropagation();
+            mobileLangSwitcher.classList.toggle('active');
+        });
+
+        // Cerrar selector de idioma móvil al hacer clic fuera
+        document.addEventListener('click', function(event) {
+            if (mobileLangSwitcher.classList.contains('active') && !mobileLangSwitcher.contains(event.target)) {
+                mobileLangSwitcher.classList.remove('active');
+            }
+        });
+    }
+        
+        });
+
+
+
+
+        
         // Cerrar menú al hacer clic fuera (si el menú está abierto)
         document.addEventListener('click', function(event) {
-            // Asegúrate de que el clic no sea dentro del mainNav ni del botón toggle
-            if (mainNav.classList.contains('active') && !mainNav.contains(event.target) && !toggleBtn.contains(event.target)) {
+            if (!mainNav.contains(event.target) && !toggleBtn.contains(event.target) && mainNav.classList.contains('active')) {
                 mainNav.classList.remove('active');
                 toggleBtn.innerHTML = '&#9776;'; // Vuelve al ícono de hamburguesa
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
-                toggleBtn.setAttribute('aria-expanded', 'false'); // Menú cerrado
             }
         });
     }
@@ -33,168 +68,116 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2. Modal de Reserva
     const reserveBtn = document.querySelector('.reserve-btn');
     const reserveModal = document.getElementById('reserveModal');
-    // Selector corregido para el botón de cerrar
     const closeModal = document.querySelector('.modal .close-button');
+    const reserveForm = document.getElementById('reserveForm');
 
-    // Atributos para gestión de foco del modal
-    const focusableElementsString = 'a[href]:not([disabled]), area[href]:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe:not([disabled]), object:not([disabled]), embed:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled]), [contenteditable]:not([disabled])';
-    let lastFocusedElement; // Para almacenar el elemento que tenía el foco antes de abrir el modal
-
-    if (reserveBtn && reserveModal && closeModal) {
-        // Función para abrir el modal
+    // Abre el modal al hacer clic en el botón de reserva
+    if (reserveBtn && reserveModal) {
         reserveBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            lastFocusedElement = document.activeElement; // Guarda el elemento que tenía el foco
-            reserveModal.classList.add('show');
-            reserveModal.setAttribute('aria-hidden', 'false'); // Muestra el modal a los lectores de pantalla
-            reserveBtn.setAttribute('aria-expanded', 'true'); // Indica que el botón disparó un elemento expandido
+            e.preventDefault(); // Previene la acción por defecto del botón
+            reserveModal.style.display = 'block';
+            document.body.classList.add('modal-open'); // Agrega clase para prevenir scroll
+            reserveModal.setAttribute('aria-hidden', 'false');
+            reserveModal.querySelector('.modal-content').focus(); // Mover el foco al contenido del modal
+        });
+    }
 
-            // Mueve el foco al primer elemento enfocable dentro del modal
-            const firstFocusableElement = reserveModal.querySelector(focusableElementsString);
-            if (firstFocusableElement) {
-                firstFocusableElement.focus();
+    // Cierra el modal al hacer clic en la 'X'
+    if (closeModal && reserveModal) {
+        closeModal.addEventListener('click', function() {
+            reserveModal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+            reserveModal.setAttribute('aria-hidden', 'true');
+        });
+    }
+
+    // Cierra el modal al hacer clic fuera del contenido
+    if (reserveModal) {
+        window.addEventListener('click', function(event) {
+            if (event.target == reserveModal) {
+                reserveModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                reserveModal.setAttribute('aria-hidden', 'true');
+            }
+        });
+    }
+
+    // Manejo del formulario de reserva
+    if (reserveForm) {
+        reserveForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Detener el envío por defecto del formulario
+
+            const formData = new FormData(reserveForm);
+            const response = await fetch(reserveForm.action, {
+                method: reserveForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' // Importante para que Formspree responda JSON
+                }
+            });
+
+            if (response.ok) {
+                alert('¡Gracias por tu reserva! Nos pondremos en contacto contigo pronto.');
+                reserveForm.reset(); // Limpiar el formulario
+                reserveModal.style.display = 'none'; // Cerrar el modal
+                document.body.classList.remove('modal-open');
+                reserveModal.setAttribute('aria-hidden', 'true');
             } else {
-                // Si no hay elementos enfocables, el foco se mantiene en el modal (asegúrate que el modal tenga tabindex="-1" si es necesario)
-                reserveModal.focus();
-            }
-        });
-
-        // Función para cerrar el modal (reutilizable)
-        function closeReserveModal() {
-            reserveModal.classList.remove('show');
-            reserveModal.setAttribute('aria-hidden', 'true'); // Oculta el modal a los lectores de pantalla
-            reserveBtn.setAttribute('aria-expanded', 'false'); // Indica que el elemento expandido está ahora colapsado
-
-            if (lastFocusedElement) {
-                lastFocusedElement.focus(); // Restaura el foco al elemento que abrió el modal
-            }
-        }
-
-        closeModal.addEventListener('click', closeReserveModal);
-
-        // Cerrar modal al hacer clic en el fondo
-        reserveModal.addEventListener('click', function(event) {
-            if (event.target === reserveModal) { // Solo si se clica directamente en el fondo del modal
-                closeReserveModal();
-            }
-        });
-
-        // Manejo del teclado para el modal (escape y trampas de foco)
-        reserveModal.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                const focusableElements = Array.from(reserveModal.querySelectorAll(focusableElementsString));
-                if (focusableElements.length === 0) { // Si no hay elementos enfocables dentro del modal, evita que el tab salga
-                    e.preventDefault();
-                    return;
-                }
-                const firstFocusable = focusableElements[0];
-                const lastFocusable = focusableElements[focusableElements.length - 1];
-
-                if (e.shiftKey) { // Shift + Tab
-                    if (document.activeElement === firstFocusable) {
-                        lastFocusable.focus();
-                        e.preventDefault();
-                    }
-                } else { // Tab
-                    if (document.activeElement === lastFocusable) {
-                        firstFocusable.focus();
-                        e.preventDefault();
-                    }
-                }
-            } else if (e.key === 'Escape') { // Cerrar modal con la tecla Escape
-                closeReserveModal();
+                alert('Hubo un error al enviar tu reserva. Por favor, inténtalo de nuevo.');
             }
         });
     }
 
-    // 3. Lógica para los Selectores de Idioma (Refactorizada y mejorada para ARIA)
-    function setupLanguageSwitcher(selector) {
-        const switcher = document.querySelector(selector);
-        if (switcher) {
-            // currentLangBtn es ahora un <button>
-            const currentLangBtn = switcher.querySelector('button.current-lang, button.current-lang-mobile');
-            // langOptions es el div que contiene los role="menuitem"
-            const langOptions = switcher.querySelector('[role="menu"]');
+    // 3. Funcionalidad del Banner Superior
+    const topBanner = document.querySelector('.top-banner');
+    const closeBannerBtn = document.querySelector('.top-banner .close-banner-btn');
 
-            if (currentLangBtn && langOptions) {
-                // Estado inicial: menú de idioma oculto
-                currentLangBtn.setAttribute('aria-expanded', 'false');
-                langOptions.setAttribute('aria-hidden', 'true');
-                langOptions.style.display = 'none'; // Asegura que esté oculto por CSS
+    if (topBanner && closeBannerBtn) {
+        closeBannerBtn.addEventListener('click', function() {
+            topBanner.style.display = 'none';
+            // También puedes usar localStorage para recordar que el usuario cerró el banner
+            localStorage.setItem('bannerClosed', 'true');
+        });
 
-                currentLangBtn.addEventListener('click', function(event) {
-                    event.stopPropagation(); // Evita que el clic propague y cierre inmediatamente
-                    const isExpanded = currentLangBtn.getAttribute('aria-expanded') === 'true';
-                    currentLangBtn.setAttribute('aria-expanded', !isExpanded); // Toggle aria-expanded
-                    langOptions.setAttribute('aria-hidden', isExpanded); // Toggle aria-hidden
-                    langOptions.style.display = isExpanded ? 'none' : 'block'; // Toggle visual display
-                });
-
-                // Cerrar al hacer clic fuera del switcher de idioma
-                document.addEventListener('click', function(event) {
-                    // Si el switcher está activo (abierto) y el clic no fue dentro de él
-                    if (currentLangBtn.getAttribute('aria-expanded') === 'true' && !switcher.contains(event.target)) {
-                        currentLangBtn.setAttribute('aria-expanded', 'false');
-                        langOptions.setAttribute('aria-hidden', 'true');
-                        langOptions.style.display = 'none';
-                    }
-                });
-
-                // Manejar clic en las opciones del menú de idioma
-                langOptions.querySelectorAll('[role="menuitem"]').forEach(option => {
-                    option.addEventListener('click', function(e) {
-                        // e.preventDefault(); // Descomenta si no quieres que el enlace navegue inmediatamente
-                        const newLangText = option.textContent.trim();
-                        currentLangBtn.innerHTML = `${newLangText} <i class="fas fa-chevron-down"></i>`; // Actualiza el texto del botón
-                        currentLangBtn.setAttribute('aria-expanded', 'false');
-                        langOptions.setAttribute('aria-hidden', 'true');
-                        langOptions.style.display = 'none';
-                        // Aquí puedes añadir lógica para cambiar la URL o cargar contenido traducido
-                        // Por ejemplo: window.location.href = option.href;
-                    });
-                });
-            }
+        // Opcional: Si quieres que el banner no aparezca si ya se cerró antes
+        if (localStorage.getItem('bannerClosed') === 'true') {
+            topBanner.style.display = 'none';
         }
     }
 
-    // Aplica la lógica a ambos selectores de idioma
-    setupLanguageSwitcher('.language-switcher-desktop');
-    setupLanguageSwitcher('.language-switcher-mobile-standalone');
-
-
-    // 4. Lógica para el Hero Slider (se mantiene tu lógica actual, con mejoras ARIA)
-    const sliderContainer = document.querySelector('.hero-slider');
+    // 4. Slider de la Portada (index.html)
+    const sliderContainer = document.querySelector('.home-hero-slider');
+    let currentSlide = 0;
+    let slideInterval;
 
     if (sliderContainer) {
-        const slides = Array.from(sliderContainer.querySelectorAll('.slide'));
-        const prevBtn = sliderContainer.querySelector('.slider-nav .prev');
-        const nextBtn = sliderContainer.querySelector('.slider-nav .next');
-        const dotsContainer = sliderContainer.querySelector('.slider-dots'); // El contenedor de los puntos
-        let currentSlide = 0;
-        let slideInterval;
+        const slides = document.querySelectorAll('.home-hero-slide');
+        const prevBtn = document.querySelector('.home-hero-slider .prev-slide');
+        const nextBtn = document.querySelector('.home-hero-slider .next-slide');
+        const dotsContainer = document.querySelector('.home-hero-dots');
+
+        // Crear los puntos (dots) de navegación
+        if (dotsContainer) {
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    resetSlider();
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+        const dots = document.querySelectorAll('.home-hero-dots .dot');
 
         function showSlide(index) {
             slides.forEach((slide, i) => {
                 slide.classList.remove('active');
-                slide.setAttribute('aria-hidden', 'true'); // Ocultar slides inactivos
-                if (dotsContainer) {
-                    const dot = dotsContainer.children[i];
-                    if (dot) {
-                        dot.classList.remove('active');
-                        dot.setAttribute('aria-current', 'false'); // Marcar dot como inactivo
-                    }
-                }
+                if (dots[i]) dots[i].classList.remove('active');
             });
-
             slides[index].classList.add('active');
-            slides[index].setAttribute('aria-hidden', 'false'); // Mostrar slide activo
-            if (dotsContainer) {
-                const activeDot = dotsContainer.children[index];
-                if (activeDot) {
-                    activeDot.classList.add('active');
-                    activeDot.setAttribute('aria-current', 'true'); // Indicar dot activo
-                }
-            }
+            if (dots[index]) dots[index].classList.add('active');
             currentSlide = index;
         }
 
@@ -209,79 +192,121 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function startSlider() {
-            stopSlider(); // Clear any existing interval
-            slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            slideInterval = setInterval(nextSlide, 5000); // Cambia de slide cada 5 segundos
         }
 
-        function stopSlider() {
+        function pauseSlider() {
             clearInterval(slideInterval);
         }
 
-        // Event Listeners para los botones de navegación
-        if (prevBtn) {
-            prevBtn.addEventListener('click', prevSlide);
-        }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', nextSlide);
+        function resetSlider() {
+            pauseSlider();
+            startSlider();
         }
 
-        // Crear puntos de navegación dinámicamente y añadirles ARIA
-        if (slides.length > 0 && dotsContainer) {
-            dotsContainer.innerHTML = ''; // Limpiar puntos existentes
-            slides.forEach((_, i) => {
-                const dot = document.createElement('button'); // Usar <button> para los dots para mejor accesibilidad
-                dot.classList.add('dot');
-                dot.setAttribute('type', 'button'); // Asegura que se comporta como botón
-                dot.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`); // Etiqueta descriptiva
-                dot.setAttribute('role', 'tab'); // Rol ARIA para navegación de pestañas/dots
-                // Opcional: asociar con el ID de la diapositiva si las tienes, por ejemplo: dot.setAttribute('aria-controls', `slide${i + 1}`);
-                dot.addEventListener('click', () => showSlide(i));
-                dotsContainer.appendChild(dot);
+        // Event Listeners para botones de navegación
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                resetSlider();
             });
-            showSlide(currentSlide); // Asegura que el punto correcto esté activo inicialmente
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                nextSlide();
+                resetSlider();
+            });
         }
 
         // Iniciar el slider al cargar la página
-        if (slides.length > 0) { // Asegúrate de que es el slider principal
-             showSlide(currentSlide); // Muestra la primera imagen
-             startSlider(); // Inicia la reproducción automática
+        // Solo si hay slides y botones de navegación
+        if (slides.length > 0 && prevBtn && nextBtn) {
+            showSlide(currentSlide); // Muestra la primera imagen
+            startSlider(); // Inicia la reproducción automática
         }
 
-        // Pausar/Reanudar en hover del slider (corregido de pauseSlider a stopSlider)
+        // Pausar/Reanudar en hover del slider
         if (sliderContainer) {
-            sliderContainer.addEventListener('mouseenter', stopSlider);
+            sliderContainer.addEventListener('mouseenter', pauseSlider);
             sliderContainer.addEventListener('mouseleave', startSlider);
         }
-    }
+    } // Fin del if (sliderContainer)
 
-    // 5. Inicialización de Slick Carousel para la Galería (si se usa)
-    // Este código DEBE estar aquí si usas Slick Carousel en tus páginas
-    // Asegúrate de que jQuery esté cargado ANTES de este script.
-    const galleryCarousel = document.querySelector('.gallery-carousel');
-    if (galleryCarousel && typeof jQuery !== 'undefined' && typeof jQuery.fn.slick !== 'undefined') {
-        $('.gallery-carousel').slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            arrows: true,
-            adaptiveHeight: true
-        });
-    }
-
-    // Código para el hero de la página de tour (si es una página de tour con video)
+    // 5. Código para el hero de la página de tour (si es una página de tour con video)
     const tourHero = document.querySelector('.tour-hero');
     if (tourHero) {
-        const heroContent = document.querySelector('.tour-hero .hero-content');
-        const delayTime = 5000;
+        const heroContent = tourHero.querySelector('.hero-content'); // Selecciona el contenido del hero del tour
+        const delayTime = 5000; // 5000 milisegundos = 5 segundos
 
         setTimeout(function() {
-            if (heroContent) {
+            if (heroContent) { // Asegurarse de que el elemento exista antes de manipularlo
                 heroContent.classList.add('fade-out');
             }
         }, delayTime);
     }
+
+    // 6. Inicialización de Slick Carousel para la galería (chichen.html y otras páginas de tours)
+    // Asegúrate de haber incluido los scripts de jQuery y Slick en tu HTML ANTES de main.js
+    // <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    // <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    if (typeof jQuery !== 'undefined' && $.fn.slick) { // Verifica que jQuery y Slick estén cargados
+        const galleryCarousel = $('.gallery-carousel');
+        if (galleryCarousel.length) { // Solo inicializa si el elemento existe en la página
+            galleryCarousel.slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                adaptiveHeight: true
+            });
+        }
+    } else {
+        console.warn("jQuery o Slick Carousel no están cargados. El carrusel de la galería no se inicializará.");
+    }
+
+    // 7. Language Switcher (Desktop y Mobile)
+    function setupLanguageSwitcher(selector) {
+        const switcher = document.querySelector(selector);
+        if (switcher) {
+            const currentLangDisplay = switcher.querySelector('.current-lang');
+            const langOptions = switcher.querySelector('.lang-options');
+
+            if (currentLangDisplay && langOptions) {
+                currentLangDisplay.addEventListener('click', function() {
+                    langOptions.classList.toggle('show'); // Usa una clase para mostrar/ocultar
+                });
+
+                // Cerrar al hacer clic fuera
+                document.addEventListener('click', function(event) {
+                    if (!switcher.contains(event.target)) {
+                        langOptions.classList.remove('show');
+                    }
+                });
+
+                // Aquí podrías añadir lógica para cambiar realmente el idioma,
+                // por ahora solo es un toggle visual.
+                langOptions.querySelectorAll('a').forEach(option => {
+                    option.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const newLang = option.getAttribute('data-lang').toUpperCase();
+                        currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
+                        langOptions.classList.remove('show');
+                        // Lógica para cambiar la URL o cargar contenido traducido
+                        console.log(`Idioma cambiado a: ${newLang}`);
+                        // Ejemplo: window.location.href = `/${newLang.toLowerCase()}/` + window.location.pathname.split('/').slice(2).join('/');
+                    });
+                });
+            }
+        }
+    }
+
+    setupLanguageSwitcher('.language-switcher-desktop');
+    setupLanguageSwitcher('.language-switcher-mobile-standalone');
+
+
 });
