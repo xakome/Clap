@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-  const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
     // 1. Navbar Toggle para móvil y Desktop (para el language-switcher)
     const toggleBtn = document.querySelector('.toggle');
     const mainNav = document.querySelector('.main-nav');
@@ -18,6 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     
         // 3. Lógica para los Selectores de Idioma
+    const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
+    const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
+
     if (desktopLangSwitcher) {
         desktopLangSwitcher.addEventListener('click', function(event) {
             // Evita que el clic propague y cierre el menú si se hace clic fuera
