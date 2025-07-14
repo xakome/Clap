@@ -24,88 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Evita que el clic propague y cierre el menú si se hace clic fuera
             event.stopPropagation();
             desktopLangSwitcher.classList.toggle('active');
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
 
         // Cerrar selector de idioma desktop al hacer clic fuera
         document.addEventListener('click', function(event) {
             if (desktopLangSwitcher.classList.contains('active') && !desktopLangSwitcher.contains(event.target)) {
                 desktopLangSwitcher.classList.remove('active');
             }
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
     }
 
     if (mobileLangSwitcher) {
@@ -113,128 +39,17 @@ if (mobileLangSwitcher) {
             // Evita que el clic propague y cierre el menú si se hace clic fuera
             event.stopPropagation();
             mobileLangSwitcher.classList.toggle('active');
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
 
         // Cerrar selector de idioma móvil al hacer clic fuera
         document.addEventListener('click', function(event) {
             if (mobileLangSwitcher.classList.contains('active') && !mobileLangSwitcher.contains(event.target)) {
                 mobileLangSwitcher.classList.remove('active');
             }
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
     }
         
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
 
 
 
@@ -247,44 +62,7 @@ if (mobileLangSwitcher) {
                 toggleBtn.innerHTML = '&#9776;'; // Vuelve al ícono de hamburguesa
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
             }
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
     }
 
     // 2. Modal de Reserva
@@ -301,44 +79,7 @@ if (mobileLangSwitcher) {
             document.body.classList.add('modal-open'); // Agrega clase para prevenir scroll
             reserveModal.setAttribute('aria-hidden', 'false');
             reserveModal.querySelector('.modal-content').focus(); // Mover el foco al contenido del modal
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
     }
 
     // Cierra el modal al hacer clic en la 'X'
@@ -347,44 +88,7 @@ if (mobileLangSwitcher) {
             reserveModal.style.display = 'none';
             document.body.classList.remove('modal-open');
             reserveModal.setAttribute('aria-hidden', 'true');
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
     }
 
     // Cierra el modal al hacer clic fuera del contenido
@@ -395,44 +99,7 @@ if (mobileLangSwitcher) {
                 document.body.classList.remove('modal-open');
                 reserveModal.setAttribute('aria-hidden', 'true');
             }
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
     }
 
     // Manejo del formulario de reserva
@@ -447,44 +114,7 @@ if (mobileLangSwitcher) {
                 headers: {
                     'Accept': 'application/json' // Importante para que Formspree responda JSON
                 }
-            
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+            });
 
             if (response.ok) {
                 alert('¡Gracias por tu reserva! Nos pondremos en contacto contigo pronto.');
@@ -495,44 +125,7 @@ if (mobileLangSwitcher) {
             } else {
                 alert('Hubo un error al enviar tu reserva. Por favor, inténtalo de nuevo.');
             }
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
     }
 
     // 3. Funcionalidad del Banner Superior
@@ -544,44 +137,7 @@ if (mobileLangSwitcher) {
             topBanner.style.display = 'none';
             // También puedes usar localStorage para recordar que el usuario cerró el banner
             localStorage.setItem('bannerClosed', 'true');
-        
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
         });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
 
         // Opcional: Si quieres que el banner no aparezca si ya se cerró antes
         if (localStorage.getItem('bannerClosed') === 'true') {
@@ -609,83 +165,9 @@ if (mobileLangSwitcher) {
                 dot.addEventListener('click', () => {
                     showSlide(index);
                     resetSlider();
-                
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+                });
                 dotsContainer.appendChild(dot);
-            
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+            });
         }
         const dots = document.querySelectorAll('.home-hero-dots .dot');
 
@@ -693,44 +175,7 @@ if (mobileLangSwitcher) {
             slides.forEach((slide, i) => {
                 slide.classList.remove('active');
                 if (dots[i]) dots[i].classList.remove('active');
-            
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+            });
             slides[index].classList.add('active');
             if (dots[index]) dots[index].classList.add('active');
             currentSlide = index;
@@ -764,87 +209,13 @@ if (mobileLangSwitcher) {
             prevBtn.addEventListener('click', function() {
                 prevSlide();
                 resetSlider();
-            
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+            });
         }
         if (nextBtn) {
             nextBtn.addEventListener('click', function() {
                 nextSlide();
                 resetSlider();
-            
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+            });
         }
 
         // Iniciar el slider al cargar la página
@@ -892,44 +263,7 @@ if (mobileLangSwitcher) {
                 autoplaySpeed: 3000,
                 arrows: true,
                 adaptiveHeight: true
-            
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+            });
         }
     } else {
         console.warn("jQuery o Slick Carousel no están cargados. El carrusel de la galería no se inicializará.");
@@ -945,88 +279,14 @@ if (mobileLangSwitcher) {
             if (currentLangDisplay && langOptions) {
                 currentLangDisplay.addEventListener('click', function() {
                     langOptions.classList.toggle('show'); // Usa una clase para mostrar/ocultar
-                
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+                });
 
                 // Cerrar al hacer clic fuera
                 document.addEventListener('click', function(event) {
                     if (!switcher.contains(event.target)) {
                         langOptions.classList.remove('show');
                     }
-                
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+                });
 
                 // Aquí podrías añadir lógica para cambiar realmente el idioma,
                 // por ahora solo es un toggle visual.
@@ -1039,82 +299,8 @@ if (mobileLangSwitcher) {
                         // Lógica para cambiar la URL o cargar contenido traducido
                         console.log(`Idioma cambiado a: ${newLang}`);
                         // Ejemplo: window.location.href = `/${newLang.toLowerCase()}/` + window.location.pathname.split('/').slice(2).join('/');
-                    
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
-                
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-});
+                    });
+                });
             }
         }
     }
@@ -1122,42 +308,5 @@ if (mobileLangSwitcher) {
     setupLanguageSwitcher('.language-switcher-desktop');
     setupLanguageSwitcher('.language-switcher-mobile-standalone');
 
-
-
-// Selector de idioma (ESCRITORIO)
-const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-if (desktopLangSwitcher) {
-    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
-    if (currentLangBtn) {
-        currentLangBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!desktopLangSwitcher.contains(e.target)) {
-            desktopLangSwitcher.classList.remove('active');
-        }
-    });
-}
-
-// Selector de idioma (MÓVIL)
-const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
-if (mobileLangSwitcher) {
-    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
-    if (currentLangMobile) {
-        currentLangMobile.addEventListener('click', function (e) {
-            e.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-    }
-
-    document.addEventListener('click', function (e) {
-        if (!mobileLangSwitcher.contains(e.target)) {
-            mobileLangSwitcher.classList.remove('active');
-        }
-    });
-}
 
 });
