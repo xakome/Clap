@@ -15,42 +15,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
             }
     
-        // 3. Lógica para los Selectores de Idioma
-    const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-    const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
+      // Selector de idioma (ESCRITORIO)
+const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
+if (desktopLangSwitcher) {
+    const currentLangBtn = desktopLangSwitcher.querySelector('.current-lang');
+    currentLangBtn.addEventListener('click', function (e) {
+        e.stopPropagation(); // Evita que se cierre por clic fuera
+        desktopLangSwitcher.classList.toggle('active');
+    });
 
-    if (desktopLangSwitcher) {
-        desktopLangSwitcher.addEventListener('click', function(event) {
-            // Evita que el clic propague y cierre el menú si se hace clic fuera
-            event.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
+    document.addEventListener('click', function (e) {
+        if (!desktopLangSwitcher.contains(e.target)) {
+            desktopLangSwitcher.classList.remove('active');
+        }
+    });
+}
 
-        // Cerrar selector de idioma desktop al hacer clic fuera
-        document.addEventListener('click', function(event) {
-            if (desktopLangSwitcher.classList.contains('active') && !desktopLangSwitcher.contains(event.target)) {
-                desktopLangSwitcher.classList.remove('active');
-            }
-        });
-    }
+// Selector de idioma (MÓVIL)
+const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
+if (mobileLangSwitcher) {
+    const currentLangMobile = mobileLangSwitcher.querySelector('.current-lang-mobile');
+    currentLangMobile.addEventListener('click', function (e) {
+        e.stopPropagation(); // Evita que se cierre por clic fuera
+        mobileLangSwitcher.classList.toggle('active');
+    });
 
-    if (mobileLangSwitcher) {
-        mobileLangSwitcher.addEventListener('click', function(event) {
-            // Evita que el clic propague y cierre el menú si se hace clic fuera
-            event.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-
-        // Cerrar selector de idioma móvil al hacer clic fuera
-        document.addEventListener('click', function(event) {
-            if (mobileLangSwitcher.classList.contains('active') && !mobileLangSwitcher.contains(event.target)) {
-                mobileLangSwitcher.classList.remove('active');
-            }
-        });
-    }
-        
-        });
-
+    document.addEventListener('click', function (e) {
+        if (!mobileLangSwitcher.contains(e.target)) {
+            mobileLangSwitcher.classList.remove('active');
+        }
+    });
+}
 
 
 
