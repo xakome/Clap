@@ -189,4 +189,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setupLanguageSwitcher('.language-switcher-desktop');
     setupLanguageSwitcher('.language-switcher-mobile-standalone');
+
+// Doble toque para mostrar overlay en móviles
+const tourBoxes = document.querySelectorAll('.tour-box');
+
+tourBoxes.forEach(box => {
+  box.addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+      if (!box.classList.contains('hovered')) {
+        e.preventDefault(); // Evita que el enlace se dispare
+        tourBoxes.forEach(b => b.classList.remove('hovered')); // Quita el hover a los demás
+        box.classList.add('hovered');
+        setTimeout(() => box.classList.remove('hovered'), 5000); // Quitar después de 5s
+      } else {
+        // Segundo toque: sigue el enlace
+        box.classList.remove('hovered');
+        window.location.href = box.href;
+      }
+    }
+  });
 });
+    
