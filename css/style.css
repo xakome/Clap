@@ -530,7 +530,7 @@ a {
     border-radius: 10px;
 }
 .tour-box:hover .tour-overlay,
-.tour-box.active .tour-overlay {
+.tour-box.hovered .tour-overlay {
     opacity: 1;
     pointer-events: auto;
 }
