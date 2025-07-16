@@ -1247,24 +1247,24 @@ footer .footer-cta-link:hover {
 /* --- Estilos para la Galería de Carrusel Mejorada --- */
 .gallery-carousel-section {
     padding: 3rem 1.5rem;
-    max-width: 1000px; /* Ancho máximo para el contenedor del carrusel */
+    max-width: 1000px;
     margin: auto;
     text-align: center;
 }
 
 .gallery-carousel {
     margin-top: 2rem;
-    height: 400px; /* Altura fija para evitar cambios de tamaño */
-    position: relative; /* Necesario para posicionar flechas */
-    overflow: visible;  /* Permite que las flechas se vean fuera del carrusel */
+    position: relative;
+    overflow: visible; /* Permite que las flechas se vean */
 }
 
-/* Estilos para cada 'slide' o elemento del carrusel */
+/* Cada slide del carrusel */
 .gallery-carousel .slick-slide {
     padding: 10px;
     box-sizing: border-box;
 }
 
+/* Frame fijo para cada imagen */
 .gallery-item-frame {
     border: 5px solid #f0f0f0;
     border-radius: 10px;
@@ -1274,7 +1274,8 @@ footer .footer-cta-link:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Aprovecha el alto del contenedor del carrusel */
+    height: 400px; /* Altura fija estable para evitar cambios de tamaño */
+    flex-shrink: 0;
 }
 
 .gallery-item-frame:hover {
@@ -1289,28 +1290,33 @@ footer .footer-cta-link:hover {
     display: block;
 }
 
-/* Ajustes para móvil */
+/* Ajustes responsive para móvil */
 @media (max-width: 768px) {
-    .gallery-carousel {
-        height: 250px;
-    }
-
     .gallery-item-frame {
-        height: 100%;
+        height: 250px;
     }
 }
 
 /* Flechas de navegación Slick */
 .slick-prev,
 .slick-next {
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
+    z-index: 10;
     width: 40px;
     height: 40px;
 }
 
-/* Estilo de las flechas */
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -40px;
+}
+
+/* Estilo de flechas */
 .slick-prev:before,
 .slick-next:before {
     font-size: 40px;
