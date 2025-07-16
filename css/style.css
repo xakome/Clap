@@ -562,6 +562,36 @@ a {
     background-color: #e68900;
 }
 
+/* Ajustes solo para escritorio para evitar desborde de texto */
+@media (min-width: 769px) {
+  .tour-box {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tour-overlay {
+    overflow: auto;
+    max-height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .tour-overlay h3,
+  .tour-overlay p {
+    word-break: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+
+  .tour-overlay h3 {
+    font-size: 1.3rem;
+  }
+
+  .tour-overlay p {
+    font-size: 0.95rem;
+  }
+}
+
 /* Sección "Por Qué Elegirnos" */
 .why-us {
     max-width: 1200px;
