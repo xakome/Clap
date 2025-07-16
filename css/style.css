@@ -1254,8 +1254,13 @@ footer .footer-cta-link:hover {
 
 .gallery-carousel {
     margin-top: 2rem;
-    position: relative;
     overflow: visible; /* Permite que las flechas se vean */
+    position: relative;
+}
+
+.slick-slider {
+    overflow: visible;
+    position: relative;
 }
 
 /* Cada slide del carrusel */
@@ -1275,6 +1280,9 @@ footer .footer-cta-link:hover {
     align-items: center;
     justify-content: center;
     height: 400px; /* Altura fija estable para evitar cambios de tamaño */
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 4 / 3; /* Fuerza proporción 4:3 */
     flex-shrink: 0;
 }
 
@@ -1333,7 +1341,6 @@ footer .footer-cta-link:hover {
 .slick-dots li.slick-active button:before {
     color: #004d40;
 }
-
 /* Testimonios */
 .testimonials {
     background: #fff;
