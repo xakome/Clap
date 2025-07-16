@@ -137,24 +137,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }, delayTime);
     }
 
-    if (typeof jQuery !== 'undefined' && $.fn.slick) {
-        const galleryCarousel = $('.gallery-carousel');
-        if (galleryCarousel.length) {
-            galleryCarousel.slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                adaptiveHeight: true
-            });
-        }
-    } else {
-        console.warn("jQuery o Slick Carousel no están cargados. El carrusel de la galería no se inicializará.");
+ if (typeof jQuery !== 'undefined' && $.fn.slick) {
+    const galleryCarousel = $('.gallery-carousel');
+    if (galleryCarousel.length) {
+        galleryCarousel.slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            arrows: true,
+            adaptiveHeight: true,
+            pauseOnFocus: false,       // evita que se pause al hacer clic
+            pauseOnHover: false,       // evita que se pause al pasar el mouse
+            pauseOnDotsHover: false    // evita que se pause al tocar los puntos
+        });
     }
+} else {
+    console.warn("jQuery o Slick Carousel no están cargados. El carrusel de la galería no se inicializará.");
+}
+
 
     function setupLanguageSwitcher(selector) {
         const switcher = document.querySelector(selector);
