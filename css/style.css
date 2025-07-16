@@ -1305,15 +1305,18 @@ footer .footer-cta-link:hover {
     }
 }
 
-/* Flechas de navegación Slick */
 .slick-prev,
 .slick-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 1000;
     width: 40px;
     height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .slick-prev {
@@ -1324,33 +1327,27 @@ footer .footer-cta-link:hover {
     right: -40px;
 }
 
-.slick-prev::before {
-    content: "\f104"; /* ícono de flecha izquierda Font Awesome */
-    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+.slick-prev::before,
+.slick-next::before {
+    display: block;
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     font-size: 40px;
     color: #00695c;
     opacity: 1;
+    line-height: 1;
+    text-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+.slick-prev::before {
+    content: "\f104";
 }
 
 .slick-next::before {
-    content: "\f105"; /* ícono de flecha derecha Font Awesome */
-    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
-    font-weight: 900;
-    font-size: 40px;
-    color: #00695c;
-    opacity: 1;
+    content: "\f105";
 }
 
-/* Puntos de navegación */
-.slick-dots li button:before {
-    font-size: 12px;
-    color: #00695c;
-}
 
-.slick-dots li.slick-active button:before {
-    color: #004d40;
-}
 /* Testimonios */
 .testimonials {
     background: #fff;
