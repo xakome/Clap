@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
             autoplay: true,
             autoplaySpeed: 3000,
             arrows: true,
-            adaptiveHeight: true,
+            adaptiveHeight: false,
             pauseOnFocus: false,       // evita que se pause al hacer clic
             pauseOnHover: false,       // evita que se pause al pasar el mouse
             pauseOnDotsHover: false    // evita que se pause al tocar los puntos
