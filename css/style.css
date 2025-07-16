@@ -1254,63 +1254,79 @@ footer .footer-cta-link:hover {
 
 .gallery-carousel {
     margin-top: 2rem;
-    /* Estilos específicos de Slick Carousel pueden estar aquí o en slick-theme.min.css */
+    height: 400px; /* Altura fija para evitar cambios de tamaño */
+    position: relative; /* Necesario para posicionar flechas */
+    overflow: visible;  /* Permite que las flechas se vean fuera del carrusel */
 }
 
-/* Estilos para cada 'slide' o elemento del carrusel, incluyendo el "frame" */
+/* Estilos para cada 'slide' o elemento del carrusel */
 .gallery-carousel .slick-slide {
-    padding: 10px; /* Esto crea un "marco" alrededor de la imagen */
-    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .gallery-item-frame {
-    border: 5px solid #f0f0f0; /* Borde ligero para el frame */
-    border-radius: 10px; /* Bordes redondeados para el frame */
-    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del frame */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
-    transition: transform 0.3s ease; /* Transición suave al pasar el ratón */
-    display: flex; /* Para centrar la imagen dentro del frame si es necesario */
+    border: 5px solid #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    display: flex;
     align-items: center;
     justify-content: center;
-    /* Asegura que el frame tenga una altura definida o que se ajuste al contenido */
-    height: 400px; /* Altura fija para el frame en desktop */
+    height: 100%; /* Aprovecha el alto del contenedor del carrusel */
 }
 
 .gallery-item-frame:hover {
-    transform: translateY(-5px); /* Efecto sutil de levantamiento al pasar el ratón */
+    transform: translateY(-5px);
 }
 
-.gallery-carousel img {
-    width: 100%; /* La imagen ocupa todo el ancho del frame */
-    height: 100%; /* La imagen ocupa toda la altura del frame */
-    object-fit: cover; /* Ajusta la imagen para cubrir el frame sin distorsionarse */
-    border-radius: 5px; /* Bordes redondeados para la imagen (ligeramente menos que el frame) */
-    display: block; /* Elimina el espacio extra debajo de la imagen */
+.gallery-item-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
 }
 
-/* Ajustes para móvil para la galería */
+/* Ajustes para móvil */
 @media (max-width: 768px) {
+    .gallery-carousel {
+        height: 250px;
+    }
+
     .gallery-item-frame {
-        height: 250px; /* Menor altura para el frame en móvil */
+        height: 100%;
     }
 }
 
-/* Estilos para las flechas de navegación de Slick (ajusta los colores a tu marca) */
-.slick-prev:before, .slick-next:before {
-    font-size: 40px;
-    color: #00695c; /* Color de las flechas */
+/* Flechas de navegación Slick */
+.slick-prev,
+.slick-next {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 40px;
+    height: 40px;
 }
 
-/* Estilos para los puntos de paginación de Slick */
+/* Estilo de las flechas */
+.slick-prev:before,
+.slick-next:before {
+    font-size: 40px;
+    color: #00695c;
+    opacity: 1;
+}
+
+/* Puntos de navegación */
 .slick-dots li button:before {
     font-size: 12px;
-    color: #00695c; /* Color de los puntos inactivos */
+    color: #00695c;
 }
 
 .slick-dots li.slick-active button:before {
-    color: #004d40; /* Color de los puntos activos */
+    color: #004d40;
 }
-
 
 /* Testimonios */
 .testimonials {
