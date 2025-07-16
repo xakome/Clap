@@ -2028,7 +2028,7 @@ footer .footer-cta-link:hover {
 }
 
 /* Estilos para las flechas de navegación de Slick (ajusta los colores a tu marca) */
-.slick-prev:before, .slick-next:before {
+.slick-prev::before, .slick-next::before {
     font-size: 40px;
     color: #00695c; /* Color de las flechas */
 }
