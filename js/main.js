@@ -154,6 +154,44 @@ document.addEventListener('DOMContentLoaded', function() {
             pauseOnHover: false,       // evita que se pause al pasar el mouse
             pauseOnDotsHover: false    // evita que se pause al tocar los puntos
         });
+
+        // 🔲 Código para fullscreen al hacer clic en imagen
+  const galleryImages = document.querySelectorAll('.gallery-carousel .gallery-item-frame img');
+  const modal = document.getElementById('fullscreenCarouselModal');
+  const closeBtn = modal.querySelector('.fullscreen-close');
+  const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
+
+  galleryImages.forEach((img) => {
+    img.addEventListener('click', () => {
+      fullscreenContainer.innerHTML = '';
+      const clone = img.closest('.gallery-item-frame').cloneNode(true);
+      fullscreenContainer.appendChild(clone);
+
+      $(fullscreenContainer).slick({
+        dots: true,
+        arrows: true,
+        infinite: true,
+      });
+
+      modal.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    $(fullscreenContainer).slick('unslick');
+    fullscreenContainer.innerHTML = '';
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === "Escape") {
+      modal.style.display = 'none';
+      $(fullscreenContainer).slick('unslick');
+      fullscreenContainer.innerHTML = '';
+    }
+  });
+});
+     
     }
 } else {
     console.warn("jQuery o Slick Carousel no están cargados. El carrusel de la galería no se inicializará.");
