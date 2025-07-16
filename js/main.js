@@ -191,21 +191,21 @@ document.addEventListener('DOMContentLoaded', function() {
     setupLanguageSwitcher('.language-switcher-mobile-standalone');
 
 // ✅ Doble toque en móviles para mostrar overlay primero y luego redirigir
-    const tourBoxes = document.querySelectorAll('.tour-box');
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            const clickedBox = e.target.closest('.tour-box');
+            if (!clickedBox) return; // Ignorar si no se tocó una tour-box
 
-    tourBoxes.forEach(box => {
-        box.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                if (!box.classList.contains('hovered')) {
-                    e.preventDefault(); // Evita que se siga el enlace
-                    tourBoxes.forEach(b => b.classList.remove('hovered'));
-                    box.classList.add('hovered');
-                    setTimeout(() => box.classList.remove('hovered'), 5000); // Oculta después de 5s
-                } else {
-                    box.classList.remove('hovered');
-                    window.location.href = box.href;
-      }
-    }
-  });
+            if (!clickedBox.classList.contains('hovered')) {
+                e.preventDefault();
+                document.querySelectorAll('.tour-box.hovered').forEach(box => box.classList.remove('hovered'));
+                clickedBox.classList.add('hovered');
+                console.log("🟡 Primer toque: hover activado");
+                setTimeout(() => clickedBox.classList.remove('hovered'), 5000);
+            } else {
+                console.log("🟢 Segundo toque: redirigiendo a", clickedBox.href);
+                window.location.href = clickedBox.href;
+            }
+        }
+    });
 });
-    
