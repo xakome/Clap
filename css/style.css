@@ -2040,6 +2040,28 @@ footer .footer-cta-link:hover {
     color: #004d40; /* Color de los puntos activos */
 }
 
+/* --- Estilos para Carrusel Full Screen --- */
+.gallery-carousel-fullscreen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gallery-carousel-fullscreen .gallery-item-frame {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.gallery-carousel-fullscreen .gallery-item-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 /* Testimonios */
 .testimonials {
