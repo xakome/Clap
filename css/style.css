@@ -1324,9 +1324,19 @@ footer .footer-cta-link:hover {
     right: -40px;
 }
 
-/* Estilo de flechas */
-.slick-prev:before,
+.slick-prev:before {
+    content: "\f104"; /* ícono de flecha izquierda Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 40px;
+    color: #00695c;
+    opacity: 1;
+}
+
 .slick-next:before {
+    content: "\f105"; /* ícono de flecha derecha Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
     font-size: 40px;
     color: #00695c;
     opacity: 1;
