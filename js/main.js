@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Menú hamburguesa
     const toggleBtn = document.querySelector('.toggle');
     const mainNav = document.querySelector('.main-nav');
 
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         document.addEventListener('click', function (event) {
-            if (!mainNav.contains(event.target) && !toggleBtn.contains(event.target) && mainNav.classList.contains('active')) {
+            if (!mainNav.contains(event.target) && !toggleBtn.contains(event.target)) {
                 mainNav.classList.remove('active');
                 toggleBtn.innerHTML = '&#9776;';
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Modal de reserva
     const reserveBtn = document.querySelector('.reserve-btn');
     const reserveModal = document.getElementById('reserveModal');
     const closeModal = document.querySelector('.modal .close-button');
@@ -59,23 +61,22 @@ document.addEventListener('DOMContentLoaded', function () {
             const response = await fetch(reserveForm.action, {
                 method: reserveForm.method,
                 body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             });
 
             if (response.ok) {
-                alert('¡Gracias por tu reserva! Nos pondremos en contacto contigo pronto.');
+                alert('¡Gracias por tu reserva!');
                 reserveForm.reset();
                 reserveModal.style.display = 'none';
                 document.body.classList.remove('modal-open');
                 reserveModal.setAttribute('aria-hidden', 'true');
             } else {
-                alert('Hubo un error al enviar tu reserva. Por favor, inténtalo de nuevo.');
+                alert('Hubo un error al enviar tu reserva.');
             }
         });
     }
 
+    // Banner superior
     const topBanner = document.querySelector('.top-banner');
     const closeBannerBtn = document.querySelector('.top-banner .close-banner-btn');
 
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Efecto fade en el hero
     const tourHero = document.querySelector('.tour-hero');
     if (tourHero) {
         const heroContent = tourHero.querySelector('.hero-content');
@@ -99,35 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 
-    function setupLanguageSwitcher(selector) {
-        const switcher = document.querySelector(selector);
-        if (switcher) {
-            const currentLangDisplay = switcher.querySelector('.current-lang');
-            const langOptions = switcher.querySelector('.lang-options');
-
-            if (currentLangDisplay && langOptions) {
-                currentLangDisplay.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    langOptions.classList.toggle('show');
-                });
-
-                langOptions.querySelectorAll('a').forEach(option => {
-                    option.setAttribute('role', 'menuitem');
-                    option.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const newLang = option.getAttribute('data-lang').toUpperCase();
-                        currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
-                        langOptions.classList.remove('show');
-                        console.log(`Idioma cambiado a: ${newLang}`);
-                    });
-                });
-            }
-        }
-    }
-
-    setupLanguageSwitcher('.language-switcher-desktop');
-    setupLanguageSwitcher('.language-switcher-mobile-standalone');
-
+    // Slick principal
     if (typeof jQuery !== 'undefined' && $.fn.slick) {
         const galleryCarousel = $('.gallery-carousel');
         if (galleryCarousel.length) {
@@ -152,20 +126,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
             document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
                 img.addEventListener('click', () => {
-                    fullscreenContainer.innerHTML = '<div class="gallery-carousel"></div>';
-                    const clonedCarousel = fullscreenContainer.querySelector('.gallery-carousel');
-                    document.querySelectorAll('.gallery-carousel .gallery-item-frame').forEach(frame => {
-                        const clone = frame.cloneNode(true);
-                        clonedCarousel.appendChild(clone);
+                    fullscreenContainer.innerHTML = '';
+
+                    // Clonar imágenes individualmente (sin clases slick)
+                    const images = Array.from(document.querySelectorAll('.gallery-carousel .gallery-item-frame')).map(item => {
+                        const wrapper = document.createElement('div');
+                        wrapper.classList.add('gallery-item-frame');
+                        const imgClone = item.querySelector('img').cloneNode();
+                        wrapper.appendChild(imgClone);
+                        return wrapper;
                     });
-                    $(clonedCarousel).slick({ dots: true, arrows: true, infinite: true });
+
+                    images.forEach(img => fullscreenContainer.appendChild(img));
+                    $(fullscreenContainer).slick({
+                        dots: true,
+                        infinite: true,
+                        arrows: true
+                    });
+
                     modal.style.display = 'flex';
                 });
             });
 
             function closeFullscreenCarousel() {
                 modal.style.display = 'none';
-                $('.fullscreen-carousel .gallery-carousel').slick('unslick');
+                if ($(fullscreenContainer).hasClass('slick-initialized')) {
+                    $(fullscreenContainer).slick('unslick');
+                }
                 fullscreenContainer.innerHTML = '';
             }
 
@@ -176,6 +163,43 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Selector de idioma
+    function setupLanguageSwitcher(selector) {
+        const switcher = document.querySelector(selector);
+        if (!switcher) return;
+
+        const currentLangDisplay = switcher.querySelector('.current-lang');
+        const langOptions = switcher.querySelector('.lang-options');
+
+        if (!currentLangDisplay || !langOptions) return;
+
+        currentLangDisplay.addEventListener('click', function (e) {
+            e.stopPropagation();
+            langOptions.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!switcher.contains(e.target)) {
+                langOptions.classList.remove('show');
+            }
+        });
+
+        langOptions.querySelectorAll('a').forEach(option => {
+            option.setAttribute('role', 'menuitem');
+            option.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const newLang = option.getAttribute('data-lang').toUpperCase();
+                currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
+                langOptions.classList.remove('show');
+            });
+        });
+    }
+
+    setupLanguageSwitcher('.language-switcher-desktop');
+    setupLanguageSwitcher('.language-switcher-mobile-standalone');
+
+    // Hover en tarjetas móviles
     document.addEventListener('click', function (e) {
         if (window.innerWidth <= 768) {
             const clickedBox = e.target.closest('.tour-box');
@@ -184,10 +208,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 document.querySelectorAll('.tour-box.hovered').forEach(box => box.classList.remove('hovered'));
                 clickedBox.classList.add('hovered');
-                console.log("🟡 Primer toque: hover activado");
                 setTimeout(() => clickedBox.classList.remove('hovered'), 5000);
             } else {
-                console.log("🟢 Segundo toque: redirigiendo a", clickedBox.href);
                 window.location.href = clickedBox.href;
             }
         }
