@@ -155,48 +155,47 @@ document.addEventListener('DOMContentLoaded', function() {
             pauseOnDotsHover: false    // evita que se pause al tocar los puntos
         });
 
-        // 🔲 Código para fullscreen al hacer clic en imagen
-  const galleryImages = document.querySelectorAll('.gallery-carousel .gallery-item-frame img');
-  const modal = document.getElementById('fullscreenCarouselModal');
-  const closeBtn = modal.querySelector('.fullscreen-close');
-  const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
+// Código para fullscreen al hacer clic en imagen del carrusel
+const gallery = document.querySelector('.gallery-carousel');
+const modal = document.getElementById('fullscreenCarouselModal');
+const closeBtn = modal.querySelector('.fullscreen-close');
+const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
 
-  galleryImages.forEach((img) => {
-    img.addEventListener('click', () => {
-      fullscreenContainer.innerHTML = '';
-      const clone = img.closest('.gallery-item-frame').cloneNode(true);
-      fullscreenContainer.appendChild(clone);
-
-      $(fullscreenContainer).slick({
-        dots: true,
-        arrows: true,
-        infinite: true,
-      });
-
-      modal.style.display = 'flex';
-    });
-  });
-
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-    $(fullscreenContainer).slick('unslick');
+// Al hacer clic en cualquier imagen de la galería
+document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
+  img.addEventListener('click', () => {
     fullscreenContainer.innerHTML = '';
-  });
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key === "Escape") {
-      modal.style.display = 'none';
-      $(fullscreenContainer).slick('unslick');
-      fullscreenContainer.innerHTML = '';
-    }
+    // Clonar todo el carrusel original
+    const cloneCarousel = gallery.cloneNode(true);
+    fullscreenContainer.appendChild(cloneCarousel);
+
+    // Inicializar Slick sobre el clon
+    $(cloneCarousel).slick({
+      dots: true,
+      arrows: true,
+      infinite: true,
+    });
+
+    modal.style.display = 'flex';
   });
 });
-     
-    }
-} else {
-    console.warn("jQuery o Slick Carousel no están cargados. El carrusel de la galería no se inicializará.");
+
+// Cerrar el modal
+function closeFullscreenCarousel() {
+  modal.style.display = 'none';
+  $('.fullscreen-carousel .slick-slider').slick('unslick');
+  fullscreenContainer.innerHTML = '';
 }
 
+closeBtn.addEventListener('click', closeFullscreenCarousel);
+
+// Cerrar con tecla Escape
+document.addEventListener('keydown', function (e) {
+  if (e.key === "Escape") {
+    closeFullscreenCarousel();
+  }
+});
 
     function setupLanguageSwitcher(selector) {
         const switcher = document.querySelector(selector);
