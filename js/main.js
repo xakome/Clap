@@ -99,52 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 
-    if (typeof jQuery !== 'undefined' && $.fn.slick) {
-        const galleryCarousel = $('.gallery-carousel');
-        if (galleryCarousel.length) {
-            galleryCarousel.slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                adaptiveHeight: false,
-                pauseOnFocus: false,
-                pauseOnHover: false,
-                pauseOnDotsHover: false
-            });
-
-            const gallery = document.querySelector('.gallery-carousel');
-            const modal = document.getElementById('fullscreenCarouselModal');
-            const closeBtn = modal.querySelector('.fullscreen-close');
-            const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
-
-            document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
-                img.addEventListener('click', () => {
-                    fullscreenContainer.innerHTML = '';
-                    const cloneCarousel = gallery.cloneNode(true);
-                    fullscreenContainer.appendChild(cloneCarousel);
-                    $(cloneCarousel).slick({ dots: true, arrows: true, infinite: true });
-                    modal.style.display = 'flex';
-                });
-            });
-
-            function closeFullscreenCarousel() {
-                modal.style.display = 'none';
-                $('.fullscreen-carousel .slick-slider').slick('unslick');
-                fullscreenContainer.innerHTML = '';
-            }
-
-            closeBtn.addEventListener('click', closeFullscreenCarousel);
-            document.addEventListener('keydown', function (e) {
-                if (e.key === "Escape") closeFullscreenCarousel();
-            });
-        }
-    }
-
     function setupLanguageSwitcher(selector) {
         const switcher = document.querySelector(selector);
         if (switcher) {
@@ -152,14 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const langOptions = switcher.querySelector('.lang-options');
 
             if (currentLangDisplay && langOptions) {
-                currentLangDisplay.addEventListener('click', function () {
+                currentLangDisplay.addEventListener('click', function (e) {
+                    e.stopPropagation();
                     langOptions.classList.toggle('show');
-                });
-
-                document.addEventListener('click', function (event) {
-                    if (!switcher.contains(event.target)) {
-                        langOptions.classList.remove('show');
-                    }
                 });
 
                 langOptions.querySelectorAll('a').forEach(option => {
@@ -178,6 +127,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setupLanguageSwitcher('.language-switcher-desktop');
     setupLanguageSwitcher('.language-switcher-mobile-standalone');
+
+    if (typeof jQuery !== 'undefined' && $.fn.slick) {
+        const galleryCarousel = $('.gallery-carousel');
+        if (galleryCarousel.length) {
+            galleryCarousel.slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                adaptiveHeight: false,
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                pauseOnDotsHover: false
+            });
+
+            const modal = document.getElementById('fullscreenCarouselModal');
+            const closeBtn = modal.querySelector('.fullscreen-close');
+            const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
+
+            document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
+                img.addEventListener('click', () => {
+                    fullscreenContainer.innerHTML = '<div class="gallery-carousel"></div>';
+                    const clonedCarousel = fullscreenContainer.querySelector('.gallery-carousel');
+                    document.querySelectorAll('.gallery-carousel .gallery-item-frame').forEach(frame => {
+                        const clone = frame.cloneNode(true);
+                        clonedCarousel.appendChild(clone);
+                    });
+                    $(clonedCarousel).slick({ dots: true, arrows: true, infinite: true });
+                    modal.style.display = 'flex';
+                });
+            });
+
+            function closeFullscreenCarousel() {
+                modal.style.display = 'none';
+                $('.fullscreen-carousel .gallery-carousel').slick('unslick');
+                fullscreenContainer.innerHTML = '';
+            }
+
+            closeBtn.addEventListener('click', closeFullscreenCarousel);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === "Escape") closeFullscreenCarousel();
+            });
+        }
+    }
 
     document.addEventListener('click', function (e) {
         if (window.innerWidth <= 768) {
