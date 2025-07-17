@@ -1,53 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Navbar Toggle para móvil y Desktop (para el language-switcher)
+document.addEventListener('DOMContentLoaded', function () {
     const toggleBtn = document.querySelector('.toggle');
     const mainNav = document.querySelector('.main-nav');
-    const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
-    const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
 
     if (toggleBtn && mainNav) {
-        toggleBtn.addEventListener('click', function() {
+        toggleBtn.addEventListener('click', function () {
             mainNav.classList.toggle('active');
-            if (mainNav.classList.contains('active')) {
-                toggleBtn.innerHTML = '&times;';
-                toggleBtn.setAttribute('aria-label', 'Cerrar menú');
-            } else {
-                toggleBtn.innerHTML = '&#9776;';
-                toggleBtn.setAttribute('aria-label', 'Mostrar menú');
-            }
+            toggleBtn.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
+            toggleBtn.setAttribute('aria-label', mainNav.classList.contains('active') ? 'Cerrar menú' : 'Mostrar menú');
         });
 
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (!mainNav.contains(event.target) && !toggleBtn.contains(event.target) && mainNav.classList.contains('active')) {
                 mainNav.classList.remove('active');
                 toggleBtn.innerHTML = '&#9776;';
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
-            }
-        });
-    }
-
-    if (desktopLangSwitcher) {
-        desktopLangSwitcher.addEventListener('click', function(event) {
-            event.stopPropagation();
-            desktopLangSwitcher.classList.toggle('active');
-        });
-
-        document.addEventListener('click', function(event) {
-            if (desktopLangSwitcher.classList.contains('active') && !desktopLangSwitcher.contains(event.target)) {
-                desktopLangSwitcher.classList.remove('active');
-            }
-        });
-    }
-
-    if (mobileLangSwitcher) {
-        mobileLangSwitcher.addEventListener('click', function(event) {
-            event.stopPropagation();
-            mobileLangSwitcher.classList.toggle('active');
-        });
-
-        document.addEventListener('click', function(event) {
-            if (mobileLangSwitcher.classList.contains('active') && !mobileLangSwitcher.contains(event.target)) {
-                mobileLangSwitcher.classList.remove('active');
             }
         });
     }
@@ -59,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (reserveBtn && reserveModal) {
         reserveBtn.setAttribute('aria-label', 'Reservar ahora');
-        reserveBtn.addEventListener('click', function(e) {
+        reserveBtn.addEventListener('click', function (e) {
             e.preventDefault();
             reserveModal.style.display = 'block';
             document.body.classList.add('modal-open');
@@ -69,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (closeModal && reserveModal) {
-        closeModal.addEventListener('click', function() {
+        closeModal.addEventListener('click', function () {
             reserveModal.style.display = 'none';
             document.body.classList.remove('modal-open');
             reserveModal.setAttribute('aria-hidden', 'true');
@@ -77,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (reserveModal) {
-        window.addEventListener('click', function(event) {
+        window.addEventListener('click', function (event) {
             if (event.target == reserveModal) {
                 reserveModal.style.display = 'none';
                 document.body.classList.remove('modal-open');
@@ -87,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (reserveForm) {
-        reserveForm.addEventListener('submit', async function(event) {
+        reserveForm.addEventListener('submit', async function (event) {
             event.preventDefault();
             const formData = new FormData(reserveForm);
             const response = await fetch(reserveForm.action, {
@@ -115,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (topBanner && closeBannerBtn) {
         closeBannerBtn.setAttribute('aria-label', 'Cerrar banner');
-        closeBannerBtn.addEventListener('click', function() {
+        closeBannerBtn.addEventListener('click', function () {
             topBanner.style.display = 'none';
             localStorage.setItem('bannerClosed', 'true');
         });
@@ -128,74 +94,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const tourHero = document.querySelector('.tour-hero');
     if (tourHero) {
         const heroContent = tourHero.querySelector('.hero-content');
-        const delayTime = 5000;
-
-        setTimeout(function() {
-            if (heroContent) {
-                heroContent.classList.add('fade-out');
-            }
-        }, delayTime);
+        setTimeout(() => {
+            if (heroContent) heroContent.classList.add('fade-out');
+        }, 5000);
     }
 
- if (typeof jQuery !== 'undefined' && $.fn.slick) {
-    const galleryCarousel = $('.gallery-carousel');
-    if (galleryCarousel.length) {
-        galleryCarousel.slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            arrows: true,
-            adaptiveHeight: false,
-            pauseOnFocus: false,       // evita que se pause al hacer clic
-            pauseOnHover: false,       // evita que se pause al pasar el mouse
-            pauseOnDotsHover: false    // evita que se pause al tocar los puntos
-        });
+    if (typeof jQuery !== 'undefined' && $.fn.slick) {
+        const galleryCarousel = $('.gallery-carousel');
+        if (galleryCarousel.length) {
+            galleryCarousel.slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                adaptiveHeight: false,
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                pauseOnDotsHover: false
+            });
 
-// Código para fullscreen al hacer clic en imagen del carrusel
-const gallery = document.querySelector('.gallery-carousel');
-const modal = document.getElementById('fullscreenCarouselModal');
-const closeBtn = modal.querySelector('.fullscreen-close');
-const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
+            const gallery = document.querySelector('.gallery-carousel');
+            const modal = document.getElementById('fullscreenCarouselModal');
+            const closeBtn = modal.querySelector('.fullscreen-close');
+            const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
 
-// Al hacer clic en cualquier imagen de la galería
-document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
-  img.addEventListener('click', () => {
-    fullscreenContainer.innerHTML = '';
+            document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
+                img.addEventListener('click', () => {
+                    fullscreenContainer.innerHTML = '';
+                    const cloneCarousel = gallery.cloneNode(true);
+                    fullscreenContainer.appendChild(cloneCarousel);
+                    $(cloneCarousel).slick({ dots: true, arrows: true, infinite: true });
+                    modal.style.display = 'flex';
+                });
+            });
 
-    // Clonar todo el carrusel original
-    const cloneCarousel = gallery.cloneNode(true);
-    fullscreenContainer.appendChild(cloneCarousel);
+            function closeFullscreenCarousel() {
+                modal.style.display = 'none';
+                $('.fullscreen-carousel .slick-slider').slick('unslick');
+                fullscreenContainer.innerHTML = '';
+            }
 
-    // Inicializar Slick sobre el clon
-    $(cloneCarousel).slick({
-      dots: true,
-      arrows: true,
-      infinite: true,
-    });
-
-    modal.style.display = 'flex';
-  });
-});
-
-// Cerrar el modal
-function closeFullscreenCarousel() {
-  modal.style.display = 'none';
-  $('.fullscreen-carousel .slick-slider').slick('unslick');
-  fullscreenContainer.innerHTML = '';
-}
-
-closeBtn.addEventListener('click', closeFullscreenCarousel);
-
-// Cerrar con tecla Escape
-document.addEventListener('keydown', function (e) {
-  if (e.key === "Escape") {
-    closeFullscreenCarousel();
-  }
-});
+            closeBtn.addEventListener('click', closeFullscreenCarousel);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === "Escape") closeFullscreenCarousel();
+            });
+        }
+    }
 
     function setupLanguageSwitcher(selector) {
         const switcher = document.querySelector(selector);
@@ -204,11 +152,11 @@ document.addEventListener('keydown', function (e) {
             const langOptions = switcher.querySelector('.lang-options');
 
             if (currentLangDisplay && langOptions) {
-                currentLangDisplay.addEventListener('click', function() {
+                currentLangDisplay.addEventListener('click', function () {
                     langOptions.classList.toggle('show');
                 });
 
-                document.addEventListener('click', function(event) {
+                document.addEventListener('click', function (event) {
                     if (!switcher.contains(event.target)) {
                         langOptions.classList.remove('show');
                     }
@@ -216,7 +164,7 @@ document.addEventListener('keydown', function (e) {
 
                 langOptions.querySelectorAll('a').forEach(option => {
                     option.setAttribute('role', 'menuitem');
-                    option.addEventListener('click', function(e) {
+                    option.addEventListener('click', function (e) {
                         e.preventDefault();
                         const newLang = option.getAttribute('data-lang').toUpperCase();
                         currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
@@ -231,12 +179,10 @@ document.addEventListener('keydown', function (e) {
     setupLanguageSwitcher('.language-switcher-desktop');
     setupLanguageSwitcher('.language-switcher-mobile-standalone');
 
-// ✅ Doble toque en móviles para mostrar overlay primero y luego redirigir
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
         if (window.innerWidth <= 768) {
             const clickedBox = e.target.closest('.tour-box');
-            if (!clickedBox) return; // Ignorar si no se tocó una tour-box
-
+            if (!clickedBox) return;
             if (!clickedBox.classList.contains('hovered')) {
                 e.preventDefault();
                 document.querySelectorAll('.tour-box.hovered').forEach(box => box.classList.remove('hovered'));
