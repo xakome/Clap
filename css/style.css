@@ -2001,10 +2001,6 @@ footer .footer-cta-link:hover {
     height: 400px; /* Altura fija para el frame en desktop */
 }
 
-.gallery-item-frame:hover {
-    transform: translateY(-5px); /* Efecto sutil de levantamiento al pasar el ratón */
-}
-
 .gallery-carousel img {
     width: 100%; /* La imagen ocupa todo el ancho del frame */
     height: 100%; /* La imagen ocupa toda la altura del frame */
