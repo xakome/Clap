@@ -100,65 +100,81 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (typeof jQuery !== 'undefined' && $.fn.slick) {
-    const galleryCarousel = $('.gallery-carousel');
-    if (galleryCarousel.length) {
-        galleryCarousel.slick({
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 3000,
-            arrows: true,
-            adaptiveHeight: false,
-            pauseOnFocus: false,
-            pauseOnHover: false,
-            pauseOnDotsHover: false
-        });
-
-        const modal = document.getElementById('fullscreenCarouselModal');
-        const closeBtn = modal.querySelector('.fullscreen-close');
-        const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
-
-        document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
-            img.addEventListener('click', () => {
-                fullscreenContainer.innerHTML = '';
-
-                // Crear un nuevo carrusel vacío
-                const newCarousel = document.createElement('div');
-                newCarousel.classList.add('gallery-carousel');
-
-                // Clonar solo los slides (no el carrusel entero con Slick activo)
-                document.querySelectorAll('.gallery-carousel .gallery-item-frame').forEach(slide => {
-                    newCarousel.appendChild(slide.cloneNode(true));
-                });
-
-                fullscreenContainer.appendChild(newCarousel);
-
-                // Inicializar Slick en el nuevo carrusel
-                $(newCarousel).slick({
-                    dots: true,
-                    infinite: true,
-                    arrows: true
-                });
-
-                modal.style.display = 'flex';
+        const galleryCarousel = $('.gallery-carousel');
+        if (galleryCarousel.length) {
+            galleryCarousel.slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
+                adaptiveHeight: false,
+                pauseOnFocus: false,
+                pauseOnHover: false,
+                pauseOnDotsHover: false
             });
-        });
 
-        function closeFullscreenCarousel() {
-            modal.style.display = 'none';
-            $('.fullscreen-carousel .gallery-carousel').slick('unslick');
-            fullscreenContainer.innerHTML = '';
+            const gallery = document.querySelector('.gallery-carousel');
+            const modal = document.getElementById('fullscreenCarouselModal');
+            const closeBtn = modal.querySelector('.fullscreen-close');
+            const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
+
+            document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
+                img.addEventListener('click', () => {
+                    fullscreenContainer.innerHTML = '';
+                    const cloneCarousel = gallery.cloneNode(true);
+                    fullscreenContainer.appendChild(cloneCarousel);
+                    $(cloneCarousel).slick({ dots: true, arrows: true, infinite: true });
+                    modal.style.display = 'flex';
+                });
+            });
+
+            function closeFullscreenCarousel() {
+                modal.style.display = 'none';
+                $('.fullscreen-carousel .slick-slider').slick('unslick');
+                fullscreenContainer.innerHTML = '';
+            }
+
+            closeBtn.addEventListener('click', closeFullscreenCarousel);
+            document.addEventListener('keydown', function (e) {
+                if (e.key === "Escape") closeFullscreenCarousel();
+            });
         }
-
-        closeBtn.addEventListener('click', closeFullscreenCarousel);
-        document.addEventListener('keydown', function (e) {
-            if (e.key === "Escape") closeFullscreenCarousel();
-        });
     }
-}
+
+    function setupLanguageSwitcher(selector) {
+        const switcher = document.querySelector(selector);
+        if (switcher) {
+            const currentLangDisplay = switcher.querySelector('.current-lang');
+            const langOptions = switcher.querySelector('.lang-options');
+
+            if (currentLangDisplay && langOptions) {
+                currentLangDisplay.addEventListener('click', function () {
+                    langOptions.classList.toggle('show');
+                });
+
+                document.addEventListener('click', function (event) {
+                    if (!switcher.contains(event.target)) {
+                        langOptions.classList.remove('show');
+                    }
+                });
+
+                langOptions.querySelectorAll('a').forEach(option => {
+                    option.setAttribute('role', 'menuitem');
+                    option.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const newLang = option.getAttribute('data-lang').toUpperCase();
+                        currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
+                        langOptions.classList.remove('show');
+                        console.log(`Idioma cambiado a: ${newLang}`);
+                    });
+                });
+            }
+        }
+    }
 
     setupLanguageSwitcher('.language-switcher-desktop');
     setupLanguageSwitcher('.language-switcher-mobile-standalone');
