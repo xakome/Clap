@@ -163,42 +163,51 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Selector de idioma
-    function setupLanguageSwitcher(selector) {
-        const switcher = document.querySelector(selector);
-        if (!switcher) return;
+    /// Selector de idioma para desktop y móvil
+function setupLanguageSwitcher(selector, currentClass, optionsClass, toggleClass = 'active') {
+    const switcher = document.querySelector(selector);
+    if (!switcher) return;
 
-        const currentLangDisplay = switcher.querySelector('.current-lang');
-        const langOptions = switcher.querySelector('.lang-options');
+    const currentLangDisplay = switcher.querySelector(currentClass);
+    const langOptions = switcher.querySelector(optionsClass);
 
-        if (!currentLangDisplay || !langOptions) return;
+    if (!currentLangDisplay || !langOptions) return;
 
-        currentLangDisplay.addEventListener('click', function (e) {
+    currentLangDisplay.addEventListener('click', function (e) {
+        e.stopPropagation();
+        switcher.classList.toggle(toggleClass);
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!switcher.contains(e.target)) {
+            switcher.classList.remove(toggleClass);
+        }
+    });
+
+    langOptions.querySelectorAll('a').forEach(option => {
+        option.setAttribute('role', 'menuitem');
+        option.addEventListener('click', function (e) {
+            e.preventDefault();
             e.stopPropagation();
-            langOptions.classList.toggle('show');
+            const newLang = option.getAttribute('data-lang').toUpperCase();
+            currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
+            switcher.classList.remove(toggleClass);
         });
+    });
+}
 
-        document.addEventListener('click', function (e) {
-            if (!switcher.contains(e.target)) {
-                langOptions.classList.remove('show');
-            }
-        });
+// Inicializa ambos switchers
+setupLanguageSwitcher(
+    '.language-switcher-desktop',
+    '.current-lang',
+    '.lang-options'
+);
 
-        langOptions.querySelectorAll('a').forEach(option => {
-            option.setAttribute('role', 'menuitem');
-            option.addEventListener('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                const newLang = option.getAttribute('data-lang').toUpperCase();
-                currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
-                langOptions.classList.remove('show');
-            });
-        });
-    }
-
-    setupLanguageSwitcher('.language-switcher-desktop');
-    setupLanguageSwitcher('.language-switcher-mobile-standalone');
-
+setupLanguageSwitcher(
+    '.language-switcher-mobile-standalone',
+    '.current-lang-mobile',
+    '.lang-options-mobile'
+);
     // Hover en tarjetas móviles
     document.addEventListener('click', function (e) {
         if (window.innerWidth <= 768) {
