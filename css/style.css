@@ -144,13 +144,14 @@ a {
     background-color: #e68900;
 }
 
-/* Selector de idioma compartido (Desktop y Móvil) */
-.language-switcher {
+* === Selector de Idioma - Desktop === */
+.language-switcher-desktop {
   position: relative;
+  display: flex;
   margin-left: 20px;
 }
 
-.language-switcher .current-lang {
+.language-switcher-desktop .current-lang {
   color: #fff;
   font-weight: 600;
   cursor: pointer;
@@ -163,22 +164,22 @@ a {
   font-size: 0.95rem;
 }
 
-.language-switcher .current-lang:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.language-switcher .current-lang::after {
-  content: '\25BC'; /* Flecha ▼ */
+.language-switcher-desktop .current-lang::after {
+  content: '\25BC';
   font-size: 0.7em;
   margin-left: 5px;
 }
 
-.language-switcher .lang-options {
+.language-switcher-desktop .current-lang:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.language-switcher-desktop .lang-options {
   display: none;
   position: absolute;
   background: #00695c;
   min-width: 120px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   z-index: 10;
   border-radius: 4px;
   top: calc(100% + 5px);
@@ -186,33 +187,84 @@ a {
   overflow: hidden;
 }
 
-.language-switcher.active .lang-options {
+.language-switcher-desktop.active .lang-options {
   display: block;
 }
 
-.language-switcher .lang-options a {
+.language-switcher-desktop .lang-options a {
   color: white;
   padding: 10px 15px;
   text-decoration: none;
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: background 0.3s;
 }
 
-.language-switcher .lang-options a:hover {
+.language-switcher-desktop .lang-options a:hover {
   background-color: #004d40;
 }
 
-/* Mostrar/Ocultar en función del dispositivo */
-.language-switcher-desktop {
-  display: flex;
-}
-
+/* === Selector de Idioma - Móvil === */
 .language-switcher-mobile-standalone {
+  position: relative;
   display: none;
 }
 
-@media (max-width: 767px) {
+.language-switcher-mobile-standalone .current-lang-mobile {
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.language-switcher-mobile-standalone .current-lang-mobile::after {
+  content: '\25BC';
+  font-size: 0.6em;
+  margin-left: 3px;
+}
+
+.language-switcher-mobile-standalone .current-lang-mobile:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.language-switcher-mobile-standalone .lang-options-mobile {
+  display: none;
+  position: absolute;
+  background: #00695c;
+  min-width: 100px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 21;
+  border-radius: 4px;
+  top: calc(100% + 5px);
+  right: 0;
+  overflow: hidden;
+}
+
+.language-switcher-mobile-standalone.active .lang-options-mobile {
+  display: block;
+}
+
+.language-switcher-mobile-standalone .lang-options-mobile a {
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.85rem;
+  transition: background 0.3s;
+}
+
+.language-switcher-mobile-standalone .lang-options-mobile a:hover {
+  background-color: #004d40;
+}
+
+/* === Responsividad === */
+@media (max-width: 768px) {
   .language-switcher-desktop {
     display: none;
   }
@@ -222,7 +274,7 @@ a {
   }
 }
 
-/* Elimina el viejo selector móvil dentro del menú */
+/* Oculta el viejo selector dentro del menú */
 .language-switcher-mobile {
   display: none !important;
 }
