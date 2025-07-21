@@ -1,226 +1,270 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Menú hamburguesa
-    const toggleBtn = document.querySelector('.toggle');
-    const mainNav = document.querySelector('.main-nav');
-
-    if (toggleBtn && mainNav) {
-        toggleBtn.addEventListener('click', function () {
-            mainNav.classList.toggle('show');
-            toggleBtn.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
-            toggleBtn.setAttribute('aria-label', mainNav.classList.contains('active') ? 'Cerrar menú' : 'Mostrar menú');
-        });
-
-        document.addEventListener('click', function (event) {
-            if (!mainNav.contains(event.target) && !toggleBtn.contains(event.target)) {
-                mainNav.classList.remove('show');
-                toggleBtn.innerHTML = '&#9776;';
-                toggleBtn.setAttribute('aria-label', 'Mostrar menú');
-            }
-        });
-    }
-
-    // Modal de reserva
-    const reserveBtn = document.querySelector('.reserve-btn');
-    const reserveModal = document.getElementById('reserveModal');
-    const closeModal = document.querySelector('.modal .close-button');
-    const reserveForm = document.getElementById('reserveForm');
-
-    if (reserveBtn && reserveModal) {
-        reserveBtn.setAttribute('aria-label', 'Reservar ahora');
-        reserveBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            reserveModal.style.display = 'block';
-            document.body.classList.add('modal-open');
-            reserveModal.setAttribute('aria-hidden', 'false');
-            reserveModal.querySelector('.modal-content').focus();
-        });
-    }
-
-    if (closeModal && reserveModal) {
-        closeModal.addEventListener('click', function () {
-            reserveModal.style.display = 'none';
-            document.body.classList.remove('modal-open');
-            reserveModal.setAttribute('aria-hidden', 'true');
-        });
-    }
-
-    if (reserveModal) {
-        window.addEventListener('click', function (event) {
-            if (event.target == reserveModal) {
-                reserveModal.style.display = 'none';
-                document.body.classList.remove('modal-open');
-                reserveModal.setAttribute('aria-hidden', 'true');
-            }
-        });
-    }
-
-    if (reserveForm) {
-        reserveForm.addEventListener('submit', async function (event) {
-            event.preventDefault();
-            const formData = new FormData(reserveForm);
-            const response = await fetch(reserveForm.action, {
-                method: reserveForm.method,
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                alert('¡Gracias por tu reserva!');
-                reserveForm.reset();
-                reserveModal.style.display = 'none';
-                document.body.classList.remove('modal-open');
-                reserveModal.setAttribute('aria-hidden', 'true');
-            } else {
-                alert('Hubo un error al enviar tu reserva.');
-            }
-        });
-    }
-
-    // Banner superior
-    const topBanner = document.querySelector('.top-banner');
-    const closeBannerBtn = document.querySelector('.top-banner .close-banner-btn');
-
-    if (topBanner && closeBannerBtn) {
-        closeBannerBtn.setAttribute('aria-label', 'Cerrar banner');
-        closeBannerBtn.addEventListener('click', function () {
-            topBanner.style.display = 'none';
-            localStorage.setItem('bannerClosed', 'true');
-        });
-
-        if (localStorage.getItem('bannerClosed') === 'true') {
-            topBanner.style.display = 'none';
-        }
-    }
-
-    // Efecto fade en el hero
-    const tourHero = document.querySelector('.tour-hero');
-    if (tourHero) {
-        const heroContent = tourHero.querySelector('.hero-content');
-        setTimeout(() => {
-            if (heroContent) heroContent.classList.add('fade-out');
-        }, 5000);
-    }
-
-    // Slick principal
-    if (typeof jQuery !== 'undefined' && $.fn.slick) {
-        const galleryCarousel = $('.gallery-carousel');
-        if (galleryCarousel.length) {
-            galleryCarousel.slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                adaptiveHeight: false,
-                pauseOnFocus: false,
-                pauseOnHover: false,
-                pauseOnDotsHover: false
-            });
-
-            const modal = document.getElementById('fullscreenCarouselModal');
-            const closeBtn = modal.querySelector('.fullscreen-close');
-            const fullscreenContainer = modal.querySelector('.fullscreen-carousel');
-
-            document.querySelectorAll('.gallery-carousel .gallery-item-frame img').forEach(img => {
-                img.addEventListener('click', () => {
-                    fullscreenContainer.innerHTML = '';
-
-                    // Clonar imágenes individualmente (sin clases slick)
-                    const images = Array.from(document.querySelectorAll('.gallery-carousel .gallery-item-frame')).map(item => {
-                        const wrapper = document.createElement('div');
-                        wrapper.classList.add('gallery-item-frame');
-                        const imgClone = item.querySelector('img').cloneNode();
-                        wrapper.appendChild(imgClone);
-                        return wrapper;
-                    });
-
-                    images.forEach(img => fullscreenContainer.appendChild(img));
-                    $(fullscreenContainer).slick({
-                        dots: true,
-                        infinite: true,
-                        arrows: true
-                    });
-
-                    modal.style.display = 'flex';
-                });
-            });
-
-            function closeFullscreenCarousel() {
-                modal.style.display = 'none';
-                if ($(fullscreenContainer).hasClass('slick-initialized')) {
-                    $(fullscreenContainer).slick('unslick');
+document.addEventListener("DOMContentLoaded", function() {
+    // Función para cargar componentes HTML (si aún la tienes aquí, si no, ignora)
+    // Se asume que esta lógica está ahora en js/loadComponents.js
+    /*
+    function loadComponent(placeholderId, filePath) {
+        fetch(filePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status} from ${filePath}`);
                 }
-                fullscreenContainer.innerHTML = '';
-            }
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById(placeholderId).innerHTML = html;
+            })
+            .catch(error => console.error(`Error loading component ${filePath}:`, error));
+    }
+    // Cargar la navegación y el footer (si no lo hace loadComponents.js)
+    // loadComponent('navbar-placeholder', '/nav.html');
+    // loadComponent('footer-placeholder', '/footer.html');
+    */
 
-            closeBtn.addEventListener('click', closeFullscreenCarousel);
-            document.addEventListener('keydown', function (e) {
-                if (e.key === "Escape") closeFullscreenCarousel();
-            });
-        }
+    // --- Lógica existente de main.js para el banner superior ---
+    const closeBannerButton = document.querySelector('.close-banner');
+    const topBanner = document.querySelector('.top-banner');
+
+    if (closeBannerButton && topBanner) {
+        closeBannerButton.addEventListener('click', function() {
+            topBanner.style.display = 'none';
+        });
     }
 
-    /// Selector de idioma para desktop y móvil
-function setupLanguageSwitcher(selector, currentClass, optionsClass, toggleClass = 'active') {
-    const switcher = document.querySelector(selector);
-    if (!switcher) return;
+    // --- Lógica existente de main.js para el slider del hero ---
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    const dotsContainer = document.querySelector('.slider-dots');
+    let currentSlide = 0;
+    let slideInterval;
 
-    const currentLangDisplay = switcher.querySelector(currentClass);
-    const langOptions = switcher.querySelector(optionsClass);
-
-    if (!currentLangDisplay || !langOptions) return;
-
-    currentLangDisplay.addEventListener('click', function (e) {
-        e.stopPropagation();
-        switcher.classList.toggle(toggleClass);
-    });
-
-    document.addEventListener('click', function (e) {
-        if (!switcher.contains(e.target)) {
-            switcher.classList.remove(toggleClass);
-        }
-    });
-
-    langOptions.querySelectorAll('a').forEach(option => {
-        option.setAttribute('role', 'menuitem');
-        option.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            const newLang = option.getAttribute('data-lang').toUpperCase();
-            currentLangDisplay.innerHTML = `${newLang} <i class="fas fa-chevron-down"></i>`;
-            switcher.classList.remove(toggleClass);
-        });
-    });
-}
-
-// Inicializa ambos switchers
-setupLanguageSwitcher(
-    '.language-switcher-desktop',
-    '.current-lang',
-    '.lang-options'
-);
-
-setupLanguageSwitcher(
-    '.language-switcher-mobile-standalone',
-    '.current-lang-mobile',
-    '.lang-options-mobile'
-);
-    // Hover en tarjetas móviles
-    document.addEventListener('click', function (e) {
-        if (window.innerWidth <= 768) {
-            const clickedBox = e.target.closest('.tour-box');
-            if (!clickedBox) return;
-            if (!clickedBox.classList.contains('hovered')) {
-                e.preventDefault();
-                document.querySelectorAll('.tour-box.hovered').forEach(box => box.classList.remove('hovered'));
-                clickedBox.classList.add('hovered');
-                setTimeout(() => clickedBox.classList.remove('hovered'), 5000);
-            } else {
-                window.location.href = clickedBox.href;
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
             }
-        }
+        });
+        updateDots(index);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function startSlider() {
+        slideInterval = setInterval(nextSlide, 5000); // Cambia cada 5 segundos
+    }
+
+    function stopSlider() {
+        clearInterval(slideInterval);
+    }
+
+    // Crear los puntos de navegación
+    slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+            stopSlider();
+            currentSlide = index;
+            showSlide(currentSlide);
+            startSlider();
+        });
+        dotsContainer.appendChild(dot);
     });
-});
+
+    function updateDots(activeIndex) {
+        document.querySelectorAll('.slider-dots .dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+        });
+    }
+
+    // Controles del slider
+    document.querySelector('.next-slide')?.addEventListener('click', () => { // Usar optional chaining para evitar errores si no existe
+        stopSlider();
+        nextSlide();
+        startSlider();
+    });
+
+    document.querySelector('.prev-slide')?.addEventListener('click', () => { // Usar optional chaining para evitar errores si no existe
+        stopSlider();
+        prevSlide();
+        startSlider();
+    });
+
+    // Inicializar slider
+    if (slides.length > 0) {
+        showSlide(currentSlide);
+        startSlider();
+    }
+
+
+    // --- Lógica existente de main.js para el toggle del menú hamburguesa ---
+    const toggleButton = document.querySelector('.toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const languageSwitcherDesktop = document.querySelector('.language-switcher-desktop');
+    const languageSwitcherMobileStandalone = document.querySelector('.language-switcher-mobile-standalone');
+
+    if (toggleButton && mainNav) {
+        toggleButton.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            // Oculta el switcher de escritorio cuando el menú móvil está activo
+            if (languageSwitcherDesktop) {
+                languageSwitcherDesktop.style.display = mainNav.classList.contains('active') ? 'none' : '';
+            }
+            // Muestra u oculta el switcher móvil independiente
+            if (languageSwitcherMobileStandalone) {
+                languageSwitcherMobileStandalone.style.display = mainNav.classList.contains('active') ? 'block' : 'none';
+            }
+
+            // Asegúrate de que el body no haga scroll cuando el menú está abierto
+            if (mainNav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Cierra el menú si se hace clic fuera de él (opcional, pero mejora UX)
+        document.addEventListener('click', (event) => {
+            if (!mainNav.contains(event.target) && !toggleButton.contains(event.target) && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+                if (languageSwitcherDesktop) {
+                    languageSwitcherDesktop.style.display = ''; // Restaura visibilidad
+                }
+                if (languageSwitcherMobileStandalone) {
+                    languageSwitcherMobileStandalone.style.display = 'none'; // Asegura que se oculte
+                }
+            }
+        });
+    }
+
+    // --- Lógica para el modal de reserva (MODIFICADA) ---
+    const modal = document.getElementById('reserveModal');
+    // Selecciona todos los elementos que deben abrir el modal
+    const modalTriggers = document.querySelectorAll(
+        '.reserve-btn, .main-cta-button[data-target="#reserveModal"], .footer-cta-link[href="#reserveModal"]'
+    );
+    // Asegúrate de que el botón de cerrar sea el correcto (close-button en chichen.html)
+    const closeModal = document.querySelector('#reserveModal .close-button');
+
+    if (modal && closeModal) { // Solo necesitamos que el modal y el botón de cerrar existan
+        // Añadir escuchador de eventos a todos los disparadores del modal
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (event) => {
+                event.preventDefault(); // Evita el comportamiento predeterminado del enlace/botón
+                modal.style.display = 'block';
+                document.body.classList.add('modal-open'); // Para evitar scroll del body
+                modal.setAttribute('aria-hidden', 'false');
+                // Si el disparador es un botón con aria-expanded, actualízalo
+                if (trigger.hasAttribute('aria-expanded')) {
+                    trigger.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+            modal.setAttribute('aria-hidden', 'true');
+            // Busca el disparador activo para actualizar su aria-expanded si es necesario
+            const activeTrigger = document.querySelector('.reserve-btn[aria-expanded="true"], .main-cta-button[aria-expanded="true"], .footer-cta-link[aria-expanded="true"]');
+            if (activeTrigger) {
+                activeTrigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                modal.setAttribute('aria-hidden', 'true');
+                const activeTrigger = document.querySelector('.reserve-btn[aria-expanded="true"], .main-cta-button[aria-expanded="true"], .footer-cta-link[aria-expanded="true"]');
+                if (activeTrigger) {
+                    activeTrigger.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+    }
+
+    // --- Lógica para los selectores de idioma (similar a como ya lo tenías) ---
+    // Selector de idioma para Desktop
+    const desktopLangSwitcher = document.querySelector('.language-switcher-desktop');
+    const desktopCurrentLang = document.querySelector('.language-switcher-desktop .current-lang');
+    const desktopLangOptions = document.querySelector('.language-switcher-desktop .lang-options');
+
+    if (desktopLangSwitcher && desktopCurrentLang && desktopLangOptions) {
+        desktopCurrentLang.addEventListener('click', () => {
+            desktopLangOptions.classList.toggle('show');
+            desktopCurrentLang.setAttribute('aria-expanded', desktopLangOptions.classList.contains('show') ? 'true' : 'false');
+        });
+
+        // Ocultar si se hace clic fuera
+        document.addEventListener('click', (event) => {
+            if (!desktopLangSwitcher.contains(event.target) && desktopLangOptions.classList.contains('show')) {
+                desktopLangOptions.classList.remove('show');
+                desktopCurrentLang.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Manejar selección de idioma para desktop
+        desktopLangOptions.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Aquí deberías tener la lógica para cambiar el idioma real
+                // window.location.href = link.href;
+                console.log('Idioma seleccionado (Desktop):', link.dataset.lang);
+                // Actualizar el texto mostrado si es necesario
+                desktopCurrentLang.innerHTML = `${link.dataset.lang.toUpperCase()} <i class="fas fa-globe"></i>`;
+                desktopLangOptions.classList.remove('show');
+                desktopCurrentLang.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // Selector de idioma para Móvil (standalone)
+    const mobileLangSwitcher = document.querySelector('.language-switcher-mobile-standalone');
+    const mobileCurrentLang = document.querySelector('.language-switcher-mobile-standalone .current-lang-mobile');
+    const mobileLangOptions = document.querySelector('.language-switcher-mobile-standalone .lang-options-mobile');
+
+    if (mobileLangSwitcher && mobileCurrentLang && mobileLangOptions) {
+        mobileCurrentLang.addEventListener('click', () => {
+            mobileLangOptions.classList.toggle('show');
+            mobileCurrentLang.setAttribute('aria-expanded', mobileCurrentLang.classList.contains('show') ? 'true' : 'false');
+        });
+
+        // Ocultar si se hace clic fuera
+        document.addEventListener('click', (event) => {
+            if (!mobileLangSwitcher.contains(event.target) && mobileLangOptions.classList.contains('show')) {
+                mobileLangOptions.classList.remove('show');
+                mobileCurrentLang.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Manejar selección de idioma para móvil
+        mobileLangOptions.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Aquí deberías tener la lógica para cambiar el idioma real
+                // window.location.href = link.href;
+                console.log('Idioma seleccionado (Móvil):', link.dataset.lang);
+                // Actualizar el texto mostrado si es necesario
+                mobileCurrentLang.innerHTML = `${link.dataset.lang.toUpperCase()} <i class="fas fa-globe"></i>`;
+                mobileLangOptions.classList.remove('show');
+                mobileCurrentLang.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // Asegúrate de que el selector de idioma móvil esté inicialmente oculto si no está activo el menú principal
+    // Esto se gestiona en la lógica del toggle, pero puede ser bueno tenerlo al cargar.
+    if (languageSwitcherMobileStandalone && !mainNav.classList.contains('active')) {
+        languageSwitcherMobileStandalone.style.display = 'none';
+    }
+
+}); // Fin de DOMContentLoaded
