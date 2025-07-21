@@ -270,27 +270,23 @@ a {
   background-color: #004d40;
 }
 
-* === Responsividad === */
+/* === Responsividad === */
 @media (max-width: 768px) {
   .language-switcher-desktop {
     display: none;
   }
 
- .language-switcher-mobile-standalone {
+.language-switcher-mobile-standalone {
     display: block;
   }
-}
 
-@media (min-width: 769px) {
-  .language-switcher-mobile-standalone {
-    display: none;
-  }
 }
 
 /* Oculta el viejo selector dentro del menú */
 .language-switcher-mobile {
   display: none !important;
 }
+
 /* Hero Section (Ahora Carousel) */
 .hero-slider {
     position: relative;
@@ -908,166 +904,80 @@ footer .footer-cta-link:hover {
 /* Responsive Styles for Mobile (max-width: 768px) */
 /* ==================================== */
 @media (max-width: 768px) {
-  /* Responsive Top Banner */
-  .top-banner {
-    font-size: 0.8rem;
-    padding: 8px 15px;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+    /* Responsive Top Banner */
+    .top-banner {
+        font-size: 0.8rem;
+        padding: 8px 15px;
+        gap: 10px;
+        flex-direction: column; /* Apila el texto y el CTA en móvil */
+        align-items: center;
+        text-align: center;
+    }
 
-  .top-banner .banner-cta {
-    margin-top: 5px;
-  }
+.top-banner .banner-cta {
+        margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
+    }
 
-  .top-banner .close-banner {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    margin-left: 0;
-    font-size: 1.2rem;
-  }
+.top-banner .close-banner {
+        position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
+        top: 5px;
+        right: 5px;
+        margin-left: 0;
+        font-size: 1.2rem;
+    }
 
-  .hero-slider {
-    height: 60vh;
-  }
+.hero-slider {
+        height: 60vh; /* Ajusta la altura del carrusel para móvil */
+    }
 
-  .hero-slider .hero-content {
-    padding: 20px;
-  }
+.hero-slider .hero-content {
+        padding: 20px; /* Menos padding general en móvil */
+    }
 
-  .hero-slider .hero-title {
-    font-size: 1.6rem;
-    max-width: 90%;
-    margin-top: 10px;
-  }
+.hero-slider .hero-title {
+        font-size: 1.6rem; /* Tamaño de fuente para móvil (ajustado) */
+        max-width: 90%;
+        margin-top: 10px;
+    }
 
-  .hero-slider .hero-description {
-    font-size: 0.95rem;
-    max-width: 90%;
-    margin-bottom: 10px;
-  }
+.hero-slider .hero-description {
+        font-size: 0.95rem; /* Tamaño de fuente para móvil */
+        max-width: 90%;
+        margin-bottom: 10px;
+    }
 
-  /* Company Intro responsive */
-  .company-intro {
-    margin: 40px auto;
-    padding: 25px 15px;
-  }
+/* Company Intro responsive */
+    .company-intro {
+        margin: 40px auto;
+        padding: 25px 15px;
+    }
 
-  .company-intro h2 {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-  }
+.company-intro h2 {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
 
-  .company-intro p {
-    font-size: 1rem;
-  }
+.company-intro p {
+        font-size: 1rem;
+    }
 
-  /* Ajustes del Navbar en móvil */
-  .navbar {
-    justify-content: flex-start;
-    gap: 10px;
-    padding: 12px 15px;
-    min-height: 55px;
-    align-items: center;
-  }
+/* Ajustes del Navbar en móvil */
+    .navbar {
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 12px 15px;
+        min-height: 55px; /* Ajusta la altura mínima para móvil */
+        align-items: center; /* Centra los elementos verticalmente */
+    }
 
-  .navbar .logo {
-    flex-grow: 1;
-    font-size: 1.8rem;
-    order: 1;
-    display: flex;
-    align-items: center;
-    min-height: 30px;
-  }
-
-  .navbar .main-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    background: white;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    display: none;
-  }
-
-  .navbar .main-nav.show {
-    display: flex;
-  }
-
-  .navbar .main-nav .menu {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .navbar .main-nav .menu a {
-    padding: 12px 20px;
-    width: 100%;
-    color: #333;
-    border-bottom: 1px solid #eee;
-    background-color: white;
-  }
-
-  .navbar .main-nav .menu a:hover {
-    background-color: #f0f0f0;
-  }
-
-  .toggle {
-    display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1000;
-  }
-
-  .language-switcher-desktop {
-    display: none;
-  }
-
-  .language-switcher-mobile-standalone {
-    display: block;
-  }
-}
-
-/* Mostrar menú de navegación en pantallas grandes (desktop) */
-@media (min-width: 769px) {
-  .navbar .main-nav {
-    display: flex !important;
-    position: static;
-    flex-direction: row;
-    align-items: center;
-    background: none;
-  }
-
-  .navbar .main-nav .menu {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-
-  .navbar .main-nav .menu a {
-    padding: 10px 15px;
-    background: none;
-    color: white; /* o el color que usabas en desktop */
-    border: none;
-  }
-
-  .language-switcher-mobile-standalone {
-    display: none;
-  }
-
-  .language-switcher-desktop {
-    display: block;
-  }
-
-  .toggle {
-    display: none;
-  }
-}
+.navbar .logo {
+        flex-grow: 1;
+        font-size: 1.8rem;
+        order: 1;
+        display: flex;
+        align-items: center;
+        min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
+    }
 
 /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
     .navbar .main-nav .menu,
