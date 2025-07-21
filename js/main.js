@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function() {
             ]
         });
 
-        // Lógica para el modal de pantalla completa del carrusel (si lo tienes)
+        // Lógica para el modal de pantalla completa del carrusel
         const fullscreenModal = document.getElementById('fullscreenCarouselModal');
         const fullscreenClose = document.querySelector('.fullscreen-close');
         const fullscreenCarouselDiv = document.querySelector('.fullscreen-carousel');
@@ -293,10 +293,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 if ($(fullscreenCarouselDiv).hasClass('slick-initialized')) {
                     $(fullscreenCarouselDiv).slick('unslick');
                 }
+                // Limpia el contenido anterior del modal
+                $(fullscreenCarouselDiv).empty();
 
-                // Clona las imágenes originales para el carrusel de pantalla completa
-                const originalSlides = $('.gallery-carousel .gallery-item-frame').clone();
-                $(fullscreenCarouselDiv).append(originalSlides);
+                // Clona las imágenes originales del carrusel y las añade al carrusel de pantalla completa
+                // Cada imagen se envuelve en un div simple para que Slick la trate como un slide
+                $('.gallery-carousel .gallery-item-frame img').each(function() {
+                    const clonedImg = $(this).clone();
+                    const slideWrapper = $('<div></div>').append(clonedImg);
+                    $(fullscreenCarouselDiv).append(slideWrapper);
+                });
 
                 // Inicializa el carrusel de pantalla completa
                 $(fullscreenCarouselDiv).slick({
