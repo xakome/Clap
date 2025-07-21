@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.addEventListener('click', function (event) {
             if (!mainNav.contains(event.target) && !toggleBtn.contains(event.target)) {
-                mainNav.classList.remove('active');
+                mainNav.classList.remove('show');
                 toggleBtn.innerHTML = '&#9776;';
                 toggleBtn.setAttribute('aria-label', 'Mostrar menú');
             }
