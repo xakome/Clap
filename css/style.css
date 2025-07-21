@@ -1033,6 +1033,42 @@ footer .footer-cta-link:hover {
   }
 }
 
+/* Mostrar menú de navegación en pantallas grandes (desktop) */
+@media (min-width: 769px) {
+  .navbar .main-nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    background: none;
+  }
+
+  .navbar .main-nav .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .navbar .main-nav .menu a {
+    padding: 10px 15px;
+    background: none;
+    color: white; /* o el color que usabas en desktop */
+    border: none;
+  }
+
+  .language-switcher-mobile-standalone {
+    display: none;
+  }
+
+  .language-switcher-desktop {
+    display: block;
+  }
+
+  .toggle {
+    display: none;
+  }
+}
+
 /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
     .navbar .main-nav .menu,
     .language-switcher-desktop {
