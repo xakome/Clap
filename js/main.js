@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (toggleBtn && mainNav) {
         toggleBtn.addEventListener('click', function () {
-            mainNav.classList.toggle('active');
+            mainNav.classList.toggle('show');
             toggleBtn.innerHTML = mainNav.classList.contains('active') ? '&times;' : '&#9776;';
             toggleBtn.setAttribute('aria-label', mainNav.classList.contains('active') ? 'Cerrar menú' : 'Mostrar menú');
         });
