@@ -1,25 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Función para cargar componentes HTML (si aún la tienes aquí, si no, ignora)
-    // Se asume que esta lógica está ahora en js/loadComponents.js
-    /*
-    function loadComponent(placeholderId, filePath) {
-        fetch(filePath)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} from ${filePath}`);
-                }
-                return response.text();
-            })
-            .then(html => {
-                document.getElementById(placeholderId).innerHTML = html;
-            })
-            .catch(error => console.error(`Error loading component ${filePath}:`, error));
-    }
-    // Cargar la navegación y el footer (si no lo hace loadComponents.js)
-    // loadComponent('navbar-placeholder', '/nav.html');
-    // loadComponent('footer-placeholder', '/footer.html');
-    */
-
     // --- Lógica existente de main.js para el banner superior ---
     const closeBannerButton = document.querySelector('.close-banner');
     const topBanner = document.querySelector('.top-banner');
@@ -84,13 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Controles del slider
-    document.querySelector('.next-slide')?.addEventListener('click', () => { // Usar optional chaining para evitar errores si no existe
+    document.querySelector('.next-slide')?.addEventListener('click', () => {
         stopSlider();
         nextSlide();
         startSlider();
     });
 
-    document.querySelector('.prev-slide')?.addEventListener('click', () => { // Usar optional chaining para evitar errores si no existe
+    document.querySelector('.prev-slide')?.addEventListener('click', () => {
         stopSlider();
         prevSlide();
         startSlider();
@@ -265,6 +244,99 @@ document.addEventListener("DOMContentLoaded", function() {
     // Esto se gestiona en la lógica del toggle, pero puede ser bueno tenerlo al cargar.
     if (languageSwitcherMobileStandalone && !mainNav.classList.contains('active')) {
         languageSwitcherMobileStandalone.style.display = 'none';
+    }
+
+    // --- INICIALIZACIÓN DE SLICK CAROUSEL PARA LAS GALERÍAS ---
+    // Este código se asegura de que el carrusel se active en todas las galerías con la clase 'gallery-carousel'
+    // Se ejecuta después de que el DOM esté completamente cargado.
+    if (typeof jQuery !== 'undefined' && typeof jQuery.fn.slick !== 'undefined') {
+        $('.gallery-carousel').slick({
+            dots: true, // Muestra los puntos de navegación
+            infinite: true, // Permite el loop infinito
+            speed: 500, // Velocidad de transición
+            slidesToShow: 3, // Muestra 3 slides a la vez
+            slidesToScroll: 1, // Desplaza 1 slide a la vez
+            autoplay: true, // Reproducción automática
+            autoplaySpeed: 3000, // Velocidad de reproducción automática (3 segundos)
+            arrows: true, // Muestra las flechas de navegación
+            responsive: [
+                {
+                    breakpoint: 1024, // Para pantallas de hasta 1024px
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600, // Para pantallas de hasta 600px
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false // Oculta las flechas en móvil si prefieres
+                    }
+                }
+            ]
+        });
+
+        // Lógica para el modal de pantalla completa del carrusel (si lo tienes)
+        const fullscreenModal = document.getElementById('fullscreenCarouselModal');
+        const fullscreenClose = document.querySelector('.fullscreen-close');
+        const fullscreenCarouselDiv = document.querySelector('.fullscreen-carousel');
+
+        if (fullscreenModal && fullscreenClose && fullscreenCarouselDiv) {
+            $('.gallery-carousel').on('click', '.slick-slide img', function() {
+                const imgIndex = $(this).closest('.slick-slide').data('slick-index');
+                
+                // Destruye el carrusel existente en el modal si lo hay
+                if ($(fullscreenCarouselDiv).hasClass('slick-initialized')) {
+                    $(fullscreenCarouselDiv).slick('unslick');
+                }
+
+                // Clona las imágenes originales para el carrusel de pantalla completa
+                const originalSlides = $('.gallery-carousel .gallery-item-frame').clone();
+                $(fullscreenCarouselDiv).append(originalSlides);
+
+                // Inicializa el carrusel de pantalla completa
+                $(fullscreenCarouselDiv).slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: imgIndex, // Abre el carrusel en la imagen clicada
+                    arrows: true,
+                    adaptiveHeight: true
+                });
+
+                fullscreenModal.style.display = 'block';
+                document.body.classList.add('modal-open');
+            });
+
+            fullscreenClose.addEventListener('click', () => {
+                fullscreenModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                // Destruye el carrusel del modal al cerrarlo para evitar duplicados
+                if ($(fullscreenCarouselDiv).hasClass('slick-initialized')) {
+                    $(fullscreenCarouselDiv).slick('unslick');
+                    $(fullscreenCarouselDiv).empty(); // Limpia el contenido
+                }
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == fullscreenModal) {
+                    fullscreenModal.style.display = 'none';
+                    document.body.classList.remove('modal-open');
+                    if ($(fullscreenCarouselDiv).hasClass('slick-initialized')) {
+                        $(fullscreenCarouselDiv).slick('unslick');
+                        $(fullscreenCarouselDiv).empty();
+                    }
+                }
+            });
+        }
+    } else {
+        console.error("jQuery or Slick Carousel library not loaded. Ensure scripts are included before main.js.");
     }
 
 }); // Fin de DOMContentLoaded
