@@ -1634,3 +1634,42 @@ footer .footer-cta-link {
     cursor: pointer;
     z-index: 10000;
 }
+
+/* Mostrar menú en escritorio */
+@media (min-width: 769px) {
+  .navbar .main-nav {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .navbar .toggle {
+    display: none;
+  }
+}
+
+/* Ocultar menú en móvil hasta que se active */
+@media (max-width: 768px) {
+  .navbar .main-nav {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .navbar .main-nav.show {
+    display: flex;
+  }
+
+  .navbar .toggle {
+    display: block;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+  }
+}
