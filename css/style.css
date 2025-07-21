@@ -1642,7 +1642,7 @@ media (min-width: 769px) {
 
 
 
-* Corrección para menú hamburguesa en móviles */
+/* Corrección para menú hamburguesa en móviles */
 @media (max-width: 768px) {
   .navbar .main-nav {
     display: none;
