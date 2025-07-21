@@ -270,23 +270,27 @@ a {
   background-color: #004d40;
 }
 
-/* === Responsividad === */
+* === Responsividad === */
 @media (max-width: 768px) {
   .language-switcher-desktop {
     display: none;
   }
 
-.language-switcher-mobile-standalone {
+ .language-switcher-mobile-standalone {
     display: block;
   }
+}
 
+@media (min-width: 769px) {
+  .language-switcher-mobile-standalone {
+    display: none;
+  }
 }
 
 /* Oculta el viejo selector dentro del menú */
 .language-switcher-mobile {
   display: none !important;
 }
-
 /* Hero Section (Ahora Carousel) */
 .hero-slider {
     position: relative;
