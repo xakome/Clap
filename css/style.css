@@ -7,11 +7,13 @@ html {
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
     color: #333; /* Color de texto predeterminado */
 }
+
 a {
     text-decoration: none;
     color: inherit;
@@ -87,6 +89,7 @@ a {
     min-height: 60px; /* Ajusta según sea necesario, pero 60px suele ser un buen punto de partida */
     box-sizing: border-box; /* Asegura que el padding no añada altura extra no deseada */
 }
+
 .navbar .logo {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
@@ -101,11 +104,13 @@ a {
     align-items: center;
     gap: 20px;
 }
+
 .navbar .main-nav .menu {
     display: flex;
     gap: 1.2rem;
     align-items: center;
 }
+
 .navbar .main-nav .menu a {
     font-weight: 600;
     font-size: 1rem;
@@ -114,6 +119,7 @@ a {
     transition: background 0.3s, color 0.3s;
     border-radius: 4px;
 }
+
 .navbar .main-nav .menu a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
@@ -140,6 +146,7 @@ a {
     border: none;
     margin-left: auto;
 }
+
 .reserve-btn:hover {
     background-color: #e68900;
 }
@@ -269,9 +276,10 @@ a {
     display: none;
   }
 
-  .language-switcher-mobile-standalone {
+.language-switcher-mobile-standalone {
     display: block;
   }
+
 }
 
 /* Oculta el viejo selector dentro del menú */
@@ -469,10 +477,12 @@ a {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
+
 .company-intro .intro-content {
     /* Asegura que el contenido interno tenga padding si es necesario */
     padding: 0 15px;
 }
+
 .company-intro h2 {
     font-family: 'Playfair Display', serif;
     color: #00695c; /* Tu color verde oscuro */
@@ -480,6 +490,7 @@ a {
     font-weight: 700;
     font-size: 2rem;
 }
+
 .company-intro p {
     font-size: 1.1rem;
     line-height: 1.7;
@@ -487,7 +498,6 @@ a {
     max-width: 700px; /* Limita el ancho del párrafo para mejor legibilidad */
     margin: 0 auto;
 }
-
 
 /* Container tours */
 .container {
@@ -518,11 +528,13 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
 .tour-box:hover,
 .tour-box.active {
     box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     z-index: 10;
 }
+
 .tour-box img {
     width: 100%;
     height: 180px;
@@ -532,6 +544,7 @@ a {
     border-top-right-radius: 10px;
     flex-shrink: 0;
 }
+
 .tour-box:hover img,
 .tour-box.active img {
     transform: scale(1.05);
@@ -555,11 +568,13 @@ a {
     pointer-events: none;
     border-radius: 10px;
 }
+
 .tour-box:hover .tour-overlay,
 .tour-box.hovered .tour-overlay {
     opacity: 1;
     pointer-events: auto;
 }
+
 .tour-overlay h3 {
     font-family: 'Playfair Display', serif;
     margin-bottom: 10px;
@@ -567,12 +582,14 @@ a {
     font-weight: 700;
     text-shadow: 0 0 8px rgba(0,0,0,0.7);
 }
+
 .tour-overlay p {
     font-size: 1rem;
     line-height: 1.3;
     margin-bottom: 20px;
     text-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
+
 .tour-overlay a {
     background-color: #ff9800;
     padding: 10px 22px;
@@ -584,6 +601,7 @@ a {
     transition: background-color 0.3s;
     text-decoration: none;
 }
+
 .tour-overlay a:hover {
     background-color: #e68900;
 }
@@ -595,27 +613,28 @@ a {
     overflow: hidden;
   }
 
-  .tour-overlay {
+.tour-overlay {
     overflow: auto;
     max-height: 100%;
     padding: 1rem;
     box-sizing: border-box;
   }
 
-  .tour-overlay h3,
+.tour-overlay h3,
   .tour-overlay p {
     word-break: break-word;
     hyphens: auto;
     max-width: 100%;
   }
 
-  .tour-overlay h3 {
+.tour-overlay h3 {
     font-size: 1.3rem;
   }
 
-  .tour-overlay p {
+.tour-overlay p {
     font-size: 0.95rem;
   }
+
 }
 
 /* Sección "Por Qué Elegirnos" */
@@ -628,6 +647,7 @@ a {
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
 .why-us h2 {
     font-family: 'Playfair Display', serif;
     color: #00695c;
@@ -635,11 +655,13 @@ a {
     font-weight: 700;
     font-size: 2.2rem;
 }
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
+
 .feature-item {
     padding: 20px;
     background-color: #fff;
@@ -647,20 +669,24 @@ a {
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
 }
+
 .feature-item:hover {
     transform: translateY(-5px);
 }
+
 .feature-item i {
     font-size: 3rem;
     color: #ff9800;
     margin-bottom: 15px;
 }
+
 .feature-item h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
     color: #00695c;
     margin-bottom: 10px;
 }
+
 .feature-item p {
     font-size: 0.95rem;
     color: #555;
@@ -676,12 +702,14 @@ a {
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     text-align: center;
 }
+
 .testimonials h2 {
     font-family: 'Playfair Display', serif;
     color: #00695c;
     margin-bottom: 30px;
     font-weight: 700;
 }
+
 .testimonial {
     font-style: italic;
     color: #555;
@@ -689,6 +717,7 @@ a {
     position: relative;
     padding: 0 20px;
 }
+
 .testimonial::before {
     content: "“";
     font-size: 4rem;
@@ -698,6 +727,7 @@ a {
     top: -10px;
     font-weight: bold;
 }
+
 .testimonial-author {
     margin-top: 8px;
     font-weight: 600;
@@ -713,6 +743,7 @@ footer {
     padding: 25px 20px;
     font-size: 0.9rem;
 }
+
 footer a {
     color: #ffeb3b;
     text-decoration: underline;
@@ -725,12 +756,14 @@ footer a {
     justify-content: center;
     gap: 20px;
 }
+
 .social-icons a {
     color: white;
     font-size: 1.8rem;
     transition: color 0.3s;
     text-decoration: none;
 }
+
 .social-icons a:hover {
     color: #ff9800;
 }
@@ -742,6 +775,7 @@ footer .footer-cta-link {
     text-decoration: underline;
     transition: color 0.3s;
 }
+
 footer .footer-cta-link:hover {
     color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
 }
@@ -754,10 +788,12 @@ footer .footer-cta-link:hover {
     gap: 15px;
     align-items: center;
 }
+
 .payment-cert-icons img {
     height: 30px; /* Ajusta el tamaño según sea necesario */
     filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro */
 }
+
 .payment-cert-icons img.color-icon {
     filter: none; /* Si el icono ya tiene color y no quieres invertirlo */
     height: 35px; /* Puede ser ligeramente más grande para logos específicos */
@@ -782,6 +818,7 @@ footer .footer-cta-link:hover {
     justify-content: center;
     transition: background-color 0.3s;
 }
+
 .floating-cta:hover {
     background-color: #1ebe57;
 }
@@ -798,9 +835,11 @@ footer .footer-cta-link:hover {
     align-items: center;
     padding: 20px;
 }
+
 .modal.show {
     display: flex;
 }
+
 .modal-content {
     background: white;
     padding: 30px 20px;
@@ -810,17 +849,20 @@ footer .footer-cta-link:hover {
     position: relative;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
+
 .modal-content h2 {
     font-family: 'Playfair Display', serif;
     margin-bottom: 20px;
     color: #00695c;
     text-align: center;
 }
+
 .modal-content label {
     display: block;
     margin-bottom: 5px;
     font-weight: 600;
 }
+
 .modal-content input,
 .modal-content select {
     width: 100%;
@@ -830,6 +872,7 @@ footer .footer-cta-link:hover {
     border-radius: 6px;
     font-size: 1rem;
 }
+
 .modal-content button {
     background: #00695c;
     color: white;
@@ -842,9 +885,11 @@ footer .footer-cta-link:hover {
     font-size: 1rem;
     text-transform: uppercase;
 }
+
 .modal-content button:hover {
     background: #004d40;
 }
+
 .close {
     position: absolute;
     right: 15px;
@@ -868,10 +913,12 @@ footer .footer-cta-link:hover {
         align-items: center;
         text-align: center;
     }
-    .top-banner .banner-cta {
+
+.top-banner .banner-cta {
         margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
     }
-    .top-banner .close-banner {
+
+.top-banner .close-banner {
         position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
         top: 5px;
         right: 5px;
@@ -879,38 +926,42 @@ footer .footer-cta-link:hover {
         font-size: 1.2rem;
     }
 
-    .hero-slider {
+.hero-slider {
         height: 60vh; /* Ajusta la altura del carrusel para móvil */
     }
-    .hero-slider .hero-content {
+
+.hero-slider .hero-content {
         padding: 20px; /* Menos padding general en móvil */
     }
-    .hero-slider .hero-title {
+
+.hero-slider .hero-title {
         font-size: 1.6rem; /* Tamaño de fuente para móvil (ajustado) */
         max-width: 90%;
         margin-top: 10px;
     }
-    .hero-slider .hero-description {
+
+.hero-slider .hero-description {
         font-size: 0.95rem; /* Tamaño de fuente para móvil */
         max-width: 90%;
         margin-bottom: 10px;
     }
 
-    /* Company Intro responsive */
+/* Company Intro responsive */
     .company-intro {
         margin: 40px auto;
         padding: 25px 15px;
     }
-    .company-intro h2 {
+
+.company-intro h2 {
         font-size: 1.6rem;
         margin-bottom: 15px;
     }
-    .company-intro p {
+
+.company-intro p {
         font-size: 1rem;
     }
 
-
-    /* Ajustes del Navbar en móvil */
+/* Ajustes del Navbar en móvil */
     .navbar {
         justify-content: flex-start;
         gap: 10px;
@@ -918,7 +969,8 @@ footer .footer-cta-link:hover {
         min-height: 55px; /* Ajusta la altura mínima para móvil */
         align-items: center; /* Centra los elementos verticalmente */
     }
-    .navbar .logo {
+
+.navbar .logo {
         flex-grow: 1;
         font-size: 1.8rem;
         order: 1;
@@ -927,26 +979,28 @@ footer .footer-cta-link:hover {
         min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
     }
 
-    /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
+/* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
     .navbar .main-nav .menu,
     .language-switcher-desktop {
         display: none !important; /* Usa !important si es necesario para anular otras reglas */
     }
 
-    /* Mostrar el botón de idioma para móvil y posicionarlo */
+/* Mostrar el botón de idioma para móvil y posicionarlo */
     .language-switcher-mobile-standalone {
         display: flex;
         order: 2;
         margin-left: 0;
         align-self: center;
     }
-    /* Posicionar el botón de reserva */
+
+/* Posicionar el botón de reserva */
     .reserve-btn {
         order: 3;
         margin-left: 10px;
         align-self: center;
     }
-    /* Posicionar el toggle */
+
+/* Posicionar el toggle */
     .navbar .toggle {
         display: block;
         order: 4;
@@ -954,7 +1008,7 @@ footer .footer-cta-link:hover {
         align-self: center;
     }
 
-    /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
+/* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
     .navbar .main-nav {
         flex-direction: column;
         background: #00695c;
@@ -970,49 +1024,55 @@ footer .footer-cta-link:hover {
         display: none;
         align-items: flex-start;
     }
-    .navbar .main-nav.show {
+
+.navbar .main-nav.show {
         display: flex;
     }
 
-    /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
+/* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
     .navbar .main-nav.show .menu {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
-    .navbar .main-nav.show .menu a {
+
+.navbar .main-nav.show .menu a {
         padding: 8px 10px;
         width: 100%;
         text-align: left;
     }
 
-.navbar .main-nav.show .menu {
+.navbar .main-nav.active .menu {
         display: flex;
         flex-direction: column;
         width: 100%;
     }
-    
-    /* Ajustes para tarjetas de tours en móvil */
+
+/* Ajustes para tarjetas de tours en móvil */
     .tour-box {
         max-width: 100%;
         flex-basis: 100%;
     }
-    .tour-box:hover {
+
+.tour-box:hover {
         box-shadow: none;
     }
 
-    /* Why Choose Us - Mobile Adjustments */
+/* Why Choose Us - Mobile Adjustments */
     .why-us {
         margin: 40px auto;
         padding: 30px 15px;
     }
-    .why-us h2 {
+
+.why-us h2 {
         font-size: 1.8rem;
         margin-bottom: 30px;
     }
-    .features-grid {
+
+.features-grid {
         grid-template-columns: 1fr; /* Una columna en móvil */
     }
+
 }
 
 
@@ -1058,6 +1118,7 @@ footer .footer-cta-link:hover {
         height: 100vh;
         width: 177.77vh; /* 16 / 9 = 1.7777 */
     }
+
 }
 
 
@@ -1323,6 +1384,7 @@ footer .footer-cta-link:hover {
     .gallery-item-frame {
         height: 250px;
     }
+
 }
 
 .slick-prev,
@@ -1367,7 +1429,6 @@ footer .footer-cta-link:hover {
     content: "\f105";
 }
 
-
 /* Testimonios */
 .testimonials {
     background: #fff;
@@ -1378,39 +1439,12 @@ footer .footer-cta-link:hover {
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     text-align: center;
 }
-.testimonials h2 {
-    font-family: 'Playfair Display', serif;
-    color: #00695c;
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-.testimonial {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 25px;
-    position: relative;
-    padding: 0 20px;
-}
-.testimonial::before {
-    content: "“";
-    font-size: 4rem;
-    color: #ff9800;
-    position: absolute;
-    left: 10px;
-    top: -10px;
-    font-weight: bold;
-}
-.testimonial-author {
-    margin-top: 8px;
-    font-weight: 600;
-    color: #333;
-    font-style: normal;
-}
 
 /* Sección de reserva final */
 .reserve-section {
     text-align: center;
 }
+
 .reserve-section .btn-whatsapp {
     display: inline-block;
     background-color: #25d366; /* Color de WhatsApp */
@@ -1425,25 +1459,13 @@ footer .footer-cta-link:hover {
     margin-top: 1rem; /* Espacio superior */
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
 .reserve-section .btn-whatsapp:hover {
     background-color: #1ebe5d;
 }
+
 .reserve-section .btn-whatsapp i {
     margin-right: 8px;
-}
-
-
-/* Footer */
-footer {
-    background: #00695c;
-    color: white;
-    text-align: center;
-    padding: 25px 20px;
-    font-size: 0.9rem;
-}
-footer a {
-    color: #ffeb3b;
-    text-decoration: underline;
 }
 
 /* Social Icons in Footer (no se usan en este footer, pero por si acaso) */
@@ -1453,15 +1475,6 @@ footer a {
     justify-content: center;
     gap: 20px;
 }
-.social-icons a {
-    color: white;
-    font-size: 1.8rem;
-    transition: color 0.3s;
-    text-decoration: none;
-}
-.social-icons a:hover {
-    color: #ff9800;
-}
 
 /* Footer CTA Link (no se usan en este footer, pero por si acaso) */
 footer .footer-cta-link {
@@ -1470,271 +1483,23 @@ footer .footer-cta-link {
     text-decoration: underline;
     transition: color 0.3s;
 }
-footer .footer-cta-link:hover {
-    color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
-}
 
-/* Payment and Certification Icons */
-.payment-cert-icons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-}
 .payment-cert-icons img {
     height: 30px; /* Ajusta el tamaño según sea necesario */
     filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro si son monocromáticos */
 }
+
 .payment-cert-icons img.color-icon { /* Si tienes iconos con color y no quieres invertir */
     filter: none;
     height: 35px;
 }
 
-/* Botón flotante WhatsApp */
-.floating-cta {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: white; /* Color del icono de Font Awesome */
-    font-weight: bold;
-    font-size: 1.8rem; /* Tamaño del icono */
-    padding: 12px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    text-decoration: none;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-.floating-cta:hover {
-    background-color: #1ebe57;
-}
-
-/* Modal Reserva */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1001;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-.modal.show {
-    display: flex;
-}
-.modal-content {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    position: relative;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.modal-content h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
-    color: #00695c;
-    text-align: center;
-}
-.modal-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-.modal-content input,
-.modal-content select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-.modal-content button {
-    background: #00695c;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.modal-content button:hover {
-    background: #004d40;
-}
-.close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 1.5rem;
-    color: #333;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* ==================================== */
-/* Responsive Styles for Mobile (max-width: 768px) */
-/* ==================================== */
-@media (max-width: 768px) {
-    /* Responsive Top Banner */
-    .top-banner {
-        font-size: 0.8rem;
-        padding: 8px 15px;
-        gap: 10px;
-        flex-direction: column; /* Apila el texto y el CTA en móvil */
-        align-items: center;
-        text-align: center;
-    }
-    .top-banner .banner-cta {
-        margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
-    }
-    .top-banner .close-banner {
-        position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
-        top: 5px;
-        right: 5px;
-        margin-left: 0;
-        font-size: 1.2rem;
-    }
-
-    .hero-slider {
-        height: 60vh; /* Ajusta la altura del carrusel para móvil */
-    }
-    .hero-slider .hero-content {
-        padding: 20px; /* Menos padding general en móvil */
-    }
-    .hero-slider .hero-title {
-        font-size: 1.6rem; /* Tamaño de fuente para móvil (ajustado) */
-        max-width: 90%;
-        margin-top: 10px;
-    }
-    .hero-slider .hero-description {
-        font-size: 0.95rem; /* Tamaño de fuente para móvil */
-        max-width: 90%;
-        margin-bottom: 10px;
-    }
-
-    /* Company Intro responsive */
-    .company-intro {
-        margin: 40px auto;
-        padding: 25px 15px;
-    }
-    .company-intro h2 {
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-    }
-    .company-intro p {
-        font-size: 1rem;
-    }
-
-
-    /* Ajustes del Navbar en móvil */
-    .navbar {
-        justify-content: flex-start;
-        gap: 10px;
-        padding: 12px 15px;
-        min-height: 55px; /* Ajusta la altura mínima para móvil */
-        align-items: center; /* Centra los elementos verticalmente */
-    }
-    .navbar .logo {
-        flex-grow: 1;
-        font-size: 1.8rem;
-        order: 1;
-        display: flex;
-        align-items: center;
-        min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
-    }
-
-    /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
+/* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
     .navbar .main-nav .menu,
     .language-switcher-desktop {
         display: none;
     }
 
-    /* Mostrar el botón de idioma para móvil y posicionarlo */
-    .language-switcher-mobile-standalone {
-        display: flex;
-        order: 2;
-        margin-left: 0;
-        align-self: center;
-    }
-    /* Posicionar el botón de reserva */
-    .reserve-btn {
-        order: 3;
-        margin-left: 10px;
-        align-self: center;
-    }
-    /* Posicionar el toggle */
-    .navbar .toggle {
-        display: block;
-        order: 4;
-        margin-left: 10px;
-        align-self: center;
-    }
-
-    /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
-    .navbar .main-nav {
-        flex-direction: column;
-        background: #00695c;
-        position: absolute;
-        top: 100%; /* Empieza justo debajo del navbar, sin importar su altura */
-        right: 15px;
-        border-radius: 6px;
-        padding: 10px;
-        width: 180px;
-        gap: 0.5rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        z-index: 19;
-        display: none;
-        align-items: flex-start;
-    }
-    .navbar .main-nav.show {
-        display: flex;
-    }
-
-    /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
-    .navbar .main-nav.show .menu {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .navbar .main-nav.show .menu a {
-        padding: 8px 10px;
-        width: 100%;
-        text-align: left;
-    }
-
-    /* Ajustes para tarjetas de tours en móvil */
-    .tour-box {
-        max-width: 100%;
-        flex-basis: 100%;
-    }
-    .tour-box:hover {
-        box-shadow: none;
-    }
-
-    /* Why Choose Us - Mobile Adjustments */
-    .why-us {
-        margin: 40px auto;
-        padding: 30px 15px;
-    }
-    .why-us h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-    .features-grid {
-        grid-template-columns: 1fr; /* Una columna en móvil */
-    }
 }
 
 
@@ -1750,144 +1515,6 @@ footer .footer-cta-link:hover {
   padding: 3rem 1.5rem;
   max-width: 960px;
   margin: auto;
-}
-
-.tour-description h2,
-.tour-info h2,
-.reserve-section h2,
-.testimonials h2,
-.itinerary-section .section-title, /* Añadido para el título del itinerario */
-.gallery-carousel-section h2 { /* Añadido para el título de la galería */
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #00695c;
-}
-
-.tour-description p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
-.tour-highlights {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 1rem;
-}
-
-.tour-highlights li {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-
-.tour-highlights i {
-  color: #4caf50;
-  margin-right: 10px;
-}
-
-/* ITINERARIO PASO A PASO */
-.itinerary-section {
-    padding: 3rem 1.5rem;
-    background-color: #f8f8f8; /* Un color de fondo suave para la sección */
-    text-align: center;
-}
-
-.itinerary-section .container {
-    max-width: 960px;
-    margin: auto;
-}
-
-.itinerary-section .section-title {
-    margin-bottom: 2rem;
-}
-
-.itinerary-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: left;
-}
-
-.itinerary-item {
-    display: flex;
-    align-items: flex-start; /* Alinea los elementos al inicio */
-    gap: 1rem;
-    padding: 1rem;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.itinerary-step {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ff9800; /* Color naranja para los números de paso */
-    flex-shrink: 0; /* Evita que el número se encoja */
-    margin-top: -0.3rem; /* Ajuste vertical para alinear con el texto */
-}
-
-.itinerary-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: #00695c;
-    margin-bottom: 0.5rem;
-}
-
-.itinerary-content p {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 0;
-}
-
-/* Sección Qué Incluye y Qué No Incluye */
-.tour-info .columns {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap; /* Permite que las columnas se envuelvan en móvil */
-}
-
-.tour-info .column {
-    flex: 1; /* Permite que las columnas se expandan */
-    min-width: 300px; /* Ancho mínimo para las columnas */
-    background-color: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.tour-info .column h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #00695c;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.tour-info .column h3 .fa-check-circle {
-    color: #4CAF50; /* Verde para "Incluye" */
-}
-
-.tour-info .column h3 .fa-times-circle {
-    color: #F44336; /* Rojo para "No Incluye" */
-}
-
-.tour-info .column ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.tour-info .column ul li {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-    color: #555;
-}
-
-.tour-info .column ul li i {
-    margin-right: 8px;
-    color: #00695c; /* Color de los iconos de lista */
 }
 
 /* --- Estilos para la Galería de Carrusel Mejorada --- */
@@ -1935,6 +1562,7 @@ footer .footer-cta-link:hover {
     .gallery-item-frame {
         height: 250px; /* Menor altura para el frame en móvil */
     }
+
 }
 
 /* Estilos para las flechas de navegación de Slick (ajusta los colores a tu marca) */
@@ -2005,374 +1633,4 @@ footer .footer-cta-link:hover {
     border: none;
     cursor: pointer;
     z-index: 10000;
-}
-
-
-/* Testimonios */
-.testimonials {
-    background: #fff;
-    max-width: 900px;
-    margin: 0 auto 60px;
-    padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    text-align: center;
-}
-.testimonials h2 {
-    font-family: 'Playfair Display', serif;
-    color: #00695c;
-    margin-bottom: 30px;
-    font-weight: 700;
-}
-.testimonial {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 25px;
-    position: relative;
-    padding: 0 20px;
-}
-.testimonial::before {
-    content: "“";
-    font-size: 4rem;
-    color: #ff9800;
-    position: absolute;
-    left: 10px;
-    top: -10px;
-    font-weight: bold;
-}
-.testimonial-author {
-    margin-top: 8px;
-    font-weight: 600;
-    color: #333;
-    font-style: normal;
-}
-
-/* Sección de reserva final */
-.reserve-section {
-    text-align: center;
-}
-.reserve-section .btn-whatsapp {
-    display: inline-block;
-    background-color: #25d366; /* Color de WhatsApp */
-    color: white;
-    padding: 12px 24px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    margin-top: 1rem; /* Espacio superior */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-.reserve-section .btn-whatsapp:hover {
-    background-color: #1ebe5d;
-}
-.reserve-section .btn-whatsapp i {
-    margin-right: 8px;
-}
-
-
-/* Footer */
-footer {
-    background: #00695c;
-    color: white;
-    text-align: center;
-    padding: 25px 20px;
-    font-size: 0.9rem;
-}
-footer a {
-    color: #ffeb3b;
-    text-decoration: underline;
-}
-
-/* Social Icons in Footer (no se usan en este footer, pero por si acaso) */
-.social-icons {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.social-icons a {
-    color: white;
-    font-size: 1.8rem;
-    transition: color 0.3s;
-    text-decoration: none;
-}
-.social-icons a:hover {
-    color: #ff9800;
-}
-
-/* Footer CTA Link (no se usan en este footer, pero por si acaso) */
-footer .footer-cta-link {
-    color: #ffeb3b; /* Color que contraste bien con el verde oscuro */
-    font-weight: bold;
-    text-decoration: underline;
-    transition: color 0.3s;
-}
-footer .footer-cta-link:hover {
-    color: #ffc107; /* Un tono un poco más claro al pasar el mouse */
-}
-
-/* Payment and Certification Icons */
-.payment-cert-icons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-}
-.payment-cert-icons img {
-    height: 30px; /* Ajusta el tamaño según sea necesario */
-    filter: brightness(0) invert(1); /* Para iconos blancos en fondo oscuro si son monocromáticos */
-}
-.payment-cert-icons img.color-icon { /* Si tienes iconos con color y no quieres invertir */
-    filter: none;
-    height: 35px;
-}
-
-/* Botón flotante WhatsApp */
-.floating-cta {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #25d366;
-    color: white; /* Color del icono de Font Awesome */
-    font-weight: bold;
-    font-size: 1.8rem; /* Tamaño del icono */
-    padding: 12px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    text-decoration: none;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-}
-.floating-cta:hover {
-    background-color: #1ebe57;
-}
-
-/* Modal Reserva */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1001;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-.modal.show {
-    display: flex;
-}
-.modal-content {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    position: relative;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.modal-content h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 20px;
-    color: #00695c;
-    text-align: center;
-}
-.modal-content label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-.modal-content input,
-.modal-content select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-}
-.modal-content button {
-    background: #00695c;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 100%;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.modal-content button:hover {
-    background: #004d40;
-}
-.close {
-    position: absolute;
-    right: 15px;
-    top: 10px;
-    font-size: 1.5rem;
-    color: #333;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* ==================================== */
-/* Responsive Styles for Mobile (max-width: 768px) */
-/* ==================================== */
-@media (max-width: 768px) {
-    /* Responsive Top Banner */
-    .top-banner {
-        font-size: 0.8rem;
-        padding: 8px 15px;
-        gap: 10px;
-        flex-direction: column; /* Apila el texto y el CTA en móvil */
-        align-items: center;
-        text-align: center;
-    }
-    .top-banner .banner-cta {
-        margin-top: 5px; /* Espacio entre el texto y el CTA en móvil */
-    }
-    .top-banner .close-banner {
-        position: absolute; /* Posiciona el botón de cerrar en la esquina superior derecha */
-        top: 5px;
-        right: 5px;
-        margin-left: 0;
-        font-size: 1.2rem;
-    }
-
-    .hero-slider {
-        height: 60vh; /* Ajusta la altura del carrusel para móvil */
-    }
-    .hero-slider .hero-content {
-        padding: 20px; /* Menos padding general en móvil */
-    }
-    .hero-slider .hero-title {
-        font-size: 1.6rem; /* Tamaño de fuente para móvil (ajustado) */
-        max-width: 90%;
-        margin-top: 10px;
-    }
-    .hero-slider .hero-description {
-        font-size: 0.95rem; /* Tamaño de fuente para móvil */
-        max-width: 90%;
-        margin-bottom: 10px;
-    }
-
-    /* Company Intro responsive */
-    .company-intro {
-        margin: 40px auto;
-        padding: 25px 15px;
-    }
-    .company-intro h2 {
-        font-size: 1.6rem;
-        margin-bottom: 15px;
-    }
-    .company-intro p {
-        font-size: 1rem;
-    }
-
-
-    /* Ajustes del Navbar en móvil */
-    .navbar {
-        justify-content: flex-start;
-        gap: 10px;
-        padding: 12px 15px;
-        min-height: 55px; /* Ajusta la altura mínima para móvil */
-        align-items: center; /* Centra los elementos verticalmente */
-    }
-    .navbar .logo {
-        flex-grow: 1;
-        font-size: 1.8rem;
-        order: 1;
-        display: flex;
-        align-items: center;
-        min-height: 30px; /* Altura mínima para el logo para que no se "encoga" */
-    }
-
-    /* Ocultar menú de navegación completo y selector de idioma de desktop en móvil */
-    .navbar .main-nav .menu,
-    .language-switcher-desktop {
-        display: none;
-    }
-
-    /* Mostrar el botón de idioma para móvil y posicionarlo */
-    .language-switcher-mobile-standalone {
-        display: flex;
-        order: 2;
-        margin-left: 0;
-        align-self: center;
-    }
-    /* Posicionar el botón de reserva */
-    .reserve-btn {
-        order: 3;
-        margin-left: 10px;
-        align-self: center;
-    }
-    /* Posicionar el toggle */
-    .navbar .toggle {
-        display: block;
-        order: 4;
-        margin-left: 10px;
-        align-self: center;
-    }
-
-    /* Posicionar el menú principal cuando es 'show' (menú hamburguesa abierto) */
-    .navbar .main-nav {
-        flex-direction: column;
-        background: #00695c;
-        position: absolute;
-        top: 100%; /* Empieza justo debajo del navbar, sin importar su altura */
-        right: 15px;
-        border-radius: 6px;
-        padding: 10px;
-        width: 180px;
-        gap: 0.5rem;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        z-index: 19;
-        display: none;
-        align-items: flex-start;
-    }
-    .navbar .main-nav.show {
-        display: flex;
-    }
-
-    /* Restaurar display flex para el menu de enlaces dentro de main-nav.show */
-    .navbar .main-nav.show .menu {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .navbar .main-nav.show .menu a {
-        padding: 8px 10px;
-        width: 100%;
-        text-align: left;
-    }
-
-    /* Ajustes para tarjetas de tours en móvil */
-    .tour-box {
-        max-width: 100%;
-        flex-basis: 100%;
-    }
-    .tour-box:hover {
-        box-shadow: none;
-    }
-
-    /* Why Choose Us - Mobile Adjustments */
-    .why-us {
-        margin: 40px auto;
-        padding: 30px 15px;
-    }
-    .why-us h2 {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-    }
-    .features-grid {
-        grid-template-columns: 1fr; /* Una columna en móvil */
-    }
 }
