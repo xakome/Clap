@@ -986,7 +986,7 @@ footer .footer-cta-link:hover {
         text-align: left;
     }
 
-.navbar .main-nav.active .menu {
+.navbar .main-nav.show .menu {
         display: flex;
         flex-direction: column;
         width: 100%;
