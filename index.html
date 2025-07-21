@@ -7,8 +7,7 @@
     <meta name="description" content="Descubre Yucatán con CLAP365: tours privados y exclusivos desde Mérida a cenotes, playas, zonas arqueológicas como Chichen Itzá y Uxmal, haciendas y naturaleza. Experiencias de lujo para turistas nacionales e internacionales. ¡Reserva tu day trip inolvidable!" />
     <link rel="canonical" href="https://www.clap365.com/" />
 
-<!-- Alternates por idioma -->
-  <link rel="alternate" hreflang="es" href="https://www.clap365.com/es/" />
+<link rel="alternate" hreflang="es" href="https://www.clap365.com/es/" />
   <link rel="alternate" hreflang="en" href="https://www.clap365.com/en/" />
     <link rel="alternate" hreflang="fr" href="https://www.clap365.com/fr/" />
     <link rel="alternate" hreflang="it" href="https://www.clap365.com/it/" />
@@ -99,52 +98,7 @@
         <button class="close-banner" aria-label="Cerrar anuncio">&times;</button>
     </div>
 
-<nav class="navbar">
-  <!-- Logo -->
-  <div class="logo">
-    <a href="https://www.clap365.com/">CLAP365</a>
-  </div>
-
-  <!-- Botón Reservar -->
-  <button class="reserve-btn">Reserva</button>
-
-  <!-- Botón Menú hamburguesa -->
-  <div class="toggle" aria-label="Mostrar menú" role="button" tabindex="0">&#9776;</div>
-
-  <!-- Contenedor de todo el menú que se oculta/muestra -->
-  <div class="main-nav">
-    <!-- Menú de navegación -->
-    <div class="menu" role="menu">
-      <a href="#tours" role="menuitem">Tours</a>
-      <a href="/" role="menuitem">Inicio</a>
-      <a href="/contacto" role="menuitem">Contacto</a>
-      <a href="#faq" role="menuitem">FAQ</a>
-    </div>
-
-    <!-- Selector de idioma (Desktop) -->
-    <div class="language-switcher-desktop">
-      <div class="current-lang" tabindex="0">ES <i class="fas fa-globe"></i></div>
-      <div class="lang-options">
-        <a href="?lang=es">Español</a>
-        <a href="?lang=en">English</a>
-        ...
-      </div>
-    </div>
-
-    <!-- Selector de idioma (Móvil) — MUEVE ESTO AQUÍ -->
-    <div class="language-switcher-mobile-standalone">
-      <div class="current-lang-mobile" tabindex="0">ES <i class="fas fa-globe"></i></div>
-      <div class="lang-options-mobile">
-        <a href="?lang=es">Español</a>
-        <a href="?lang=en">English</a>
-        ...
-      </div>
-    </div>
-  </div>
-</nav>
-
-    
-
+    <div id="navbar-placeholder"></div>
 
     <section class="hero-slider" role="banner" aria-label="Carrusel de imágenes de tours y experiencias en Yucatán">
         <div class="slides">
@@ -333,24 +287,7 @@
         <p><a href="https://www.clap365.com/faq" class="footer-cta-link">Ver todas las preguntas frecuentes</a></p>
     </section>
 
-    <footer>
-        <p>© 2025 CLAP365. Todos los derechos reservados.</p>
-        <p><a href="https://www.clap365.com/" target="_blank" rel="noopener noreferrer">www.clap365.com</a></p>
-
-        <p>¿Listo para tu aventura? <a href="#reserveModal" class="footer-cta-link">¡Reserva ahora!</a></p>
-
-        <div class="social-icons">
-            <a href="URL_DE_TU_FACEBOOK" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="URL_DE_TU_INSTAGRAM" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="URL_DE_TU_TIKTOK" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
-        </div>
-
-        <div class="payment-cert-icons">
-            <img src="img/icon-visa.png" alt="Visa" title="Aceptamos Visa">
-            <img src="img/icon-mastercard.png" alt="Mastercard" title="Aceptamos Mastercard">
-            <img src="img/icon-tripadvisor.png" alt="TripAdvisor" title="Certificado por TripAdvisor" class="color-icon">
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 
     <a href="https://wa.me/5219991234567?text=Hola%20quiero%20informaci%C3%B3n%20sobre%20los%20tours%20de%20CLAP365"
          target="_blank"
@@ -390,7 +327,24 @@
     </div>
 
     <script src="/js/main.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Load Navigation
+            fetch('nav.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('navbar-placeholder').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading navigation:', error));
 
-
+            // Load Footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('footer-placeholder').innerHTML = html;
+                })
+                .catch(error => console.error('Error loading footer:', error));
+        });
+    </script>
 </body>
 </html>
